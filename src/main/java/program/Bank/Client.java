@@ -43,6 +43,10 @@ public class Client
 
 
         System.out.println("Даного клієнта зареєстровано");
+
+
+
+
     }
 
 }
