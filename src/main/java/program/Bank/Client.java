@@ -14,6 +14,8 @@ public class Client
     private String mobile_phone;
     private  int individual_tax_number;
     private int passport_number;
+
+
     private  String legal_address;
     private String place_of_birth;
     private  String record_number;
