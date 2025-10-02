@@ -2,8 +2,6 @@ package program.Bank;
 import java.util.Scanner;
 import java.util.UUID;
 
-
-
 public class Client
 {
     private String id;
@@ -37,6 +35,7 @@ public class Client
         this.individual_tax_number = scanner.nextInt();
         System.out.println("Enter client's passport number");
         this.passport_number = scanner.nextInt();
+        scanner.nextLine();
         System.out.println("Enter client's record number");
         this.record_number = scanner.nextLine();
         System.out.println("Enter client's place of birth");
@@ -47,11 +46,14 @@ public class Client
         this.place_of_work_or_study = scanner.nextLine();
         System.out.println("This client has been successfully registered");
     }
+    public String toString(){
+        return  String.format("Database ID: %s\nFull name: %s\nDate of birth: %s\nContact phone number: %s\nGender: %s\n" +
+                "Nationality: %s\nIndividual tax number: %d\nPassport number: %d\nRecord number: %s\nPlace of birth: %s\n" +
+                "Registered address: %s\nPlace of work/study: %s\n", id, full_name, date_of_birth, sex, nationality,
+                mobile_phone, individual_tax_number, passport_number, legal_address, place_of_birth,record_number,
+                place_of_work_or_study);
+        }
     public void Print(){
-        System.out.printf("Database ID: %s\nFull name: %s\nDate of birth: %s\nContact phone number: %s\nGender: %s\n" +
-                        "Nationality: %s\nIndividual tax number: %d\nPassport number: %d\nRecord number: %s\nPlace of birth: %s\n" +
-                        "Registered address: %s\nPlace of work/study: %s\n",  id, full_name, date_of_birth,
-                sex, nationality, mobile_phone, individual_tax_number, passport_number, legal_address, place_of_birth,
-                record_number, place_of_work_or_study);
+        System.out.printf(this.toString());
     }
 }
