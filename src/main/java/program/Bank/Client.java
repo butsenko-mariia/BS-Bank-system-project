@@ -53,6 +53,48 @@ public class Client
                 mobile_phone, individual_tax_number, passport_number, legal_address, place_of_birth,record_number,
                 place_of_work_or_study);
         }
+    public String getId() {
+        return this.id;
+    }
+    public String getFullName() {
+        return this.full_name;
+    }
+    public String getDateOfBirth() {
+        return this.date_of_birth;
+    }
+    public String getSex() {
+        return this.sex;
+    }
+    public String getNationality() {
+        return this.nationality;
+    }
+    public void setMobilePhone(String mobile_phone) {
+        this.mobile_phone = mobile_phone;
+    }
+    public String getMobilePhone() {
+        return this.mobile_phone;
+    }
+    public int getIndividualTaxNumber() {
+        return this.individual_tax_number;
+    }
+    public int getPassportNumber() {
+        return this.individual_tax_number;
+    }
+    public  void setLegalAddress(String legal_address) {
+        this.legal_address = legal_address;
+    }
+    public String getLegalAddress() {
+        return this.legal_address;
+    }
+    public String getPlaceOfBirth() {
+        return this.place_of_birth;
+    }
+    public String getRecordNumber() {
+        return this.record_number;
+    }
+    public String getPlaceOfWorkOrStudy() {
+        return this.place_of_work_or_study;
+    }
     public void Print(){
         System.out.printf(this.toString());
     }
