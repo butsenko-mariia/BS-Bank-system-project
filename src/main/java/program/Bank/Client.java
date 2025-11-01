@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public class Client
 {
-    private String id;
+    private String client_id;
     private  String full_name;
     private  String date_of_birth;
     private  String sex;
@@ -18,10 +18,11 @@ public class Client
     private String place_of_birth;
     private  String record_number;
     private  String place_of_work_or_study;
+    private ClientStatus  status;
     public Client() {
         Scanner scanner = new Scanner(System.in);
 
-        this.id = UUID.randomUUID().toString();
+        this.client_id = UUID.randomUUID().toString();
 
         System.out.println("Enter client's full name");
         this.full_name = scanner.nextLine();
@@ -45,50 +46,41 @@ public class Client
         this.legal_address = scanner.nextLine();
         System.out.println("Enter client's place of work/study");
         this.place_of_work_or_study = scanner.nextLine();
+        this.status = ClientStatus.ACTIVE;
         System.out.println("This client has been successfully registered");
     }
-    public String getId() {
-        return this.id;
-    }
-    public String getFullName() {
-        return this.full_name;
-    }
-    public String getDateOfBirth() {
-        return this.date_of_birth;
-    }
-    public String getSex() {
-        return this.sex;
-    }
-    public String getNationality() {
-        return this.nationality;
-    }
-    public void setMobilePhone(String mobile_phone) {
-        this.mobile_phone = mobile_phone;
-    }
-    public String getMobilePhone() {
-        return this.mobile_phone;
-    }
-    public int getIndividualTaxNumber() {
-        return this.individual_tax_number;
-    }
-    public int getPassportNumber() {
-        return this.individual_tax_number;
-    }
-    public  void setLegalAddress(String legal_address) {
-        this.legal_address = legal_address;
-    }
-    public String getLegalAddress() {
-        return this.legal_address;
-    }
-    public String getPlaceOfBirth() {
-        return this.place_of_birth;
-    }
-    public String getRecordNumber() {
-        return this.record_number;
-    }
-    public String getPlaceOfWorkOrStudy() {
-        return this.place_of_work_or_study;
-    }
+//    public String getId() { return this.id;}
+//    public String getFullName() {
+//        return this.full_name;
+//    }
+//    public String getDateOfBirth() {
+//        return this.date_of_birth;
+//    }
+//    public String getSex() {
+//        return this.sex;
+//    }
+//    public String getNationality() {
+//        return this.nationality;
+//    }
+//    public void setMobilePhone(String mobile_phone) {
+//        this.mobile_phone = mobile_phone;
+//    }
+//    public String getMobilePhone() {
+//        return this.mobile_phone;
+//    }
+//    public int getIndividualTaxNumber() { return this.individual_tax_number; }
+//    public int getPassportNumber() {
+//        return this.individual_tax_number;
+//    }
+//    public  void setLegalAddress(String legal_address) { this.legal_address = legal_address; }
+//    public String getLegalAddress() {
+//        return this.legal_address;
+//    }
+//    public String getPlaceOfBirth() { return this.place_of_birth; }
+//    public String getRecordNumber() { return this.record_number; }
+//    public String getPlaceOfWorkOrStudy() {
+//        return this.place_of_work_or_study;
+//    }
     public void Print(){
         System.out.printf(this.toString());
     }
