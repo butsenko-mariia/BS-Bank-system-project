@@ -1,4 +1,4 @@
 package program.Bank;
 
-public class Deposit extends Account {
+public class Deposit extends Contract  {
 }
