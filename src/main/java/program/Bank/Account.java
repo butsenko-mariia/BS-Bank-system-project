@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public class Account {
     private String account_id;
-    private String owner_id;
+    private String client_id;
     private AccountType account_type;
     private double balance;
     private String currency;
@@ -19,7 +19,7 @@ public class Account {
         this.status = AccountStatus.OPEN;
 
         System.out.println("Enter owner id");
-        this.owner_id = scanner.nextLine();
+        this.client_id = scanner.nextLine();
         System.out.println("Enter account type");
         this.account_type = SetAccountType(scanner.nextLine());
         System.out.println("Enter account currency");
