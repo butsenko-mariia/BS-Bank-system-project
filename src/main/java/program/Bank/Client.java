@@ -49,6 +49,123 @@ public class Client
         this.status = ClientStatus.ACTIVE;
         System.out.println("This client has been successfully registered");
     }
+    public String getClient_id() {
+        return client_id;
+    }
+
+    public String getFull_name() {
+        return full_name;
+    }
+
+    public void setFull_name(String full_name) {
+        if (full_name == null || full_name.isEmpty()) {
+            throw new IllegalArgumentException("Full name cannot be empty.");
+        }
+        if (!full_name.matches("^[A-Za-zА-Яа-яІіЇїЄє'\\-\\s]+$")) {
+            throw new IllegalArgumentException("Full name cannot contain numbers or special symbols.");
+        }
+        this.full_name = full_name.trim();
+    }
+    public String getDate_of_birth() {
+        return date_of_birth;
+    }
+
+    public void setDate_of_birth(String date_of_birth) {
+        if (date_of_birth == null || !date_of_birth.matches("^\\d{2}\\.\\d{2}\\.\\d{4}$"))
+            throw new IllegalArgumentException("Date of birth must be in format dd.mm.yyyy.");
+        this.date_of_birth = date_of_birth;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        if (!sex.equalsIgnoreCase("M") && !sex.equalsIgnoreCase("W")) {
+            throw new IllegalArgumentException("Gender must be 'M' or 'W'.");
+        }
+        this.sex = sex.toUpperCase();
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        if (nationality == null || nationality.trim().isEmpty())
+            throw new IllegalArgumentException("Nationality cannot be empty.");
+        this.nationality = nationality.trim();
+    }
+
+    public String getMobile_phone() {
+        return mobile_phone;
+    }
+
+    public void setMobile_phone(String mobile_phone) {
+        if (mobile_phone == null || !mobile_phone.matches("^\\+380\\d{9}$"))
+            throw new IllegalArgumentException("Phone number must be in format +380XXXXXXXXX.");
+        this.mobile_phone = mobile_phone;
+    }
+
+    public int getIndividual_tax_number() {
+        return individual_tax_number;
+    }
+
+    public void setIndividual_tax_number(int individual_tax_number) {
+        if (individual_tax_number <= 0)
+            throw new IllegalArgumentException("Tax number must be positive.");
+        this.individual_tax_number = individual_tax_number;
+    }
+    public int getPassport_number() {
+        return passport_number;
+    }
+
+    public void setPassport_number(int passport_number) {
+        if (passport_number <= 0)
+            throw new IllegalArgumentException("Passport number must be positive.");
+        this.passport_number = passport_number;
+    }
+
+    public String getRecord_number() {
+        return record_number;
+    }
+
+    public void setRecord_number(String record_number) {
+        if (record_number == null || record_number.trim().isEmpty())
+            throw new IllegalArgumentException("Record number cannot be empty.");
+        this.record_number = record_number.trim();
+    }
+
+    public String getPlace_of_birth() {
+        return place_of_birth;
+    }
+
+    public void setPlace_of_birth(String place_of_birth) {
+        if (place_of_birth == null || place_of_birth.trim().isEmpty())
+            throw new IllegalArgumentException("Place of birth cannot be empty.");
+        this.place_of_birth = place_of_birth.trim();
+    }
+    public String getLegal_address() {
+        return legal_address;
+    }
+
+    public void setLegal_address(String legal_address) {
+        if (legal_address == null || legal_address.trim().isEmpty())
+            throw new IllegalArgumentException("Address cannot be empty.");
+        this.legal_address = legal_address.trim();
+    }
+
+    public String getPlace_of_work_or_study() {
+        return place_of_work_or_study;
+    }
+
+    public void setPlace_of_work_or_study(String place_of_work_or_study) {
+        if (place_of_work_or_study == null || place_of_work_or_study.trim().isEmpty())
+            throw new IllegalArgumentException("Place of work/study cannot be empty.");
+        this.place_of_work_or_study = place_of_work_or_study.trim();
+    }
+
+
 //    public String getId() { return this.id;}
 //    public String getFullName() {
 //        return this.full_name;
