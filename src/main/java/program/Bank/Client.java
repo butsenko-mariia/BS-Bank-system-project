@@ -1,7 +1,9 @@
 package program.Bank;
 import java.util.Scanner;
+import java.util.SplittableRandom;
 import java.util.UUID;
 
+import static program.Bank.AccountStatus.BLOCKED;
 
 
 public class Client
@@ -12,8 +14,8 @@ public class Client
     private  String sex;
     private  String nationality;
     private String mobile_phone;
-    private  int individual_tax_number;
-    private int passport_number;
+    private  String individual_tax_number;
+    private String passport_number;
     private  String legal_address;
     private String place_of_birth;
     private  String record_number;
@@ -35,9 +37,9 @@ public class Client
         System.out.println("Enter client's nationality");
         this.nationality = scanner.nextLine();
         System.out.println("Enter client's individual tax number");
-        this.individual_tax_number = scanner.nextInt();
+        this.individual_tax_number = scanner.nextLine();
         System.out.println("Enter client's passport number");
-        this.passport_number = scanner.nextInt();
+        this.passport_number = scanner.nextLine();
         System.out.println("Enter client's record number");
         this.record_number = scanner.nextLine();
         System.out.println("Enter client's place of birth");
@@ -107,22 +109,22 @@ public class Client
         this.mobile_phone = mobile_phone;
     }
 
-    public int getIndividual_tax_number() {
+    public String getIndividual_tax_number() {
         return individual_tax_number;
     }
 
-    public void setIndividual_tax_number(int individual_tax_number) {
-        if (individual_tax_number <= 0)
-            throw new IllegalArgumentException("Tax number must be positive.");
+    public void setIndividual_tax_number(String individual_tax_number) {
+        if (individual_tax_number == null || individual_tax_number.trim().isEmpty())
+            throw new IllegalArgumentException("Individual tax  number cannot be empty.");
         this.individual_tax_number = individual_tax_number;
     }
-    public int getPassport_number() {
+    public String getPassport_number() {
         return passport_number;
     }
 
-    public void setPassport_number(int passport_number) {
-        if (passport_number <= 0)
-            throw new IllegalArgumentException("Passport number must be positive.");
+    public void setPassport_number(String passport_number) {
+        if (passport_number == null || passport_number.trim().isEmpty())
+            throw new IllegalArgumentException("Pasport number cannot be empty.");
         this.passport_number = passport_number;
     }
 
@@ -164,7 +166,24 @@ public class Client
             throw new IllegalArgumentException("Place of work/study cannot be empty.");
         this.place_of_work_or_study = place_of_work_or_study.trim();
     }
+    public ClientStatus getStatus() {
+        return status;
+    }
 
+    public void setStatus(ClientStatus status) {
+        if (status == null) {
+            throw new IllegalArgumentException("Client status cannot be null.");
+        }
+        switch (status) {
+            case ACTIVE:
+            case INACTIVE:
+            case BLOCKED:
+                this.status = status;
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid client status.");
+        }
+    }
 
 //    public String getId() { return this.id;}
 //    public String getFullName() {

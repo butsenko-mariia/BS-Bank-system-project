@@ -25,6 +25,10 @@ public class Account {
         System.out.println("Enter account currency");
         this.currency = scanner.nextLine();
     }
+    public String getAccount_id() {
+        return account_id;
+    }
+
 
 
     private AccountType SetAccountType(String line) {
@@ -33,7 +37,7 @@ public class Account {
                 return AccountType.UNIVERSAL;
             case "PAYMENT":
                 return AccountType.PAYMENT;
-            case "JUNIOR ":
+            case "JUNIOR":
                 return AccountType.JUNIOR;
             case "ESUPPORT":
                 return AccountType.ESUPPORT;
@@ -62,16 +66,23 @@ public class Account {
         if (account_type == null) {
             throw new IllegalArgumentException("Account type cannot be null.");
         }
-        this.account_type = account_type;
+        switch (account_type) {
+            case UNIVERSAL:
+            case PAYMENT:
+            case JUNIOR:
+            case ESUPPORT:
+            case NATIONAL_CASHBACK:
+                this.account_type = account_type;
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid account type.");
+        }
     }
     public double getBalance() {
         return balance;
     }
 
     public void setBalance(double balance) {
-        if (balance < 0) {
-            throw new IllegalArgumentException("Balance cannot be negative.");
-        }
         this.balance = balance;
     }
     public String getCurrency() {
@@ -82,9 +93,31 @@ public class Account {
         if (currency == null || currency.trim().isEmpty()) {
             throw new IllegalArgumentException("Currency cannot be empty.");
         }
-        if (!currency.matches("^[A-Z]{3}$")) { // наприклад, USD, EUR, UAH
+        if (!currency.matches("^[A-Z]{3}$")) {
             throw new IllegalArgumentException("Currency must be 3 uppercase letters (e.g., USD, EUR).");
         }
         this.currency = currency;
     }
+
+    public AccountStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(AccountStatus status) {
+        if (status == null) {
+            throw new IllegalArgumentException("Account status cannot be null.");
+        }
+        switch (status) {
+            case OPEN:
+            case CLOSED:
+            case BLOCKED:
+                this.status = status;
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid account status.");
+        }
+    }
+
+
+
 }
