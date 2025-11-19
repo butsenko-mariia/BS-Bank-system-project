@@ -3,7 +3,7 @@ package program.Bank;
 import java.util.Scanner;
 import java.util.UUID;
 
-public class Account {
+public class Card implements Account{
     private String account_id;
     private String client_id;
     private AccountType account_type;
@@ -11,7 +11,7 @@ public class Account {
     private String currency;
     private AccountStatus status;
 
-    public Account() {
+    public Card() {
         Scanner scanner = new Scanner(System.in);
 
         this.account_id = UUID.randomUUID().toString();
@@ -21,24 +21,16 @@ public class Account {
         System.out.println("Enter owner id");
         this.client_id = scanner.nextLine();
         System.out.println("Enter account type");
-        this.account_type = SetAccountType(scanner.nextLine());
+        //this.account_type =
         System.out.println("Enter account currency");
         this.currency = scanner.nextLine();
     }
-
-    private AccountType SetAccountType(String line) {
-        switch (line) {
-            case "UNIVERSAL":
-                return AccountType.UNIVERSAL;
-            case "PAYMENT":
-                return AccountType.PAYMENT;
-            case "JUNIOR ":
-                return AccountType.JUNIOR;
-            case "ESUPPORT":
-                return AccountType.ESUPPORT;
-            case "NATIONAL_CASHBACK":
-                return AccountType.NATIONAL_CASHBACK;
-        }
-        return  AccountType.UNIVERSAL;
+    //реалізувати метод стрінг
+    @Override
+    public String toString() {
+        return "";
+    }
+    public void Print() {
+        System.out.println(this.toString());
     }
 }
