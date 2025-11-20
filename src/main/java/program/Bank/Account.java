@@ -21,17 +21,38 @@ public class Account {
         System.out.println("Enter owner id");
         this.client_id = scanner.nextLine();
         System.out.println("Enter account type");
-        this.account_type = SetAccountType(scanner.nextLine());
+        this.account_type = setAccountType(scanner.nextLine());
         System.out.println("Enter account currency");
         this.currency = scanner.nextLine();
     }
     public String getAccount_id() {
         return account_id;
     }
+    public void setAccount_id(String account_id) {
+        if (account_id == null || account_id.trim().isEmpty()) {
+            throw new IllegalArgumentException("Account ID cannot be empty.");
+        }
+        this.account_id = account_id;
+    }
 
+    public AccountType getAccount_type() {
+        return account_type;
+    }
+    public void setAccount_type(AccountType account_type) {
 
+        boolean ifMatchType = false;
+        for (AccountType type : AccountType.values()) {
+            if (account_type == type) {
+                this.account_type = account_type;
+                ifMatchType = true;
 
-    private AccountType SetAccountType(String line) {
+            }
+        }
+        if (!ifMatchType) {
+            throw new IllegalArgumentException("Invalid account type.");
+        }
+    }
+    private AccountType setAccountType(String line) {
         switch (line) {
             case "UNIVERSAL":
                 return AccountType.UNIVERSAL;
@@ -58,26 +79,7 @@ public class Account {
         }
         this.client_id = client_id;
     }
-    public AccountType getAccount_type() {
-        return account_type;
-    }
 
-    public void setAccount_type(AccountType account_type) {
-        if (account_type == null) {
-            throw new IllegalArgumentException("Account type cannot be null.");
-        }
-        switch (account_type) {
-            case UNIVERSAL:
-            case PAYMENT:
-            case JUNIOR:
-            case ESUPPORT:
-            case NATIONAL_CASHBACK:
-                this.account_type = account_type;
-                break;
-            default:
-                throw new IllegalArgumentException("Invalid account type.");
-        }
-    }
     public double getBalance() {
         return balance;
     }
@@ -104,20 +106,18 @@ public class Account {
     }
 
     public void setStatus(AccountStatus status) {
-        if (status == null) {
-            throw new IllegalArgumentException("Account status cannot be null.");
-        }
-        switch (status) {
-            case OPEN:
-            case CLOSED:
-            case BLOCKED:
+
+        boolean ifMatchStatus = false;
+        for (AccountStatus accountStatus : AccountStatus.values()) {
+            if (status == accountStatus) {
                 this.status = status;
-                break;
-            default:
-                throw new IllegalArgumentException("Invalid account status.");
+                ifMatchStatus = true;
+
+            }
+        }
+        if (!ifMatchStatus) {
+            throw new IllegalArgumentException("Invalid account status.");
         }
     }
-
-
 
 }

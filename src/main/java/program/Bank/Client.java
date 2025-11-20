@@ -1,9 +1,6 @@
 package program.Bank;
 import java.util.Scanner;
-import java.util.SplittableRandom;
 import java.util.UUID;
-
-import static program.Bank.AccountStatus.BLOCKED;
 
 
 public class Client
@@ -124,7 +121,7 @@ public class Client
 
     public void setPassport_number(String passport_number) {
         if (passport_number == null || passport_number.trim().isEmpty())
-            throw new IllegalArgumentException("Pasport number cannot be empty.");
+            throw new IllegalArgumentException("Passport number cannot be empty.");
         this.passport_number = passport_number;
     }
 
@@ -171,17 +168,18 @@ public class Client
     }
 
     public void setStatus(ClientStatus status) {
-        if (status == null) {
-            throw new IllegalArgumentException("Client status cannot be null.");
-        }
-        switch (status) {
-            case ACTIVE:
-            case INACTIVE:
-            case BLOCKED:
+
+        boolean ifMatchStatus = false;
+        for (ClientStatus clientStatus : ClientStatus.values()) {
+            if (status == clientStatus) {
                 this.status = status;
-                break;
-            default:
-                throw new IllegalArgumentException("Invalid client status.");
+                ifMatchStatus = true;
+
+            }
+        }
+
+        if (!ifMatchStatus) {
+            throw new IllegalArgumentException("Invalid client status.");
         }
     }
 
@@ -219,7 +217,7 @@ public class Client
 //    }
 public String toString(){
     return  String.format("Database ID: %s\nFull name: %s\nDate of birth: %s\nContact phone number: %s\nGender: %s\n" +
-                    "Nationality: %s\nIndividual tax number: %d\nPassport number: %d\nRecord number: %s\nPlace of birth: %s\n" +
+                    "Nationality: %s\nIndividual tax number: %s\nPassport number: %s\nRecord number: %s\nPlace of birth: %s\n" +
                     "Registered address: %s\nPlace of work/study: %s\n", client_id, full_name, date_of_birth, sex, nationality,
             mobile_phone, individual_tax_number, passport_number, legal_address, place_of_birth,record_number,
             place_of_work_or_study);
