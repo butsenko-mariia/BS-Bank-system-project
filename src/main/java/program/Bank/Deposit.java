@@ -15,23 +15,17 @@ public class Deposit implements Account{
     private String currency;
     private AccountStatus status;
 
-    public Deposit(UUID client_id, BigDecimal original_sum, LocalDate close_date, double interest_rate,
-                   String currency) {
-        this.setId();
-        this.client_id = client_id;
-        this.original_sum = original_sum;
-        this.current_balance = original_sum;
-        this.setOpen_date();
-        this.close_date = close_date;
-        this.interest_rate = interest_rate;
-        this.currency = currency;
-        this.status = AccountStatus.OPEN;
+    public Deposit() {
+
     }
 
     public UUID getId() {
         return id;
     }
     public void setId() {
+        if (id != null) {
+            throw  new IllegalStateException("Deposit ID is already set");
+        }
         this.id =  UUID.randomUUID();
     }
     public UUID getClient_id() {
@@ -110,10 +104,19 @@ public class Deposit implements Account{
             throw new IllegalArgumentException("AccountStatus must match TransactionStatus.");
         }
     }
-    //реалізувати метод стрінг я хз як зара треба
     @Override
     public String toString() {
-        return "";
+        return String.format(
+                "Deposit id = " + id +
+                        ", \nClient id = " + client_id +
+                        ", \nOriginal sum = " + original_sum +
+                        ", \nCurrent balance = " + current_balance +
+                        ", \nOpen date = " + open_date +
+                        ", \nClose date = " + close_date +
+                        ", \nInterest rate = " + interest_rate +
+                        ", \nCurrency = " + currency +
+                        ", \nStatus = " + status
+        );
     }
     public void Print() {
         System.out.println(this.toString());
