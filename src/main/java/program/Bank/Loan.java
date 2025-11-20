@@ -17,19 +17,7 @@ public class Loan implements Account {
     private String currency;
     private AccountStatus status;
 
-    public Loan(UUID client_id, BigDecimal original_sum, int term_month, double interest_rate, String currency){
-        this.id = UUID.randomUUID();
-        this.client_id = client_id;
-        this.original_sum = original_sum;
-        this.current_balance = original_sum;
-        this.open_date = LocalDate.now();
-        this.close_date = open_date;
-        this.term_month = term_month;
-        this.close_date.plusMonths(this.term_month);
-        this.payment_day = Math.min(open_date.getDayOfMonth(), 28);
-        this.interest_rate = interest_rate;
-        this.currency = currency;
-        this.status = AccountStatus.OPEN;
+    public Loan(){
     }
     public UUID getId() {
         return id;
@@ -127,10 +115,22 @@ public class Loan implements Account {
             throw new IllegalArgumentException("AccountStatus must match TransactionStatus.");
         }
     }
-    //реалізувати метод стрінг
+
     @Override
     public String toString() {
-        return "";
+        return String.format(
+                "Loan id = " + id +
+                        ", \nClient id = " + client_id +
+                        ", \nOriginal sum = " + original_sum +
+                        ", \nCurrent balance = " + current_balance +
+                        ", \nOpen date = " + open_date +
+                        ", \nClose date = " + close_date +
+                        ", \nTerm (months) = " + term_month +
+                        ", \nPayment day = " + payment_day +
+                        ", \nInterest rate = " + interest_rate +
+                        ", \nCurrency = " + currency +
+                        ", \nStatus = " + status
+        );
     }
     public void Print() {
         System.out.println(this.toString());

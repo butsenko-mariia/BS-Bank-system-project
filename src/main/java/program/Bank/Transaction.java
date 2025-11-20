@@ -1,53 +1,41 @@
 package program.Bank;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.UUID;
 
 public class Transaction {
-    private String id;
-    private String date_and_time;
+    private UUID id;
+    private LocalDate date_and_time;
     private BigDecimal sum;
     private String currency;
     private String operation_type;
-    private String account_id_from;
-    private String account_id_to;
+    private UUID account_id_from;
+    private UUID account_id_to;
     private TransactionStatus status;
+
     public Transaction() {
-        this.id = UUID.randomUUID().toString();
     }
-
-    public Transaction(String date_and_time, BigDecimal sum,
-                       String currency, String operation_type, String account_from,
-                       String account_to, TransactionStatus status) {
-
-        this.setTransaction_id();
-        this.date_and_time = date_and_time;
-        this.sum = sum;
-        this.currency = currency;
-        this.operation_type = operation_type;
-        this.account_id_from = account_from;
-        this.account_id_to = account_to;
-        this.status = status;
-    }
-    public String getId() {
+    public UUID getId() {
         return id;
     }
-    public void setTransaction_id() {
-        this.id = UUID.randomUUID().toString();
+    public void setId() {
+        if (id != null) {
+            throw  new IllegalStateException("Transaction ID is already set");
+        }
+        this.id = UUID.randomUUID();
     }
-    public String getDate_and_time() {
+    public LocalDate getDate_and_time() {
         return date_and_time;
     }
-    public void setDate_and_time(String date_and_time) {
-        if (date_and_time == null || !date_and_time.matches("^\\d{2}\\.\\d{2}\\.\\d{4}, \\d{2}\\.\\d{2}\\.\\d{2}$"))
-            throw new IllegalArgumentException("Date and time must be in format: 'dd.mm.yyyy, hh:mm:ss");
-        this.date_and_time = date_and_time;
+    public void setDate_and_time() {
+        this.date_and_time = LocalDate.now();
     }
     public BigDecimal getSum() {
         return sum;
     }
     public void setSum(BigDecimal sum) {
-        if (sum.compareTo(BigDecimal.ZERO) == -1)
+        if (sum.compareTo(BigDecimal.ZERO) < 0)
             throw new IllegalArgumentException("Sum must be positive");
         this.sum = sum;
     }
@@ -69,17 +57,17 @@ public class Transaction {
     public void setOperation_type(String operation_type) {
         this.operation_type = operation_type;
     }
-    public String getAccount_id_from() {
+    public UUID getAccount_id_from() {
         return account_id_from;
     }
-    public void setAccount_id_from(String account_id_from) {
+    public void setAccount_id_from(UUID account_id_from) {
         //дописати потім перевірку чи існує такий ід
         this.account_id_from = account_id_from;
     }
-    public String getAccount_id_to() {
+    public UUID getAccount_id_to() {
         return account_id_to;
     }
-    public void setAccount_id_to(String account_id_to) {
+    public void setAccount_id_to(UUID account_id_to) {
         //дописати потім перевірку чи існує такий ід
         this.account_id_to = account_id_to;
     }

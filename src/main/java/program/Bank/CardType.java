@@ -1,6 +1,6 @@
 package program.Bank;
 
-public enum AccountType {
+public enum CardType {
     UNIVERSAL,
     PAYMENT,
     JUNIOR,
