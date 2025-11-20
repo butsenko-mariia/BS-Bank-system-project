@@ -3,47 +3,47 @@ package program.Bank;
 import java.util.Scanner;
 import java.util.UUID;
 
-public class Account {
-    private String account_id;
+public class Card {
+    private String card_id;
     private String client_id;
-    private AccountType account_type;
+    private AccountType card_type;
     private double balance;
     private String currency;
     private AccountStatus status;
 
-    public Account() {
+    public Card() {
         Scanner scanner = new Scanner(System.in);
 
-        this.account_id = UUID.randomUUID().toString();
+        this.card_id = UUID.randomUUID().toString();
         this.balance = 0;
         this.status = AccountStatus.OPEN;
 
         System.out.println("Enter owner id");
         this.client_id = scanner.nextLine();
         System.out.println("Enter account type");
-        this.account_type = setAccountType(scanner.nextLine());
+        this.card_type = setAccountType(scanner.nextLine());
         System.out.println("Enter account currency");
         this.currency = scanner.nextLine();
     }
-    public String getAccount_id() {
-        return account_id;
+    public String getCard_id() {
+        return card_id;
     }
-    public void setAccount_id(String account_id) {
-        if (account_id == null || account_id.trim().isEmpty()) {
-            throw new IllegalArgumentException("Account ID cannot be empty.");
+    public void setCard_id(String account_id) {
+        if (card_id == null || card_id.trim().isEmpty()) {
+            throw new IllegalArgumentException("Card ID cannot be empty.");
         }
-        this.account_id = account_id;
+        this.card_id = card_id;
     }
 
-    public AccountType getAccount_type() {
-        return account_type;
+    public AccountType getCard_type() {
+        return card_type;
     }
-    public void setAccount_type(AccountType account_type) {
+    public void setCard_type(AccountType card_type) {
 
         boolean ifMatchType = false;
         for (AccountType type : AccountType.values()) {
-            if (account_type == type) {
-                this.account_type = account_type;
+            if (card_type == type) {
+                this.card_type = card_type;
                 ifMatchType = true;
 
             }
@@ -52,7 +52,7 @@ public class Account {
             throw new IllegalArgumentException("Invalid account type.");
         }
     }
-    private AccountType setAccountType(String line) {
+    private AccountType setCardType(String line) {
         switch (line) {
             case "UNIVERSAL":
                 return AccountType.UNIVERSAL;
@@ -120,4 +120,8 @@ public class Account {
         }
     }
 
+}
+public interface Account {
+    public String toString();
+    public void Print();
 }
