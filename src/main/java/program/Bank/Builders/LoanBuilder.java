@@ -22,7 +22,7 @@ public class LoanBuilder {
         loan.setOpen_date();
         loan.setPayment_day(loan.getOpen_date().getDayOfMonth());
     }
-    public LoanBuilder create(){
+    public static LoanBuilder create(){
         return new LoanBuilder();
     }
     public LoanBuilder client_id(UUID client_id){

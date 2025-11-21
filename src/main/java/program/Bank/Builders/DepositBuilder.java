@@ -20,7 +20,7 @@ public class DepositBuilder {
         deposit.setCurrency("GRN");
         deposit.setStatus(AccountStatus.OPEN);
     }
-    public DepositBuilder create(){
+    public static DepositBuilder create(){
         return new DepositBuilder();
     }
     public DepositBuilder client_id(UUID client_id){
