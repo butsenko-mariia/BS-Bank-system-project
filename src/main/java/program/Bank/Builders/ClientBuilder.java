@@ -4,15 +4,19 @@ import program.Bank.Client;
 import program.Bank.ClientStatus;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class ClientBuilder {
     private Client client = new Client();
     public ClientBuilder(){
-        this.create();
+        this.createNew();
     }
-    private void create(){
+    private void createNew(){
         client.setId();
         client.setStatus(ClientStatus.ACTIVE);
+    }
+    public ClientBuilder create(){
+        return new ClientBuilder();
     }
     public ClientBuilder full_name(String full_name) {
         client.setFull_name(full_name);
@@ -67,6 +71,6 @@ public class ClientBuilder {
     }
     public void reset(){
         client = new Client();
-        this.create();
+        this.createNew();
     }
 }

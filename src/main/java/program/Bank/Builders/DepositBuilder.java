@@ -10,15 +10,18 @@ import java.util.UUID;
 public class DepositBuilder {
     private Deposit deposit = new Deposit();
     public DepositBuilder(){
-        this.create();
+        this.createNew();
     }
-    private void create(){
+    private void createNew(){
         deposit.setId();
         deposit.setOpen_date();
         deposit.setOriginal_sum(BigDecimal.ZERO);
         deposit.setCurrent_balance(BigDecimal.ZERO);
         deposit.setCurrency("GRN");
         deposit.setStatus(AccountStatus.OPEN);
+    }
+    public DepositBuilder create(){
+        return new DepositBuilder();
     }
     public DepositBuilder client_id(UUID client_id){
         deposit.setClient_id(client_id);
@@ -57,6 +60,6 @@ public class DepositBuilder {
     }
     public void reset(){
         deposit = new Deposit();
-        this.create();
+        this.createNew();
     }
 }

@@ -12,15 +12,18 @@ public class TransactionBuilder {
     Transaction transaction = new Transaction();
 
     public TransactionBuilder(){
-        this.create();
+        this.createNew();
     }
-    private void create(){
+    private void createNew(){
         transaction.setId();
         transaction.setOpen_date();
         transaction.setOpen_time();
         transaction.setSum(BigDecimal.ZERO);
         transaction.setCurrency("GRN");
         transaction.setStatus(TransactionStatus.COMPLETED);
+    }
+    public TransactionBuilder create(){
+        return new TransactionBuilder();
     }
     public TransactionBuilder open_date(LocalDate open_date){
         transaction.setOpen_date(open_date);
@@ -59,6 +62,6 @@ public class TransactionBuilder {
     }
     public void reset(){
         transaction = new Transaction();
-        this.create();
+        this.createNew();
     }
 }

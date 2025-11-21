@@ -11,9 +11,9 @@ public class LoanBuilder {
     Loan loan = new Loan();
 
     public LoanBuilder(){
-        this.create();
+        this.createNew();
     }
-    private void create(){
+    private void createNew(){
         loan.setId();
         loan.setOriginal_sum(BigDecimal.ZERO);
         loan.setCurrent_balance(BigDecimal.ZERO);
@@ -21,6 +21,9 @@ public class LoanBuilder {
         loan.setCurrency("GRN");
         loan.setOpen_date();
         loan.setPayment_day(loan.getOpen_date().getDayOfMonth());
+    }
+    public LoanBuilder create(){
+        return new LoanBuilder();
     }
     public LoanBuilder client_id(UUID client_id){
         loan.setClient_id(client_id);
@@ -67,6 +70,6 @@ public class LoanBuilder {
     }
     public void reset(){
         loan = new Loan();
-        this.create();
+        this.createNew();
     }
 }

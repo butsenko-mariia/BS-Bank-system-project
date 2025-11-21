@@ -11,13 +11,16 @@ public class CardBuilder {
     private Card card =  new Card();
 
     public CardBuilder() {
-        this.create();
+        this.createNew();
     }
-    private void create(){
+    private void createNew(){
         card.id();
         card.setBalance(BigDecimal.ZERO);
         card.setCurrency("GRN");
         card.setStatus(AccountStatus.OPEN);
+    }
+    public CardBuilder create(){
+        return  new CardBuilder();
     }
     public CardBuilder client_id(UUID client_id) {
         card.setClient_id(client_id);
@@ -44,6 +47,6 @@ public class CardBuilder {
     }
     public void reset(){
         card = new Card();
-        this.create();
+        this.createNew();
     }
 }
