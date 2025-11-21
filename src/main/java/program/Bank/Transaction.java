@@ -2,11 +2,13 @@ package program.Bank;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.UUID;
 
 public class Transaction {
     private UUID id;
-    private LocalDate date_and_time;
+    private LocalDate open_date;
+    private LocalTime open_time;
     private BigDecimal sum;
     private String currency;
     private String operation_type;
@@ -25,11 +27,23 @@ public class Transaction {
         }
         this.id = UUID.randomUUID();
     }
-    public LocalDate getDate_and_time() {
-        return date_and_time;
+    public LocalDate getOpen_date() {
+        return open_date;
     }
-    public void setDate_and_time() {
-        this.date_and_time = LocalDate.now();
+    public void setOpen_date() {
+        this.open_date = LocalDate.now();
+    }
+    public void setOpen_date(LocalDate open_date) {
+        this.open_date = open_date;
+    }
+    public LocalTime getOpen_time() {
+        return open_time;
+    }
+    public void setOpen_time() {
+        this.open_time = LocalTime.now();
+    }
+    public void setOpen_time(LocalTime open_time) {
+        this.open_time = open_time;
     }
     public BigDecimal getSum() {
         return sum;

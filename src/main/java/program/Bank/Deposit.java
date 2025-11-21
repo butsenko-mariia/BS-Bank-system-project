@@ -11,7 +11,7 @@ public class Deposit implements Account{
     private BigDecimal current_balance;
     private LocalDate open_date;
     private LocalDate close_date;
-    private double interest_rate;
+    public double interest_rate;
     private String currency;
     private AccountStatus status;
 
@@ -59,6 +59,9 @@ public class Deposit implements Account{
     }
     public void setOpen_date() {
         this.open_date = LocalDate.now();
+    }
+    public void setOpen_date(LocalDate open_date) {
+        this.open_date = open_date;
     }
     public LocalDate getClose_date() {
         return close_date;
