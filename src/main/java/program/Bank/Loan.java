@@ -57,6 +57,9 @@ public class Loan implements Account {
     public void setOpen_date() {
         this.open_date = LocalDate.now();
     }
+    public void setOpen_date(LocalDate open_date) {
+        this.open_date = open_date;
+    }
     public LocalDate getClose_date() {
         return close_date;
     }

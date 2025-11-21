@@ -1,12 +1,11 @@
 package program.Bank;
 import java.time.LocalDate;
-import java.util.Scanner;
 import java.util.UUID;
 
 
 public class Client
 {
-    private UUID client_id;
+    private UUID id;
     private  String full_name;
     private LocalDate date_of_birth;
     private  String sex;
@@ -22,14 +21,14 @@ public class Client
     public Client() {
 
     }
-    public UUID getClient_id() {
-        return client_id;
+    public UUID getId() {
+        return id;
     }
-    public void setClient_id() {
-        if (client_id != null) {
+    public void setId() {
+        if (id != null) {
             throw  new IllegalStateException("Client ID is already set");
         }
-        this.client_id = UUID.randomUUID();
+        this.id = UUID.randomUUID();
     }
 
     public String getFull_name() {
@@ -166,7 +165,7 @@ public class Client
     @Override
     public String toString() {
         return String.format(
-                "Сlient id = " + client_id +
+                "Сlient id = " + id +
                 ",\nFull name = " + full_name +
                 ",\nDate of birth = " + date_of_birth +
                 ",\nSex = " + sex +

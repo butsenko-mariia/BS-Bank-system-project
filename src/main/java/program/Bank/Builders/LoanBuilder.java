@@ -1,0 +1,72 @@
+package program.Bank.Builders;
+
+import program.Bank.AccountStatus;
+import program.Bank.Loan;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.UUID;
+
+public class LoanBuilder {
+    Loan loan = new Loan();
+
+    public LoanBuilder(){
+        this.create();
+    }
+    private void create(){
+        loan.setId();
+        loan.setOriginal_sum(BigDecimal.ZERO);
+        loan.setCurrent_balance(BigDecimal.ZERO);
+        loan.setStatus(AccountStatus.OPEN);
+        loan.setCurrency("GRN");
+        loan.setOpen_date();
+        loan.setPayment_day(loan.getOpen_date().getDayOfMonth());
+    }
+    public LoanBuilder client_id(UUID client_id){
+        loan.setClient_id(client_id);
+        return this;
+    }
+    public LoanBuilder original_sum(BigDecimal original_sum){
+        loan.setOriginal_sum(original_sum);
+        return this;
+    }
+    public LoanBuilder current_balance(BigDecimal current_balance){
+        loan.setCurrent_balance(current_balance);
+        return this;
+    }
+    public LoanBuilder open_date(LocalDate open_date){
+        loan.setOpen_date(open_date);
+        return this;
+    }
+    public LoanBuilder close_date(LocalDate close_date){
+        loan.setClose_date(close_date);
+        return this;
+    }
+    public LoanBuilder term_month(int term_month){
+        loan.setTerm_month(term_month);
+        return this;
+    }
+    public LoanBuilder payment_day(int payment_day){
+        loan.setPayment_day(payment_day);
+        return this;
+    }
+    public LoanBuilder interest_rate(double interest_rate){
+        loan.setInterest_rate(interest_rate);
+        return this;
+    }
+    public LoanBuilder currency(String currency){
+        loan.setCurrency(currency);
+        return this;
+    }
+    public  LoanBuilder status(AccountStatus status){
+        loan.setStatus(status);
+        return this;
+    }
+    public Loan builder(){
+        return loan;
+    }
+    public void reset(){
+        loan = new Loan();
+        this.create();
+    }
+}

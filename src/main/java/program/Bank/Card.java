@@ -1,22 +1,23 @@
 package program.Bank;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 public class Card {
     private UUID id;
     private UUID client_id;
     private CardType card_type;
-    private double balance;
+    private BigDecimal balance;
     private String currency;
     private AccountStatus status;
 
     public Card() {
-
     }
+
     public UUID getId() {
         return id;
     }
-    public void setCard_id() {
+    public void id() {
         if (id != null) {
             throw  new IllegalStateException("Card ID is already set");
         }
@@ -52,11 +53,11 @@ public class Card {
         this.client_id = client_id;
     }
 
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
     public String getCurrency() {
