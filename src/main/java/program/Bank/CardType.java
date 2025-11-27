@@ -5,5 +5,9 @@ public enum CardType {
     PAYMENT,
     JUNIOR,
     ESUPPORT,
-    NATIONAL_CASHBACK
+    NATIONAL_CASHBACK;
+    @Override
+    public String toString() {
+        return this.name();
+    }
 }
