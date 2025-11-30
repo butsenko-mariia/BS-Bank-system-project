@@ -19,7 +19,7 @@ public class CardBuilder {
         card.setCurrency("GRN");
         card.setStatus(AccountStatus.OPEN);
     }
-    public CardBuilder create(){
+    public static CardBuilder create(){
         return  new CardBuilder();
     }
     public CardBuilder client_id(UUID client_id) {

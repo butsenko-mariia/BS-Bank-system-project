@@ -22,7 +22,7 @@ public class TransactionBuilder {
         transaction.setCurrency("GRN");
         transaction.setStatus(TransactionStatus.COMPLETED);
     }
-    public TransactionBuilder create(){
+    public static TransactionBuilder create(){
         return new TransactionBuilder();
     }
     public TransactionBuilder open_date(LocalDate open_date){

@@ -3,15 +3,19 @@ package program.Bank;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-public class Card {
+public class Card implements Account{
     private UUID id;
     private UUID client_id;
+    private int card_number;
     private CardType card_type;
     private BigDecimal balance;
     private String currency;
     private AccountStatus status;
 
     public Card() {
+    }
+    public Card(UUID id) {
+        this.id = id;
     }
 
     public UUID getId() {
@@ -105,7 +109,13 @@ public class Card {
                         ", \nStatus = " + status
         );
     }
-    public void Print() {
+    public void PrintFullInfo() {
         System.out.println(this.toString());
     }
+    public void PrintInfo(){
+        String info = "#" + this.id + " - " + this.card_number + "\n" +
+                "тип карти - " + this.getCard_type().toString() + "\n" +
+                "Поточний баланс: " + this.balance + " " + this.currency;
+    }
+
 }

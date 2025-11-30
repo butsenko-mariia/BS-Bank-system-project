@@ -15,7 +15,7 @@ public class ClientBuilder {
         client.setId();
         client.setStatus(ClientStatus.ACTIVE);
     }
-    public ClientBuilder create(){
+    public static ClientBuilder create(){
         return new ClientBuilder();
     }
     public ClientBuilder full_name(String full_name) {

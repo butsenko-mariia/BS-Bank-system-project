@@ -16,11 +16,11 @@ public class DepositBuilder {
         deposit.setId();
         deposit.setOpen_date();
         deposit.setOriginal_sum(BigDecimal.ZERO);
-        deposit.setCurrent_balance(BigDecimal.ZERO);
+        deposit.setProfit(BigDecimal.ZERO);
         deposit.setCurrency("GRN");
         deposit.setStatus(AccountStatus.OPEN);
     }
-    public DepositBuilder create(){
+    public static DepositBuilder create(){
         return new DepositBuilder();
     }
     public DepositBuilder client_id(UUID client_id){
@@ -32,7 +32,7 @@ public class DepositBuilder {
         return this;
     }
     public DepositBuilder current_balance(BigDecimal current_balance){
-        deposit.setCurrent_balance(current_balance);
+        deposit.setProfit(current_balance);
         return this;
     }
     public DepositBuilder open_date(LocalDate open_date){

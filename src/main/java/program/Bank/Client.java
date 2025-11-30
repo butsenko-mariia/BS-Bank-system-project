@@ -1,4 +1,5 @@
 package program.Bank;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -18,8 +19,10 @@ public class Client
     private  String record_number;
     private  String place_of_work_or_study;
     private ClientStatus  status;
-    public Client() {
-
+    private BigDecimal balance;
+    public Client(){}
+    public Client(UUID id) {
+        this.id = id;
     }
     public UUID getId() {
         return id;
@@ -161,25 +164,64 @@ public class Client
             throw new IllegalArgumentException("Invalid client status.");
         }
     }
+    public BigDecimal getBalance() {
+        //тут має бути функція яка рахує суму на всії рахунках клієнта
+        return balance;
+    }
 
     @Override
     public String toString() {
         return String.format(
-                "Сlient id = " + id +
-                ",\nFull name = " + full_name +
-                ",\nDate of birth = " + date_of_birth +
-                ",\nSex = " + sex +
-                ",\nNationality = " + nationality +
-                ",\nMobile phone = " + mobile_phone +
-                ",\nIndividual tax number = " + individual_tax_number +
-                ",\nPassport number = " + passport_number +
-                ",\nLegal address = " + legal_address +
-                ",\nPlace of birt = " + place_of_birth +
-                ",\nRecord number = " + record_number +
-                ",\nPlace of work or study = " + place_of_work_or_study +
-                ",\nClient status = " + status );
+                "Сlient id = " + this.getId() + "\n" +
+                ",\nFull name = " + this.getFull_name() +
+                ",\nDate of birth = " + this.getDate_of_birth() +
+                ",\nSex = " + this.getSex() +
+                ",\nNationality = " + this.getNationality() +
+                ",\nMobile phone = " + this.getMobile_phone() +
+                ",\nIndividual tax number = " + this.getIndividual_tax_number() +
+                ",\nPassport number = " + this.getPassport_number() +
+                ",\nLegal address = " + this.getLegal_address() +
+                ",\nPlace of birt = " + this.getPlace_of_birth() +
+                ",\nRecord number = " + this.getRecord_number() +
+                ",\nPlace of work or study = " + this.getPlace_of_work_or_study() +
+                ",\nClient status = " + this.getStatus() );
     }
-    public void Print(){
+    public void PrintClientFullInfo(){
         System.out.printf(this.toString());
+    }
+    public void PrintClientAccountInfo(){
+        String info = "Вітаємо, Іван Петрович!\n" +
+                "Статус: "+ this.getStatus() +"\n" +
+                "Баланс: "+ this.getBalance() +" грн\n" +
+                "ВАШІ РАХУНКИ\n";
+        //тут має бути функція яка по номеру ід клієнта знаходить всі його рахунки в базі даних і виводить їх
+        //+ "UAH (#acc001) - 5,000 грн\n" +
+                //"USD (#acc002) - 1,200 $ ";
+        System.out.printf(info);
+    }
+    public void PrintClientTransactionHistory(){
+        //тут має бути функція яка за номером ід клієнта знаходить усі транзакції з усіх рахунків даного клієнта
+        String info = "";
+        System.out.printf(info);
+    }
+    public void PrintClientActiveDeposit(){
+        //тут має бути функція яка перебирає усі наявні депозити за номером ід клієнта в базі даних
+        //які є активними та виводить інфу про них
+    }
+    public void PrintClientDepositHistory(){
+        //тут має бути функція яка перебирає усі наявні депозити за номером ід клієнта в базі даних
+        //та виводить інфу про кожен з них в порядку по даті створення
+    }
+    public void PrintClientActiveCredit(){
+        //тут має бути функція яка перебирає усі наявні кредити за номером ід клієнта в базі даних
+        //які є активними та виводить інфу про них
+    }
+    public void PrintClientCreditHistory(){
+        //тут має бути функція яка перебирає усі наявні кредити за номером ід клієнта в базі даних
+        //та виводить інфу про кожен з них в порядку по даті створення
+    }
+    public void PrintClientActiveCard(){
+        //тут має бути функція яка перебирає усі наявні кредити за номером ід клієнта в базі даних
+        //які є активними та виводить інфу про них
     }
 }

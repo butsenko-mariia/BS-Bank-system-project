@@ -135,8 +135,9 @@ public class Loan implements Account {
                         ", \nStatus = " + status
         );
     }
-    public void Print() {
+    public void PrintFullInfo() {
         System.out.println(this.toString());
     }
+    public void PrintInfo(){}
 
 }
