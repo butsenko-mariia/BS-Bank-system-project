@@ -1,4 +1,4 @@
-package program.Bank;
+package program.Bank.Enums;
 
 public enum CardType {
     UNIVERSAL,

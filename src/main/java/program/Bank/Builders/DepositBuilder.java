@@ -1,6 +1,6 @@
 package program.Bank.Builders;
 
-import program.Bank.AccountStatus;
+import program.Bank.Enums.AccountStatus;
 import program.Bank.Deposit;
 
 import java.math.BigDecimal;

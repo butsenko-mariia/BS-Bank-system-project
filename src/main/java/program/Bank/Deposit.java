@@ -1,5 +1,7 @@
 package program.Bank;
 
+import program.Bank.Enums.AccountStatus;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Scanner;
