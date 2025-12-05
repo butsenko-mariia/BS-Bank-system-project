@@ -1,10 +1,9 @@
 package program.Bank.Builders;
 
 import program.Bank.Client;
-import program.Bank.ClientStatus;
+import program.Bank.Enums.ClientStatus;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 public class ClientBuilder {
     private Client client = new Client();

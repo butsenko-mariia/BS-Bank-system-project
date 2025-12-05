@@ -1,4 +1,6 @@
 package program.Bank;
+import program.Bank.Enums.ClientStatus;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
@@ -18,11 +20,14 @@ public class Client
     private String place_of_birth;
     private  String record_number;
     private  String place_of_work_or_study;
-    private ClientStatus  status;
-    private BigDecimal balance;
-    public Client(){}
+    private ClientStatus status;
+
+    public Client(){
+        this.setId();
+        this.status=ClientStatus.ACTIVE;
+    }
     public Client(UUID id) {
-        this.id = id;
+        this.setId(id);
     }
     public UUID getId() {
         return id;
@@ -33,7 +38,12 @@ public class Client
         }
         this.id = UUID.randomUUID();
     }
-
+    public void setId(UUID id) {
+        if (id == null) {
+            throw  new NumberFormatException("ID must be not null");
+        }
+        this.id =  id;
+    }
     public String getFull_name() {
         return full_name;
     }
@@ -165,26 +175,32 @@ public class Client
         }
     }
     public BigDecimal getBalance() {
+        BigDecimal balance = new BigDecimal(0);
         //тут має бути функція яка рахує суму на всії рахунках клієнта
         return balance;
+    }
+
+    public void Fetch(){
+        //тут має бути метод який підтягує всю інформацію про об'єкт з бази даних за його ід та задає полям
+        // даного екземпляру класу значення
     }
 
     @Override
     public String toString() {
         return String.format(
                 "Сlient id = " + this.getId() + "\n" +
-                ",\nFull name = " + this.getFull_name() +
-                ",\nDate of birth = " + this.getDate_of_birth() +
-                ",\nSex = " + this.getSex() +
-                ",\nNationality = " + this.getNationality() +
-                ",\nMobile phone = " + this.getMobile_phone() +
-                ",\nIndividual tax number = " + this.getIndividual_tax_number() +
-                ",\nPassport number = " + this.getPassport_number() +
-                ",\nLegal address = " + this.getLegal_address() +
-                ",\nPlace of birt = " + this.getPlace_of_birth() +
-                ",\nRecord number = " + this.getRecord_number() +
-                ",\nPlace of work or study = " + this.getPlace_of_work_or_study() +
-                ",\nClient status = " + this.getStatus() );
+                        ",\nFull name = " + this.getFull_name() +
+                        ",\nDate of birth = " + this.getDate_of_birth() +
+                        ",\nSex = " + this.getSex() +
+                        ",\nNationality = " + this.getNationality() +
+                        ",\nMobile phone = " + this.getMobile_phone() +
+                        ",\nIndividual tax number = " + this.getIndividual_tax_number() +
+                        ",\nPassport number = " + this.getPassport_number() +
+                        ",\nLegal address = " + this.getLegal_address() +
+                        ",\nPlace of birt = " + this.getPlace_of_birth() +
+                        ",\nRecord number = " + this.getRecord_number() +
+                        ",\nPlace of work or study = " + this.getPlace_of_work_or_study() +
+                        ",\nClient status = " + this.getStatus() );
     }
     public void PrintClientFullInfo(){
         System.out.printf(this.toString());
@@ -196,7 +212,7 @@ public class Client
                 "ВАШІ РАХУНКИ\n";
         //тут має бути функція яка по номеру ід клієнта знаходить всі його рахунки в базі даних і виводить їх
         //+ "UAH (#acc001) - 5,000 грн\n" +
-                //"USD (#acc002) - 1,200 $ ";
+        //"USD (#acc002) - 1,200 $ ";
         System.out.printf(info);
     }
     public void PrintClientTransactionHistory(){

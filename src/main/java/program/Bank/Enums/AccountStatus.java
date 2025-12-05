@@ -1,7 +1,7 @@
-package program.Bank;
+package program.Bank.Enums;
 
 public enum AccountStatus {
-    OPEN,
+    ACTIVE,
     CLOSED,
     BLOCKED
 }

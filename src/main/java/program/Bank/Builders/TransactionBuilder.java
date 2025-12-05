@@ -1,7 +1,7 @@
 package program.Bank.Builders;
 
 import program.Bank.Transaction;
-import program.Bank.TransactionStatus;
+import program.Bank.Enums.TransactionStatus;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
