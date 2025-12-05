@@ -1,8 +1,8 @@
 package program.Bank.Builders;
 
-import program.Bank.AccountStatus;
+import program.Bank.Enums.AccountStatus;
 import program.Bank.Card;
-import program.Bank.CardType;
+import program.Bank.Enums.CardType;
 
 import java.math.BigDecimal;
 import java.util.UUID;
