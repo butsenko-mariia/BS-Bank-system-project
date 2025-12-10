@@ -1,4 +1,6 @@
 package program.Bank;
+import program.Bank.Enums.AccountStatus;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
@@ -8,6 +10,9 @@ import java.util.UUID;
 public class StandardDeposit extends Deposit{
     public StandardDeposit(){
         this.setId();
+        this.setOpen_date();
+        this.setCurrency("GRN");
+        this.setStatus(AccountStatus.ACTIVE);
     }
     public StandardDeposit(UUID id){
         this.setId(id);

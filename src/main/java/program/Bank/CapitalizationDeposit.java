@@ -1,4 +1,6 @@
 package program.Bank;
+import program.Bank.Enums.AccountStatus;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
@@ -8,6 +10,9 @@ import java.util.UUID;
 public class CapitalizationDeposit extends Deposit{
     public CapitalizationDeposit(){
         this.setId();
+        this.setOpen_date();
+        this.setCurrency("GRN");
+        this.setStatus(AccountStatus.ACTIVE);
     }
     public CapitalizationDeposit(UUID id){
         this.setId(id);

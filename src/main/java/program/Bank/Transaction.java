@@ -23,8 +23,8 @@ public class Transaction {
         this.setId();
         this.setOpen_date();
         this.setOpen_time();
-        this.sum = new BigDecimal(0);
         this.currency = "GRN";
+        this.operation_info = "no info";
     }
     public Transaction(UUID id){
         this.setId(id);
@@ -66,9 +66,15 @@ public class Transaction {
         return sum;
     }
     public void setSum(BigDecimal sum) {
-        if (sum.compareTo(BigDecimal.ZERO) < 0)
-            throw new IllegalArgumentException("Sum must be positive");
+        if (sum.compareTo(BigDecimal.ZERO) == 0)
+            throw new IllegalArgumentException("Sum must not be zero.");
         this.sum = sum;
+        if (this.sum.compareTo(BigDecimal.ZERO) > 0){
+            this.sign = '+';
+        }
+        else  {
+            this.sign = '-';
+        }
     }
     public String getCurrency() {
         return currency;
@@ -106,16 +112,7 @@ public class Transaction {
         return status;
     }
     public void setStatus(TransactionStatus status) {
-        boolean ifMatchSatus = false;
-        for (var transactionStatus: TransactionStatus.values()){
-            if (status == transactionStatus) {
-                this.status = status;
-                ifMatchSatus = true;
-            }
-        }
-        if (!ifMatchSatus) {
-            throw new IllegalArgumentException("TransactionStatus must match TransactionStatus.");
-        }
+        this.status = status;
     }
 
     public void Fetch(){
