@@ -9,21 +9,17 @@ import java.time.LocalTime;
 import java.util.UUID;
 
 public class TransactionBuilder {
-    Transaction transaction = new Transaction();
+    Transaction transaction;
 
     public TransactionBuilder(){
-        this.createNew();
-    }
-    private void createNew(){
-        transaction.setId();
-        transaction.setOpen_date();
-        transaction.setOpen_time();
-        transaction.setSum(BigDecimal.ZERO);
-        transaction.setCurrency("GRN");
-        transaction.setStatus(TransactionStatus.COMPLETED);
+        transaction = new Transaction();
     }
     public static TransactionBuilder create(){
         return new TransactionBuilder();
+    }
+    public TransactionBuilder id(UUID id){
+        transaction.setId(id);
+        return this;
     }
     public TransactionBuilder open_date(LocalDate open_date){
         transaction.setOpen_date(open_date);
@@ -41,8 +37,8 @@ public class TransactionBuilder {
         transaction.setCurrency(currency);
         return this;
     }
-    public  TransactionBuilder operation_type(String operation_type){
-        transaction.setOperation_type(operation_type);
+    public TransactionBuilder operation_info(String operation_info){
+        transaction.setOperation_info(operation_info);
         return this;
     }
     public TransactionBuilder account_id_from(UUID account_id_from){
@@ -57,11 +53,14 @@ public class TransactionBuilder {
         transaction.setStatus(status);
         return this;
     }
+    public TransactionBuilder fetch(){
+        transaction.Fetch();
+        return this;
+    }
     public Transaction build(){
         return transaction;
     }
     public void reset(){
         transaction = new Transaction();
-        this.createNew();
     }
 }

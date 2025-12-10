@@ -16,7 +16,7 @@ public class Loan implements Account {
     private LocalDate open_date;
     private LocalDate close_date;
     private LocalDate next_payment_date;
-    private int term_month;
+    private long term_month;
     private int payment_day;
     private BigDecimal monthly_payment;
     private BigDecimal interest_rate;
@@ -28,8 +28,11 @@ public class Loan implements Account {
 
     public Loan(){
         this.setId();
+        this.setOpen_date();
         this.overdue_sum = BigDecimal.ZERO;
         this.change = BigDecimal.ZERO;
+        this.setStatus(AccountStatus.ACTIVE);
+        this.setCurrency("GRN");
     }
     public UUID getId() {
 
@@ -57,6 +60,7 @@ public class Loan implements Account {
         if (original_sum == null || original_sum.compareTo(BigDecimal.ZERO) < 0)
             throw new IllegalArgumentException("Sum must be positive");
         this.original_sum = original_sum;
+        this.current_balance = original_sum;
     }
     public BigDecimal getCurrent_balance() {
 
@@ -73,21 +77,24 @@ public class Loan implements Account {
         return open_date;
     }
     public void setOpen_date() {
-
         this.open_date = LocalDate.now();
+        this.payment_day = this.open_date.getDayOfMonth();
+        this.setNext_payment_date();
     }
     public void setOpen_date(LocalDate open_date) {
-
         this.open_date = open_date;
+        this.payment_day = this.open_date.getDayOfMonth();
+        this.setNext_payment_date();
     }
     public LocalDate getClose_date() {
-
         return close_date;
     }
     public void setClose_date(LocalDate close_date) {
         if (close_date == null || close_date.isBefore(this.open_date))
             throw new IllegalArgumentException("Close date must be before open date and can not be null");
         this.close_date = close_date;
+        this.term_month = ChronoUnit.MONTHS.between(this.open_date, this.close_date);
+        this.CalculateMonthlyPayment(original_sum, (int) term_month);
     }
     public LocalDate getNext_payment_date() {
         return next_payment_date;
@@ -97,8 +104,7 @@ public class Loan implements Account {
         this.next_payment_date = this.next_payment_date.plusMonths(1);
         this.next_payment_date = this.next_payment_date.withDayOfMonth(this.payment_day);
     }
-    public int getTerm_month() {
-
+    public long getTerm_month() {
         return term_month;
     }
     public void setTerm_month(int term_month) {
@@ -106,7 +112,6 @@ public class Loan implements Account {
             throw new IllegalArgumentException("Term month must be positive");
     }
     public int getPayment_day() {
-
         return payment_day;
     }
     public void setPayment_day(int payment_day) {
@@ -122,7 +127,7 @@ public class Loan implements Account {
         this.monthly_payment = monthly_payment;
     }
     public void setMonthly_payment(){
-        this.monthly_payment = CalculateMonthlyPayment(this.original_sum, this.term_month);
+        this.monthly_payment = CalculateMonthlyPayment(this.original_sum, (int) this.term_month);
     }
     public BigDecimal getInterest_rate() {
         return interest_rate;
@@ -132,6 +137,7 @@ public class Loan implements Account {
             throw new IllegalArgumentException("Interest rate must be positive");
         }
         this.interest_rate = interest_rate;
+        this.setMonthly_rate();
     }
     public String getCurrency() {
 
@@ -182,6 +188,7 @@ public class Loan implements Account {
                         ", \nClose date = " + close_date +
                         ", \nTerm (months) = " + term_month +
                         ", \nPayment day = " + payment_day +
+                        ", \nNext payment day = " + next_payment_date +
                         ", \nInterest rate = " + interest_rate +
                         ", \nCurrency = " + currency +
                         ", \nStatus = " + status
@@ -194,7 +201,7 @@ public class Loan implements Account {
         System.out.println("#" + this.id + " - " + this.original_sum + " " + this.currency + " (" + this.interest_rate + "%)\n" +
                 "Залишок: " + this.current_balance + " "+ this.currency +"\n" +
                 "Щомісячний платіж: "+ this.monthly_payment+ " " + this.currency +"\n" +
-                "Наступний платіж: 01.12.2025");
+                "Наступний платіж: " + this.next_payment_date);
     }
     public BigDecimal CalculateMonthlyPayment(BigDecimal sum, int months){
         BigDecimal temp = (this.monthly_rate.add(BigDecimal.valueOf(1))).pow(months);

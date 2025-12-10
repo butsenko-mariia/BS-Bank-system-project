@@ -8,22 +8,20 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 public class CardBuilder {
-    private Card card =  new Card();
+    private Card card;
 
     public CardBuilder() {
-        this.createNew();
-    }
-    private void createNew(){
-        card.id();
-        card.setBalance(BigDecimal.ZERO);
-        card.setCurrency("GRN");
-        card.setStatus(AccountStatus.OPEN);
+        card =  new Card();
     }
     public static CardBuilder create(){
         return  new CardBuilder();
     }
     public CardBuilder client_id(UUID client_id) {
         card.setClient_id(client_id);
+        return this;
+    }
+    public CardBuilder card_number(String card_number) {
+        card.setCard_number(card_number);
         return this;
     }
     public CardBuilder card_type(CardType card_type) {
@@ -42,11 +40,14 @@ public class CardBuilder {
         card.setStatus(status);
         return this;
     }
+    public CardBuilder fetch(){
+        card.Fetch();
+        return this;
+    }
     public Card build() {
         return card;
     }
     public void reset(){
         card = new Card();
-        this.createNew();
     }
 }
