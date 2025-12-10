@@ -8,19 +8,10 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 public class LoanBuilder {
-    Loan loan = new Loan();
+    Loan loan;
 
     public LoanBuilder(){
-        this.createNew();
-    }
-    private void createNew(){
-        loan.setId();
-        loan.setOriginal_sum(BigDecimal.ZERO);
-        loan.setCurrent_balance(BigDecimal.ZERO);
-        loan.setStatus(AccountStatus.OPEN);
-        loan.setCurrency("GRN");
-        loan.setOpen_date();
-        loan.setPayment_day(loan.getOpen_date().getDayOfMonth());
+        loan = new Loan();
     }
     public static LoanBuilder create(){
         return new LoanBuilder();
@@ -53,7 +44,11 @@ public class LoanBuilder {
         loan.setPayment_day(payment_day);
         return this;
     }
-    public LoanBuilder interest_rate(double interest_rate){
+    public LoanBuilder monthly_payment(BigDecimal monthly_payment){
+        loan.setMonthly_payment(monthly_payment);
+        return this;
+    }
+    public LoanBuilder interest_rate(BigDecimal interest_rate){
         loan.setInterest_rate(interest_rate);
         return this;
     }
@@ -65,11 +60,14 @@ public class LoanBuilder {
         loan.setStatus(status);
         return this;
     }
+    public LoanBuilder fetch(){
+        loan.Fetch();
+        return this;
+    }
     public Loan builder(){
         return loan;
     }
     public void reset(){
         loan = new Loan();
-        this.createNew();
     }
 }

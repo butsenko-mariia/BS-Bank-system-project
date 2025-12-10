@@ -6,13 +6,9 @@ import program.Bank.Enums.ClientStatus;
 import java.time.LocalDate;
 
 public class ClientBuilder {
-    private Client client = new Client();
+    private Client client;
     public ClientBuilder(){
-        this.createNew();
-    }
-    private void createNew(){
-        client.setId();
-        client.setStatus(ClientStatus.ACTIVE);
+        client = new Client();
     }
     public static ClientBuilder create(){
         return new ClientBuilder();
@@ -65,11 +61,14 @@ public class ClientBuilder {
         client.setStatus(status);
         return this;
     }
+    public ClientBuilder fetch(){
+        client.Fetch();
+        return this;
+    }
     public Client build() {
         return client;
     }
     public void reset(){
         client = new Client();
-        this.createNew();
     }
 }

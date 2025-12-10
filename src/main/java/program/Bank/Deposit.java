@@ -118,11 +118,12 @@ public abstract class Deposit implements Account{
     }
     @Override
     public String toString() {
+        this.InterestCalculation(LocalDate.now());
         return String.format(
                 "Deposit id = " + this.id +
                         ", \nClient id = " + this.client_id +
                         ", \nOriginal sum = " + this.original_sum +
-                        ", \nCurrent profit = " + this.getProfit() +
+                        ", \nCurrent profit = " + this.profit +
                         ", \nOpen date = " + this.open_date +
                         ", \nClose date = " + this.close_date +
                         ", \nInterest rate = " + this.interest_rate +
@@ -134,9 +135,10 @@ public abstract class Deposit implements Account{
         System.out.println(this.toString());
     }
     public void PrintInfo() {
+        this.InterestCalculation(LocalDate.now());
         String info = "#" + this.id + " - " + this.original_sum + " " + this.currency + "(" + (this.interest_rate.multiply(BigDecimal.valueOf(100))) + "%)\n"+
                 "Дата закінчення: " + this.close_date + "\n"+
-                "Нараховано: " + this.getProfit();
+                "Нараховано: " + this.profit;
     }
     abstract public void InterestCalculation(LocalDate date);
     public void Close(boolean confirm_early_close){
@@ -171,5 +173,10 @@ public abstract class Deposit implements Account{
 //тут має бути функція яка переводить обраному рахунку суму депозита та нараховані відсотки
 //  видаляє інформацію про депозит з таблиці в бд депозитів та переводить
 // в архівну таблицю
+    }
+
+    public void Fetch(){
+        //тут має бути метод який підтягує всю інформацію про об'єкт з бази даних за його ід та задає полям
+        // даного екземпляру класу значення
     }
 }
