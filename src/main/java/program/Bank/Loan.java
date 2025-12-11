@@ -40,61 +40,74 @@ public class Loan implements Account {
         this.setStatus(AccountStatus.ACTIVE);
         this.setCurrency("GRN");
     }
+
     public UUID getId() {
 
         return id;
     }
+
     public void setId() {
 
         this.id =  UUID.randomUUID();
     }
+
     public UUID getClient_id() {
 
         return client_id;
     }
+
     public void setClient_id(UUID client_id) {
         //потрібно додати перевірку чи існує даний клієнт в базі даних
         if (client_id == null)
             throw new IllegalArgumentException("Client id cannot be null");
         this.client_id = client_id;
     }
+
     public BigDecimal getOriginal_sum() {
 
         return original_sum;
     }
+
     public void setOriginal_sum(BigDecimal original_sum) {
         if (original_sum == null || original_sum.compareTo(BigDecimal.ZERO) < 0)
             throw new IllegalArgumentException("Sum must be positive");
         this.original_sum = original_sum;
         this.current_balance = original_sum;
     }
+
     public BigDecimal getCurrent_balance() {
 
         return current_balance;
     }
+
     public void setCurrent_balance(BigDecimal current_balance) {
 
         if (current_balance == null || current_balance.compareTo(this.original_sum) > 0)
             throw new IllegalArgumentException("Balance must be bigger than original sum");
         this.current_balance = current_balance;
     }
+
     public LocalDate getOpen_date() {
 
         return open_date;
     }
+
     public void setOpen_date() {
         this.open_date = LocalDate.now();
         this.payment_day = this.open_date.getDayOfMonth();
         this.setNext_payment_date();
     }
+
     public void setOpen_date(LocalDate open_date) {
         this.open_date = open_date;
         this.payment_day = this.open_date.getDayOfMonth();
         this.setNext_payment_date();
     }
+
     public LocalDate getClose_date() {
         return close_date;
     }
+
     public void setClose_date(LocalDate close_date) {
         if (close_date == null || close_date.isBefore(this.open_date))
             throw new IllegalArgumentException("Close date must be before open date and can not be null");
@@ -102,42 +115,53 @@ public class Loan implements Account {
         this.term_month = ChronoUnit.MONTHS.between(this.open_date, this.close_date);
         this.CalculateMonthlyPayment(original_sum, (int) term_month);
     }
+
     public LocalDate getNext_payment_date() {
         return next_payment_date;
     }
+
     public void setNext_payment_date() {
         this.next_payment_date = this.open_date;
         this.next_payment_date = this.next_payment_date.plusMonths(1);
         this.next_payment_date = this.next_payment_date.withDayOfMonth(this.payment_day);
     }
+
     public long getTerm_month() {
         return term_month;
     }
+
     public void setTerm_month(int term_month) {
         if (term_month <= 0)
             throw new IllegalArgumentException("Term month must be positive");
     }
+
     public int getPayment_day() {
         return payment_day;
     }
+
     public void setPayment_day(int payment_day) {
         if (payment_day <= 0 || payment_day > 28)
             throw new IllegalArgumentException("Payment day must be positive and less than 28");
     }
+
     public BigDecimal getMonthly_payment() {
         return monthly_payment;
     }
+
     public void setMonthly_payment(BigDecimal monthly_payment) {
         if (monthly_payment.compareTo(BigDecimal.ZERO) <= 0)
             throw new IllegalArgumentException("Monthly payment must be positive");
         this.monthly_payment = monthly_payment;
     }
+
     public void setMonthly_payment(){
         this.monthly_payment = CalculateMonthlyPayment(this.original_sum, (int) this.term_month);
     }
+
     public BigDecimal getInterest_rate() {
         return interest_rate;
     }
+
     public void setInterest_rate(BigDecimal interest_rate) {
         if (interest_rate.compareTo(BigDecimal.ZERO) <= 0){
             throw new IllegalArgumentException("Interest rate must be positive");
@@ -145,10 +169,12 @@ public class Loan implements Account {
         this.interest_rate = interest_rate;
         this.setMonthly_rate();
     }
+
     public String getCurrency() {
 
         return currency;
     }
+
     public void setCurrency(String currency) {
         if (currency == null || currency.trim().isEmpty()) {
             throw new IllegalArgumentException("Currency cannot be empty.");
@@ -158,10 +184,12 @@ public class Loan implements Account {
         }
         this.currency = currency;
     }
+
     public AccountStatus getStatus() {
 
         return status;
     }
+
     public void setStatus(AccountStatus status) {
         boolean if_match_status = false;
         for (var account_status: AccountStatus.values()){
@@ -174,6 +202,7 @@ public class Loan implements Account {
             throw new IllegalArgumentException("AccountStatus must match TransactionStatus.");
         }
     }
+
     public void setMonthly_rate(){
         this.monthly_rate = this.interest_rate.divide(new  BigDecimal(1200), 4, BigDecimal.ROUND_HALF_UP);
     }
@@ -200,23 +229,28 @@ public class Loan implements Account {
                         ", \nStatus = " + status
         );
     }
+
     public void PrintFullInfo() {
         System.out.println(this.toString());
     }
+
     public void PrintInfo(){
         System.out.println("#" + this.id + " - " + this.original_sum + " " + this.currency + " (" + this.interest_rate + "%)\n" +
                 "Залишок: " + this.current_balance + " "+ this.currency +"\n" +
                 "Щомісячний платіж: "+ this.monthly_payment+ " " + this.currency +"\n" +
                 "Наступний платіж: " + this.next_payment_date);
     }
+
     public BigDecimal CalculateMonthlyPayment(BigDecimal sum, int months){
         BigDecimal temp = (this.monthly_rate.add(BigDecimal.valueOf(1))).pow(months);
         BigDecimal payment = sum.multiply(this.monthly_rate.multiply(temp).divide(temp.subtract(BigDecimal.valueOf(1)), 4, BigDecimal.ROUND_HALF_UP));
         return payment;
     }
+
     public void CalculateNextPaymentDate(){
         this.next_payment_date = this.next_payment_date.plusMonths(1);
     }
+
     public void RegularPayment(BigDecimal payment) throws PaymentException {
         if (payment == null || payment.compareTo(BigDecimal.ZERO) <= 0){
             throw new PaymentException("Payment date must be positive");
@@ -346,6 +380,7 @@ public class Loan implements Account {
         }
 
     }
+
     public void DisplaySchedule(){
         BigDecimal temp_balance = this.current_balance;
         long payment_index =  ChronoUnit.MONTHS.between(this.open_date, this.next_payment_date)+1;
@@ -360,6 +395,7 @@ public class Loan implements Account {
         }
 
     }
+
     public void Close(){
         //тут має бути метод який в базі даних знаходить кредит клієнта по їх ід та видаляє його або переносить
         //в таблицю архівів

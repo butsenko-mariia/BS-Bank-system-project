@@ -74,6 +74,7 @@ public class Card implements Account{
     public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
+
     public String getCurrency() {
         return currency;
     }
@@ -115,14 +116,17 @@ public class Card implements Account{
                         ", \nStatus = " + status
         );
     }
+
     public void PrintFullInfo() {
         System.out.println(this.toString());
     }
+
     public void PrintInfo(){
         System.out.println("#" + this.id + " - " + this.card_number + "\n" +
                 "тип карти - " + this.getCard_type().toString() + "\n" +
                 "Поточний баланс: " + this.balance + " " + this.currency);
     }
+
     public void Withdraw(BigDecimal amount){
         if (this.getStatus() == AccountStatus.BLOCKED){
             throw new IllegalStateException("Неможливо зняти кошти з заблокованої корти.");
@@ -136,6 +140,7 @@ public class Card implements Account{
         }
         this.balance = this.balance.subtract(amount);
     }
+
     public void TopUp(BigDecimal amount){
         if (this.getStatus() == AccountStatus.BLOCKED){
             throw new IllegalStateException("Неможливо поповнити кошти на заблоковану корту.");
@@ -146,9 +151,11 @@ public class Card implements Account{
         }
         this.balance = this.balance.add(amount);
     }
+
     public void Block(){
         this.setStatus(AccountStatus.BLOCKED);
     }
+
     public BigDecimal Close(){
         if (this.getStatus() == AccountStatus.BLOCKED) {
             throw new IllegalStateException("Неможливо закрити заблоковану картку.");

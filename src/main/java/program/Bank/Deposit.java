@@ -23,72 +23,89 @@ public abstract class Deposit implements Account{
     public UUID getId() {
         return id;
     }
+
     public void setId() {
         if (id != null) {
             throw new IllegalStateException("Deposit ID is already set");
         }
         this.id = UUID.randomUUID();
     }
+
     public void setId(UUID id) {
         if (id == null) {
             throw new NumberFormatException("Deposit ID is null");
         }
         this.id = id;
     }
+
     public UUID getClient_id() {
         return client_id;
     }
+
     public void setClient_id(UUID client_id) {
         //додати перевірку на існування клієнта
         if (client_id == null)
             throw new IllegalArgumentException("Client id cannot be null");
         this.client_id = client_id;
     }
+
     public BigDecimal getOriginal_sum() {
         return original_sum;
     }
+
     public void setOriginal_sum(BigDecimal original_sum) {
         if (original_sum == null || original_sum.compareTo(BigDecimal.ZERO) < 0)
             throw new IllegalArgumentException("Sum must be positive");
         this.original_sum = original_sum;
     }
+
     public BigDecimal getProfit() {
         return profit;
     }
+
     public void setProfit(BigDecimal profit) {
         if (profit == null || profit.compareTo(BigDecimal.ZERO) < 0)
             throw new IllegalArgumentException("Balance must be bigger than zero and must not be null");
         this.profit = profit;
     }
+
     public LocalDate getOpen_date() {
         return open_date;
     }
+
     public void setOpen_date() {
         this.open_date = LocalDate.now();
     }
+
     public void setOpen_date(LocalDate open_date) {
         this.open_date = open_date;
     }
+
     public LocalDate getClose_date() {
         return close_date;
     }
+
     public void setClose_date(LocalDate close_date) {
         if (close_date == null || close_date.isBefore(this.open_date))
             throw new IllegalArgumentException("Close date must be before open date and can not be null");
         this.close_date = close_date;
     }
+
     public BigDecimal getInterest_rate() {
         return interest_rate;
     }
+
     public void setInterest_rate(BigDecimal interest_rate) {
         if (interest_rate.compareTo(BigDecimal.ZERO) <= 0){
             throw new IllegalArgumentException("Interest rate must be positive");
         }
         this.interest_rate = interest_rate;
     }
+
     public String getCurrency() {
         return currency;
     }
+
     public void setCurrency(String currency) {
         if (currency == null || currency.trim().isEmpty()) {
             throw new IllegalArgumentException("Currency cannot be empty.");
@@ -98,9 +115,11 @@ public abstract class Deposit implements Account{
         }
         this.currency = currency;
     }
+
     public AccountStatus getStatus() {
         return status;
     }
+
     public void setStatus(AccountStatus status) {
         boolean if_match_status = false;
         for (var account_status: AccountStatus.values()){
@@ -113,9 +132,11 @@ public abstract class Deposit implements Account{
             throw new IllegalArgumentException("AccountStatus must match TransactionStatus.");
         }
     }
+
     public BigDecimal getTax(){
         return tax_rate.add(military_rate);
     }
+
     @Override
     public String toString() {
         this.InterestCalculation(LocalDate.now());
@@ -131,15 +152,18 @@ public abstract class Deposit implements Account{
                         ", \nStatus = " + this.status
         );
     }
+
     public void PrintFullInfo() {
         System.out.println(this.toString());
     }
+
     public void PrintInfo() {
         this.InterestCalculation(LocalDate.now());
         String info = "#" + this.id + " - " + this.original_sum + " " + this.currency + "(" + (this.interest_rate.multiply(BigDecimal.valueOf(100))) + "%)\n"+
                 "Дата закінчення: " + this.close_date + "\n"+
                 "Нараховано: " + this.profit;
     }
+
     abstract public void InterestCalculation(LocalDate date);
     public void Close(boolean confirm_early_close){
         this.InterestCalculation(LocalDate.now());
