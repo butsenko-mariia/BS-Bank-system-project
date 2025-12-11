@@ -8,6 +8,12 @@ import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 import java.util.UUID;
 
+class PaymentException extends Exception {
+    public PaymentException(String message) {
+        super(message);
+    }
+}
+
 public class Loan implements Account {
     private UUID id;
     private UUID client_id;
@@ -211,47 +217,89 @@ public class Loan implements Account {
     public void CalculateNextPaymentDate(){
         this.next_payment_date = this.next_payment_date.plusMonths(1);
     }
-    public void RegularPayment(BigDecimal payment){
+    public void RegularPayment(BigDecimal payment) throws PaymentException {
         if (payment == null || payment.compareTo(BigDecimal.ZERO) <= 0){
-            throw new IllegalArgumentException("Payment date must be positive");
+            throw new PaymentException("Payment date must be positive");
         }
-        BigDecimal interest = current_balance.multiply(monthly_rate);
 
+
+        try {
+            payment = processOverdueFine(payment);
+            payment = processExistingDebt(payment);
+            payment = processMonthlyInterest(payment);
+            processPrincipalBody(payment);
+        }
+        catch (PaymentException e){
+            System.out.println("Увага: " + e.getMessage());
+        }
+    }
+
+    private BigDecimal processOverdueFine(BigDecimal payment) throws PaymentException {
         if (this.next_payment_date.isBefore(LocalDate.now())){
             long days_overdue = ChronoUnit.DAYS.between(this.next_payment_date, LocalDate.now());
             BigDecimal daily_rate = this.interest_rate.divide(BigDecimal.valueOf(365), 10, BigDecimal.ROUND_HALF_UP);
             BigDecimal days_overdue_interest = this.current_balance.multiply(daily_rate).multiply(BigDecimal.valueOf(days_overdue));
-            System.out.println("Оскільки платіж прострочений, з суми платежу буде вирахувано: " + days_overdue_interest +
-                    " " + this.currency + ".");
+
+            String message = ("Нараховано пеню за " + days_overdue_interest +
+                    " днів:  " + days_overdue_interest + " " + this.currency + ".");
+            //log message
+            System.out.println(message);
+
             if (payment.compareTo(days_overdue_interest) < 0){
                 System.out.println("Внесеної суми недостатньо щоб покрити прострочку за пізній час сплати. Залишок " +
                         "перейде в борг по відсоткам.");
-                this.overdue_sum = this.overdue_sum.add(days_overdue_interest.subtract(payment));
-                return;
+                BigDecimal debt = days_overdue_interest.subtract(payment);
+                this.overdue_sum = this.overdue_sum.add(debt);
+                message = "Коштів не вистачило на покриття пені. Залишок боргу: " + debt;
+                throw new PaymentException(message);
             }
 
-            payment = payment.subtract(days_overdue_interest);
+           return payment.subtract(days_overdue_interest);
         }
+        return payment;
+    }
 
-        if (payment.compareTo(this.overdue_sum) < 0){
-            this.overdue_sum = this.overdue_sum.subtract(payment);
-            System.out.println("Внесеної суми недостатньо щоб покрити весь борг за минулі штрафи. Покриється лише " +
-                    "частина боргу. Поточний борг тепер зіставлятиме - " + this.overdue_sum + ".");
-            return;
+    private BigDecimal processExistingDebt(BigDecimal payment) throws PaymentException {
+        if (this.overdue_sum.compareTo(BigDecimal.ZERO) > 0) {
+            if (payment.compareTo(this.overdue_sum) < 0){
+                this.overdue_sum = this.overdue_sum.subtract(payment);
+                String message = ("Внесеної суми недостатньо щоб покрити весь борг за минулі штрафи. Покриється лише " +
+                        "частина боргу. Поточний борг тепер зіставлятиме - " + this.overdue_sum + ".");
+                System.out.println(message);
+                throw new PaymentException(message);
+                //log message
+            }
+
+            BigDecimal remaining = payment.subtract(this.overdue_sum);
+            this.overdue_sum = BigDecimal.ZERO;
+            String message = ("Старий борг за прострочку погашено повністю.");
+            // log
+            System.out.println(message);
+            return remaining;
         }
+        return payment;
+    }
 
-        payment = payment.subtract(this.overdue_sum);
+    private BigDecimal processMonthlyInterest(BigDecimal payment) throws PaymentException {
+        BigDecimal interest = current_balance.multiply(monthly_rate);
 
         if (payment.compareTo(interest) < 0){
             BigDecimal debt_sum = interest.subtract(payment);
             this.overdue_sum = this.overdue_sum.add(debt_sum);
-            System.out.println("Внесеної суми недостатньо щоб покрити місячний відсоток. Частина відсотків буде" +
+            String message = ("Внесеної суми недостатньо щоб покрити місячний відсоток. Частина відсотків буде" +
                     " погашена, недостаюча сума (" + debt_sum + " " + this.currency +") перейдe в борг.");
-            return;
+            System.out.println(message);
+            //log mes
+            throw new PaymentException(message);
         }
 
         CalculateNextPaymentDate();
-        payment = payment.subtract(interest);
+
+        return payment.subtract(interest);
+    }
+
+    private void processPrincipalBody(BigDecimal payment) {
+        BigDecimal interest = current_balance.multiply(monthly_rate);
         BigDecimal plannedBody = this.monthly_payment.subtract(interest);
 
         if (payment.compareTo(plannedBody) >= 0){
@@ -260,20 +308,28 @@ public class Loan implements Account {
                 return;
             }
 
-            System.out.println("Внесена сума перевищує місячний платіж. Сума щомісячного платежу буде зменшена.");
+            String message = ("Внесена сума перевищує місячний платіж. Переплата піде на погашення тіла. Сума щомісячного платежу буде зменшена.");
+            System.out.println(message);
+            //log mess
+            this.current_balance = this.current_balance.subtract(payment);
             long months_left = ChronoUnit.MONTHS.between(this.next_payment_date, this.close_date);
             int term = months_left <= 0 ? 1 : (int) months_left;
             this.monthly_payment = CalculateMonthlyPayment(this.current_balance, term);
 
-            this.current_balance = this.current_balance.subtract(payment);
+            message = ("Щомісячний платіж перераховано: " + this.monthly_payment);
+            System.out.println(message);
+            //log mess
         }
         else{
-            System.out.println("Внесена сума менша за встановлений місячний платіж. Відсотки та частина кредиту" +
-                    " буде погашена, недостаюча сума перейде в борг.");
             this.current_balance = this.current_balance.subtract(payment);
-            this.overdue_sum = this.overdue_sum.add(plannedBody.subtract(payment));
+            BigDecimal debt = plannedBody.subtract(payment);
+            this.overdue_sum = this.overdue_sum.add(debt);
+
+            System.out.println("Внесена сума менша за встановлений місячний платіж. Відсотки та частина кредиту" +
+                    " буде погашена, недостаюча сума: " + debt + " перейде в борг.");
         }
     }
+
     public void FullEarlyRepayment(BigDecimal payment){
         if (payment.compareTo(this.current_balance) >= 0){
             System.out.println("Внесеної суми достатньо для закриття кредиту. Ваш кредит закрито:)");
