@@ -1,82 +1,66 @@
 package program.Bank;
 
 import org.junit.jupiter.api.Test;
+import program.Bank.Enums.AccountStatus;
+
+import java.math.BigDecimal;
 import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CardTest {
-
-    // --- ТЕСТИ ДЛЯ ВАЛЮТИ ---
-
+    /**
+     * Перевіряє, чи коректно збільшується баланс картки при поповненні (TopUp).
+     * Очікуємо, що баланс стане рівним сумі поповнення (якщо був 0).
+     */
     @Test
-    void testCurrency_Valid() {
+    void testTopUpBalance() {
         Card card = new Card();
-        card.setCurrency("UAH");
-        assertEquals("UAH", card.getCurrency());
+        card.setBalance(BigDecimal.ZERO);
+
+         card.TopUp(new BigDecimal("100.50"));
+
+         assertEquals(0, new BigDecimal("100.50").compareTo(card.getBalance()), "The balance must be replenished correctly");
     }
 
+    /**
+     * Перевіряє успішне зняття коштів, коли на рахунку достатньо грошей.
+     * Очікуємо, що баланс зменшиться рівно на суму зняття.
+     */
     @Test
-    void testCurrency_Invalid_LowerCase() {
+    void testWithdrawSuccess() {
         Card card = new Card();
-        // Валюта маленькими літерами має викликати помилку
-        assertThrows(IllegalArgumentException.class, () -> card.setCurrency("uah"));
+        card.setBalance(new BigDecimal("500.00"));
+
+         card.Withdraw(new BigDecimal("200.00"));
+
+         assertEquals(0, new BigDecimal("300.00").compareTo(card.getBalance()), "There should be 300 left after withdrawal");
     }
 
+    /**
+     * Перевіряє захист від відходу в мінус.
+     * Очікуємо помилку ArithmeticException, якщо спробувати зняти більше грошей, ніж є.
+     */
     @Test
-    void testCurrency_Invalid_Length() {
+    void testWithdrawInsufficientFunds() {
         Card card = new Card();
-        assertThrows(IllegalArgumentException.class, () -> card.setCurrency("USDT"));
+        card.setBalance(new BigDecimal("100.00"));
+
+        assertThrows(ArithmeticException.class, () -> {
+            card.Withdraw(new BigDecimal("200.00"));
+        }, "An error should occur when trying to withdraw more than is in the account");
     }
 
-    // --- ТЕСТИ ДЛЯ ТИПУ КАРТИ ---
-
+    /**
+     * Перевіряє статус картки при операціях.
+     * Очікуємо помилку IllegalStateException, якщо спробувати поповнити заблоковану картку.
+     */
     @Test
-    void testCardType_Valid() {
+    void testOperationsOnBlockedCard() {
         Card card = new Card();
-        card.setCard_type(CardType.JUNIOR);
-        assertEquals(CardType.JUNIOR, card.getCard_type());
+        card.setStatus(AccountStatus.BLOCKED);
+
+        assertThrows(IllegalStateException.class, () -> {
+            card.TopUp(new BigDecimal("100"));
+        }, "You cannot top up a blocked card");
     }
-
-    // --- ТЕСТИ ДЛЯ CLIENT ID ---
-
-    @Test
-    void testClientId_NotNull() {
-        Card card = new Card();
-        UUID id = UUID.randomUUID();
-        card.setClient_id(id);
-        assertEquals(id, card.getClient_id());
-    }
-
-    @Test
-    void testClientId_Invalid_Null() {
-        Card card = new Card();
-        assertThrows(IllegalArgumentException.class, () -> card.setClient_id(null));
-    }
-
-    @Test
-    void testToString_WithNullFields() {
-        Card card = new Card();
-        String result = card.toString();
-        assertNotNull(result);
-        // Перевірити, як поводиться з null
-    }
-
-    @Test
-    void testEquals_SameId() {
-        Card card1 = new Card();
-        card1.id();
-        Card card2 = card1;
-        assertEquals(card1, card2);
-    }
-
-    @Test
-    void testHashCode_Consistency() {
-        Card card = new Card();
-        card.id();
-        int hash1 = card.hashCode();
-        int hash2 = card.hashCode();
-        assertEquals(hash1, hash2);
-    }
-
-
 }

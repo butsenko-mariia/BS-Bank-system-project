@@ -1,103 +1,49 @@
 package program.Bank.Builders;
 
 import org.junit.jupiter.api.Test;
-import program.Bank.AccountStatus;
 import program.Bank.Card;
-import program.Bank.CardType;
+import program.Bank.Enums.AccountStatus;
+import program.Bank.Enums.CardType;
+
 import java.math.BigDecimal;
 import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CardBuilderTest {
-
-    // 1. ПЕРЕВІРКА ЛАНЦЮЖКА ВИКЛИКІВ (FLUENT INTERFACE)
+    /**
+     * Перевіряє створення картки з певним балансом і типом.
+     */
     @Test
-    void testBuild_CreatesCardWithCorrectFields() {
-        UUID clientId = UUID.randomUUID();
-
-        // Act
+    void testBuildCard() {
         Card card = CardBuilder.create()
-                .client_id(clientId)
-                .card_type(CardType.JUNIOR)
-                .balance(new BigDecimal("1000.50"))
-                .currency("USD")
-                .status(AccountStatus.BLOCKED)
+                .card_number("1111-2222-3333-4444")
+                .card_type(CardType.UNIVERSAL)
+                .balance(new BigDecimal("1000.00"))
+                .status(AccountStatus.ACTIVE)
                 .build();
 
-        // Assert
-        assertNotNull(card.getId(), "ID карти має бути згенеровано");
-        assertEquals(clientId, card.getClient_id());
-        assertEquals(CardType.JUNIOR, card.getCard_type());
-        assertEquals(new BigDecimal("1000.50"), card.getBalance());
-        assertEquals("USD", card.getCurrency());
-        assertEquals(AccountStatus.BLOCKED, card.getStatus());
+        assertEquals("1111-2222-3333-4444", card.getCard_number());
+        assertEquals(CardType.UNIVERSAL, card.getCard_type());
+        assertEquals(0, new BigDecimal("1000.00").compareTo(card.getBalance()));
     }
 
-    // 2. ПЕРЕВІРКА ДЕФОЛТНИХ ЗНАЧЕНЬ (ті, що в методі createNew)
+    /**
+     * Перевіряє функцію reset().
+     * Вона повинна очищати поточний стан білдера і готувати його
+     * до створення абсолютно нової картки.
+     */
     @Test
-    void testCreate_SetsDefaultValues() {
-        Card card = CardBuilder.create().build();
-
-        assertNotNull(card.getId(), "ID має бути");
-        assertEquals(BigDecimal.ZERO, card.getBalance(), "Баланс має бути 0");
-        assertEquals("GRN", card.getCurrency(), "Валюта за замовчуванням - GRN");
-        assertEquals(AccountStatus.OPEN, card.getStatus(), "Статус за замовчуванням - OPEN");
-    }
-
-    // 3. ПЕРЕВІРКА РОБОТИ RESET
-    @Test
-    void testReset_CreatesNewInstance() {
+    void testResetBuilder() {
         CardBuilder builder = CardBuilder.create();
 
-        Card card1 = builder
-                .currency("USD")
-                .build();
+        Card card1 = builder.card_number("1234").build();
 
         builder.reset();
 
         Card card2 = builder.build();
 
-         assertNotSame(card1, card2);
-        assertNotEquals(card1.getId(), card2.getId());
-        assertEquals("USD", card1.getCurrency());
-        assertEquals("GRN", card2.getCurrency(), "Після reset валюта мала скинутися на дефолтну");
+        assertEquals("1234", card1.getCard_number());
+        assertNull(card2.getCard_number(), "After reset() the new map should be clean");
+        assertNotSame(card1, card2);
     }
-
-    // 4. ПЕРЕВІРКА ВАЛІДАЦІЇ ЧЕРЕЗ БУДІВЕЛЬНИК
-    @Test
-    void testBuilder_Validation() {
-         assertThrows(IllegalArgumentException.class, () -> {
-            CardBuilder.create()
-                    .client_id(null)
-                    .build();
-        });
-    }
-
-    @Test
-    void testBuilder_WithNullBalance() {
-        // Що станеться, якщо не встановити баланс?
-        Card card = CardBuilder.create()
-                .currency("USD")
-                .build();
-
-        assertEquals(BigDecimal.ZERO, card.getBalance(),
-                "Якщо баланс не встановлено, має бути 0");
-    }
-    // В CardBuilderTest
-    @Test
-    void testBuilder_OrderDoesNotMatter() {
-        Card card1 = CardBuilder.create()
-                .currency("USD")
-                .balance(new BigDecimal("100"))
-                .build();
-
-        Card card2 = CardBuilder.create()
-                .balance(new BigDecimal("100"))
-                .currency("USD")
-                .build();
-
-        assertEquals(card1.getCurrency(), card2.getCurrency());
-        assertEquals(card1.getBalance(), card2.getBalance());
-    }
-
 }

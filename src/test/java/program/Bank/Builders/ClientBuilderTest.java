@@ -2,74 +2,46 @@ package program.Bank.Builders;
 
 import org.junit.jupiter.api.Test;
 import program.Bank.Client;
-import program.Bank.ClientStatus;
+import program.Bank.Enums.ClientStatus;
+
+import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ClientBuilderTest {
-
-    // 1. ПЕРЕВІРКА "ЛАНЦЮЖКА" (FLUENT INTERFACE)
+    /**
+     * Перевіряє побудову клієнта через ланцюжок методів (Fluent Interface).
+     * Ми створюємо об'єкт з багатьма полями і перевіряємо, чи всі вони збереглися.
+     */
     @Test
-    void testBuild_CreatesClientWithCorrectFields() {
+    void testBuildFullClient() {
         Client client = ClientBuilder.create()
-                .full_name("Петренко Тарас")
-                .mobile_phone("+380991112233")
+                .full_name("Ivanenko Ivan")
+                .mobile_phone("+380991234567")
                 .sex("M")
-                .passport_number("AB123456")
+                .date_of_birth(LocalDate.of(1990, 1, 1))
+                .status(ClientStatus.ACTIVE)
                 .build();
 
-        // Assert
-        assertNotNull(client.getId(), "ID має генеруватися автоматично");
-        assertEquals("Петренко Тарас", client.getFull_name());
-        assertEquals("+380991112233", client.getMobile_phone());
+        assertNotNull(client.getId(), "ID must be generated");
+        assertEquals("Ivanenko Ivan", client.getFull_name());
+        assertEquals("+380991234567", client.getMobile_phone());
         assertEquals("M", client.getSex());
-        assertEquals("AB123456", client.getPassport_number());
+        assertEquals(ClientStatus.ACTIVE, client.getStatus());
     }
 
-    // 2. ПЕРЕВІРКА ДЕФОЛТНИХ ЗНАЧЕНЬ
+    /**
+     * Перевіряє, чи працює валідація всередині білдера.
+     * Якщо ми передаємо некоректний телефон у білдер, він має викликати
+     * ту ж помилку, що й звичайний сетер клієнта.
+     */
     @Test
-    void testCreate_SetsDefaultValues() {
-         Client client = ClientBuilder.create().build();
-
-        assertNotNull(client.getId(), "ID має бути згенеровано за замовчуванням");
-        assertEquals(ClientStatus.ACTIVE, client.getStatus(), "Статус за замовчуванням має бути ACTIVE");
-    }
-
-    // 3. ПЕРЕВІРКА РОБОТИ МЕТОДУ RESET
-    @Test
-    void testReset_CreatesNewInstance() {
-        ClientBuilder builder = ClientBuilder.create();
-
-         Client client1 = builder
-                .full_name("Клієнт Перший")
-                .build();
-
-         builder.reset();
-
-         Client client2 = builder
-                .full_name("Клієнт Другий")
-                .build();
-
-        // Перевірки
-        assertNotEquals(client1.getId(), client2.getId(), "Клієнти повинні мати різні ID");
-        assertNotEquals(client1.getFull_name(), client2.getFull_name());
-        assertNotSame(client1, client2, "Це мають бути два різні об'єкти в пам'яті");
-    }
-
-    // 4. ПЕРЕВІРКА ВАЛІДАЦІЇ (ЧИ БУДІВЕЛЬНИК КИДАЄ ПОМИЛКИ КЛАСУ CLIENT)
-    @Test
-    void testBuilder_PropagatesValidationErrors() {
-         assertThrows(IllegalArgumentException.class, () -> {
+    void testBuilderValidationPropagation() {
+        assertThrows(IllegalArgumentException.class, () -> {
             ClientBuilder.create()
-                    .mobile_phone("000")
+                    .full_name("Ivan")
+                    .mobile_phone("000") // Невірний формат
                     .build();
-        });
-    }
-    @Test
-    void testBuilder_EmptyBuild() {
-        // Що станеться, якщо нічого не встановити?
-        assertDoesNotThrow(() -> {
-            Client client = ClientBuilder.create().build();
-            assertNotNull(client.getId());
-        });
+        }, "The builder should throw an error if an invalid phone number is passed");
     }
 }
