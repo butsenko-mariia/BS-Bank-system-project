@@ -2,6 +2,7 @@ package program;
 
 import program.Bank.Builders.CardBuilder;
 import program.Bank.Card;
+import program.Bank.Loan;
 
 import java.io.FileWriter;
 import java.io.File;
@@ -11,6 +12,8 @@ public class App {
     private static File clientsInfoReader;
     private static FileWriter clientsInfoWriter;
     public static void main(String[] args) {
+        Loan loan = new Loan();
+        loan.PrintFullInfo();
 
 //        try{
 //            clientsInfoReader = new File("C:/DataBase/Clients.txt");
@@ -26,7 +29,8 @@ public class App {
         //ReadFile(clientsInfoReader);
     }
 
-//private static void ReadFile(File file) {
+private static void ReadFile(File file) {
+
 //    try {;
 //        Scanner scanner = new Scanner(file);
 //        while (scanner.hasNextLine()) {
@@ -38,7 +42,7 @@ public class App {
 //        System.out.println("Exception was occured.");
 //        e.printStackTrace();
 //    }
-//}
+}
 //    private static void WriteFile(FileWriter file){
 //        try {
 //            Client client = new Client();
