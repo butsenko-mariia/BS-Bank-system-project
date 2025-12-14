@@ -45,6 +45,9 @@ public class CardBuilder {
         return this;
     }
     public Card build() {
+        if (card == null || card.getId() == null || card.getClient_id() == null ||card.getCard_number() == null){
+            throw  new IllegalStateException("Some fields are null.");
+        }
         return card;
     }
     public void reset(){

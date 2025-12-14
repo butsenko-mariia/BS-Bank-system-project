@@ -49,6 +49,11 @@ public class CapitalizationDepositBuilder {
         return this;
     }
     public Deposit build(){
+        if (deposit == null || deposit.getId() == null || deposit.getClient_id() == null ||
+                deposit.getOriginal_sum() == null || deposit.getOpen_date() == null ||
+                deposit.getInterest_rate() == null || deposit.getClose_date() == null || deposit.getCurrency() == null){
+            throw  new IllegalStateException("Some fields are null.");
+        }
         return deposit;
     }
     public void reset(){

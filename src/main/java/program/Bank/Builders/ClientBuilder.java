@@ -66,6 +66,10 @@ public class ClientBuilder {
         return this;
     }
     public Client build() {
+        if (client == null || client.getId() == null || client.getFull_name() == null || client.getPassport_number() == null
+                || client.getIndividual_tax_number() == null) {
+            throw  new IllegalStateException("Some fields are null.");
+        }
         return client;
     }
     public void reset(){
