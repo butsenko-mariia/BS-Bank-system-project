@@ -1,5 +1,7 @@
 package program.Bank;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import program.Bank.Enums.AccountStatus;
 
 import java.math.BigDecimal;
@@ -31,6 +33,8 @@ public class Loan implements Account {
     private AccountStatus status;
     private BigDecimal overdue_sum;
     private BigDecimal change;
+
+    private static Logger log = LogManager.getLogger(Loan.class);
 
     public Loan(){
         this.setId();
@@ -231,6 +235,7 @@ public class Loan implements Account {
     }
 
     public void PrintFullInfo() {
+        log.trace("Виводиться повна інформація про поточний кредит.");
         System.out.println(this.toString());
     }
 
