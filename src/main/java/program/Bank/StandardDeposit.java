@@ -8,6 +8,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
 public class StandardDeposit extends Deposit{
+
     public StandardDeposit(){
         this.setId();
         this.setOpen_date();
@@ -17,6 +18,7 @@ public class StandardDeposit extends Deposit{
     public StandardDeposit(UUID id){
         this.setId(id);
     }
+
     public void InterestCalculation(LocalDate date){
         long days = ChronoUnit.DAYS.between(this.getOpen_date(), date);
         if (days < 0) days = 0;

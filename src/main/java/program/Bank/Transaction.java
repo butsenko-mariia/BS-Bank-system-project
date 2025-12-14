@@ -32,18 +32,21 @@ public class Transaction {
     public UUID getId() {
         return id;
     }
+
     public void setId() {
         if (id != null) {
             throw  new IllegalStateException("Transaction ID is already set");
         }
         this.id = UUID.randomUUID();
     }
+
     public void setId(UUID id) {
         if (id == null) {
             throw  new NumberFormatException("ID must be not null");
         }
         this.id =  id;
     }
+
     public LocalDate getOpen_date() {
         return open_date;
     }
@@ -65,6 +68,7 @@ public class Transaction {
     public BigDecimal getSum() {
         return sum;
     }
+
     public void setSum(BigDecimal sum) {
         if (sum.compareTo(BigDecimal.ZERO) == 0)
             throw new IllegalArgumentException("Sum must not be zero.");
@@ -79,6 +83,7 @@ public class Transaction {
     public String getCurrency() {
         return currency;
     }
+
     public void setCurrency(String currency) {
         if (currency == null || currency.trim().isEmpty()) {
             throw new IllegalArgumentException("Currency cannot be empty.");
@@ -88,6 +93,7 @@ public class Transaction {
         }
         this.currency = currency;
     }
+
     public String getOperation_info() {
         return operation_info;
     }
@@ -97,17 +103,21 @@ public class Transaction {
     public UUID getAccount_id_from() {
         return account_id_from;
     }
+
     public void setAccount_id_from(UUID account_id_from) {
         //дописати потім перевірку чи існує такий ід
         this.account_id_from = account_id_from;
     }
+
     public UUID getAccount_id_to() {
         return account_id_to;
     }
+
     public void setAccount_id_to(UUID account_id_to) {
         //дописати потім перевірку чи існує такий ід
         this.account_id_to = account_id_to;
     }
+
     public TransactionStatus getStatus() {
         return status;
     }
@@ -127,6 +137,7 @@ public class Transaction {
                 this.sign +" "+this.sum + " "+this.currency+"\n" +
                 "ID: "+this.id+"\n";
     }
+
     public void PrintInfo(){
         System.out.println(this.toString());
     }

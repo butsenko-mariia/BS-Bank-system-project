@@ -9,41 +9,46 @@ import java.util.UUID;
 public class Client
 {
     private UUID id;
-    private  String full_name;
+    private String full_name;
     private LocalDate date_of_birth;
-    private  String sex;
-    private  String nationality;
+    private String sex;
+    private String nationality;
     private String mobile_phone;
-    private  String individual_tax_number;
+    private String individual_tax_number;
     private String passport_number;
-    private  String legal_address;
+    private String legal_address;
     private String place_of_birth;
-    private  String record_number;
-    private  String place_of_work_or_study;
+    private String record_number;
+    private String place_of_work_or_study;
     private ClientStatus status;
 
     public Client(){
         this.setId();
         this.status=ClientStatus.ACTIVE;
     }
+
     public Client(UUID id) {
         this.setId(id);
     }
+
     public UUID getId() {
         return id;
     }
+
     public void setId() {
         if (id != null) {
             throw  new IllegalStateException("Client ID is already set");
         }
         this.id = UUID.randomUUID();
     }
+
     public void setId(UUID id) {
         if (id == null) {
             throw  new NumberFormatException("ID must be not null");
         }
         this.id =  id;
     }
+
     public String getFull_name() {
         return full_name;
     }
@@ -57,6 +62,7 @@ public class Client
         }
         this.full_name = full_name.trim();
     }
+
     public LocalDate getDate_of_birth() {
         return date_of_birth;
     }
@@ -107,6 +113,7 @@ public class Client
             throw new IllegalArgumentException("Individual tax  number cannot be empty.");
         this.individual_tax_number = individual_tax_number;
     }
+
     public String getPassport_number() {
         return passport_number;
     }
@@ -155,6 +162,7 @@ public class Client
             throw new IllegalArgumentException("Place of work/study cannot be empty.");
         this.place_of_work_or_study = place_of_work_or_study.trim();
     }
+
     public ClientStatus getStatus() {
         return status;
     }
@@ -174,6 +182,7 @@ public class Client
             throw new IllegalArgumentException("Invalid client status.");
         }
     }
+
     public BigDecimal getBalance() {
         BigDecimal balance = new BigDecimal(0);
         //тут має бути функція яка рахує суму на всії рахунках клієнта
@@ -202,9 +211,11 @@ public class Client
                         ",\nPlace of work or study = " + this.getPlace_of_work_or_study() +
                         ",\nClient status = " + this.getStatus() );
     }
+
     public void PrintClientFullInfo(){
         System.out.printf(this.toString());
     }
+
     public void PrintClientAccountInfo(){
         String info = "Вітаємо, Іван Петрович!\n" +
                 "Статус: "+ this.getStatus() +"\n" +
@@ -215,27 +226,33 @@ public class Client
         //"USD (#acc002) - 1,200 $ ";
         System.out.printf(info);
     }
+
     public void PrintClientTransactionHistory(){
         //тут має бути функція яка за номером ід клієнта знаходить усі транзакції з усіх рахунків даного клієнта
         String info = "";
         System.out.printf(info);
     }
+
     public void PrintClientActiveDeposit(){
         //тут має бути функція яка перебирає усі наявні депозити за номером ід клієнта в базі даних
         //які є активними та виводить інфу про них
     }
+
     public void PrintClientDepositHistory(){
         //тут має бути функція яка перебирає усі наявні депозити за номером ід клієнта в базі даних
         //та виводить інфу про кожен з них в порядку по даті створення
     }
+
     public void PrintClientActiveCredit(){
         //тут має бути функція яка перебирає усі наявні кредити за номером ід клієнта в базі даних
         //які є активними та виводить інфу про них
     }
+
     public void PrintClientCreditHistory(){
         //тут має бути функція яка перебирає усі наявні кредити за номером ід клієнта в базі даних
         //та виводить інфу про кожен з них в порядку по даті створення
     }
+
     public void PrintClientActiveCard(){
         //тут має бути функція яка перебирає усі наявні кредити за номером ід клієнта в базі даних
         //які є активними та виводить інфу про них
