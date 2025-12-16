@@ -23,7 +23,7 @@ public class Transaction {
         this.setId();
         this.setOpen_date();
         this.setOpen_time();
-        this.currency = "GRN";
+        this.currency = "UAH";
         this.operation_info = "no info";
     }
     public Transaction(UUID id){
