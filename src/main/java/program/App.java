@@ -2,6 +2,7 @@ package program;
 
 import program.Bank.Builders.CardBuilder;
 import program.Bank.Card;
+import program.Bank.Client;
 import program.Bank.Loan;
 
 import java.io.FileWriter;
@@ -14,6 +15,12 @@ public class App {
     public static void main(String[] args) {
         Loan loan = new Loan();
         loan.PrintFullInfo();
+
+        Card card = new Card();
+        card.PrintFullInfo();
+
+        Client client = new Client();
+        client.PrintClientFullInfo();
 
 //        try{
 //            clientsInfoReader = new File("C:/DataBase/Clients.txt");
