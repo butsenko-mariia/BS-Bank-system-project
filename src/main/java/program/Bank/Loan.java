@@ -42,7 +42,7 @@ public class Loan implements Account {
         this.overdue_sum = BigDecimal.ZERO;
         this.change = BigDecimal.ZERO;
         this.setStatus(AccountStatus.ACTIVE);
-        this.setCurrency("GRN");
+        this.setCurrency("UAH");
     }
 
     public UUID getId() {

@@ -18,7 +18,7 @@ public class Card implements Account{
     public Card() {
         this.setId();
         this.balance = BigDecimal.ZERO;
-        this.currency = "GRN";
+        this.currency = "UAH";
         this.status = AccountStatus.ACTIVE;
     }
     public Card(UUID id) {
