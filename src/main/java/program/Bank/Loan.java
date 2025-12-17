@@ -10,6 +10,11 @@ import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 import java.util.UUID;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 class PaymentException extends Exception {
     public PaymentException(String message) {
         super(message);
@@ -212,8 +217,51 @@ public class Loan implements Account {
     }
 
     public void Fetch(){
-        //тут має бути метод який підтягує всю інформацію про об'єкт з бази даних за його ід та задає полям
-        // даного екземпляру класу значення
+        log.info("Loading loan by ID: {}", id);
+        String query = "SELECT * FROM loan WHERE id = ?";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+            pstmt.setObject(1, this.id);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    this.setClient_id((UUID) rs.getObject("client_id"));
+                    this.setOriginal_sum(rs.getBigDecimal("original_sum"));
+                    this.setCurrent_balance(rs.getBigDecimal("current_balance"));
+
+
+                    if (rs.getDate("open_date") != null)
+                        this.setOpen_date(rs.getDate("open_date").toLocalDate());
+                    if (rs.getDate("close_date") != null)
+                        this.setClose_date(rs.getDate("close_date").toLocalDate());
+
+
+                    if (rs.getDate("next_payment_date") != null)
+                        this.next_payment_date = rs.getDate("next_payment_date").toLocalDate();
+
+                    this.term_month = rs.getLong("term_month");
+                    this.payment_day = rs.getInt("payment_day");
+                    this.setMonthly_payment(rs.getBigDecimal("monthly_payment"));
+                    this.setInterest_rate(rs.getBigDecimal("interest_rate"));
+
+                    this.monthly_rate = rs.getBigDecimal("monthly_rate");
+
+                    this.setCurrency(rs.getString("currency"));
+
+                    String statusStr = rs.getString("status");
+                    if (statusStr != null) this.setStatus(AccountStatus.valueOf(statusStr));
+
+                    this.overdue_sum = rs.getBigDecimal("overdue_sum");
+                    this.change = rs.getBigDecimal("change");
+
+                    log.debug("Loan loaded successfully");
+                }
+            }
+        } catch (SQLException e) {
+            log.error("SQL Error loading loan: " + e.getMessage());
+        }
     }
 
     @Override
