@@ -243,43 +243,4 @@ public abstract class Deposit implements Account {
 // в архівну таблицю
     }
 
-    public void Fetch() {
-        log.info("Loading deposit by ID: {}", id);
-        String query = "SELECT * FROM deposit WHERE id = ?";
-
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
-
-            pstmt.setObject(1, this.id);
-
-            try (ResultSet rs = pstmt.executeQuery()) {
-                if (rs.next()) {
-                    this.setClient_id((UUID) rs.getObject("client_id"));
-                    this.setOriginal_sum(rs.getBigDecimal("original_sum"));
-                    this.setProfit(rs.getBigDecimal("profit"));
-
-                    // Дати
-                    java.sql.Date openDate = rs.getDate("open_date");
-                    if (openDate != null) this.setOpen_date(openDate.toLocalDate());
-
-                    java.sql.Date closeDate = rs.getDate("close_date");
-                    if (closeDate != null) this.setClose_date(closeDate.toLocalDate());
-
-                    this.setInterest_rate(rs.getBigDecimal("interest_rate"));
-                    this.setCurrency(rs.getString("currency"));
-
-                    String statusStr = rs.getString("status");
-                    if (statusStr != null) {
-                        this.setStatus(AccountStatus.valueOf(statusStr));
-                    }
-
-                    log.debug("Deposit loaded successfully");
-                } else {
-                    log.warn("Deposit with ID {} not found", id);
-                }
-            }
-        } catch (SQLException e) {
-            log.error("SQL Error loading deposit: " + e.getMessage());
-        }
-    }
 }

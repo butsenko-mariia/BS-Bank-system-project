@@ -256,49 +256,6 @@ public class Client
         return balance;
     }
 
-    public void Fetch(){
-        log.info("Loading client data by ID: {}", id);
-
-         String query = "SELECT * FROM client WHERE id = ?";
-
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
-
-             pstmt.setObject(1, this.id);
-
-            try (ResultSet rs = pstmt.executeQuery()) {
-                if (rs.next()) {
-
-                    this.setFull_name(rs.getString("full_name"));
-
-                    java.sql.Date dbDate = rs.getDate("date_of_birth");
-                    if (dbDate != null) this.setDate_of_birth(dbDate.toLocalDate());
-
-                    this.setSex(rs.getString("sex"));
-                    this.setNationality(rs.getString("nationality"));
-                    this.setMobile_phone(rs.getString("mobile_phone"));
-                    this.setIndividual_tax_number(rs.getString("individual_tax_number"));
-                    this.setPassport_number(rs.getString("passport_number"));
-                    this.setLegal_address(rs.getString("legal_address"));
-                    this.setPlace_of_birth(rs.getString("place_of_birth"));
-                    this.setRecord_number(rs.getString("record_number"));
-                    this.setPlace_of_work_or_study(rs.getString("place_of_work_or_study"));
-
-                    String statusStr = rs.getString("status");
-                    if (statusStr != null) {
-                        this.setStatus(ClientStatus.valueOf(statusStr));
-                    }
-
-                    log.debug("Client with this ID not found in DB");
-                } else {
-                    log.warn("Клієнта з таким ID не знайдено в БД");
-                }
-            }
-        } catch (SQLException e) {
-            log.error("SQL Error: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
 
     @Override
     public String toString() {

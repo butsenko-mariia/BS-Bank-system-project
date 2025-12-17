@@ -1,10 +1,12 @@
 package program.Bank.Builders;
 
+import program.Bank.DateBase;
 import program.Bank.Enums.AccountStatus;
 import program.Bank.Card;
 import program.Bank.Enums.CardType;
 
 import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.util.UUID;
 
 public class CardBuilder {
@@ -40,8 +42,8 @@ public class CardBuilder {
         card.setStatus(status);
         return this;
     }
-    public CardBuilder fetch(){
-        card.Fetch();
+    public CardBuilder fetch() throws SQLException {
+        DateBase.Fetch(card);
         return this;
     }
     public Card build() {

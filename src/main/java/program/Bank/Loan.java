@@ -39,7 +39,6 @@ public class Loan implements Account {
     private BigDecimal overdue_sum;
     private BigDecimal change;
 
-    // Статичний логер
     private static final Logger log = LogManager.getLogger(Loan.class);
 
     public Loan(){
@@ -52,12 +51,31 @@ public class Loan implements Account {
         log.info("Created new Loan with ID: {}.", this.id);
     }
 
+    public Loan(UUID id){
+        this.setId(id);
+        log.debug("Initialized Loan with existing ID: {}.", id);
+    }
+
     public UUID getId() {
         return id;
     }
 
     public void setId() {
+        if (id != null) {
+            String msg = "Error: Attempt to overwrite existing Loan ID.";
+            log.error(msg);
+            throw new IllegalStateException(msg);
+        }
         this.id =  UUID.randomUUID();
+    }
+
+    public void setId(UUID id) {
+        if (id == null) {
+            String msg = "Error: Attempt to set null Transaction ID.";
+            log.error(msg);
+            throw new NumberFormatException(msg);
+        }
+        this.id =  id;
     }
 
     public UUID getClient_id() {
@@ -131,6 +149,7 @@ public class Loan implements Account {
         }
         this.close_date = close_date;
         this.term_month = ChronoUnit.MONTHS.between(this.open_date, this.close_date);
+        setMonthly_payment();
         this.CalculateMonthlyPayment(original_sum, (int) term_month);
         log.debug("Close date set: {}. Term calculated: {} months.", close_date, term_month);
     }
@@ -145,6 +164,14 @@ public class Loan implements Account {
         this.next_payment_date = this.next_payment_date.withDayOfMonth(this.payment_day);
     }
 
+    public void setNext_payment_date(LocalDate next_payment_date){
+        if (next_payment_date == null || next_payment_date.isBefore(this.open_date)) {
+            log.error("Error: Invalid next payment date.");
+            throw new IllegalArgumentException("Next payment date must be before open date and can not be null");
+        }
+        this.next_payment_date = next_payment_date;
+    }
+
     public long getTerm_month() {
         return term_month;
     }
@@ -154,6 +181,7 @@ public class Loan implements Account {
             log.error("Error: Invalid term month.");
             throw new IllegalArgumentException("Term month must be positive");
         }
+        this.term_month = term_month;
     }
 
     public int getPayment_day() {
@@ -228,55 +256,40 @@ public class Loan implements Account {
         log.debug("Monthly rate set: {}.", this.monthly_rate);
     }
 
-    public void Fetch(){
-
-        log.debug("Fetching loan data from DB for ID: {}.", this.id);
-        log.info("Loading loan by ID: {}", id);
-        String query = "SELECT * FROM loan WHERE id = ?";
-
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
-
-            pstmt.setObject(1, this.id);
-
-            try (ResultSet rs = pstmt.executeQuery()) {
-                if (rs.next()) {
-                    this.setClient_id((UUID) rs.getObject("client_id"));
-                    this.setOriginal_sum(rs.getBigDecimal("original_sum"));
-                    this.setCurrent_balance(rs.getBigDecimal("current_balance"));
-
-
-                    if (rs.getDate("open_date") != null)
-                        this.setOpen_date(rs.getDate("open_date").toLocalDate());
-                    if (rs.getDate("close_date") != null)
-                        this.setClose_date(rs.getDate("close_date").toLocalDate());
-
-
-                    if (rs.getDate("next_payment_date") != null)
-                        this.next_payment_date = rs.getDate("next_payment_date").toLocalDate();
-
-                    this.term_month = rs.getLong("term_month");
-                    this.payment_day = rs.getInt("payment_day");
-                    this.setMonthly_payment(rs.getBigDecimal("monthly_payment"));
-                    this.setInterest_rate(rs.getBigDecimal("interest_rate"));
-
-                    this.monthly_rate = rs.getBigDecimal("monthly_rate");
-
-                    this.setCurrency(rs.getString("currency"));
-
-                    String statusStr = rs.getString("status");
-                    if (statusStr != null) this.setStatus(AccountStatus.valueOf(statusStr));
-
-                    this.overdue_sum = rs.getBigDecimal("overdue_sum");
-                    this.change = rs.getBigDecimal("change");
-
-                    log.debug("Loan loaded successfully");
-                }
-            }
-        } catch (SQLException e) {
-            log.error("SQL Error loading loan: " + e.getMessage());
+    public void setMonthly_rate(BigDecimal monthly_rate){
+        if(monthly_rate.compareTo(BigDecimal.ZERO) <= 0){
+            log.error("Error: Invalid monthly rate.");
+            throw new IllegalArgumentException("Monthly rate must be positive");
         }
+        this.monthly_rate = monthly_rate;
+    }
 
+    public BigDecimal getMonthly_rate(){
+        return this.monthly_rate;
+    }
+
+    public void setOverdue_sum(BigDecimal overdue_sum){
+        if(overdue_sum.compareTo(BigDecimal.ZERO) < 0){
+            log.error("Error: Invalid overdue sum.");
+            throw new IllegalArgumentException("Overdue sum must be positive");
+        }
+        this.overdue_sum = overdue_sum;
+    }
+
+    public BigDecimal getOverdue_sum(){
+        return this.overdue_sum;
+    }
+
+    public  void setChange(BigDecimal change){
+        if(change.compareTo(BigDecimal.ZERO) < 0){
+            log.error("Error: Invalid change amount.");
+            throw new IllegalArgumentException("Change amount must be positive");
+        }
+        this.change = change;
+    }
+
+    public BigDecimal getChange(){
+        return this.change;
     }
 
     @Override
