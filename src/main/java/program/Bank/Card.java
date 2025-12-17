@@ -1,5 +1,10 @@
 package program.Bank;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import program.Bank.Enums.AccountStatus;
 import program.Bank.Enums.CardType;
 
@@ -138,10 +143,34 @@ public class Card implements Account{
     }
 
     public void Fetch(){
-        log.info("Завантаження даних з бази даних за ID: {}", id);
-        //тут має бути метод який підтягує всю інформацію про об'єкт з бази даних за його ід та задає полям
-        // даного екземпляру класу значення
-        log.debug("Дані успішно завантажено з БД");
+        log.info("Loading card data by ID: {}", id);
+        String query = "SELECT * FROM card WHERE id = ?";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+            pstmt.setObject(1, this.id);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                this.setClient_id((UUID) rs.getObject("client_id"));
+
+                this.setCard_number(rs.getString("card_number"));
+
+                this.setBalance(rs.getBigDecimal("balance"));
+                this.setCurrency(rs.getString("currency"));
+
+                String typeStr = rs.getString("card_type");
+                if (typeStr != null) this.setCard_type(CardType.valueOf(typeStr));
+
+                String statusStr = rs.getString("status");
+                if (statusStr != null) this.setStatus(AccountStatus.valueOf(statusStr));
+
+                log.debug("Card data loaded successfully");
+            }
+        } catch (SQLException e) {
+            log.error("Error loading card: " + e.getMessage());
+        }
     }
 
     @Override

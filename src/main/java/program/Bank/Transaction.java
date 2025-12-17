@@ -9,6 +9,11 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.UUID;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Transaction {
     private static final Logger log = LogManager.getLogger(Transaction.class);
 
@@ -215,7 +220,46 @@ public class Transaction {
 
     public void Fetch(){
         log.debug("Fetching transaction data from DB for ID: {}.", this.id);
-        // Тут буде логіка SQL
+        String query = "SELECT * FROM transaction WHERE id = ?";
+
+        try (Connection conn = DBConnection.getConnection();
+
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+            pstmt.setObject(1, this.id);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    if (rs.getDate("open_date") != null)
+                        this.setOpen_date(rs.getDate("open_date").toLocalDate());
+
+                    java.sql.Time sqlTime = rs.getTime("open_time");
+                    if (sqlTime != null) {
+                        this.setOpen_time(sqlTime.toLocalTime());
+                    }
+
+                    this.setSum(rs.getBigDecimal("sum"));
+                    this.setCurrency(rs.getString("currency"));
+                    this.setOperation_info(rs.getString("operation_info"));
+
+                    String signStr = rs.getString("sign");
+                    if (signStr != null && !signStr.isEmpty()) {
+                        this.sign = signStr.charAt(0); // Присвоюємо першу літеру
+                    }
+
+                    this.setAccount_id_from((UUID) rs.getObject("account_id_from"));
+                    this.setAccount_id_to((UUID) rs.getObject("account_id_to"));
+
+                    String statusStr = rs.getString("status");
+                    if (statusStr != null) {
+                        this.setStatus(TransactionStatus.valueOf(statusStr));
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Помилка при завантаженні транзакції: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     @Override

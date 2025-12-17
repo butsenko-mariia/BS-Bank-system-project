@@ -10,6 +10,11 @@ import java.time.LocalDate;
 import java.util.Scanner;
 import java.util.UUID;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public abstract class Deposit implements Account {
 
     private UUID id;
@@ -239,8 +244,42 @@ public abstract class Deposit implements Account {
     }
 
     public void Fetch() {
-        log.debug("Fetching deposit data from DB for ID: {}.", this.id);
-        //тут має бути метод який підтягує всю інформацію про об'єкт з бази даних за його ід та задає полям
-        // даного екземпляру класу значення
+        log.info("Loading deposit by ID: {}", id);
+        String query = "SELECT * FROM deposit WHERE id = ?";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+            pstmt.setObject(1, this.id);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    this.setClient_id((UUID) rs.getObject("client_id"));
+                    this.setOriginal_sum(rs.getBigDecimal("original_sum"));
+                    this.setProfit(rs.getBigDecimal("profit"));
+
+                    // Дати
+                    java.sql.Date openDate = rs.getDate("open_date");
+                    if (openDate != null) this.setOpen_date(openDate.toLocalDate());
+
+                    java.sql.Date closeDate = rs.getDate("close_date");
+                    if (closeDate != null) this.setClose_date(closeDate.toLocalDate());
+
+                    this.setInterest_rate(rs.getBigDecimal("interest_rate"));
+                    this.setCurrency(rs.getString("currency"));
+
+                    String statusStr = rs.getString("status");
+                    if (statusStr != null) {
+                        this.setStatus(AccountStatus.valueOf(statusStr));
+                    }
+
+                    log.debug("Deposit loaded successfully");
+                } else {
+                    log.warn("Deposit with ID {} not found", id);
+                }
+            }
+        } catch (SQLException e) {
+            log.error("SQL Error loading deposit: " + e.getMessage());
+        }
     }
 }
