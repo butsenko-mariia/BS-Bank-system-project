@@ -5,11 +5,16 @@ import program.Bank.DateBase;
 import program.Bank.Enums.ClientStatus;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class ClientBuilder {
     private Client client;
+
     public ClientBuilder(){
         client = new Client();
+    }
+    public ClientBuilder(UUID id){
+        client = new Client(id);
     }
     public static ClientBuilder create(){
         return new ClientBuilder();
@@ -64,6 +69,10 @@ public class ClientBuilder {
     }
     public ClientBuilder fetch(){
         DateBase.Fetch(client);
+        return this;
+    }
+    public ClientBuilder upload(){
+        DateBase.Upload(client);
         return this;
     }
     public Client build() {

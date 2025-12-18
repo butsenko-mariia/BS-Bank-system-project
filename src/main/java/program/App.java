@@ -44,5 +44,5 @@ public class App {
         card.PrintFullInfo();
         System.out.println("\n--- END CARD ---");
 
-    }
+       }
 }

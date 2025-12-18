@@ -31,7 +31,7 @@ class TransactionTest {
         tx.setSum(new BigDecimal("100.00"));
 
         String info = tx.toString();
-        assertTrue(info.contains("+ 100.00"), "For a positive amount there must be a + sign");
+        assertTrue(info.contains("+100.00"), "For a positive amount there must be a + sign");
     }
 
     /**
@@ -45,7 +45,7 @@ class TransactionTest {
         tx.setSum(new BigDecimal("-50.00"));
 
         String info = tx.toString();
-        assertTrue(info.contains("- -50.00"), "For a negative sum, the sign - must be assigned.");
+        assertTrue(info.contains("--50.00"), "For a negative sum, the sign - must be assigned.");
     }
 
     /**

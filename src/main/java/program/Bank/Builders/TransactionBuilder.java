@@ -15,6 +15,9 @@ public class TransactionBuilder {
     public TransactionBuilder(){
         transaction = new Transaction();
     }
+    public TransactionBuilder(UUID id){
+        transaction = new Transaction(id);
+    }
     public static TransactionBuilder create(){
         return new TransactionBuilder();
     }
@@ -56,6 +59,10 @@ public class TransactionBuilder {
     }
     public TransactionBuilder fetch(){
         DateBase.Fetch(transaction);
+        return this;
+    }
+    public TransactionBuilder upload(){
+        DateBase.Upload(transaction);
         return this;
     }
     public Transaction build(){

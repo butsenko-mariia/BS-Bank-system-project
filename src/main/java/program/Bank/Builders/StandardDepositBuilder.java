@@ -12,8 +12,13 @@ import java.util.UUID;
 
 public class StandardDepositBuilder {
     private StandardDeposit deposit;
+
+
     public StandardDepositBuilder(){
         deposit = new StandardDeposit();
+    }
+    public StandardDepositBuilder(UUID id){
+        deposit = new StandardDeposit(id);
     }
     public static StandardDepositBuilder create(){
         return new StandardDepositBuilder();
@@ -48,6 +53,10 @@ public class StandardDepositBuilder {
     }
     public StandardDepositBuilder fetch(){
         DateBase.Fetch(deposit);
+        return this;
+    }
+    public StandardDepositBuilder upload(){
+        DateBase.Upload(deposit);
         return this;
     }
     public Deposit build(){

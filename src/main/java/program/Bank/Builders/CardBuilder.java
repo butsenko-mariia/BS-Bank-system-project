@@ -15,6 +15,9 @@ public class CardBuilder {
     public CardBuilder() {
         card =  new Card();
     }
+    public CardBuilder(UUID id) {
+        card =  new Card(id);
+    }
     public static CardBuilder create(){
         return  new CardBuilder();
     }
@@ -42,8 +45,12 @@ public class CardBuilder {
         card.setStatus(status);
         return this;
     }
-    public CardBuilder fetch() throws SQLException {
+    public CardBuilder fetch() {
         DateBase.Fetch(card);
+        return this;
+    }
+    public CardBuilder upload() {
+        DateBase.Upload(card);
         return this;
     }
     public Card build() {

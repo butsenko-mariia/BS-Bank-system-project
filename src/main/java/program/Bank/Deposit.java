@@ -26,8 +26,8 @@ public abstract class Deposit implements Account {
     public BigDecimal interest_rate;
     private String currency;
     private AccountStatus status;
-    private final BigDecimal tax_rate = new BigDecimal("0.18");
-    private final BigDecimal military_rate = new BigDecimal("0.015");
+    private BigDecimal tax_rate = new BigDecimal("0.18");
+    private BigDecimal military_rate = new BigDecimal("0.015");
     private static final Logger log = LogManager.getLogger(Deposit.class);
 
     public UUID getId() {
@@ -160,6 +160,21 @@ public abstract class Deposit implements Account {
 
     public BigDecimal getTax() {
         return tax_rate.add(military_rate);
+    }
+    public BigDecimal getTax_rate() {
+        return tax_rate;
+    }
+
+    public void setTax_rate(BigDecimal tax_rate) {
+        this.tax_rate = tax_rate;
+    }
+
+    public BigDecimal getMilitary_rate() {
+        return military_rate;
+    }
+
+    public void setMilitary_rate(BigDecimal military_rate) {
+        this.military_rate = military_rate;
     }
 
     @Override

@@ -14,6 +14,9 @@ public class CapitalizationDepositBuilder {
     public CapitalizationDepositBuilder(){
         deposit = new CapitalizationDeposit();
     }
+    public CapitalizationDepositBuilder(UUID id){
+        deposit = new CapitalizationDeposit(id);
+    }
     public static CapitalizationDepositBuilder create(){
         return new CapitalizationDepositBuilder();
     }
@@ -47,6 +50,10 @@ public class CapitalizationDepositBuilder {
     }
     public CapitalizationDepositBuilder fetch(){
         DateBase.Fetch(deposit);
+        return this;
+    }
+    public CapitalizationDepositBuilder upload(){
+        DateBase.Upload(deposit);
         return this;
     }
     public Deposit build(){

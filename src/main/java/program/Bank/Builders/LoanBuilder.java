@@ -14,6 +14,9 @@ public class LoanBuilder {
     public LoanBuilder(){
         loan = new Loan();
     }
+    public LoanBuilder(UUID id){
+        loan = new Loan(id);
+    }
     public static LoanBuilder create(){
         return new LoanBuilder();
     }
@@ -63,6 +66,10 @@ public class LoanBuilder {
     }
     public LoanBuilder fetch(){
         DateBase.Fetch(loan);
+        return this;
+    }
+    public LoanBuilder upload(){
+        DateBase.Upload(loan);
         return this;
     }
     public Loan builder(){
