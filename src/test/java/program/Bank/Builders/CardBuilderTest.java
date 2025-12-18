@@ -7,43 +7,45 @@ import program.Bank.Enums.CardType;
 
 import java.math.BigDecimal;
 import java.util.UUID;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CardBuilderTest {
-    /**
-     * Перевіряє створення картки з певним балансом і типом.
-     */
+
     @Test
-    void testBuildCard() {
+    void testBuild_Valid() {
+        UUID clientId = UUID.randomUUID();
+        String number = "1234567890123456";
+
         Card card = CardBuilder.create()
-                .card_number("1111-2222-3333-4444")
-                .card_type(CardType.UNIVERSAL)
-                .balance(new BigDecimal("1000.00"))
+                .client_id(clientId)
+                .card_number(number)
+                .card_type(CardType.NATIONAL_CASHBACK)
+                .balance(BigDecimal.ZERO)
+                .currency("USD")
                 .status(AccountStatus.ACTIVE)
                 .build();
 
-        assertEquals("1111-2222-3333-4444", card.getCard_number());
-        assertEquals(CardType.UNIVERSAL, card.getCard_type());
-        assertEquals(0, new BigDecimal("1000.00").compareTo(card.getBalance()));
+        assertNotNull(card);
+        assertNotNull(card.getId());
+        assertEquals(clientId, card.getClient_id());
+        assertEquals(number, card.getCard_number());
+        assertEquals(CardType.NATIONAL_CASHBACK, card.getCard_type());
     }
 
-    /**
-     * Перевіряє функцію reset().
-     * Вона повинна очищати поточний стан білдера і готувати його
-     * до створення абсолютно нової картки.
-     */
     @Test
-    void testResetBuilder() {
-        CardBuilder builder = CardBuilder.create();
+    void testBuild_MissingCardNumber_ShouldThrowException() {
+        CardBuilder builder = CardBuilder.create()
+                .client_id(UUID.randomUUID());
 
-        Card card1 = builder.card_number("1234").build();
+        assertThrows(IllegalStateException.class, builder::build);
+    }
 
-        builder.reset();
+    @Test
+    void testBuild_MissingClientId_ShouldThrowException() {
+        CardBuilder builder = CardBuilder.create()
+                .card_number("1111222233334444");
 
-        Card card2 = builder.build();
-
-        assertEquals("1234", card1.getCard_number());
-        assertNull(card2.getCard_number(), "After reset() the new map should be clean");
-        assertNotSame(card1, card2);
+        assertThrows(IllegalStateException.class, builder::build);
     }
 }
