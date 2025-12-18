@@ -1,13 +1,10 @@
 package program;
 
 import program.Bank.*;
-import program.Bank.Builders.CardBuilder;
+import program.Bank.Menu.*;
 
 
-import java.io.FileWriter;
-import java.io.File;
-import java.io.PrintStream;
-import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 import java.util.UUID;
 
 public class App {
@@ -44,5 +41,33 @@ public class App {
         card.PrintFullInfo();
         System.out.println("\n--- END CARD ---");
 
+
+
+        Scanner scanner = new Scanner(System.in);
+
+        // 1. Створюємо базові команди навігації
+        Command back = new Return();
+        Command exit = new Exit();
+
+        // 2. Створюємо меню "Клієнти"
+        Menu clientMenu = new Menu("clients", scanner);
+        clientMenu.add(new CreateClient(scanner)); // Додаємо нашу команду
+        clientMenu.add(new Help("Меню для роботи з клієнтами"));
+        clientMenu.add(back);
+
+        // 3. Створюємо ГОЛОВНЕ МЕНЮ
+        Menu mainMenu = new Menu("main", scanner);
+
+        // Додаємо вкладене меню (Composite в дії!)
+        mainMenu.add(clientMenu);
+
+        // Додаємо команди головного меню
+        mainMenu.add(new Help("Головне меню системи"));
+        mainMenu.add(exit);
+
+        // 4. Запуск
+        mainMenu.execute();
+
+        scanner.close();
        }
 }
