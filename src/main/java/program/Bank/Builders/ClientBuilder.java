@@ -1,6 +1,7 @@
 package program.Bank.Builders;
 
 import program.Bank.Client;
+import program.Bank.DateBase;
 import program.Bank.Enums.ClientStatus;
 
 import java.time.LocalDate;
@@ -62,7 +63,7 @@ public class ClientBuilder {
         return this;
     }
     public ClientBuilder fetch(){
-        client.Fetch();
+        DateBase.Fetch(client);
         return this;
     }
     public Client build() {

@@ -1,6 +1,7 @@
 package program.Bank.Builders;
 
 import program.Bank.CapitalizationDeposit;
+import program.Bank.DateBase;
 import program.Bank.Enums.AccountStatus;
 import program.Bank.Deposit;
 
@@ -45,7 +46,7 @@ public class CapitalizationDepositBuilder {
         return this;
     }
     public CapitalizationDepositBuilder fetch(){
-        deposit.Fetch();
+        DateBase.Fetch(deposit);
         return this;
     }
     public Deposit build(){

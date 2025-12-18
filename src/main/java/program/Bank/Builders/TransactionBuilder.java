@@ -1,5 +1,6 @@
 package program.Bank.Builders;
 
+import program.Bank.DateBase;
 import program.Bank.Transaction;
 import program.Bank.Enums.TransactionStatus;
 
@@ -54,7 +55,7 @@ public class TransactionBuilder {
         return this;
     }
     public TransactionBuilder fetch(){
-        transaction.Fetch();
+        DateBase.Fetch(transaction);
         return this;
     }
     public Transaction build(){

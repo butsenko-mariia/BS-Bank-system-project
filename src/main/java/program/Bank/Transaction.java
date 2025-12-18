@@ -23,7 +23,7 @@ public class Transaction {
     private BigDecimal sum;
     private String currency;
     private String operation_info;
-    private char sign;
+    private String sign;
     private UUID account_id_from;
     private UUID account_id_to;
     private TransactionStatus status;
@@ -121,9 +121,9 @@ public class Transaction {
         this.sum = sum;
 
         if (this.sum.compareTo(BigDecimal.ZERO) > 0){
-            this.sign = '+';
+            this.sign = "+";
         } else  {
-            this.sign = '-';
+            this.sign = "-";
         }
         log.debug("Transaction sum set: {} (Sign: {}).", sum, this.sign);
     }
@@ -218,48 +218,16 @@ public class Transaction {
         log.debug("Transaction status updated: {}.", status);
     }
 
-    public void Fetch(){
-        log.debug("Fetching transaction data from DB for ID: {}.", this.id);
-        String query = "SELECT * FROM transaction WHERE id = ?";
-
-        try (Connection conn = DBConnection.getConnection();
-
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
-
-            pstmt.setObject(1, this.id);
-
-            try (ResultSet rs = pstmt.executeQuery()) {
-                if (rs.next()) {
-                    if (rs.getDate("open_date") != null)
-                        this.setOpen_date(rs.getDate("open_date").toLocalDate());
-
-                    java.sql.Time sqlTime = rs.getTime("open_time");
-                    if (sqlTime != null) {
-                        this.setOpen_time(sqlTime.toLocalTime());
-                    }
-
-                    this.setSum(rs.getBigDecimal("sum"));
-                    this.setCurrency(rs.getString("currency"));
-                    this.setOperation_info(rs.getString("operation_info"));
-
-                    String signStr = rs.getString("sign");
-                    if (signStr != null && !signStr.isEmpty()) {
-                        this.sign = signStr.charAt(0); // Присвоюємо першу літеру
-                    }
-
-                    this.setAccount_id_from((UUID) rs.getObject("account_id_from"));
-                    this.setAccount_id_to((UUID) rs.getObject("account_id_to"));
-
-                    String statusStr = rs.getString("status");
-                    if (statusStr != null) {
-                        this.setStatus(TransactionStatus.valueOf(statusStr));
-                    }
-                }
-            }
-        } catch (SQLException e) {
-            System.out.println("Помилка при завантаженні транзакції: " + e.getMessage());
-            e.printStackTrace();
+    public void setSign(String sign) {
+        if (sign == null || sign.trim().isEmpty() || (!sign.equals("+") && !sign.equals("-"))){
+            log.error("Invalid sign string.");
+            throw new IllegalArgumentException();
         }
+        this.sign = sign;
+    }
+
+    public String getSign() {
+        return sign;
     }
 
     @Override
