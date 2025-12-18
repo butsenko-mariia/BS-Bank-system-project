@@ -142,37 +142,6 @@ public class Card implements Account{
         log.debug("Статус картки успішно встановлено: {}", this.status);
     }
 
-    public void Fetch(){
-        log.info("Loading card data by ID: {}", id);
-        String query = "SELECT * FROM card WHERE id = ?";
-
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
-
-            pstmt.setObject(1, this.id);
-            ResultSet rs = pstmt.executeQuery();
-
-            if (rs.next()) {
-                this.setClient_id((UUID) rs.getObject("client_id"));
-
-                this.setCard_number(rs.getString("card_number"));
-
-                this.setBalance(rs.getBigDecimal("balance"));
-                this.setCurrency(rs.getString("currency"));
-
-                String typeStr = rs.getString("card_type");
-                if (typeStr != null) this.setCard_type(CardType.valueOf(typeStr));
-
-                String statusStr = rs.getString("status");
-                if (statusStr != null) this.setStatus(AccountStatus.valueOf(statusStr));
-
-                log.debug("Card data loaded successfully");
-            }
-        } catch (SQLException e) {
-            log.error("Error loading card: " + e.getMessage());
-        }
-    }
-
     @Override
     public String toString() {
         log.debug("Перетворення даних картки в текстове представлення");

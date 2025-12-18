@@ -256,49 +256,6 @@ public class Client
         return balance;
     }
 
-    public void Fetch(){
-        log.info("Loading client data by ID: {}", id);
-
-         String query = "SELECT * FROM client WHERE id = ?";
-
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
-
-             pstmt.setObject(1, this.id);
-
-            try (ResultSet rs = pstmt.executeQuery()) {
-                if (rs.next()) {
-
-                    this.setFull_name(rs.getString("full_name"));
-
-                    java.sql.Date dbDate = rs.getDate("date_of_birth");
-                    if (dbDate != null) this.setDate_of_birth(dbDate.toLocalDate());
-
-                    this.setSex(rs.getString("sex"));
-                    this.setNationality(rs.getString("nationality"));
-                    this.setMobile_phone(rs.getString("mobile_phone"));
-                    this.setIndividual_tax_number(rs.getString("individual_tax_number"));
-                    this.setPassport_number(rs.getString("passport_number"));
-                    this.setLegal_address(rs.getString("legal_address"));
-                    this.setPlace_of_birth(rs.getString("place_of_birth"));
-                    this.setRecord_number(rs.getString("record_number"));
-                    this.setPlace_of_work_or_study(rs.getString("place_of_work_or_study"));
-
-                    String statusStr = rs.getString("status");
-                    if (statusStr != null) {
-                        this.setStatus(ClientStatus.valueOf(statusStr));
-                    }
-
-                    log.debug("Client with this ID not found in DB");
-                } else {
-                    log.warn("Клієнта з таким ID не знайдено в БД");
-                }
-            }
-        } catch (SQLException e) {
-            log.error("SQL Error: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
 
     @Override
     public String toString() {
@@ -325,59 +282,4 @@ public class Client
         log.debug("Повну інформацію про клієнта виведено");
     }
 
-    public void PrintClientAccountInfo(){
-        log.info("Виведення інформації про рахунки клієнта ID: {}", id);
-        String info = "Вітаємо, Іван Петрович!\n" +
-                "Статус: "+ this.getStatus() +"\n" +
-                "Баланс: "+ this.getBalance() +" грн\n" +
-                "ВАШІ РАХУНКИ\n";
-        //тут має бути функція яка по номеру ід клієнта знаходить всі його рахунки в базі даних і виводить їх
-        //+ "UAH (#acc001) - 5,000 грн\n" +
-        //"USD (#acc002) - 1,200 $ ";
-        System.out.printf(info);
-        log.debug("Інформацію про рахунки клієнта виведено");
-    }
-
-    public void PrintClientTransactionHistory(){
-        log.info("Виведення історії транзакцій клієнта ID: {}", id);
-        //тут має бути функція яка за номером ід клієнта знаходить усі транзакції з усіх рахунків даного клієнта
-        String info = "";
-        System.out.printf(info);
-        log.debug("Історію транзакцій клієнта виведено");
-    }
-
-    public void PrintClientActiveDeposit(){
-        log.info("Виведення активних депозитів клієнта ID: {}", id);
-        //тут має бути функція яка перебирає усі наявні депозити за номером ід клієнта в базі даних
-        //які є активними та виводить інфу про них
-        log.debug("Активні депозити клієнта виведено");
-    }
-
-    public void PrintClientDepositHistory(){
-        log.info("Виведення історії депозитів клієнта ID: {}", id);
-        //тут має бути функція яка перебирає усі наявні депозити за номером ід клієнта в базі даних
-        //та виводить інфу про кожен з них в порядку по даті створення
-        log.debug("Історію депозитів клієнта виведено");
-    }
-
-    public void PrintClientActiveCredit(){
-        log.info("Виведення активних кредитів клієнта ID: {}", id);
-        //тут має бути функція яка перебирає усі наявні кредити за номером ід клієнта в базі даних
-        //які є активними та виводить інфу про них
-        log.debug("Активні кредити клієнта виведено");
-    }
-
-    public void PrintClientCreditHistory(){
-        log.info("Виведення історії кредитів клієнта ID: {}", id);
-        //тут має бути функція яка перебирає усі наявні кредити за номером ід клієнта в базі даних
-        //та виводить інфу про кожен з них в порядку по даті створення
-        log.debug("Історію кредитів клієнта виведено");
-    }
-
-    public void PrintClientActiveCard(){
-        log.info("Виведення активних карток клієнта ID: {}", id);
-        //тут має бути функція яка перебирає усі наявні кредити за номером ід клієнта в базі даних
-        //які є активними та виводить інфу про них
-        log.debug("Активні картки клієнта виведено");
-    }
 }

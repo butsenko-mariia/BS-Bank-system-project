@@ -1,10 +1,12 @@
 package program.Bank.Builders;
 
+import program.Bank.DateBase;
 import program.Bank.Enums.AccountStatus;
 import program.Bank.Card;
 import program.Bank.Enums.CardType;
 
 import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.util.UUID;
 
 public class CardBuilder {
@@ -12,6 +14,9 @@ public class CardBuilder {
 
     public CardBuilder() {
         card =  new Card();
+    }
+    public CardBuilder(UUID id) {
+        card =  new Card(id);
     }
     public static CardBuilder create(){
         return  new CardBuilder();
@@ -40,8 +45,12 @@ public class CardBuilder {
         card.setStatus(status);
         return this;
     }
-    public CardBuilder fetch(){
-        card.Fetch();
+    public CardBuilder fetch() {
+        DateBase.Fetch(card);
+        return this;
+    }
+    public CardBuilder upload() {
+        DateBase.Upload(card);
         return this;
     }
     public Card build() {

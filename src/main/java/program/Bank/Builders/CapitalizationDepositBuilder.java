@@ -1,6 +1,7 @@
 package program.Bank.Builders;
 
 import program.Bank.CapitalizationDeposit;
+import program.Bank.DateBase;
 import program.Bank.Enums.AccountStatus;
 import program.Bank.Deposit;
 
@@ -12,6 +13,9 @@ public class CapitalizationDepositBuilder {
     private CapitalizationDeposit deposit;
     public CapitalizationDepositBuilder(){
         deposit = new CapitalizationDeposit();
+    }
+    public CapitalizationDepositBuilder(UUID id){
+        deposit = new CapitalizationDeposit(id);
     }
     public static CapitalizationDepositBuilder create(){
         return new CapitalizationDepositBuilder();
@@ -45,7 +49,11 @@ public class CapitalizationDepositBuilder {
         return this;
     }
     public CapitalizationDepositBuilder fetch(){
-        deposit.Fetch();
+        DateBase.Fetch(deposit);
+        return this;
+    }
+    public CapitalizationDepositBuilder upload(){
+        DateBase.Upload(deposit);
         return this;
     }
     public Deposit build(){

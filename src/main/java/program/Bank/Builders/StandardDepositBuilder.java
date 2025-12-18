@@ -1,6 +1,7 @@
 package program.Bank.Builders;
 
 import program.Bank.CapitalizationDeposit;
+import program.Bank.DateBase;
 import program.Bank.Enums.AccountStatus;
 import program.Bank.Deposit;
 import program.Bank.StandardDeposit;
@@ -11,8 +12,13 @@ import java.util.UUID;
 
 public class StandardDepositBuilder {
     private StandardDeposit deposit;
+
+
     public StandardDepositBuilder(){
         deposit = new StandardDeposit();
+    }
+    public StandardDepositBuilder(UUID id){
+        deposit = new StandardDeposit(id);
     }
     public static StandardDepositBuilder create(){
         return new StandardDepositBuilder();
@@ -46,7 +52,11 @@ public class StandardDepositBuilder {
         return this;
     }
     public StandardDepositBuilder fetch(){
-        deposit.Fetch();
+        DateBase.Fetch(deposit);
+        return this;
+    }
+    public StandardDepositBuilder upload(){
+        DateBase.Upload(deposit);
         return this;
     }
     public Deposit build(){

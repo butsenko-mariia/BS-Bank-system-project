@@ -1,5 +1,6 @@
 package program.Bank.Builders;
 
+import program.Bank.DateBase;
 import program.Bank.Enums.AccountStatus;
 import program.Bank.Loan;
 
@@ -12,6 +13,9 @@ public class LoanBuilder {
 
     public LoanBuilder(){
         loan = new Loan();
+    }
+    public LoanBuilder(UUID id){
+        loan = new Loan(id);
     }
     public static LoanBuilder create(){
         return new LoanBuilder();
@@ -61,7 +65,11 @@ public class LoanBuilder {
         return this;
     }
     public LoanBuilder fetch(){
-        loan.Fetch();
+        DateBase.Fetch(loan);
+        return this;
+    }
+    public LoanBuilder upload(){
+        DateBase.Upload(loan);
         return this;
     }
     public Loan builder(){

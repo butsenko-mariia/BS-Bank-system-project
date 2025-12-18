@@ -26,8 +26,8 @@ public abstract class Deposit implements Account {
     public BigDecimal interest_rate;
     private String currency;
     private AccountStatus status;
-    private final BigDecimal tax_rate = new BigDecimal("0.18");
-    private final BigDecimal military_rate = new BigDecimal("0.015");
+    private BigDecimal tax_rate = new BigDecimal("0.18");
+    private BigDecimal military_rate = new BigDecimal("0.015");
     private static final Logger log = LogManager.getLogger(Deposit.class);
 
     public UUID getId() {
@@ -161,6 +161,21 @@ public abstract class Deposit implements Account {
     public BigDecimal getTax() {
         return tax_rate.add(military_rate);
     }
+    public BigDecimal getTax_rate() {
+        return tax_rate;
+    }
+
+    public void setTax_rate(BigDecimal tax_rate) {
+        this.tax_rate = tax_rate;
+    }
+
+    public BigDecimal getMilitary_rate() {
+        return military_rate;
+    }
+
+    public void setMilitary_rate(BigDecimal military_rate) {
+        this.military_rate = military_rate;
+    }
 
     @Override
     public String toString() {
@@ -243,43 +258,4 @@ public abstract class Deposit implements Account {
 // в архівну таблицю
     }
 
-    public void Fetch() {
-        log.info("Loading deposit by ID: {}", id);
-        String query = "SELECT * FROM deposit WHERE id = ?";
-
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
-
-            pstmt.setObject(1, this.id);
-
-            try (ResultSet rs = pstmt.executeQuery()) {
-                if (rs.next()) {
-                    this.setClient_id((UUID) rs.getObject("client_id"));
-                    this.setOriginal_sum(rs.getBigDecimal("original_sum"));
-                    this.setProfit(rs.getBigDecimal("profit"));
-
-                    // Дати
-                    java.sql.Date openDate = rs.getDate("open_date");
-                    if (openDate != null) this.setOpen_date(openDate.toLocalDate());
-
-                    java.sql.Date closeDate = rs.getDate("close_date");
-                    if (closeDate != null) this.setClose_date(closeDate.toLocalDate());
-
-                    this.setInterest_rate(rs.getBigDecimal("interest_rate"));
-                    this.setCurrency(rs.getString("currency"));
-
-                    String statusStr = rs.getString("status");
-                    if (statusStr != null) {
-                        this.setStatus(AccountStatus.valueOf(statusStr));
-                    }
-
-                    log.debug("Deposit loaded successfully");
-                } else {
-                    log.warn("Deposit with ID {} not found", id);
-                }
-            }
-        } catch (SQLException e) {
-            log.error("SQL Error loading deposit: " + e.getMessage());
-        }
-    }
 }

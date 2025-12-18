@@ -1,5 +1,6 @@
 package program.Bank.Builders;
 
+import program.Bank.DateBase;
 import program.Bank.Transaction;
 import program.Bank.Enums.TransactionStatus;
 
@@ -13,6 +14,9 @@ public class TransactionBuilder {
 
     public TransactionBuilder(){
         transaction = new Transaction();
+    }
+    public TransactionBuilder(UUID id){
+        transaction = new Transaction(id);
     }
     public static TransactionBuilder create(){
         return new TransactionBuilder();
@@ -54,7 +58,11 @@ public class TransactionBuilder {
         return this;
     }
     public TransactionBuilder fetch(){
-        transaction.Fetch();
+        DateBase.Fetch(transaction);
+        return this;
+    }
+    public TransactionBuilder upload(){
+        DateBase.Upload(transaction);
         return this;
     }
     public Transaction build(){
