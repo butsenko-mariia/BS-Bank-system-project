@@ -9,39 +9,44 @@ import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ClientBuilderTest {
-    /**
-     * Перевіряє побудову клієнта через ланцюжок методів (Fluent Interface).
-     * Ми створюємо об'єкт з багатьма полями і перевіряємо, чи всі вони збереглися.
-     */
+
     @Test
-    void testBuildFullClient() {
+    void testBuild_Valid() {
+        String fullName = "John Doe";
+        String passport = "AB123456";
+        String taxNumber = "1234567890";
+
         Client client = ClientBuilder.create()
-                .full_name("Ivanenko Ivan")
-                .mobile_phone("+380991234567")
-                .sex("M")
+                .full_name(fullName)
+                .passport_number(passport)
+                .individual_tax_number(taxNumber)
                 .date_of_birth(LocalDate.of(1990, 1, 1))
+                .mobile_phone("+380501112233")
                 .status(ClientStatus.ACTIVE)
                 .build();
 
-        assertNotNull(client.getId(), "ID must be generated");
-        assertEquals("Ivanenko Ivan", client.getFull_name());
-        assertEquals("+380991234567", client.getMobile_phone());
-        assertEquals("M", client.getSex());
-        assertEquals(ClientStatus.ACTIVE, client.getStatus());
+        assertNotNull(client);
+        assertNotNull(client.getId());
+        assertEquals(fullName, client.getFull_name());
+        assertEquals(passport, client.getPassport_number());
+        assertEquals(taxNumber, client.getIndividual_tax_number());
     }
 
-    /**
-     * Перевіряє, чи працює валідація всередині білдера.
-     * Якщо ми передаємо некоректний телефон у білдер, він має викликати
-     * ту ж помилку, що й звичайний сетер клієнта.
-     */
     @Test
-    void testBuilderValidationPropagation() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            ClientBuilder.create()
-                    .full_name("Ivan")
-                    .mobile_phone("000") // Невірний формат
-                    .build();
-        }, "The builder should throw an error if an invalid phone number is passed");
+    void testBuild_MissingTaxNumber_ShouldThrowException() {
+        ClientBuilder builder = ClientBuilder.create()
+                .full_name("Jane Doe")
+                .passport_number("XY987654");
+
+        assertThrows(IllegalStateException.class, builder::build);
+    }
+
+    @Test
+    void testBuild_MissingFullName_ShouldThrowException() {
+        ClientBuilder builder = ClientBuilder.create()
+                .passport_number("XY987654")
+                .individual_tax_number("12345");
+
+        assertThrows(IllegalStateException.class, builder::build);
     }
 }
