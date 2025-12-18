@@ -73,11 +73,11 @@ public class LoanBuilder {
         return this;
     }
     public Loan builder(){
-         if (loan == null || loan.getId() == null || loan.getClient_id() == null || loan.getOriginal_sum() == null
-                 || loan.getInterest_rate() == null|| loan.getOpen_date() == null|| loan.getClose_date() == null
-                 || loan.getCurrency() == null) {
-             throw  new IllegalStateException("Some fields are null.");
-             }
+        if (loan == null || loan.getId() == null || loan.getClient_id() == null || loan.getOriginal_sum() == null
+                || loan.getInterest_rate() == null|| loan.getOpen_date() == null|| loan.getClose_date() == null
+                || loan.getCurrency() == null) {
+            throw  new IllegalStateException("Some fields are null.");
+        }
         return loan;
     }
     public void reset(){
