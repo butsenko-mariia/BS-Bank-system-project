@@ -34,25 +34,25 @@ public class DateBase {
             statement.setObject(1, client.getId());
 
             ResultSet rs = statement.executeQuery();
-                if (rs.next()) {
+            if (rs.next()) {
 
-                    client.setFull_name(rs.getString("full_name"));
-                    client.setDate_of_birth(rs.getDate("date_of_birth").toLocalDate());
-                    client.setSex(rs.getString("sex"));
-                    client.setNationality(rs.getString("nationality"));
-                    client.setMobile_phone(rs.getString("mobile_phone"));
-                    client.setIndividual_tax_number(rs.getString("individual_tax_number"));
-                    client.setPassport_number(rs.getString("passport_number"));
-                    client.setLegal_address(rs.getString("legal_address"));
-                    client.setPlace_of_birth(rs.getString("place_of_birth"));
-                    client.setRecord_number(rs.getString("record_number"));
-                    client.setPlace_of_work_or_study(rs.getString("place_of_work_or_study"));
-                    client.setStatus(ClientStatus.valueOf(rs.getString("status")));
+                client.setFull_name(rs.getString("full_name"));
+                client.setDate_of_birth(rs.getDate("date_of_birth").toLocalDate());
+                client.setSex(rs.getString("sex"));
+                client.setNationality(rs.getString("nationality"));
+                client.setMobile_phone(rs.getString("mobile_phone"));
+                client.setIndividual_tax_number(rs.getString("individual_tax_number"));
+                client.setPassport_number(rs.getString("passport_number"));
+                client.setLegal_address(rs.getString("legal_address"));
+                client.setPlace_of_birth(rs.getString("place_of_birth"));
+                client.setRecord_number(rs.getString("record_number"));
+                client.setPlace_of_work_or_study(rs.getString("place_of_work_or_study"));
+                client.setStatus(ClientStatus.valueOf(rs.getString("status")));
 
-                    log.debug("Fetched client successfully.");
-                } else {
-                    log.warn("Client with this ID not found in DB.");
-                }
+                log.debug("Fetched client successfully.");
+            } else {
+                log.warn("Client with this ID not found in DB.");
+            }
 
         } catch (SQLException e) {
             log.error(e.getMessage());
@@ -71,24 +71,24 @@ public class DateBase {
             statement.setObject(1, deposit.getId());
 
             ResultSet rs = statement.executeQuery();
-                if (rs.next()) {
-                    deposit.setClient_id((UUID) rs.getObject("client_id"));
-                    deposit.setOriginal_sum(rs.getBigDecimal("original_sum"));
-                    deposit.setProfit(rs.getBigDecimal("profit"));
-                    deposit.setOpen_date(rs.getDate("open_date").toLocalDate());
-                    deposit.setClose_date(rs.getDate("close_date").toLocalDate());
-                    deposit.setInterest_rate(rs.getBigDecimal("interest_rate"));
-                    deposit.setCurrency(rs.getString("currency"));
-                    String statusStr = rs.getString("status");
-                    deposit.setStatus(AccountStatus.valueOf(statusStr));
-                    deposit.setTax_rate(rs.getBigDecimal("tax_rate"));
-                    deposit.setMilitary_rate(rs.getBigDecimal("military_rate"));
+            if (rs.next()) {
+                deposit.setClient_id((UUID) rs.getObject("client_id"));
+                deposit.setOriginal_sum(rs.getBigDecimal("original_sum"));
+                deposit.setProfit(rs.getBigDecimal("profit"));
+                deposit.setOpen_date(rs.getDate("open_date").toLocalDate());
+                deposit.setClose_date(rs.getDate("close_date").toLocalDate());
+                deposit.setInterest_rate(rs.getBigDecimal("interest_rate"));
+                deposit.setCurrency(rs.getString("currency"));
+                String statusStr = rs.getString("status");
+                deposit.setStatus(AccountStatus.valueOf(statusStr));
+                deposit.setTax_rate(rs.getBigDecimal("tax_rate"));
+                deposit.setMilitary_rate(rs.getBigDecimal("military_rate"));
 
-                    log.debug("Deposit loaded successfully");
-                }
-                else {
-                    log.warn("Deposit with ID {} not found", deposit);
-                }
+                log.debug("Deposit loaded successfully");
+            }
+            else {
+                log.warn("Deposit with ID {} not found", deposit);
+            }
 
         } catch (SQLException e) {
             log.error(e.getMessage());
@@ -217,31 +217,31 @@ public class DateBase {
     }
 
     public static void Upload(Client client) {
-            log.info("Uploading client data by ID: {}", client.getId());
-            final String sql = "INSERT INTO client (id, full_name, date_of_birth, sex, nationality, mobile_phone, individual_tax_number, passport_number, legal_address, place_of_birth, record_number, place_of_work_or_study, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        log.info("Uploading client data by ID: {}", client.getId());
+        final String sql = "INSERT INTO client (id, full_name, date_of_birth, sex, nationality, mobile_phone, individual_tax_number, passport_number, legal_address, place_of_birth, record_number, place_of_work_or_study, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-            try (Connection connection = Connection();
-                 PreparedStatement statement = connection.prepareStatement(sql)) {
+        try (Connection connection = Connection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
 
-                statement.setObject(1, client.getId());
-                statement.setString(2, client.getFull_name());
-                statement.setDate(3, java.sql.Date.valueOf(client.getDate_of_birth()));
-                statement.setString(4, client.getSex());
-                statement.setString(5, client.getNationality());
-                statement.setString(6, client.getMobile_phone());
-                statement.setString(7, client.getIndividual_tax_number());
-                statement.setString(8, client.getPassport_number());
-                statement.setString(9, client.getLegal_address());
-                statement.setString(10, client.getPlace_of_birth());
-                statement.setString(11, client.getRecord_number());
-                statement.setString(12, client.getPlace_of_work_or_study());
-                statement.setString(13, client.getStatus().toString());
-                statement.executeUpdate();
+            statement.setObject(1, client.getId());
+            statement.setString(2, client.getFull_name());
+            statement.setDate(3, java.sql.Date.valueOf(client.getDate_of_birth()));
+            statement.setString(4, client.getSex());
+            statement.setString(5, client.getNationality());
+            statement.setString(6, client.getMobile_phone());
+            statement.setString(7, client.getIndividual_tax_number());
+            statement.setString(8, client.getPassport_number());
+            statement.setString(9, client.getLegal_address());
+            statement.setString(10, client.getPlace_of_birth());
+            statement.setString(11, client.getRecord_number());
+            statement.setString(12, client.getPlace_of_work_or_study());
+            statement.setString(13, client.getStatus().toString());
+            statement.executeUpdate();
 
-                log.info("New client: {} was successfully created at base.", client.getFull_name());
-            } catch (SQLException e) {
-                System.err.println("Sql failed: " + e.getMessage());
-            }
+            log.info("New client: {} was successfully created at base.", client.getFull_name());
+        } catch (SQLException e) {
+            System.err.println("Sql failed: " + e.getMessage());
+        }
     }
 
     public static void Upload(Deposit deposit) {
@@ -329,6 +329,159 @@ public class DateBase {
 
             log.info("New transaction: {} was successfully created at base.", transaction.getId());
         } catch (SQLException e) {
+            System.err.println("Sql failed: " + e.getMessage());
+        }
+    }
+
+    public static void Update(Client client) {
+        log.info("Updating client data for ID: {}", client.getId());
+        String sql = "UPDATE client SET full_name=?, date_of_birth=?, sex=?, nationality=?, mobile_phone=?, " +
+                "individual_tax_number=?, passport_number=?, legal_address=?, place_of_birth=?, " +
+                "record_number=?, place_of_work_or_study=?, status=? WHERE id=?";
+
+        try (Connection connection = Connection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, client.getFull_name());
+            statement.setDate(2, java.sql.Date.valueOf(client.getDate_of_birth()));
+            statement.setString(3, client.getSex());
+            statement.setString(4, client.getNationality());
+            statement.setString(5, client.getMobile_phone());
+            statement.setString(6, client.getIndividual_tax_number());
+            statement.setString(7, client.getPassport_number());
+            statement.setString(8, client.getLegal_address());
+            statement.setString(9, client.getPlace_of_birth());
+            statement.setString(10, client.getRecord_number());
+            statement.setString(11, client.getPlace_of_work_or_study());
+            statement.setString(12, client.getStatus().toString());
+
+            statement.setObject(13, client.getId());
+
+            statement.executeUpdate();
+            log.info("Client {} updated successfully.", client.getFull_name());
+
+        } catch (SQLException e) {
+            log.error("Failed to update client: {}", e.getMessage());
+        }
+    }
+
+    public static void Update(Card card) {
+        log.info("Updating card data for ID: {}", card.getId());
+        String sql = "UPDATE card SET client_id=?, card_number=?, card_type=?, balance=?, currency=?, status=? WHERE id=?";
+
+        try (Connection connection = Connection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setObject(1, card.getClient_id());
+            statement.setString(2, card.getCard_number());
+            statement.setString(3, card.getCard_type().toString());
+            statement.setBigDecimal(4, card.getBalance());
+            statement.setString(5, card.getCurrency());
+            statement.setString(6, card.getStatus().toString());
+
+            statement.setObject(7, card.getId());
+
+            statement.executeUpdate();
+            log.info("Card {} updated successfully.", card.getCard_number());
+
+        } catch (SQLException e) {
+            log.error("Failed to update card: {}", e.getMessage());
+        }
+    }
+
+    public static void Update(Deposit deposit) {
+        log.info("Updating deposit data for ID: {}", deposit.getId());
+        String sql = "UPDATE deposit SET client_id=?, original_sum=?, profit=?, open_date=?, close_date=?, " +
+                "interest_rate=?, currency=?, status=?, tax_rate=?, military_rate=? WHERE id=?";
+
+        try (Connection connection = Connection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setObject(1, deposit.getClient_id());
+            statement.setBigDecimal(2, deposit.getOriginal_sum());
+            statement.setBigDecimal(3, deposit.getProfit());
+            statement.setDate(4, java.sql.Date.valueOf(deposit.getOpen_date()));
+            statement.setDate(5, java.sql.Date.valueOf(deposit.getClose_date()));
+            statement.setBigDecimal(6, deposit.getInterest_rate());
+            statement.setString(7, deposit.getCurrency());
+            statement.setString(8, deposit.getStatus().toString());
+            statement.setBigDecimal(9, deposit.getTax_rate());
+            statement.setBigDecimal(10, deposit.getMilitary_rate());
+
+            statement.setObject(11, deposit.getId());
+
+            statement.executeUpdate();
+            log.info("Deposit {} updated successfully.", deposit.getId());
+
+        } catch (SQLException e) {
+            log.error("Failed to update deposit: {}", e.getMessage());
+        }
+    }
+
+    public static void Update(Loan loan) {
+        log.info("Updating loan data for ID: {}", loan.getId());
+        String sql = "UPDATE loan SET client_id=?, original_sum=?, current_balance=?, open_date=?, close_date=?, " +
+                "next_payment_date=?, term_month=?, payment_day=?, monthly_payment=?, interest_rate=?, " +
+                "monthly_rate=?, currency=?, status=?, overdue_sum=?, change=? WHERE id=?";
+
+        try (Connection connection = Connection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setObject(1, loan.getClient_id());
+            statement.setBigDecimal(2, loan.getOriginal_sum());
+            statement.setBigDecimal(3, loan.getCurrent_balance());
+            statement.setDate(4, java.sql.Date.valueOf(loan.getOpen_date()));
+            statement.setDate(5, java.sql.Date.valueOf(loan.getClose_date()));
+
+            if (loan.getNext_payment_date() != null) {
+                statement.setDate(6, java.sql.Date.valueOf(loan.getNext_payment_date()));
+            }
+            statement.setLong(7, loan.getTerm_month());
+            statement.setInt(8, loan.getPayment_day());
+            statement.setBigDecimal(9, loan.getMonthly_payment());
+            statement.setBigDecimal(10, loan.getInterest_rate());
+            statement.setBigDecimal(11, loan.getMonthly_rate());
+            statement.setString(12, loan.getCurrency());
+            statement.setString(13, loan.getStatus().toString());
+            statement.setBigDecimal(14, loan.getOverdue_sum());
+            statement.setBigDecimal(15, loan.getChange());
+
+            statement.setObject(16, loan.getId());
+
+            statement.executeUpdate();
+            log.info("Loan {} updated successfully.", loan.getId());
+
+        } catch (SQLException e) {
+            log.error("Failed to update loan: {}", e.getMessage());
+        }
+    }
+
+    public static void Update(Transaction transaction) {
+        log.info("Updating transaction data for ID: {}", transaction.getId());
+
+        final String sql = "UPDATE transaction SET open_date=?, open_time=?, sum=?, currency=?, " +
+                "operation_info=?, sign=?, account_id_from=?, account_id_to=?, status=? WHERE id=?";
+
+        try (Connection connection = Connection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setDate(1, java.sql.Date.valueOf(transaction.getOpen_date()));
+            statement.setTime(2, java.sql.Time.valueOf(transaction.getOpen_time()));
+            statement.setBigDecimal(3, transaction.getSum());
+            statement.setString(4, transaction.getCurrency());
+            statement.setString(5, transaction.getOperation_info());
+            statement.setString(6, transaction.getSign());
+            statement.setObject(7, transaction.getAccount_id_from());
+            statement.setObject(8, transaction.getAccount_id_to());
+            statement.setString(9, transaction.getStatus().toString());
+
+            statement.setObject(10, transaction.getId());
+
+            statement.executeUpdate();
+            log.info("Transaction {} updated successfully.", transaction.getId());
+
+        } catch (SQLException e) {
+            log.error("Failed to update transaction: {}", e.getMessage());
             System.err.println("Sql failed: " + e.getMessage());
         }
     }
