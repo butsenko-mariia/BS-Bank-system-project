@@ -13,7 +13,7 @@ import java.util.UUID;
 public class DateBase {
     private static final String URL = "jdbc:postgresql://localhost:5432/BankSystem";
     private static final String USER = "postgres"; // зазвичай стандартний
-    private static final String PASSWORD = "new password";
+    private static final String PASSWORD = "291205nana";
     private static final Logger log = LogManager.getLogger(DateBase.class);
 
     public DateBase() {
@@ -333,6 +333,18 @@ public class DateBase {
         }
     }
 
+ public static java.util.List<Transaction> FetchAllTransactions(UUID clientId) {
+        log.info("Fetching all transactions for client: {}", clientId);
+        java.util.List<Transaction> history = new java.util.ArrayList<>();
+
+        String sql = """
+            SELECT t.* FROM transaction t
+            JOIN card c ON t.account_id_from = c.id OR t.account_id_to = c.id
+            WHERE c.client_id = ?
+            ORDER BY t.open_date DESC, t.open_time DESC
+        """;
+   }
+  
     public static void Update(Client client) {
         log.info("Updating client data for ID: {}", client.getId());
         String sql = "UPDATE client SET full_name=?, date_of_birth=?, sex=?, nationality=?, mobile_phone=?, " +
@@ -394,9 +406,9 @@ public class DateBase {
         String sql = "UPDATE deposit SET client_id=?, original_sum=?, profit=?, open_date=?, close_date=?, " +
                 "interest_rate=?, currency=?, status=?, tax_rate=?, military_rate=? WHERE id=?";
 
+
         try (Connection connection = Connection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
-
             statement.setObject(1, deposit.getClient_id());
             statement.setBigDecimal(2, deposit.getOriginal_sum());
             statement.setBigDecimal(3, deposit.getProfit());
@@ -486,3 +498,4 @@ public class DateBase {
         }
     }
 }
+
