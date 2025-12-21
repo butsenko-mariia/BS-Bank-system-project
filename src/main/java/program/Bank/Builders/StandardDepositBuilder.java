@@ -51,14 +51,6 @@ public class StandardDepositBuilder {
         deposit.setStatus(status);
         return this;
     }
-    public StandardDepositBuilder fetch(){
-        DateBase.Fetch(deposit);
-        return this;
-    }
-    public StandardDepositBuilder upload(){
-        DateBase.Upload(deposit);
-        return this;
-    }
     public Deposit build(){
         if (deposit == null || deposit.getId() == null || deposit.getClient_id() == null ||
                 deposit.getOriginal_sum() == null || deposit.getOpen_date() == null ||

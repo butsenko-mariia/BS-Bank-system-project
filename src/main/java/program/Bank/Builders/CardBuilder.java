@@ -45,14 +45,6 @@ public class CardBuilder {
         card.setStatus(status);
         return this;
     }
-    public CardBuilder fetch() {
-        DateBase.Fetch(card);
-        return this;
-    }
-    public CardBuilder upload() {
-        DateBase.Upload(card);
-        return this;
-    }
     public Card build() {
         if (card == null || card.getId() == null || card.getClient_id() == null ||card.getCard_number() == null){
             throw  new IllegalStateException("Some fields are null.");
