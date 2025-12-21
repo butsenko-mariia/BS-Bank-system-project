@@ -10,8 +10,9 @@ import java.util.UUID;
 public class App {
 
     public static void main(String[] args) {
-        System.setOut(new java.io.PrintStream(System.out, true, java.nio.charset.StandardCharsets.UTF_8));
 
+        System.setOut(new java.io.PrintStream(System.out, true, java.nio.charset.StandardCharsets.UTF_8));
+/*
         System.out.println("--- START CLIENT ---");
         String testClientIdString = "11111111-1111-1111-1111-111111111111";
         UUID id = UUID.fromString(testClientIdString);
@@ -41,31 +42,31 @@ public class App {
         card.PrintFullInfo();
         System.out.println("\n--- END CARD ---");
 
+*/
 
 
+        // 1. Створюємо інструменти
         Scanner scanner = new Scanner(System.in);
-
-        // 1. Створюємо базові команди навігації
-        Command back = new Return();
         Command exit = new Exit();
+        Command back = new Return();
 
-        // 2. Створюємо меню "Клієнти"
-        Menu clientMenu = new Menu("clients", scanner);
-        clientMenu.add(new CreateClient(scanner)); // Додаємо нашу команду
-        clientMenu.add(new Help("Меню для роботи з клієнтами"));
-        clientMenu.add(back);
+        // 2. Створюємо меню "ВХІД В АККАУНТ" (Другий рівень)
+        // Сюди додаємо наші команди пошуку, які ми створили раніше
+        Menu loginMenu = new Menu("login", "ВХІД В АККАУНТ", scanner);
+        loginMenu.add(new SearchClientByName(scanner));     // Пошук за ПІБ
+        loginMenu.add(new SearchClientByPhone(scanner));    // Пошук за телефоном
+        loginMenu.add(new SearchClientByPassport(scanner)); // Пошук за паспортом
+        loginMenu.add(back);                                // Кнопка "Назад"
 
-        // 3. Створюємо ГОЛОВНЕ МЕНЮ
-        Menu mainMenu = new Menu("main", scanner);
+        // 3. Створюємо ГОЛОВНЕ МЕНЮ (Перший рівень)
+        Menu mainMenu = new Menu("main", "БАНКІВСЬКА СИСТЕМА", scanner);
 
-        // Додаємо вкладене меню (Composite в дії!)
-        mainMenu.add(clientMenu);
+        // Додаємо пункти згідно з твоєю схемою:
+        mainMenu.add(new CreateClientCommand(scanner)); // 1. Створити аккаунт
+        mainMenu.add(loginMenu);                        // 2. Увійти в аккаунт (наше підменю)
+        mainMenu.add(exit);                             // 3. Вийти
 
-        // Додаємо команди головного меню
-        mainMenu.add(new Help("Головне меню системи"));
-        mainMenu.add(exit);
-
-        // 4. Запуск
+        // 4. Запускаємо
         mainMenu.execute();
 
         scanner.close();
