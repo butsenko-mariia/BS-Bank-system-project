@@ -1,4 +1,4 @@
-package program.Bank.Menu;
+package program.Bank.Enums;
 
 public enum Result {
     EXIT,

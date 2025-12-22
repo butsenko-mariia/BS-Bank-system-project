@@ -2,6 +2,8 @@ package program.Bank.Menu;
 
 
 import program.Bank.Client;
+import program.Bank.Enums.Result;
+
 import java.util.Scanner;
 
 public class ClientInfoMenu implements Command {
