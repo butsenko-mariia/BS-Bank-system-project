@@ -13,8 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Client
-{
+public class Client {
     private static Logger log = LogManager.getLogger(Client.class);
 
     private UUID id;
@@ -31,10 +30,10 @@ public class Client
     private String place_of_work_or_study;
     private ClientStatus status;
 
-    public Client(){
+    public Client() {
         log.debug("Створення нового екземпляру Client");
         this.setId();
-        this.status=ClientStatus.ACTIVE;
+        this.status = ClientStatus.ACTIVE;
         log.debug("Client створено зі статусом ACTIVE");
     }
 
@@ -51,7 +50,7 @@ public class Client
         log.info("Спроба генерації нового ID клієнта");
         if (id != null) {
             log.error("ID клієнта вже встановлено: {}", id);
-            throw  new IllegalStateException("Client ID is already set");
+            throw new IllegalStateException("Client ID is already set");
         }
         this.id = UUID.randomUUID();
         log.info("ID клієнта успішно згенеровано: {}", id);
@@ -61,9 +60,9 @@ public class Client
         log.info("Встановлення існуючого ID клієнта: {}", id);
         if (id == null) {
             log.error("Спроба встановити null як ID клієнта");
-            throw  new NumberFormatException("ID must be not null");
+            throw new NumberFormatException("ID must be not null");
         }
-        this.id =  id;
+        this.id = id;
         log.debug("ID клієнта успішно встановлено");
     }
 
@@ -273,13 +272,22 @@ public class Client
                         ",\nPlace of birt = " + this.getPlace_of_birth() +
                         ",\nRecord number = " + this.getRecord_number() +
                         ",\nPlace of work or study = " + this.getPlace_of_work_or_study() +
-                        ",\nClient status = " + this.getStatus() );
+                        ",\nClient status = " + this.getStatus());
     }
 
-    public void PrintClientFullInfo(){
+    public void PrintClientFullInfo() {
         log.info("Виведення повної інформації про клієнта ID: {}", id);
         System.out.printf(this.toString());
         log.debug("Повну інформацію про клієнта виведено");
     }
 
+    public void PrintInfo() {
+        log.debug("Виводимо коротку інформацію про клієнта");
+        String mes = String.format(
+                "Welcome, " + this.getFull_name() + "!\n" +
+                        "Status: " + this.getStatus() + "\n" +
+                        "Mobile phone: " + this.getMobile_phone());
+
+        System.out.printf(mes);
+    }
 }

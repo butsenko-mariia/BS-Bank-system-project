@@ -1,5 +1,7 @@
 package program.Bank.Menu;
 
+import program.Bank.Enums.Result;
+
 public abstract class MenuComponent {
     protected String name;
 

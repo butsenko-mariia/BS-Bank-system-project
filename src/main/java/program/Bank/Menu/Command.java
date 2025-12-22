@@ -2,6 +2,8 @@ package program.Bank.Menu;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import program.Bank.Enums.Result;
+
 import java.util.Scanner;
 
 //This is a leaf of composite pattern
