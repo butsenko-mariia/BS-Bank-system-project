@@ -14,7 +14,6 @@ import java.util.Scanner;
 import java.util.UUID;
 
 public class ClientService {
-    private final Scanner scanner = new Scanner(System.in);
     private final Logger log = LogManager.getLogger(ClientService.class);
     private final DataBase dataBase;
 
