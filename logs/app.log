@@ -59,7 +59,7 @@
 2025-12-17 23:41:05.663 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-17 23:41:05.667 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-17 23:41:05.668 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-17 23:41:05.669 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-17 23:41:05.669 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-17 23:41:06.085 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-17 23:41:06.086 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-17 23:41:06.087 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -84,13 +84,13 @@
 2025-12-17 23:41:06.090 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-17 23:41:06.091 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-17 23:41:06.091 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-17 23:41:06.091 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-17 23:41:06.091 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-17 23:41:06.092 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-17 23:41:06.093 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-17 23:41:06.096 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-17 23:41:06.108 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-17 23:41:06.108 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-17 23:41:06.108 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-17 23:41:06.108 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
 2025-12-17 23:41:06.155 [main] DEBUG program.Bank.Deposit - Client's ID was set: 11111111-1111-1111-1111-111111111111.
 2025-12-17 23:41:06.156 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
 2025-12-17 23:41:06.156 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
@@ -99,7 +99,7 @@
 2025-12-17 23:41:06.157 [main] DEBUG program.Bank.Deposit - Interest rate was set: 0.1400.
 2025-12-17 23:41:06.157 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
 2025-12-17 23:41:06.159 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
-2025-12-17 23:41:06.159 [main] DEBUG program.Bank.DateBase - Deposit loaded successfully
+2025-12-17 23:41:06.159 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
 2025-12-17 23:41:06.162 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-17 23:41:06.163 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 1081, Sum = 10000.0000, Rate = 0.1400.
 2025-12-17 23:41:06.163 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 4146.30.
@@ -118,16 +118,16 @@ Interest rate = 0.1400,
 Currency = UAH, 
 Status = ACTIVE.
 2025-12-17 23:41:06.168 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 10000007-7777-7777-7777-777777777777.
-2025-12-17 23:41:06.169 [main] INFO  program.Bank.DateBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
+2025-12-17 23:41:06.169 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
 2025-12-17 23:41:06.218 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 77777777-7777-7777-7777-777777777777.
 2025-12-17 23:41:06.218 [main] DEBUG program.Bank.Loan - Original sum set: 40000.0000.
 2025-12-17 23:41:06.218 [main] DEBUG program.Bank.Loan - Open date set: 2023-08-01.
-2025-12-17 23:41:06.219 [main] ERROR program.Bank.DateBase - Cannot invoke "java.math.BigDecimal.add(java.math.BigDecimal)" because "this.monthly_rate" is null
+2025-12-17 23:41:06.219 [main] ERROR program.Bank.DataBase - Cannot invoke "java.math.BigDecimal.add(java.math.BigDecimal)" because "this.monthly_rate" is null
 2025-12-17 23:41:06.226 [main] DEBUG program.Bank.Loan - Full loan info printed for ID: 10000007-7777-7777-7777-777777777777.
 2025-12-17 23:41:06.227 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: c0000004-4444-4444-4444-444444444444
 2025-12-17 23:41:06.228 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: c0000004-4444-4444-4444-444444444444
 2025-12-17 23:41:06.228 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
-2025-12-17 23:41:06.228 [main] INFO  program.Bank.DateBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
+2025-12-17 23:41:06.228 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
 2025-12-17 23:41:06.276 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 44444444-4444-4444-4444-444444444444
 2025-12-17 23:41:06.276 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
 2025-12-17 23:41:06.276 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5168 0000 0000 4444
@@ -140,14 +140,14 @@ Status = ACTIVE.
 2025-12-17 23:41:06.278 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: PAYMENT
 2025-12-17 23:41:06.278 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
 2025-12-17 23:41:06.278 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
-2025-12-17 23:41:06.278 [main] DEBUG program.Bank.DateBase - Card data loaded successfully
+2025-12-17 23:41:06.278 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
 2025-12-17 23:41:06.278 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: c0000004-4444-4444-4444-444444444444
 2025-12-17 23:41:06.279 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
 2025-12-17 23:41:06.280 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
 2025-12-17 23:57:20.246 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-17 23:57:20.250 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-17 23:57:20.251 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-17 23:57:20.252 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-17 23:57:20.252 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-17 23:57:20.515 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-17 23:57:20.515 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-17 23:57:20.516 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -172,13 +172,13 @@ Status = ACTIVE.
 2025-12-17 23:57:20.520 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-17 23:57:20.521 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-17 23:57:20.521 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-17 23:57:20.521 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-17 23:57:20.521 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-17 23:57:20.522 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-17 23:57:20.523 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-17 23:57:20.526 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-17 23:57:20.541 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-17 23:57:20.541 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-17 23:57:20.541 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-17 23:57:20.541 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
 2025-12-17 23:57:20.590 [main] DEBUG program.Bank.Deposit - Client's ID was set: 11111111-1111-1111-1111-111111111111.
 2025-12-17 23:57:20.591 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
 2025-12-17 23:57:20.591 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
@@ -187,7 +187,7 @@ Status = ACTIVE.
 2025-12-17 23:57:20.592 [main] DEBUG program.Bank.Deposit - Interest rate was set: 0.1400.
 2025-12-17 23:57:20.592 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
 2025-12-17 23:57:20.594 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
-2025-12-17 23:57:20.595 [main] DEBUG program.Bank.DateBase - Deposit loaded successfully
+2025-12-17 23:57:20.595 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
 2025-12-17 23:57:20.597 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-17 23:57:20.598 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 1081, Sum = 10000.0000, Rate = 0.1400.
 2025-12-17 23:57:20.598 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 4146.30.
@@ -206,16 +206,16 @@ Interest rate = 0.1400,
 Currency = UAH, 
 Status = ACTIVE.
 2025-12-17 23:57:20.604 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 10000007-7777-7777-7777-777777777777.
-2025-12-17 23:57:20.604 [main] INFO  program.Bank.DateBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
+2025-12-17 23:57:20.604 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
 2025-12-17 23:57:20.777 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 77777777-7777-7777-7777-777777777777.
 2025-12-17 23:57:20.777 [main] DEBUG program.Bank.Loan - Original sum set: 40000.0000.
 2025-12-17 23:57:20.777 [main] DEBUG program.Bank.Loan - Open date set: 2023-08-01.
-2025-12-17 23:57:20.778 [main] ERROR program.Bank.DateBase - Cannot invoke "java.math.BigDecimal.add(java.math.BigDecimal)" because "this.monthly_rate" is null
+2025-12-17 23:57:20.778 [main] ERROR program.Bank.DataBase - Cannot invoke "java.math.BigDecimal.add(java.math.BigDecimal)" because "this.monthly_rate" is null
 2025-12-17 23:57:20.784 [main] DEBUG program.Bank.Loan - Full loan info printed for ID: 10000007-7777-7777-7777-777777777777.
 2025-12-17 23:57:20.786 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: c0000004-4444-4444-4444-444444444444
 2025-12-17 23:57:20.786 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: c0000004-4444-4444-4444-444444444444
 2025-12-17 23:57:20.786 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
-2025-12-17 23:57:20.786 [main] INFO  program.Bank.DateBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
+2025-12-17 23:57:20.786 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
 2025-12-17 23:57:20.931 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 44444444-4444-4444-4444-444444444444
 2025-12-17 23:57:20.932 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
 2025-12-17 23:57:20.932 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5168 0000 0000 4444
@@ -228,14 +228,14 @@ Status = ACTIVE.
 2025-12-17 23:57:20.933 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: PAYMENT
 2025-12-17 23:57:20.933 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
 2025-12-17 23:57:20.934 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
-2025-12-17 23:57:20.934 [main] DEBUG program.Bank.DateBase - Card data loaded successfully
+2025-12-17 23:57:20.934 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
 2025-12-17 23:57:20.934 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: c0000004-4444-4444-4444-444444444444
 2025-12-17 23:57:20.934 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
 2025-12-17 23:57:20.937 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
 2025-12-18 00:52:42.864 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:52:42.868 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:52:42.869 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 00:52:42.870 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 00:52:42.870 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:52:43.163 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-18 00:52:43.164 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-18 00:52:43.165 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -260,13 +260,13 @@ Status = ACTIVE.
 2025-12-18 00:52:43.168 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-18 00:52:43.169 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-18 00:52:43.169 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-18 00:52:43.169 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-18 00:52:43.169 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-18 00:52:43.170 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:52:43.170 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-18 00:52:43.173 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-18 00:52:43.188 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-18 00:52:43.188 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-18 00:52:43.188 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-18 00:52:43.188 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
 2025-12-18 00:52:43.359 [main] DEBUG program.Bank.Deposit - Client's ID was set: 11111111-1111-1111-1111-111111111111.
 2025-12-18 00:52:43.360 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
 2025-12-18 00:52:43.360 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
@@ -275,7 +275,7 @@ Status = ACTIVE.
 2025-12-18 00:52:43.361 [main] DEBUG program.Bank.Deposit - Interest rate was set: 0.1400.
 2025-12-18 00:52:43.361 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
 2025-12-18 00:52:43.363 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
-2025-12-18 00:52:43.363 [main] DEBUG program.Bank.DateBase - Deposit loaded successfully
+2025-12-18 00:52:43.363 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
 2025-12-18 00:52:43.365 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-18 00:52:43.366 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 1082, Sum = 10000.0000, Rate = 0.1400.
 2025-12-18 00:52:43.366 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 4150.14.
@@ -294,7 +294,7 @@ Interest rate = 0.1400,
 Currency = UAH, 
 Status = ACTIVE.
 2025-12-18 00:52:43.371 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 10000007-7777-7777-7777-777777777777.
-2025-12-18 00:52:43.371 [main] INFO  program.Bank.DateBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
+2025-12-18 00:52:43.371 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
 2025-12-18 00:52:43.420 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 77777777-7777-7777-7777-777777777777.
 2025-12-18 00:52:43.420 [main] DEBUG program.Bank.Loan - Original sum set: 40000.0000.
 2025-12-18 00:52:43.421 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
@@ -306,12 +306,12 @@ Status = ACTIVE.
 2025-12-18 00:52:43.423 [main] DEBUG program.Bank.Loan - Close date set: 2024-08-01. Term calculated: 12 months.
 2025-12-18 00:52:43.426 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
 2025-12-18 00:52:43.426 [main] ERROR program.Bank.Loan - Error: Invalid overdue sum.
-2025-12-18 00:52:43.427 [main] ERROR program.Bank.DateBase - Overdue sum must be positive
+2025-12-18 00:52:43.427 [main] ERROR program.Bank.DataBase - Overdue sum must be positive
 2025-12-18 00:52:43.433 [main] DEBUG program.Bank.Loan - Full loan info printed for ID: 10000007-7777-7777-7777-777777777777.
 2025-12-18 00:52:43.434 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:52:43.435 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:52:43.435 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
-2025-12-18 00:52:43.435 [main] INFO  program.Bank.DateBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
+2025-12-18 00:52:43.435 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:52:43.487 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 44444444-4444-4444-4444-444444444444
 2025-12-18 00:52:43.487 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
 2025-12-18 00:52:43.487 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5168 0000 0000 4444
@@ -324,14 +324,14 @@ Status = ACTIVE.
 2025-12-18 00:52:43.489 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: PAYMENT
 2025-12-18 00:52:43.489 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
 2025-12-18 00:52:43.489 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
-2025-12-18 00:52:43.489 [main] DEBUG program.Bank.DateBase - Card data loaded successfully
+2025-12-18 00:52:43.489 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
 2025-12-18 00:52:43.489 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:52:43.490 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
 2025-12-18 00:52:43.492 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
 2025-12-18 00:52:51.786 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:52:51.789 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:52:51.790 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 00:52:51.791 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 00:52:51.791 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:52:52.047 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-18 00:52:52.048 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-18 00:52:52.049 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -356,13 +356,13 @@ Status = ACTIVE.
 2025-12-18 00:52:52.052 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-18 00:52:52.053 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-18 00:52:52.053 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-18 00:52:52.053 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-18 00:52:52.053 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-18 00:52:52.054 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:52:52.054 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-18 00:52:52.058 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-18 00:52:52.070 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-18 00:52:52.070 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-18 00:52:52.070 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-18 00:52:52.070 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
 2025-12-18 00:52:52.220 [main] DEBUG program.Bank.Deposit - Client's ID was set: 11111111-1111-1111-1111-111111111111.
 2025-12-18 00:52:52.221 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
 2025-12-18 00:52:52.221 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
@@ -371,7 +371,7 @@ Status = ACTIVE.
 2025-12-18 00:52:52.222 [main] DEBUG program.Bank.Deposit - Interest rate was set: 0.1400.
 2025-12-18 00:52:52.222 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
 2025-12-18 00:52:52.223 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
-2025-12-18 00:52:52.224 [main] DEBUG program.Bank.DateBase - Deposit loaded successfully
+2025-12-18 00:52:52.224 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
 2025-12-18 00:52:52.226 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-18 00:52:52.227 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 1082, Sum = 10000.0000, Rate = 0.1400.
 2025-12-18 00:52:52.227 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 4150.14.
@@ -390,7 +390,7 @@ Interest rate = 0.1400,
 Currency = UAH, 
 Status = ACTIVE.
 2025-12-18 00:52:52.232 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 10000007-7777-7777-7777-777777777777.
-2025-12-18 00:52:52.232 [main] INFO  program.Bank.DateBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
+2025-12-18 00:52:52.232 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
 2025-12-18 00:52:52.293 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 77777777-7777-7777-7777-777777777777.
 2025-12-18 00:52:52.294 [main] DEBUG program.Bank.Loan - Original sum set: 40000.0000.
 2025-12-18 00:52:52.294 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
@@ -402,12 +402,12 @@ Status = ACTIVE.
 2025-12-18 00:52:52.296 [main] DEBUG program.Bank.Loan - Close date set: 2024-08-01. Term calculated: 12 months.
 2025-12-18 00:52:52.299 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
 2025-12-18 00:52:52.300 [main] ERROR program.Bank.Loan - Error: Invalid overdue sum.
-2025-12-18 00:52:52.300 [main] ERROR program.Bank.DateBase - Overdue sum must be positive
+2025-12-18 00:52:52.300 [main] ERROR program.Bank.DataBase - Overdue sum must be positive
 2025-12-18 00:52:52.307 [main] DEBUG program.Bank.Loan - Full loan info printed for ID: 10000007-7777-7777-7777-777777777777.
 2025-12-18 00:52:52.309 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:52:52.309 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:52:52.309 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
-2025-12-18 00:52:52.309 [main] INFO  program.Bank.DateBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
+2025-12-18 00:52:52.309 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:52:52.471 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 44444444-4444-4444-4444-444444444444
 2025-12-18 00:52:52.471 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
 2025-12-18 00:52:52.472 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5168 0000 0000 4444
@@ -420,14 +420,14 @@ Status = ACTIVE.
 2025-12-18 00:52:52.473 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: PAYMENT
 2025-12-18 00:52:52.473 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
 2025-12-18 00:52:52.473 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
-2025-12-18 00:52:52.473 [main] DEBUG program.Bank.DateBase - Card data loaded successfully
+2025-12-18 00:52:52.473 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
 2025-12-18 00:52:52.474 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:52:52.474 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
 2025-12-18 00:52:52.476 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
 2025-12-18 00:53:31.187 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:53:31.192 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:53:31.192 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 00:53:31.193 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 00:53:31.193 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:53:31.551 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-18 00:53:31.552 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-18 00:53:31.553 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -452,13 +452,13 @@ Status = ACTIVE.
 2025-12-18 00:53:31.556 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-18 00:53:31.557 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-18 00:53:31.557 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-18 00:53:31.558 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-18 00:53:31.558 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-18 00:53:31.559 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:53:31.559 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-18 00:53:31.563 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-18 00:53:31.574 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-18 00:53:31.574 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-18 00:53:31.574 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-18 00:53:31.574 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
 2025-12-18 00:53:31.633 [main] DEBUG program.Bank.Deposit - Client's ID was set: 11111111-1111-1111-1111-111111111111.
 2025-12-18 00:53:31.634 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
 2025-12-18 00:53:31.634 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
@@ -467,7 +467,7 @@ Status = ACTIVE.
 2025-12-18 00:53:31.635 [main] DEBUG program.Bank.Deposit - Interest rate was set: 0.1400.
 2025-12-18 00:53:31.635 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
 2025-12-18 00:53:31.637 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
-2025-12-18 00:53:31.638 [main] DEBUG program.Bank.DateBase - Deposit loaded successfully
+2025-12-18 00:53:31.638 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
 2025-12-18 00:53:31.641 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-18 00:53:31.642 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 1082, Sum = 10000.0000, Rate = 0.1400.
 2025-12-18 00:53:31.643 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 4150.14.
@@ -486,7 +486,7 @@ Interest rate = 0.1400,
 Currency = UAH, 
 Status = ACTIVE.
 2025-12-18 00:53:31.651 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 10000007-7777-7777-7777-777777777777.
-2025-12-18 00:53:31.652 [main] INFO  program.Bank.DateBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
+2025-12-18 00:53:31.652 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
 2025-12-18 00:53:31.704 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 77777777-7777-7777-7777-777777777777.
 2025-12-18 00:53:31.704 [main] DEBUG program.Bank.Loan - Original sum set: 40000.0000.
 2025-12-18 00:53:31.704 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
@@ -498,12 +498,12 @@ Status = ACTIVE.
 2025-12-18 00:53:31.707 [main] DEBUG program.Bank.Loan - Close date set: 2024-08-01. Term calculated: 12 months.
 2025-12-18 00:53:31.709 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
 2025-12-18 00:53:31.710 [main] ERROR program.Bank.Loan - Error: Invalid change amount.
-2025-12-18 00:53:31.710 [main] ERROR program.Bank.DateBase - Change amount must be positive
+2025-12-18 00:53:31.710 [main] ERROR program.Bank.DataBase - Change amount must be positive
 2025-12-18 00:53:31.716 [main] DEBUG program.Bank.Loan - Full loan info printed for ID: 10000007-7777-7777-7777-777777777777.
 2025-12-18 00:53:31.717 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:53:31.717 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:53:31.717 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
-2025-12-18 00:53:31.718 [main] INFO  program.Bank.DateBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
+2025-12-18 00:53:31.718 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:53:31.762 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 44444444-4444-4444-4444-444444444444
 2025-12-18 00:53:31.762 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
 2025-12-18 00:53:31.762 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5168 0000 0000 4444
@@ -516,14 +516,14 @@ Status = ACTIVE.
 2025-12-18 00:53:31.764 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: PAYMENT
 2025-12-18 00:53:31.764 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
 2025-12-18 00:53:31.764 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
-2025-12-18 00:53:31.764 [main] DEBUG program.Bank.DateBase - Card data loaded successfully
+2025-12-18 00:53:31.764 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
 2025-12-18 00:53:31.765 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:53:31.765 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
 2025-12-18 00:53:31.767 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
 2025-12-18 00:53:40.061 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:53:40.064 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:53:40.065 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 00:53:40.066 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 00:53:40.066 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:53:40.416 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-18 00:53:40.416 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-18 00:53:40.417 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -548,13 +548,13 @@ Status = ACTIVE.
 2025-12-18 00:53:40.421 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-18 00:53:40.422 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-18 00:53:40.422 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-18 00:53:40.422 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-18 00:53:40.422 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-18 00:53:40.423 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:53:40.423 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-18 00:53:40.426 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-18 00:53:40.437 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-18 00:53:40.437 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-18 00:53:40.437 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-18 00:53:40.437 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
 2025-12-18 00:53:40.485 [main] DEBUG program.Bank.Deposit - Client's ID was set: 11111111-1111-1111-1111-111111111111.
 2025-12-18 00:53:40.486 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
 2025-12-18 00:53:40.486 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
@@ -563,7 +563,7 @@ Status = ACTIVE.
 2025-12-18 00:53:40.487 [main] DEBUG program.Bank.Deposit - Interest rate was set: 0.1400.
 2025-12-18 00:53:40.488 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
 2025-12-18 00:53:40.489 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
-2025-12-18 00:53:40.489 [main] DEBUG program.Bank.DateBase - Deposit loaded successfully
+2025-12-18 00:53:40.489 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
 2025-12-18 00:53:40.491 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-18 00:53:40.491 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 1082, Sum = 10000.0000, Rate = 0.1400.
 2025-12-18 00:53:40.492 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 4150.14.
@@ -582,7 +582,7 @@ Interest rate = 0.1400,
 Currency = UAH, 
 Status = ACTIVE.
 2025-12-18 00:53:40.496 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 10000007-7777-7777-7777-777777777777.
-2025-12-18 00:53:40.496 [main] INFO  program.Bank.DateBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
+2025-12-18 00:53:40.496 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
 2025-12-18 00:53:40.557 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 77777777-7777-7777-7777-777777777777.
 2025-12-18 00:53:40.557 [main] DEBUG program.Bank.Loan - Original sum set: 40000.0000.
 2025-12-18 00:53:40.557 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
@@ -593,12 +593,12 @@ Status = ACTIVE.
 2025-12-18 00:53:40.559 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 3692.00000000.
 2025-12-18 00:53:40.559 [main] DEBUG program.Bank.Loan - Close date set: 2024-08-01. Term calculated: 12 months.
 2025-12-18 00:53:40.562 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
-2025-12-18 00:53:40.562 [main] DEBUG program.Bank.DateBase - Loan loaded successfully
+2025-12-18 00:53:40.562 [main] DEBUG program.Bank.DataBase - Loan loaded successfully
 2025-12-18 00:53:40.568 [main] DEBUG program.Bank.Loan - Full loan info printed for ID: 10000007-7777-7777-7777-777777777777.
 2025-12-18 00:53:40.570 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:53:40.570 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:53:40.570 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
-2025-12-18 00:53:40.570 [main] INFO  program.Bank.DateBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
+2025-12-18 00:53:40.570 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:53:40.619 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 44444444-4444-4444-4444-444444444444
 2025-12-18 00:53:40.619 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
 2025-12-18 00:53:40.619 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5168 0000 0000 4444
@@ -611,14 +611,14 @@ Status = ACTIVE.
 2025-12-18 00:53:40.621 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: PAYMENT
 2025-12-18 00:53:40.621 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
 2025-12-18 00:53:40.621 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
-2025-12-18 00:53:40.621 [main] DEBUG program.Bank.DateBase - Card data loaded successfully
+2025-12-18 00:53:40.621 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
 2025-12-18 00:53:40.621 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:53:40.622 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
 2025-12-18 00:53:40.624 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
 2025-12-18 00:56:28.541 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:56:28.544 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:56:28.545 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 00:56:28.546 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 00:56:28.546 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:56:28.811 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-18 00:56:28.812 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-18 00:56:28.813 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -643,13 +643,13 @@ Status = ACTIVE.
 2025-12-18 00:56:28.816 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-18 00:56:28.817 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-18 00:56:28.817 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-18 00:56:28.817 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-18 00:56:28.817 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-18 00:56:28.818 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:56:28.818 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-18 00:56:28.821 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-18 00:56:28.832 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-18 00:56:28.832 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-18 00:56:28.833 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-18 00:56:28.833 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
 2025-12-18 00:56:28.980 [main] DEBUG program.Bank.Deposit - Client's ID was set: 11111111-1111-1111-1111-111111111111.
 2025-12-18 00:56:28.981 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
 2025-12-18 00:56:28.981 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
@@ -658,7 +658,7 @@ Status = ACTIVE.
 2025-12-18 00:56:28.982 [main] DEBUG program.Bank.Deposit - Interest rate was set: 0.1400.
 2025-12-18 00:56:28.982 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
 2025-12-18 00:56:28.983 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
-2025-12-18 00:56:28.983 [main] DEBUG program.Bank.DateBase - Deposit loaded successfully
+2025-12-18 00:56:28.983 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
 2025-12-18 00:56:28.985 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-18 00:56:28.986 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 1082, Sum = 10000.0000, Rate = 0.1400.
 2025-12-18 00:56:28.987 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 4150.14.
@@ -677,7 +677,7 @@ Interest rate = 0.1400,
 Currency = UAH, 
 Status = ACTIVE.
 2025-12-18 00:56:28.993 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 10000007-7777-7777-7777-777777777777.
-2025-12-18 00:56:28.993 [main] INFO  program.Bank.DateBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
+2025-12-18 00:56:28.993 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
 2025-12-18 00:56:29.054 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 77777777-7777-7777-7777-777777777777.
 2025-12-18 00:56:29.054 [main] DEBUG program.Bank.Loan - Original sum set: 40000.0000.
 2025-12-18 00:56:29.054 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
@@ -688,12 +688,12 @@ Status = ACTIVE.
 2025-12-18 00:56:29.056 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 3692.00000000.
 2025-12-18 00:56:29.056 [main] DEBUG program.Bank.Loan - Close date set: 2024-08-01. Term calculated: 12 months.
 2025-12-18 00:56:29.060 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
-2025-12-18 00:56:29.060 [main] DEBUG program.Bank.DateBase - Loan loaded successfully
+2025-12-18 00:56:29.060 [main] DEBUG program.Bank.DataBase - Loan loaded successfully
 2025-12-18 00:56:29.067 [main] DEBUG program.Bank.Loan - Full loan info printed for ID: 10000007-7777-7777-7777-777777777777.
 2025-12-18 00:56:29.069 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:56:29.069 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:56:29.069 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
-2025-12-18 00:56:29.069 [main] INFO  program.Bank.DateBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
+2025-12-18 00:56:29.069 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:56:29.120 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 44444444-4444-4444-4444-444444444444
 2025-12-18 00:56:29.121 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
 2025-12-18 00:56:29.121 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5168 0000 0000 4444
@@ -706,14 +706,14 @@ Status = ACTIVE.
 2025-12-18 00:56:29.123 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: PAYMENT
 2025-12-18 00:56:29.123 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
 2025-12-18 00:56:29.123 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
-2025-12-18 00:56:29.123 [main] DEBUG program.Bank.DateBase - Card data loaded successfully
+2025-12-18 00:56:29.123 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
 2025-12-18 00:56:29.123 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:56:29.123 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
 2025-12-18 00:56:29.126 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
 2025-12-18 00:56:35.183 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:56:35.187 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:56:35.188 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 00:56:35.189 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 00:56:35.189 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:56:35.439 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-18 00:56:35.439 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-18 00:56:35.441 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -738,13 +738,13 @@ Status = ACTIVE.
 2025-12-18 00:56:35.444 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-18 00:56:35.445 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-18 00:56:35.445 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-18 00:56:35.445 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-18 00:56:35.445 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-18 00:56:35.446 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:56:35.446 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-18 00:56:35.450 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-18 00:56:35.463 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-18 00:56:35.463 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-18 00:56:35.463 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-18 00:56:35.463 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
 2025-12-18 00:56:35.510 [main] DEBUG program.Bank.Deposit - Client's ID was set: 11111111-1111-1111-1111-111111111111.
 2025-12-18 00:56:35.511 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
 2025-12-18 00:56:35.511 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
@@ -753,7 +753,7 @@ Status = ACTIVE.
 2025-12-18 00:56:35.512 [main] DEBUG program.Bank.Deposit - Interest rate was set: 0.1400.
 2025-12-18 00:56:35.512 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
 2025-12-18 00:56:35.513 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
-2025-12-18 00:56:35.513 [main] DEBUG program.Bank.DateBase - Deposit loaded successfully
+2025-12-18 00:56:35.513 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
 2025-12-18 00:56:35.516 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-18 00:56:35.516 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 1082, Sum = 10000.0000, Rate = 0.1400.
 2025-12-18 00:56:35.516 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 4150.14.
@@ -772,7 +772,7 @@ Interest rate = 0.1400,
 Currency = UAH, 
 Status = ACTIVE.
 2025-12-18 00:56:35.521 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 10000007-7777-7777-7777-777777777777.
-2025-12-18 00:56:35.522 [main] INFO  program.Bank.DateBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
+2025-12-18 00:56:35.522 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
 2025-12-18 00:56:35.582 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 77777777-7777-7777-7777-777777777777.
 2025-12-18 00:56:35.582 [main] DEBUG program.Bank.Loan - Original sum set: 40000.0000.
 2025-12-18 00:56:35.582 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
@@ -783,12 +783,12 @@ Status = ACTIVE.
 2025-12-18 00:56:35.585 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 3692.00000000.
 2025-12-18 00:56:35.585 [main] DEBUG program.Bank.Loan - Close date set: 2024-08-01. Term calculated: 12 months.
 2025-12-18 00:56:35.588 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
-2025-12-18 00:56:35.588 [main] DEBUG program.Bank.DateBase - Loan loaded successfully
+2025-12-18 00:56:35.588 [main] DEBUG program.Bank.DataBase - Loan loaded successfully
 2025-12-18 00:56:35.594 [main] DEBUG program.Bank.Loan - Full loan info printed for ID: 10000007-7777-7777-7777-777777777777.
 2025-12-18 00:56:35.597 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:56:35.597 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:56:35.597 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
-2025-12-18 00:56:35.598 [main] INFO  program.Bank.DateBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
+2025-12-18 00:56:35.598 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:56:35.646 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 44444444-4444-4444-4444-444444444444
 2025-12-18 00:56:35.646 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
 2025-12-18 00:56:35.646 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5168 0000 0000 4444
@@ -801,14 +801,14 @@ Status = ACTIVE.
 2025-12-18 00:56:35.648 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: PAYMENT
 2025-12-18 00:56:35.648 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
 2025-12-18 00:56:35.648 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
-2025-12-18 00:56:35.648 [main] DEBUG program.Bank.DateBase - Card data loaded successfully
+2025-12-18 00:56:35.648 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
 2025-12-18 00:56:35.649 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:56:35.649 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
 2025-12-18 00:56:35.651 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
 2025-12-18 00:58:10.747 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:58:10.750 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:58:10.751 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 00:58:10.752 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 00:58:10.752 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:58:11.116 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-18 00:58:11.116 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-18 00:58:11.117 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -833,13 +833,13 @@ Status = ACTIVE.
 2025-12-18 00:58:11.120 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-18 00:58:11.121 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-18 00:58:11.121 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-18 00:58:11.121 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-18 00:58:11.121 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-18 00:58:11.122 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 00:58:11.122 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-18 00:58:11.125 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-18 00:58:11.136 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-18 00:58:11.136 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-18 00:58:11.136 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-18 00:58:11.136 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
 2025-12-18 00:58:11.183 [main] DEBUG program.Bank.Deposit - Client's ID was set: 11111111-1111-1111-1111-111111111111.
 2025-12-18 00:58:11.184 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
 2025-12-18 00:58:11.184 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
@@ -848,7 +848,7 @@ Status = ACTIVE.
 2025-12-18 00:58:11.185 [main] DEBUG program.Bank.Deposit - Interest rate was set: 0.1400.
 2025-12-18 00:58:11.185 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
 2025-12-18 00:58:11.186 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
-2025-12-18 00:58:11.186 [main] DEBUG program.Bank.DateBase - Deposit loaded successfully
+2025-12-18 00:58:11.186 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
 2025-12-18 00:58:11.189 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-18 00:58:11.189 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 1082, Sum = 10000.0000, Rate = 0.1400.
 2025-12-18 00:58:11.189 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 4150.14.
@@ -867,7 +867,7 @@ Interest rate = 0.1400,
 Currency = UAH, 
 Status = ACTIVE.
 2025-12-18 00:58:11.194 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 10000007-7777-7777-7777-777777777777.
-2025-12-18 00:58:11.194 [main] INFO  program.Bank.DateBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
+2025-12-18 00:58:11.194 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
 2025-12-18 00:58:11.240 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 77777777-7777-7777-7777-777777777777.
 2025-12-18 00:58:11.240 [main] DEBUG program.Bank.Loan - Original sum set: 40000.0000.
 2025-12-18 00:58:11.240 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
@@ -878,12 +878,12 @@ Status = ACTIVE.
 2025-12-18 00:58:11.242 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 3692.00000000.
 2025-12-18 00:58:11.242 [main] DEBUG program.Bank.Loan - Close date set: 2024-08-01. Term calculated: 12 months.
 2025-12-18 00:58:11.245 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
-2025-12-18 00:58:11.245 [main] DEBUG program.Bank.DateBase - Loan loaded successfully
+2025-12-18 00:58:11.245 [main] DEBUG program.Bank.DataBase - Loan loaded successfully
 2025-12-18 00:58:11.249 [main] DEBUG program.Bank.Loan - Full loan info printed for ID: 10000007-7777-7777-7777-777777777777.
 2025-12-18 00:58:11.250 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:58:11.250 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:58:11.250 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
-2025-12-18 00:58:11.250 [main] INFO  program.Bank.DateBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
+2025-12-18 00:58:11.250 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:58:11.407 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 44444444-4444-4444-4444-444444444444
 2025-12-18 00:58:11.407 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
 2025-12-18 00:58:11.407 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5168 0000 0000 4444
@@ -896,14 +896,14 @@ Status = ACTIVE.
 2025-12-18 00:58:11.409 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: PAYMENT
 2025-12-18 00:58:11.409 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
 2025-12-18 00:58:11.409 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
-2025-12-18 00:58:11.409 [main] DEBUG program.Bank.DateBase - Card data loaded successfully
+2025-12-18 00:58:11.409 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
 2025-12-18 00:58:11.409 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 00:58:11.409 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
 2025-12-18 00:58:11.412 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
 2025-12-18 01:00:24.835 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 01:00:24.840 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 01:00:24.840 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 01:00:24.842 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 01:00:24.842 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 01:00:25.101 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-18 01:00:25.101 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-18 01:00:25.102 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -928,13 +928,13 @@ Status = ACTIVE.
 2025-12-18 01:00:25.105 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-18 01:00:25.106 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-18 01:00:25.106 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-18 01:00:25.106 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-18 01:00:25.106 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-18 01:00:25.107 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 01:00:25.107 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-18 01:00:25.110 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-18 01:00:25.123 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-18 01:00:25.124 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-18 01:00:25.124 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-18 01:00:25.124 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
 2025-12-18 01:00:25.172 [main] DEBUG program.Bank.Deposit - Client's ID was set: 11111111-1111-1111-1111-111111111111.
 2025-12-18 01:00:25.173 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
 2025-12-18 01:00:25.173 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
@@ -943,7 +943,7 @@ Status = ACTIVE.
 2025-12-18 01:00:25.174 [main] DEBUG program.Bank.Deposit - Interest rate was set: 0.1400.
 2025-12-18 01:00:25.174 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
 2025-12-18 01:00:25.176 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
-2025-12-18 01:00:25.176 [main] DEBUG program.Bank.DateBase - Deposit loaded successfully
+2025-12-18 01:00:25.176 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
 2025-12-18 01:00:25.179 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-18 01:00:25.180 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 1082, Sum = 10000.0000, Rate = 0.1400.
 2025-12-18 01:00:25.180 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 4150.14.
@@ -962,7 +962,7 @@ Interest rate = 0.1400,
 Currency = UAH, 
 Status = ACTIVE.
 2025-12-18 01:00:25.186 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 10000007-7777-7777-7777-777777777777.
-2025-12-18 01:00:25.187 [main] INFO  program.Bank.DateBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
+2025-12-18 01:00:25.187 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
 2025-12-18 01:00:25.250 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 77777777-7777-7777-7777-777777777777.
 2025-12-18 01:00:25.250 [main] DEBUG program.Bank.Loan - Original sum set: 40000.0000.
 2025-12-18 01:00:25.251 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
@@ -973,12 +973,12 @@ Status = ACTIVE.
 2025-12-18 01:00:25.253 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 3692.00000000.
 2025-12-18 01:00:25.253 [main] DEBUG program.Bank.Loan - Close date set: 2024-08-01. Term calculated: 12 months.
 2025-12-18 01:00:25.256 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
-2025-12-18 01:00:25.256 [main] DEBUG program.Bank.DateBase - Loan loaded successfully
+2025-12-18 01:00:25.256 [main] DEBUG program.Bank.DataBase - Loan loaded successfully
 2025-12-18 01:00:25.261 [main] DEBUG program.Bank.Loan - Full loan info printed for ID: 10000007-7777-7777-7777-777777777777.
 2025-12-18 01:00:25.263 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 01:00:25.263 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: c0000004-4444-4444-4444-444444444444
 2025-12-18 01:00:25.263 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
-2025-12-18 01:00:25.263 [main] INFO  program.Bank.DateBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
+2025-12-18 01:00:25.263 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 01:00:25.314 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 44444444-4444-4444-4444-444444444444
 2025-12-18 01:00:25.314 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
 2025-12-18 01:00:25.315 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5168 0000 0000 4444
@@ -991,14 +991,14 @@ Status = ACTIVE.
 2025-12-18 01:00:25.317 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: PAYMENT
 2025-12-18 01:00:25.317 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
 2025-12-18 01:00:25.317 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
-2025-12-18 01:00:25.317 [main] DEBUG program.Bank.DateBase - Card data loaded successfully
+2025-12-18 01:00:25.317 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
 2025-12-18 01:00:25.317 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 01:00:25.318 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
 2025-12-18 01:00:25.320 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
 2025-12-18 01:01:58.303 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 01:01:58.306 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 01:01:58.307 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 01:01:58.308 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 01:01:58.308 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 01:01:58.558 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-18 01:01:58.559 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-18 01:01:58.560 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -1023,13 +1023,13 @@ Status = ACTIVE.
 2025-12-18 01:01:58.563 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-18 01:01:58.564 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-18 01:01:58.564 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-18 01:01:58.564 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-18 01:01:58.564 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-18 01:01:58.565 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 01:01:58.566 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-18 01:01:58.570 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-18 01:01:58.581 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-18 01:01:58.581 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-18 01:01:58.581 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-18 01:01:58.581 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
 2025-12-18 01:01:58.628 [main] DEBUG program.Bank.Deposit - Client's ID was set: 11111111-1111-1111-1111-111111111111.
 2025-12-18 01:01:58.629 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
 2025-12-18 01:01:58.629 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
@@ -1038,7 +1038,7 @@ Status = ACTIVE.
 2025-12-18 01:01:58.631 [main] DEBUG program.Bank.Deposit - Interest rate was set: 0.1400.
 2025-12-18 01:01:58.631 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
 2025-12-18 01:01:58.632 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
-2025-12-18 01:01:58.632 [main] DEBUG program.Bank.DateBase - Deposit loaded successfully
+2025-12-18 01:01:58.632 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
 2025-12-18 01:01:58.634 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-18 01:01:58.635 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 1082, Sum = 10000.0000, Rate = 0.1400.
 2025-12-18 01:01:58.635 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 4150.14.
@@ -1057,7 +1057,7 @@ Interest rate = 0.1400,
 Currency = UAH, 
 Status = ACTIVE.
 2025-12-18 01:01:58.640 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 10000007-7777-7777-7777-777777777777.
-2025-12-18 01:01:58.640 [main] INFO  program.Bank.DateBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
+2025-12-18 01:01:58.640 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
 2025-12-18 01:01:58.708 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 77777777-7777-7777-7777-777777777777.
 2025-12-18 01:01:58.709 [main] DEBUG program.Bank.Loan - Original sum set: 40000.0000.
 2025-12-18 01:01:58.709 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
@@ -1068,12 +1068,12 @@ Status = ACTIVE.
 2025-12-18 01:01:58.712 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 3692.00000000.
 2025-12-18 01:01:58.712 [main] DEBUG program.Bank.Loan - Close date set: 2024-08-01. Term calculated: 12 months.
 2025-12-18 01:01:58.715 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
-2025-12-18 01:01:58.715 [main] DEBUG program.Bank.DateBase - Loan loaded successfully
+2025-12-18 01:01:58.715 [main] DEBUG program.Bank.DataBase - Loan loaded successfully
 2025-12-18 01:01:58.721 [main] DEBUG program.Bank.Loan - Full loan info printed for ID: 10000007-7777-7777-7777-777777777777.
 2025-12-18 01:01:58.723 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 01:01:58.724 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: c0000004-4444-4444-4444-444444444444
 2025-12-18 01:01:58.724 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
-2025-12-18 01:01:58.724 [main] INFO  program.Bank.DateBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
+2025-12-18 01:01:58.724 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 01:01:58.881 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 44444444-4444-4444-4444-444444444444
 2025-12-18 01:01:58.882 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
 2025-12-18 01:01:58.882 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5168 0000 0000 4444
@@ -1086,14 +1086,14 @@ Status = ACTIVE.
 2025-12-18 01:01:58.884 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: PAYMENT
 2025-12-18 01:01:58.884 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
 2025-12-18 01:01:58.884 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
-2025-12-18 01:01:58.884 [main] DEBUG program.Bank.DateBase - Card data loaded successfully
+2025-12-18 01:01:58.884 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
 2025-12-18 01:01:58.885 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 01:01:58.885 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
 2025-12-18 01:01:58.888 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
 2025-12-18 01:02:03.433 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 01:02:03.437 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 01:02:03.438 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 01:02:03.439 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 01:02:03.439 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 01:02:03.692 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-18 01:02:03.692 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-18 01:02:03.693 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -1118,13 +1118,13 @@ Status = ACTIVE.
 2025-12-18 01:02:03.696 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-18 01:02:03.697 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-18 01:02:03.697 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-18 01:02:03.697 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-18 01:02:03.697 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-18 01:02:03.698 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 01:02:03.698 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-18 01:02:03.703 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-18 01:02:03.715 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-18 01:02:03.715 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-18 01:02:03.716 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-18 01:02:03.716 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
 2025-12-18 01:02:03.767 [main] DEBUG program.Bank.Deposit - Client's ID was set: 11111111-1111-1111-1111-111111111111.
 2025-12-18 01:02:03.768 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
 2025-12-18 01:02:03.768 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
@@ -1133,7 +1133,7 @@ Status = ACTIVE.
 2025-12-18 01:02:03.769 [main] DEBUG program.Bank.Deposit - Interest rate was set: 0.1400.
 2025-12-18 01:02:03.769 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
 2025-12-18 01:02:03.771 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
-2025-12-18 01:02:03.771 [main] DEBUG program.Bank.DateBase - Deposit loaded successfully
+2025-12-18 01:02:03.771 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
 2025-12-18 01:02:03.774 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-18 01:02:03.775 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 1082, Sum = 10000.0000, Rate = 0.1400.
 2025-12-18 01:02:03.775 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 4150.14.
@@ -1152,7 +1152,7 @@ Interest rate = 0.1400,
 Currency = UAH, 
 Status = ACTIVE.
 2025-12-18 01:02:03.780 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 10000007-7777-7777-7777-777777777777.
-2025-12-18 01:02:03.781 [main] INFO  program.Bank.DateBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
+2025-12-18 01:02:03.781 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
 2025-12-18 01:02:03.831 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 77777777-7777-7777-7777-777777777777.
 2025-12-18 01:02:03.831 [main] DEBUG program.Bank.Loan - Original sum set: 40000.0000.
 2025-12-18 01:02:03.831 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
@@ -1163,12 +1163,12 @@ Status = ACTIVE.
 2025-12-18 01:02:03.834 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 3692.00000000.
 2025-12-18 01:02:03.834 [main] DEBUG program.Bank.Loan - Close date set: 2024-08-01. Term calculated: 12 months.
 2025-12-18 01:02:03.837 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
-2025-12-18 01:02:03.837 [main] DEBUG program.Bank.DateBase - Loan loaded successfully
+2025-12-18 01:02:03.837 [main] DEBUG program.Bank.DataBase - Loan loaded successfully
 2025-12-18 01:02:03.842 [main] DEBUG program.Bank.Loan - Full loan info printed for ID: 10000007-7777-7777-7777-777777777777.
 2025-12-18 01:02:03.845 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 01:02:03.846 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: c0000004-4444-4444-4444-444444444444
 2025-12-18 01:02:03.846 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
-2025-12-18 01:02:03.846 [main] INFO  program.Bank.DateBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
+2025-12-18 01:02:03.846 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 01:02:03.895 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 44444444-4444-4444-4444-444444444444
 2025-12-18 01:02:03.895 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
 2025-12-18 01:02:03.895 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5168 0000 0000 4444
@@ -1181,14 +1181,14 @@ Status = ACTIVE.
 2025-12-18 01:02:03.897 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: PAYMENT
 2025-12-18 01:02:03.898 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
 2025-12-18 01:02:03.898 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
-2025-12-18 01:02:03.898 [main] DEBUG program.Bank.DateBase - Card data loaded successfully
+2025-12-18 01:02:03.898 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
 2025-12-18 01:02:03.898 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 01:02:03.898 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
 2025-12-18 01:02:03.901 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
 2025-12-18 01:02:28.401 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 01:02:28.405 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 01:02:28.406 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 01:02:28.407 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 01:02:28.407 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 01:02:28.671 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-18 01:02:28.671 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-18 01:02:28.672 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -1213,13 +1213,13 @@ Status = ACTIVE.
 2025-12-18 01:02:28.676 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-18 01:02:28.676 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-18 01:02:28.677 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-18 01:02:28.677 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-18 01:02:28.677 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-18 01:02:28.678 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 01:02:28.678 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-18 01:02:28.681 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-18 01:02:28.692 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-18 01:02:28.692 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-18 01:02:28.692 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-18 01:02:28.692 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
 2025-12-18 01:02:28.740 [main] DEBUG program.Bank.Deposit - Client's ID was set: 11111111-1111-1111-1111-111111111111.
 2025-12-18 01:02:28.740 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
 2025-12-18 01:02:28.740 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
@@ -1228,7 +1228,7 @@ Status = ACTIVE.
 2025-12-18 01:02:28.741 [main] DEBUG program.Bank.Deposit - Interest rate was set: 0.1400.
 2025-12-18 01:02:28.741 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
 2025-12-18 01:02:28.742 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
-2025-12-18 01:02:28.743 [main] DEBUG program.Bank.DateBase - Deposit loaded successfully
+2025-12-18 01:02:28.743 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
 2025-12-18 01:02:28.746 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-18 01:02:28.746 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 1082, Sum = 10000.0000, Rate = 0.1400.
 2025-12-18 01:02:28.746 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 4150.14.
@@ -1247,7 +1247,7 @@ Interest rate = 0.1400,
 Currency = UAH, 
 Status = ACTIVE.
 2025-12-18 01:02:28.751 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 10000007-7777-7777-7777-777777777777.
-2025-12-18 01:02:28.751 [main] INFO  program.Bank.DateBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
+2025-12-18 01:02:28.751 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
 2025-12-18 01:02:28.918 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 77777777-7777-7777-7777-777777777777.
 2025-12-18 01:02:28.918 [main] DEBUG program.Bank.Loan - Original sum set: 40000.0000.
 2025-12-18 01:02:28.919 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
@@ -1258,12 +1258,12 @@ Status = ACTIVE.
 2025-12-18 01:02:28.921 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 3692.00000000.
 2025-12-18 01:02:28.921 [main] DEBUG program.Bank.Loan - Close date set: 2024-08-01. Term calculated: 12 months.
 2025-12-18 01:02:28.925 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
-2025-12-18 01:02:28.925 [main] DEBUG program.Bank.DateBase - Loan loaded successfully
+2025-12-18 01:02:28.925 [main] DEBUG program.Bank.DataBase - Loan loaded successfully
 2025-12-18 01:02:28.931 [main] DEBUG program.Bank.Loan - Full loan info printed for ID: 10000007-7777-7777-7777-777777777777.
 2025-12-18 01:02:28.932 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 01:02:28.932 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: c0000004-4444-4444-4444-444444444444
 2025-12-18 01:02:28.933 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
-2025-12-18 01:02:28.933 [main] INFO  program.Bank.DateBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
+2025-12-18 01:02:28.933 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 01:02:28.987 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 44444444-4444-4444-4444-444444444444
 2025-12-18 01:02:28.987 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
 2025-12-18 01:02:28.987 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5168 0000 0000 4444
@@ -1276,7 +1276,7 @@ Status = ACTIVE.
 2025-12-18 01:02:28.989 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: PAYMENT
 2025-12-18 01:02:28.990 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
 2025-12-18 01:02:28.990 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
-2025-12-18 01:02:28.990 [main] DEBUG program.Bank.DateBase - Card data loaded successfully
+2025-12-18 01:02:28.990 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
 2025-12-18 01:02:28.990 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 01:02:28.990 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
 2025-12-18 01:02:28.992 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
@@ -2195,59 +2195,59 @@ Status = ACTIVE.
 2025-12-18 17:14:49.555 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:14:49.563 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:14:49.565 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 17:14:49.568 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
-2025-12-18 17:14:49.924 [main] ERROR program.Bank.DateBase - �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
+2025-12-18 17:14:49.568 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 17:14:49.924 [main] ERROR program.Bank.DataBase - �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
 2025-12-18 17:14:49.925 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:14:49.926 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-18 17:14:49.933 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-18 17:14:49.958 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-18 17:14:49.958 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-18 17:14:49.958 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
-2025-12-18 17:14:50.065 [main] ERROR program.Bank.DateBase - �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
+2025-12-18 17:14:49.958 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-18 17:14:50.065 [main] ERROR program.Bank.DataBase - �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
 2025-12-18 17:14:50.069 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-18 17:15:42.280 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:15:42.297 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:15:42.305 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 17:15:42.312 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
-2025-12-18 17:15:42.990 [main] ERROR program.Bank.DateBase - �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
+2025-12-18 17:15:42.312 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 17:15:42.990 [main] ERROR program.Bank.DataBase - �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
 2025-12-18 17:15:42.992 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:15:42.992 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-18 17:15:42.997 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-18 17:15:43.018 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-18 17:15:43.018 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-18 17:15:43.018 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
-2025-12-18 17:15:43.120 [main] ERROR program.Bank.DateBase - �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
+2025-12-18 17:15:43.018 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-18 17:15:43.120 [main] ERROR program.Bank.DataBase - �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
 2025-12-18 17:15:43.123 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-18 17:29:10.291 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:29:10.298 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:29:10.301 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 17:29:10.304 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
-2025-12-18 17:29:10.614 [main] ERROR program.Bank.DateBase - �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
+2025-12-18 17:29:10.304 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 17:29:10.614 [main] ERROR program.Bank.DataBase - �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
 2025-12-18 17:29:10.615 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:29:10.615 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-18 17:29:10.619 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-18 17:29:10.639 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-18 17:29:10.639 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-18 17:29:10.640 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
-2025-12-18 17:29:10.720 [main] ERROR program.Bank.DateBase - �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
+2025-12-18 17:29:10.640 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-18 17:29:10.720 [main] ERROR program.Bank.DataBase - �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
 2025-12-18 17:29:10.724 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-18 17:31:45.972 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:31:45.977 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:31:45.978 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 17:31:45.980 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
-2025-12-18 17:31:46.316 [main] ERROR program.Bank.DateBase - �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
+2025-12-18 17:31:45.980 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 17:31:46.316 [main] ERROR program.Bank.DataBase - �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
 2025-12-18 17:31:46.317 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:31:46.317 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-18 17:31:46.325 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-18 17:31:46.344 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-18 17:31:46.344 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-18 17:31:46.344 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
-2025-12-18 17:31:46.431 [main] ERROR program.Bank.DateBase - �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
+2025-12-18 17:31:46.344 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-18 17:31:46.431 [main] ERROR program.Bank.DataBase - �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
 2025-12-18 17:31:46.434 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-18 17:34:11.789 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:34:11.798 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:34:11.801 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 17:34:11.805 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 17:34:11.805 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:34:12.293 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-18 17:34:12.293 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-18 17:34:12.297 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -2272,13 +2272,13 @@ Status = ACTIVE.
 2025-12-18 17:34:12.303 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-18 17:34:12.305 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-18 17:34:12.306 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-18 17:34:12.306 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-18 17:34:12.306 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-18 17:34:12.308 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:34:12.309 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-18 17:34:12.314 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-18 17:34:12.339 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-18 17:34:12.340 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-18 17:34:12.340 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-18 17:34:12.340 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
 2025-12-18 17:34:12.449 [main] DEBUG program.Bank.Deposit - Client's ID was set: 11111111-1111-1111-1111-111111111111.
 2025-12-18 17:34:12.450 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
 2025-12-18 17:34:12.451 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
@@ -2287,7 +2287,7 @@ Status = ACTIVE.
 2025-12-18 17:34:12.452 [main] DEBUG program.Bank.Deposit - Interest rate was set: 0.1400.
 2025-12-18 17:34:12.452 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
 2025-12-18 17:34:12.453 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
-2025-12-18 17:34:12.454 [main] DEBUG program.Bank.DateBase - Deposit loaded successfully
+2025-12-18 17:34:12.454 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
 2025-12-18 17:34:12.458 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-18 17:34:12.459 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 1082, Sum = 10000.0000, Rate = 0.1400.
 2025-12-18 17:34:12.459 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 4150.14.
@@ -2306,7 +2306,7 @@ Interest rate = 0.1400,
 Currency = UAH, 
 Status = ACTIVE.
 2025-12-18 17:34:12.466 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 10000007-7777-7777-7777-777777777777.
-2025-12-18 17:34:12.466 [main] INFO  program.Bank.DateBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
+2025-12-18 17:34:12.466 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
 2025-12-18 17:34:12.796 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 77777777-7777-7777-7777-777777777777.
 2025-12-18 17:34:12.796 [main] DEBUG program.Bank.Loan - Original sum set: 40000.0000.
 2025-12-18 17:34:12.797 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
@@ -2317,12 +2317,12 @@ Status = ACTIVE.
 2025-12-18 17:34:12.799 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 3692.00000000.
 2025-12-18 17:34:12.800 [main] DEBUG program.Bank.Loan - Close date set: 2024-08-01. Term calculated: 12 months.
 2025-12-18 17:34:12.803 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
-2025-12-18 17:34:12.804 [main] DEBUG program.Bank.DateBase - Loan loaded successfully
+2025-12-18 17:34:12.804 [main] DEBUG program.Bank.DataBase - Loan loaded successfully
 2025-12-18 17:34:12.810 [main] DEBUG program.Bank.Loan - Full loan info printed for ID: 10000007-7777-7777-7777-777777777777.
 2025-12-18 17:34:12.814 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 17:34:12.814 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: c0000004-4444-4444-4444-444444444444
 2025-12-18 17:34:12.815 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
-2025-12-18 17:34:12.815 [main] INFO  program.Bank.DateBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
+2025-12-18 17:34:12.815 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 17:34:12.893 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 44444444-4444-4444-4444-444444444444
 2025-12-18 17:34:12.893 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
 2025-12-18 17:34:12.893 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5168 0000 0000 4444
@@ -2335,14 +2335,14 @@ Status = ACTIVE.
 2025-12-18 17:34:12.896 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: PAYMENT
 2025-12-18 17:34:12.896 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
 2025-12-18 17:34:12.896 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
-2025-12-18 17:34:12.896 [main] DEBUG program.Bank.DateBase - Card data loaded successfully
+2025-12-18 17:34:12.896 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
 2025-12-18 17:34:12.897 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 17:34:12.897 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
 2025-12-18 17:34:12.900 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
 2025-12-18 17:36:44.495 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:36:44.500 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:36:44.502 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 17:36:44.504 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 17:36:44.504 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:36:44.866 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-18 17:36:44.866 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-18 17:36:44.868 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -2367,13 +2367,13 @@ Status = ACTIVE.
 2025-12-18 17:36:44.872 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-18 17:36:44.873 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-18 17:36:44.873 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-18 17:36:44.874 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-18 17:36:44.874 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-18 17:36:44.875 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:36:44.875 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-18 17:36:44.880 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-18 17:36:44.898 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-18 17:36:44.898 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-18 17:36:44.898 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-18 17:36:44.898 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
 2025-12-18 17:36:44.987 [main] DEBUG program.Bank.Deposit - Client's ID was set: 11111111-1111-1111-1111-111111111111.
 2025-12-18 17:36:44.987 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
 2025-12-18 17:36:44.988 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
@@ -2382,7 +2382,7 @@ Status = ACTIVE.
 2025-12-18 17:36:44.988 [main] DEBUG program.Bank.Deposit - Interest rate was set: 0.1400.
 2025-12-18 17:36:44.989 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
 2025-12-18 17:36:44.991 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
-2025-12-18 17:36:44.992 [main] DEBUG program.Bank.DateBase - Deposit loaded successfully
+2025-12-18 17:36:44.992 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
 2025-12-18 17:36:44.994 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-18 17:36:44.994 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 1082, Sum = 10000.0000, Rate = 0.1400.
 2025-12-18 17:36:44.995 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 4150.14.
@@ -2401,7 +2401,7 @@ Interest rate = 0.1400,
 Currency = UAH, 
 Status = ACTIVE.
 2025-12-18 17:36:45.001 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 10000007-7777-7777-7777-777777777777.
-2025-12-18 17:36:45.002 [main] INFO  program.Bank.DateBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
+2025-12-18 17:36:45.002 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
 2025-12-18 17:36:45.169 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 77777777-7777-7777-7777-777777777777.
 2025-12-18 17:36:45.170 [main] DEBUG program.Bank.Loan - Original sum set: 40000.0000.
 2025-12-18 17:36:45.170 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
@@ -2412,12 +2412,12 @@ Status = ACTIVE.
 2025-12-18 17:36:45.172 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 3692.00000000.
 2025-12-18 17:36:45.172 [main] DEBUG program.Bank.Loan - Close date set: 2024-08-01. Term calculated: 12 months.
 2025-12-18 17:36:45.175 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
-2025-12-18 17:36:45.176 [main] DEBUG program.Bank.DateBase - Loan loaded successfully
+2025-12-18 17:36:45.176 [main] DEBUG program.Bank.DataBase - Loan loaded successfully
 2025-12-18 17:36:45.180 [main] DEBUG program.Bank.Loan - Full loan info printed for ID: 10000007-7777-7777-7777-777777777777.
 2025-12-18 17:36:45.185 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 17:36:45.185 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: c0000004-4444-4444-4444-444444444444
 2025-12-18 17:36:45.185 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
-2025-12-18 17:36:45.186 [main] INFO  program.Bank.DateBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
+2025-12-18 17:36:45.186 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 17:36:45.262 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 44444444-4444-4444-4444-444444444444
 2025-12-18 17:36:45.263 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
 2025-12-18 17:36:45.263 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5168 0000 0000 4444
@@ -2430,14 +2430,14 @@ Status = ACTIVE.
 2025-12-18 17:36:45.265 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: PAYMENT
 2025-12-18 17:36:45.265 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
 2025-12-18 17:36:45.266 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
-2025-12-18 17:36:45.266 [main] DEBUG program.Bank.DateBase - Card data loaded successfully
+2025-12-18 17:36:45.266 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
 2025-12-18 17:36:45.266 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 17:36:45.266 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
 2025-12-18 17:36:45.269 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
 2025-12-18 17:57:12.268 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:57:12.274 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:57:12.278 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 17:57:12.280 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 17:57:12.280 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:57:12.645 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-18 17:57:12.645 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-18 17:57:12.652 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -2462,13 +2462,13 @@ Status = ACTIVE.
 2025-12-18 17:57:12.658 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-18 17:57:12.659 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-18 17:57:12.660 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-18 17:57:12.660 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-18 17:57:12.660 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-18 17:57:12.662 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 17:57:12.662 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-18 17:57:12.666 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-18 17:57:12.692 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-18 17:57:12.692 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-18 17:57:12.693 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-18 17:57:12.693 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
 2025-12-18 17:57:12.786 [main] DEBUG program.Bank.Deposit - Client's ID was set: 11111111-1111-1111-1111-111111111111.
 2025-12-18 17:57:12.787 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
 2025-12-18 17:57:12.787 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
@@ -2477,7 +2477,7 @@ Status = ACTIVE.
 2025-12-18 17:57:12.788 [main] DEBUG program.Bank.Deposit - Interest rate was set: 0.1400.
 2025-12-18 17:57:12.788 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
 2025-12-18 17:57:12.790 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
-2025-12-18 17:57:12.790 [main] DEBUG program.Bank.DateBase - Deposit loaded successfully
+2025-12-18 17:57:12.790 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
 2025-12-18 17:57:12.793 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-18 17:57:12.793 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 1082, Sum = 10000.0000, Rate = 0.1400.
 2025-12-18 17:57:12.794 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 4150.14.
@@ -2496,7 +2496,7 @@ Interest rate = 0.1400,
 Currency = UAH, 
 Status = ACTIVE.
 2025-12-18 17:57:12.802 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 10000007-7777-7777-7777-777777777777.
-2025-12-18 17:57:12.802 [main] INFO  program.Bank.DateBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
+2025-12-18 17:57:12.802 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
 2025-12-18 17:57:12.877 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 77777777-7777-7777-7777-777777777777.
 2025-12-18 17:57:12.877 [main] DEBUG program.Bank.Loan - Original sum set: 40000.0000.
 2025-12-18 17:57:12.878 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
@@ -2507,12 +2507,12 @@ Status = ACTIVE.
 2025-12-18 17:57:12.880 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 3692.00000000.
 2025-12-18 17:57:12.880 [main] DEBUG program.Bank.Loan - Close date set: 2024-08-01. Term calculated: 12 months.
 2025-12-18 17:57:12.882 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
-2025-12-18 17:57:12.882 [main] DEBUG program.Bank.DateBase - Loan loaded successfully
+2025-12-18 17:57:12.882 [main] DEBUG program.Bank.DataBase - Loan loaded successfully
 2025-12-18 17:57:12.888 [main] DEBUG program.Bank.Loan - Full loan info printed for ID: 10000007-7777-7777-7777-777777777777.
 2025-12-18 17:57:12.890 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 17:57:12.891 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: c0000004-4444-4444-4444-444444444444
 2025-12-18 17:57:12.891 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
-2025-12-18 17:57:12.891 [main] INFO  program.Bank.DateBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
+2025-12-18 17:57:12.891 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 17:57:12.966 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 44444444-4444-4444-4444-444444444444
 2025-12-18 17:57:12.966 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
 2025-12-18 17:57:12.966 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5168 0000 0000 4444
@@ -2525,14 +2525,14 @@ Status = ACTIVE.
 2025-12-18 17:57:12.970 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: PAYMENT
 2025-12-18 17:57:12.970 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
 2025-12-18 17:57:12.970 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
-2025-12-18 17:57:12.971 [main] DEBUG program.Bank.DateBase - Card data loaded successfully
+2025-12-18 17:57:12.971 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
 2025-12-18 17:57:12.971 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 17:57:12.971 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
 2025-12-18 17:57:12.974 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
 2025-12-18 18:03:37.721 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 18:03:37.727 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 18:03:37.727 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 18:03:37.730 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 18:03:37.730 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 18:03:38.140 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-18 18:03:38.141 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-18 18:03:38.142 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -2557,13 +2557,13 @@ Status = ACTIVE.
 2025-12-18 18:03:38.148 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-18 18:03:38.149 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-18 18:03:38.149 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-18 18:03:38.150 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-18 18:03:38.150 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-18 18:03:38.151 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 18:03:38.152 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-18 18:03:38.157 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-18 18:03:38.173 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-18 18:03:38.173 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-18 18:03:38.173 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-18 18:03:38.173 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
 2025-12-18 18:03:38.267 [main] DEBUG program.Bank.Deposit - Client's ID was set: 11111111-1111-1111-1111-111111111111.
 2025-12-18 18:03:38.268 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
 2025-12-18 18:03:38.268 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
@@ -2572,7 +2572,7 @@ Status = ACTIVE.
 2025-12-18 18:03:38.270 [main] DEBUG program.Bank.Deposit - Interest rate was set: 0.1400.
 2025-12-18 18:03:38.270 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
 2025-12-18 18:03:38.271 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
-2025-12-18 18:03:38.271 [main] DEBUG program.Bank.DateBase - Deposit loaded successfully
+2025-12-18 18:03:38.271 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
 2025-12-18 18:03:38.273 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-18 18:03:38.274 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 1082, Sum = 10000.0000, Rate = 0.1400.
 2025-12-18 18:03:38.274 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 4150.14.
@@ -2591,7 +2591,7 @@ Interest rate = 0.1400,
 Currency = UAH, 
 Status = ACTIVE.
 2025-12-18 18:03:38.282 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 10000007-7777-7777-7777-777777777777.
-2025-12-18 18:03:38.282 [main] INFO  program.Bank.DateBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
+2025-12-18 18:03:38.282 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
 2025-12-18 18:03:38.351 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 77777777-7777-7777-7777-777777777777.
 2025-12-18 18:03:38.351 [main] DEBUG program.Bank.Loan - Original sum set: 40000.0000.
 2025-12-18 18:03:38.352 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
@@ -2602,12 +2602,12 @@ Status = ACTIVE.
 2025-12-18 18:03:38.354 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 3692.00000000.
 2025-12-18 18:03:38.354 [main] DEBUG program.Bank.Loan - Close date set: 2024-08-01. Term calculated: 12 months.
 2025-12-18 18:03:38.355 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
-2025-12-18 18:03:38.355 [main] DEBUG program.Bank.DateBase - Loan loaded successfully
+2025-12-18 18:03:38.355 [main] DEBUG program.Bank.DataBase - Loan loaded successfully
 2025-12-18 18:03:38.367 [main] DEBUG program.Bank.Loan - Full loan info printed for ID: 10000007-7777-7777-7777-777777777777.
 2025-12-18 18:03:38.369 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 18:03:38.369 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: c0000004-4444-4444-4444-444444444444
 2025-12-18 18:03:38.370 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
-2025-12-18 18:03:38.370 [main] INFO  program.Bank.DateBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
+2025-12-18 18:03:38.370 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 18:03:38.440 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 44444444-4444-4444-4444-444444444444
 2025-12-18 18:03:38.440 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
 2025-12-18 18:03:38.440 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5168 0000 0000 4444
@@ -2620,14 +2620,14 @@ Status = ACTIVE.
 2025-12-18 18:03:38.443 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: PAYMENT
 2025-12-18 18:03:38.443 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
 2025-12-18 18:03:38.443 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
-2025-12-18 18:03:38.443 [main] DEBUG program.Bank.DateBase - Card data loaded successfully
+2025-12-18 18:03:38.443 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
 2025-12-18 18:03:38.443 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 18:03:38.443 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
 2025-12-18 18:03:38.445 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
 2025-12-18 18:05:32.581 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 18:05:32.585 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 18:05:32.587 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 18:05:32.589 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 18:05:32.589 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 18:05:32.968 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-18 18:05:32.969 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-18 18:05:32.971 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -2652,13 +2652,13 @@ Status = ACTIVE.
 2025-12-18 18:05:32.977 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-18 18:05:32.978 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-18 18:05:32.979 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-18 18:05:32.979 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-18 18:05:32.979 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-18 18:05:32.980 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 18:05:32.981 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-18 18:05:32.985 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-18 18:05:33.003 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-18 18:05:33.004 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-18 18:05:33.004 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-18 18:05:33.004 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
 2025-12-18 18:05:33.094 [main] DEBUG program.Bank.Deposit - Client's ID was set: 11111111-1111-1111-1111-111111111111.
 2025-12-18 18:05:33.094 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
 2025-12-18 18:05:33.094 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
@@ -2667,7 +2667,7 @@ Status = ACTIVE.
 2025-12-18 18:05:33.095 [main] DEBUG program.Bank.Deposit - Interest rate was set: 0.1400.
 2025-12-18 18:05:33.096 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
 2025-12-18 18:05:33.099 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
-2025-12-18 18:05:33.099 [main] DEBUG program.Bank.DateBase - Deposit loaded successfully
+2025-12-18 18:05:33.099 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
 2025-12-18 18:05:33.102 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-18 18:05:33.103 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 1082, Sum = 10000.0000, Rate = 0.1400.
 2025-12-18 18:05:33.103 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 4150.14.
@@ -2686,7 +2686,7 @@ Interest rate = 0.1400,
 Currency = UAH, 
 Status = ACTIVE.
 2025-12-18 18:05:33.109 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 10000007-7777-7777-7777-777777777777.
-2025-12-18 18:05:33.110 [main] INFO  program.Bank.DateBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
+2025-12-18 18:05:33.110 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
 2025-12-18 18:05:33.279 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 77777777-7777-7777-7777-777777777777.
 2025-12-18 18:05:33.279 [main] DEBUG program.Bank.Loan - Original sum set: 40000.0000.
 2025-12-18 18:05:33.279 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
@@ -2697,12 +2697,12 @@ Status = ACTIVE.
 2025-12-18 18:05:33.282 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 3692.00000000.
 2025-12-18 18:05:33.282 [main] DEBUG program.Bank.Loan - Close date set: 2024-08-01. Term calculated: 12 months.
 2025-12-18 18:05:33.285 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
-2025-12-18 18:05:33.286 [main] DEBUG program.Bank.DateBase - Loan loaded successfully
+2025-12-18 18:05:33.286 [main] DEBUG program.Bank.DataBase - Loan loaded successfully
 2025-12-18 18:05:33.290 [main] DEBUG program.Bank.Loan - Full loan info printed for ID: 10000007-7777-7777-7777-777777777777.
 2025-12-18 18:05:33.295 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 18:05:33.295 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: c0000004-4444-4444-4444-444444444444
 2025-12-18 18:05:33.295 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
-2025-12-18 18:05:33.295 [main] INFO  program.Bank.DateBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
+2025-12-18 18:05:33.295 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 18:05:33.566 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 44444444-4444-4444-4444-444444444444
 2025-12-18 18:05:33.566 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
 2025-12-18 18:05:33.566 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5168 0000 0000 4444
@@ -2715,14 +2715,14 @@ Status = ACTIVE.
 2025-12-18 18:05:33.571 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: PAYMENT
 2025-12-18 18:05:33.571 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
 2025-12-18 18:05:33.572 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
-2025-12-18 18:05:33.572 [main] DEBUG program.Bank.DateBase - Card data loaded successfully
+2025-12-18 18:05:33.572 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
 2025-12-18 18:05:33.573 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 18:05:33.573 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
 2025-12-18 18:05:33.581 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
 2025-12-18 18:45:49.611 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 18:45:49.614 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 18:45:49.614 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 18:45:49.615 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 18:45:49.615 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 18:45:49.827 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-18 18:45:49.828 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-18 18:45:49.828 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -2747,13 +2747,13 @@ Status = ACTIVE.
 2025-12-18 18:45:49.831 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-18 18:45:49.832 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-18 18:45:49.832 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-18 18:45:49.832 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-18 18:45:49.832 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-18 18:45:49.833 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 18:45:49.834 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
 2025-12-18 18:45:49.836 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-18 18:45:49.851 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d0000001-1111-1111-1111-111111111111.
 2025-12-18 18:45:49.851 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d0000001-1111-1111-1111-111111111111.
-2025-12-18 18:45:49.851 [main] INFO  program.Bank.DateBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
+2025-12-18 18:45:49.851 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d0000001-1111-1111-1111-111111111111
 2025-12-18 18:45:49.908 [main] DEBUG program.Bank.Deposit - Client's ID was set: 11111111-1111-1111-1111-111111111111.
 2025-12-18 18:45:49.908 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
 2025-12-18 18:45:49.909 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
@@ -2762,7 +2762,7 @@ Status = ACTIVE.
 2025-12-18 18:45:49.909 [main] DEBUG program.Bank.Deposit - Interest rate was set: 0.1400.
 2025-12-18 18:45:49.909 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
 2025-12-18 18:45:49.910 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
-2025-12-18 18:45:49.910 [main] DEBUG program.Bank.DateBase - Deposit loaded successfully
+2025-12-18 18:45:49.910 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
 2025-12-18 18:45:49.912 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d0000001-1111-1111-1111-111111111111.
 2025-12-18 18:45:49.912 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 1082, Sum = 10000.0000, Rate = 0.1400.
 2025-12-18 18:45:49.912 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 4150.14.
@@ -2781,7 +2781,7 @@ Interest rate = 0.1400,
 Currency = UAH, 
 Status = ACTIVE.
 2025-12-18 18:45:49.916 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 10000007-7777-7777-7777-777777777777.
-2025-12-18 18:45:49.917 [main] INFO  program.Bank.DateBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
+2025-12-18 18:45:49.917 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 10000007-7777-7777-7777-777777777777
 2025-12-18 18:45:49.962 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 77777777-7777-7777-7777-777777777777.
 2025-12-18 18:45:49.963 [main] DEBUG program.Bank.Loan - Original sum set: 40000.0000.
 2025-12-18 18:45:49.963 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
@@ -2792,12 +2792,12 @@ Status = ACTIVE.
 2025-12-18 18:45:49.964 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 3692.00000000.
 2025-12-18 18:45:49.965 [main] DEBUG program.Bank.Loan - Close date set: 2024-08-01. Term calculated: 12 months.
 2025-12-18 18:45:49.966 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
-2025-12-18 18:45:49.966 [main] DEBUG program.Bank.DateBase - Loan loaded successfully
+2025-12-18 18:45:49.966 [main] DEBUG program.Bank.DataBase - Loan loaded successfully
 2025-12-18 18:45:49.969 [main] DEBUG program.Bank.Loan - Full loan info printed for ID: 10000007-7777-7777-7777-777777777777.
 2025-12-18 18:45:49.971 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 18:45:49.971 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: c0000004-4444-4444-4444-444444444444
 2025-12-18 18:45:49.971 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
-2025-12-18 18:45:49.971 [main] INFO  program.Bank.DateBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
+2025-12-18 18:45:49.971 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 18:45:50.177 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 44444444-4444-4444-4444-444444444444
 2025-12-18 18:45:50.177 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
 2025-12-18 18:45:50.177 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5168 0000 0000 4444
@@ -2810,7 +2810,7 @@ Status = ACTIVE.
 2025-12-18 18:45:50.178 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: PAYMENT
 2025-12-18 18:45:50.178 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
 2025-12-18 18:45:50.179 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
-2025-12-18 18:45:50.179 [main] DEBUG program.Bank.DateBase - Card data loaded successfully
+2025-12-18 18:45:50.179 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
 2025-12-18 18:45:50.179 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: c0000004-4444-4444-4444-444444444444
 2025-12-18 18:45:50.179 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
 2025-12-18 18:45:50.181 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
@@ -2820,7 +2820,7 @@ Status = ACTIVE.
 2025-12-18 18:48:20.838 [main] DEBUG program.Bank.Client - Client створено зі статусом ACTIVE
 2025-12-18 18:48:20.838 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 18:48:20.838 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 18:48:20.838 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 18:48:20.838 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 18:48:20.882 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-18 18:48:20.883 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-18 18:48:20.883 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -2845,14 +2845,14 @@ Status = ACTIVE.
 2025-12-18 18:48:20.885 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-18 18:48:20.885 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-18 18:48:20.885 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-18 18:48:20.885 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-18 18:48:20.885 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-18 19:29:38.319 [main] DEBUG program.Bank.Client - Створення нового екземпляру Client
 2025-12-18 19:29:38.323 [main] INFO  program.Bank.Client - Спроба генерації нового ID клієнта
 2025-12-18 19:29:38.332 [main] INFO  program.Bank.Client - ID клієнта успішно згенеровано: 5955e1df-afca-490b-bf8a-4b4bb5047428
 2025-12-18 19:29:38.333 [main] DEBUG program.Bank.Client - Client створено зі статусом ACTIVE
 2025-12-18 19:29:38.334 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 19:29:38.334 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 19:29:38.334 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 19:29:38.334 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 19:29:38.600 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-18 19:29:38.601 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-18 19:29:38.609 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -2877,7 +2877,7 @@ Status = ACTIVE.
 2025-12-18 19:29:38.623 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-18 19:29:38.624 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-18 19:29:38.625 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-18 19:29:38.626 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-18 19:29:38.626 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-18 19:29:38.630 [main] DEBUG program.Bank.Client - Розрахунок загального балансу клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 19:29:38.689 [main] DEBUG program.Bank.Client - Розрахований баланс клієнта: 0
 2025-12-18 19:31:14.652 [main] DEBUG program.Bank.Client - Розрахунок загального балансу клієнта ID: 11111111-1111-1111-1111-111111111111
@@ -2888,7 +2888,7 @@ Status = ACTIVE.
 2025-12-18 20:14:22.926 [main] DEBUG program.Bank.Client - Client створено зі статусом ACTIVE
 2025-12-18 20:14:22.926 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 20:14:22.927 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 20:14:22.927 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 20:14:22.927 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 20:14:23.002 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-18 20:14:23.003 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-18 20:14:23.004 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -2913,10 +2913,10 @@ Status = ACTIVE.
 2025-12-18 20:14:23.009 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-18 20:14:23.010 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-18 20:14:23.010 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-18 20:14:23.010 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-18 20:14:23.010 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-18 20:14:23.012 [main] DEBUG program.Bank.Client - Розрахунок загального балансу клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 20:14:23.040 [main] DEBUG program.Bank.Client - Розрахований баланс клієнта: 0
-2025-12-18 20:14:30.658 [main] INFO  program.Bank.DateBase - Fetching all transactions for client: 11111111-1111-1111-1111-111111111111
+2025-12-18 20:14:30.658 [main] INFO  program.Bank.DataBase - Fetching all transactions for client: 11111111-1111-1111-1111-111111111111
 2025-12-18 20:14:30.751 [main] DEBUG program.Bank.Transaction - Created new empty Transaction with ID: e4e2a977-720f-4e32-a08f-a97a301df26f.
 2025-12-18 20:14:30.752 [main] DEBUG program.Bank.Transaction - Transaction sum set: 500.0000 (Sign: +).
 2025-12-18 20:14:30.753 [main] ERROR program.Bank.Transaction - Sender Account ID cannot be null.
@@ -2926,7 +2926,7 @@ Status = ACTIVE.
 2025-12-18 20:17:41.336 [main] DEBUG program.Bank.Client - Client створено зі статусом ACTIVE
 2025-12-18 20:17:41.336 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 11111111-1111-1111-1111-111111111111
 2025-12-18 20:17:41.336 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
-2025-12-18 20:17:41.336 [main] INFO  program.Bank.DateBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
+2025-12-18 20:17:41.336 [main] INFO  program.Bank.DataBase - Loading client data by ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 20:17:41.423 [main] INFO  program.Bank.Client - Встановлення повного імені: Шевченко Тарас Григорович
 2025-12-18 20:17:41.424 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Шевченко Тарас Григорович
 2025-12-18 20:17:41.425 [main] INFO  program.Bank.Client - Встановлення дати народження: 1990-03-09
@@ -2951,15 +2951,15 @@ Status = ACTIVE.
 2025-12-18 20:17:41.430 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: IT компанія GlobalLogic
 2025-12-18 20:17:41.431 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
 2025-12-18 20:17:41.431 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
-2025-12-18 20:17:41.431 [main] DEBUG program.Bank.DateBase - Fetched client successfully.
+2025-12-18 20:17:41.431 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
 2025-12-18 20:17:41.433 [main] DEBUG program.Bank.Client - Розрахунок загального балансу клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 20:17:41.452 [main] DEBUG program.Bank.Client - Розрахований баланс клієнта: 0
-2025-12-18 20:17:52.271 [main] INFO  program.Bank.DateBase - Fetching all transactions for client: 11111111-1111-1111-1111-111111111111
+2025-12-18 20:17:52.271 [main] INFO  program.Bank.DataBase - Fetching all transactions for client: 11111111-1111-1111-1111-111111111111
 2025-12-18 20:17:52.349 [main] DEBUG program.Bank.Transaction - Created new empty Transaction with ID: 30ec697f-6580-432c-a2d4-b62692fa0dc2.
 2025-12-18 20:17:52.350 [main] DEBUG program.Bank.Transaction - Transaction sum set: 500.0000 (Sign: +).
 2025-12-18 20:17:52.350 [main] DEBUG program.Bank.Transaction - Receiver account ID set: c0000001-1111-1111-1111-111111111111.
 2025-12-18 20:17:52.351 [main] DEBUG program.Bank.Transaction - Transaction status updated: COMPLETED.
-2025-12-18 20:17:52.351 [main] DEBUG program.Bank.DateBase - Found 1 transactions.
+2025-12-18 20:17:52.351 [main] DEBUG program.Bank.DataBase - Found 1 transactions.
 2025-12-18 20:18:31.664 [main] DEBUG program.Bank.Client - Розрахунок загального балансу клієнта ID: 11111111-1111-1111-1111-111111111111
 2025-12-18 20:18:31.664 [main] DEBUG program.Bank.Client - Розрахований баланс клієнта: 0
 2025-12-18 20:18:31.665 [main] DEBUG program.Bank.Client - Розрахунок загального балансу клієнта ID: 11111111-1111-1111-1111-111111111111

@@ -1,7 +1,7 @@
 package program.Bank.Menu;
 
 import program.Bank.Client;
-import program.Bank.DateBase;
+import program.Bank.DataBase;
 import program.Bank.Transaction;
 import java.util.List;
 
@@ -17,7 +17,7 @@ public class ShowHistoryCommand implements Command {
         System.out.println("\n--- ІСТОРІЯ ТРАНЗАКЦІЙ ---");
 
         // 1. Отримуємо реальний список з бази
-        List<Transaction> history = DateBase.FetchAllTransactions(client.getId());
+        List<Transaction> history = DataBase.FetchAllTransactions(client.getId());
 
         if (history.isEmpty()) {
             System.out.println("(Історія транзакцій порожня)");
