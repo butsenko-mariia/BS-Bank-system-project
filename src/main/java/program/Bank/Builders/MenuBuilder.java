@@ -1,5 +1,7 @@
 package program.Bank.Builders;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import program.Bank.*;
 import program.Bank.Menu.*;
 import program.Bank.Services.*;
@@ -8,12 +10,21 @@ import java.util.Scanner;
 
 public class MenuBuilder {
     private final ClientService clientService;
+    private final CardService cardService;
+    private final DepositeService depositeService;
+    private final LoanService loanService;
+    private final TransactionService transactionService;
     private final ConsoleUI ui;
     private Client currentClient;
+    private final Logger log = LogManager.getLogger(MenuBuilder.class);
 
 
     public MenuBuilder(){
         this.clientService = new ClientService(DataBase.getInstance());
+        this.cardService = new CardService(DataBase.getInstance());
+        this.depositeService = new DepositeService(DataBase.getInstance());
+        this.loanService = new LoanService(DataBase.getInstance());
+        this.transactionService = new TransactionService(DataBase.getInstance());
         this.ui = new ConsoleUI();
     }
 
@@ -27,8 +38,14 @@ public class MenuBuilder {
         Menu mainMenu = new Menu("BANK SYSTEM");
         System.out.println("Enter Client`s account");
         mainMenu.add(ExitCommand());
-        mainMenu.add(new Command("Register new Client", this::RegisterNewClient));
-        mainMenu.add(LoginMenu());
+        mainMenu.add(new Command("Register new Client", () -> {
+            RegisterNewClient();
+            Menu clientMenu = ClientMenu(this.currentClient);
+            clientMenu.execute();
+        }));
+        mainMenu.add(new Command("Log into Client's cabinet", () -> {
+            LoginMenu();
+        }));
 
         return mainMenu;
     }
@@ -53,22 +70,25 @@ public class MenuBuilder {
 
         ui.print("=== Client was created successfully! ===");
         clientService.FullInfo(client);
+
+        this.currentClient = client;
     }
 
-    public Menu LoginMenu(){
-        Menu loginMenu = new Menu("=== ENTER CLIENT ===");
+    public void LoginMenu(){
+        Menu loginMenu = new Menu("=== LOG IN CLIENT's CABINET ===");
 
+        loginMenu.add(new Command("Return", () -> {}));
         loginMenu.add(new Command(("Enter Client's account by id"), () -> {
             Login("name", "Enter Client`s full name");
         }));
         loginMenu.add(new Command(("Enter Client's account by passport number"), () -> {
-            Login("name", "Enter Client`s passport number");
+            Login("passport", "Enter Client`s passport number");
         }));
         loginMenu.add(new Command(("Enter Client's account by phone number"), () -> {
-            Login("name", "Enter Client`s phone number");
+            Login("phone", "Enter Client`s phone number");
         }));
-
-        return loginMenu;
+        loginMenu.add(ExitCommand());
+        loginMenu.execute();
     }
 
     public void Login(String type, String promptMsg) {
@@ -78,6 +98,7 @@ public class MenuBuilder {
 
         if (client == null) {
             String mes = "Ваш аккаунт не знайдено або його не існує. Спробуйте ще раз або створіть новий акаунт";
+            log.error(mes);
             ui.print(mes);
         }
         else {
@@ -85,6 +106,7 @@ public class MenuBuilder {
             ui.print("Welcome, " + client.getFull_name() + "!");
 
             Menu clientMenu = ClientMenu(client);
+            clientMenu.execute();
         }
     }
 
