@@ -3,9 +3,9 @@ package program.Bank;
 import java.util.UUID;
 
 public interface Account {
-    public UUID getId();
-    public UUID getClient_id();
-    public String toString();
-    public void PrintFullInfo();
-    public void PrintInfo();
+    UUID getId();
+    UUID getClient_id();
+    String toString();
+    void PrintFullInfo();
+    void PrintInfo();
 }

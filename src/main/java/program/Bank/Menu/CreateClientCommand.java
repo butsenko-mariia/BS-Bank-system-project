@@ -2,7 +2,7 @@ package program.Bank.Menu;
 
 
 import program.Bank.Client;
-import program.Bank.DateBase;
+import program.Bank.DataBase;
 import program.Bank.Enums.ClientStatus;
 import program.Bank.Enums.Result;
 

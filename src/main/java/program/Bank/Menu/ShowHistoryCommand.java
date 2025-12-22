@@ -1,7 +1,7 @@
 package program.Bank.Menu;
 
 import program.Bank.Client;
-import program.Bank.DateBase;
+import program.Bank.DataBase;
 import program.Bank.Enums.Result;
 import program.Bank.Transaction;
 import java.util.List;

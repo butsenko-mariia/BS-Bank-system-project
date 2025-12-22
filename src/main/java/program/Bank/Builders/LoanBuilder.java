@@ -2,7 +2,6 @@ package program.Bank.Builders;
 
 import program.Bank.Enums.AccountStatus;
 import program.Bank.Loan;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;

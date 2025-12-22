@@ -1,13 +1,14 @@
 package program.Bank;
+
 import program.Bank.Enums.AccountStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.temporal.ChronoUnit;
 import java.util.UUID;
+
 public class CapitalizationDeposit extends Deposit{
     private static final Logger log = LogManager.getLogger(CapitalizationDeposit.class);
 

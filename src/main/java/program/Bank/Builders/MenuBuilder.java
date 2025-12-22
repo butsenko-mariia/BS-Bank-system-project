@@ -1,13 +1,12 @@
-package program.Bank;
+package program.Bank.Builders;
 
-import program.Bank.Menu.Command;
-import program.Bank.Menu.Menu;
-import program.Bank.Services.ClientService;
+import program.Bank.*;
+import program.Bank.Menu.*;
+import program.Bank.Services.*;
 
 import java.util.Scanner;
 
 public class MenuBuilder {
-    private final Scanner scanner = new Scanner(System.in);
     private final ClientService clientService;
     private final ConsoleUI ui;
     private Client currentClient;

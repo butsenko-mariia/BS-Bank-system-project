@@ -3,7 +3,6 @@ package program.Bank.Builders;
 import program.Bank.CapitalizationDeposit;
 import program.Bank.Enums.AccountStatus;
 import program.Bank.Deposit;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
