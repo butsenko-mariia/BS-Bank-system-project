@@ -1,6 +1,5 @@
 package program.Bank.Builders;
 
-import program.Bank.DateBase;
 import program.Bank.Transaction;
 import program.Bank.Enums.TransactionStatus;
 
