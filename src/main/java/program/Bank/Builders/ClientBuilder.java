@@ -1,7 +1,6 @@
 package program.Bank.Builders;
 
 import program.Bank.Client;
-import program.Bank.DateBase;
 import program.Bank.Enums.ClientStatus;
 
 import java.time.LocalDate;

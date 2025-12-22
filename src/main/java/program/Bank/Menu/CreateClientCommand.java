@@ -2,7 +2,7 @@ package program.Bank.Menu;
 
 
 import program.Bank.Client;
-import program.Bank.DateBase;
+import program.Bank.DataBase;
 import program.Bank.Enums.ClientStatus;
 
 import java.time.LocalDate;
@@ -82,7 +82,7 @@ public class CreateClientCommand implements Command {
             client.setStatus(ClientStatus.ACTIVE);
 
             // 3. Запис у Базу Даних
-            DateBase.Upload(client);
+            DataBase.Upload(client);
 
             // 4. Вивід звіту (як на схемі)
             printSuccessReport(client, pin);

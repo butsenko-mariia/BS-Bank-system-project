@@ -10,21 +10,33 @@ import program.Bank.Enums.TransactionStatus;
 import java.sql.*;
 import java.util.UUID;
 
-public class DateBase {
+public class DataBase {
+    private static volatile DataBase instance;
     private static final String URL = "jdbc:postgresql://localhost:5432/BankSystem";
     private static final String USER = "postgres"; // зазвичай стандартний
     private static final String PASSWORD = "291205nana";
-    private static final Logger log = LogManager.getLogger(DateBase.class);
+    private static final Logger log = LogManager.getLogger(DataBase.class);
 
-    public DateBase() {
-        log.debug("Created DateBase.");
+    private DataBase() {
     }
 
-    public static Connection Connection() throws SQLException {
+    public static DataBase getInstance() {
+        if (instance == null) {
+            synchronized (DataBase.class) {
+                if (instance == null) {
+                    instance = new DataBase();
+                    log.debug("Created DateBase.");
+                }
+            }
+        }
+        return instance;
+    }
+
+    public Connection Connection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
-    public static void Fetch(Client client){
+    public void Fetch(Client client){
         log.info("Loading client data by ID: {}", client.getId());
 
         String query = "SELECT * FROM client WHERE id = ?";
@@ -60,7 +72,7 @@ public class DateBase {
         }
     }
 
-    public static void Fetch(Deposit deposit) {
+    public void Fetch(Deposit deposit) {
         log.info("Fetching deposit data by ID: {}", deposit.getId());
 
         String query = "SELECT * FROM deposit WHERE id = ?";
@@ -96,7 +108,7 @@ public class DateBase {
         }
     }
 
-    public static void Fetch(Card card) {
+    public void Fetch(Card card) {
         log.info("Fetching card data by ID: {}", card.getId());
         String query = "SELECT * FROM card WHERE id = ?";
 
@@ -127,7 +139,7 @@ public class DateBase {
         }
     }
 
-    public static void Fetch(Loan loan){
+    public void Fetch(Loan loan){
         log.info("Fetching loan data by ID: {}", loan.getId());
 
         String query = "SELECT * FROM loan WHERE id = ?";
@@ -164,7 +176,7 @@ public class DateBase {
         }
     }
 
-    public static void Fetch(Transaction transaction){
+    public void Fetch(Transaction transaction){
         log.info("Fetching transaction data by ID: {}", transaction.getId());
 
         String query = "SELECT * FROM transaction WHERE id = ?";
@@ -193,9 +205,7 @@ public class DateBase {
         }
     }
 
-
-
-    public static void Upload(Card card){
+    public void Upload(Card card){
         log.info("Uploading card id data by ID: {}",card.getId());
         final String sql = "INSERT INTO card (id, client_id, card_number, card_type, balance, currency, status) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
@@ -216,7 +226,7 @@ public class DateBase {
         }
     }
 
-    public static void Upload(Client client) {
+    public void Upload(Client client) {
         log.info("Uploading client data by ID: {}", client.getId());
         final String sql = "INSERT INTO client (id, full_name, date_of_birth, sex, nationality, mobile_phone, individual_tax_number, passport_number, legal_address, place_of_birth, record_number, place_of_work_or_study, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -244,7 +254,7 @@ public class DateBase {
         }
     }
 
-    public static void Upload(Deposit deposit) {
+    public void Upload(Deposit deposit) {
         log.info("Uploading deposit data by ID: {}", deposit.getId());
 
         final String sql = "INSERT INTO deposit (id, client_id, original_sum, profit, open_date, close_date, interest_rate, currency, status, deposit_type, tax_rate, military_rate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -274,7 +284,7 @@ public class DateBase {
         }
     }
 
-    public static void Upload(Loan loan) {
+    public void Upload(Loan loan) {
         log.info("Uploading loan data by ID: {}", loan.getId());
         final String sql = "INSERT INTO loan (id, client_id, original_sum, current_balance, open_date, close_date, next_payment_date, term_month, payment_day, monthly_payment, interest_rate, monthly_rate, currency, status, overdue_sum, change) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -306,7 +316,7 @@ public class DateBase {
         }
     }
 
-    public static void Upload(Transaction transaction) {
+    public void Upload(Transaction transaction) {
         log.info("Uploading transaction data by ID: {}", transaction.getId());
         final String sql = "INSERT INTO transaction (id, open_date, open_time, sum, currency, operation_info, sign, account_id_from, account_id_to, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -333,19 +343,7 @@ public class DateBase {
         }
     }
 
- public static java.util.List<Transaction> FetchAllTransactions(UUID clientId) {
-        log.info("Fetching all transactions for client: {}", clientId);
-        java.util.List<Transaction> history = new java.util.ArrayList<>();
-
-        String sql = """
-            SELECT t.* FROM transaction t
-            JOIN card c ON t.account_id_from = c.id OR t.account_id_to = c.id
-            WHERE c.client_id = ?
-            ORDER BY t.open_date DESC, t.open_time DESC
-        """;
-   }
-  
-    public static void Update(Client client) {
+    public void Update(Client client) {
         log.info("Updating client data for ID: {}", client.getId());
         String sql = "UPDATE client SET full_name=?, date_of_birth=?, sex=?, nationality=?, mobile_phone=?, " +
                 "individual_tax_number=?, passport_number=?, legal_address=?, place_of_birth=?, " +
@@ -377,7 +375,7 @@ public class DateBase {
         }
     }
 
-    public static void Update(Card card) {
+    public void Update(Card card) {
         log.info("Updating card data for ID: {}", card.getId());
         String sql = "UPDATE card SET client_id=?, card_number=?, card_type=?, balance=?, currency=?, status=? WHERE id=?";
 
@@ -401,7 +399,7 @@ public class DateBase {
         }
     }
 
-    public static void Update(Deposit deposit) {
+    public void Update(Deposit deposit) {
         log.info("Updating deposit data for ID: {}", deposit.getId());
         String sql = "UPDATE deposit SET client_id=?, original_sum=?, profit=?, open_date=?, close_date=?, " +
                 "interest_rate=?, currency=?, status=?, tax_rate=?, military_rate=? WHERE id=?";
@@ -430,7 +428,7 @@ public class DateBase {
         }
     }
 
-    public static void Update(Loan loan) {
+    public void Update(Loan loan) {
         log.info("Updating loan data for ID: {}", loan.getId());
         String sql = "UPDATE loan SET client_id=?, original_sum=?, current_balance=?, open_date=?, close_date=?, " +
                 "next_payment_date=?, term_month=?, payment_day=?, monthly_payment=?, interest_rate=?, " +
@@ -468,7 +466,7 @@ public class DateBase {
         }
     }
 
-    public static void Update(Transaction transaction) {
+    public void Update(Transaction transaction) {
         log.info("Updating transaction data for ID: {}", transaction.getId());
 
         final String sql = "UPDATE transaction SET open_date=?, open_time=?, sum=?, currency=?, " +
@@ -498,4 +496,3 @@ public class DateBase {
         }
     }
 }
-

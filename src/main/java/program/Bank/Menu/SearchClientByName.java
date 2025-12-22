@@ -2,7 +2,8 @@ package program.Bank.Menu;
 
 
 import program.Bank.Client;
-import program.Bank.DateBase;
+import program.Bank.DataBase;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -41,7 +42,7 @@ public class SearchClientByName implements Command {
             // Завантажуємо дані клієнта
             Client client = new Client();
             client.setId(foundId);
-            DateBase.Fetch(client);
+            DataBase.Fetch(client);
 
             // Показуємо красиве меню
             showClientDashboard(client);
@@ -72,7 +73,7 @@ public class SearchClientByName implements Command {
     // --- SQL запит ---
     private UUID findIdByName(String name) {
         String query = "SELECT id FROM client WHERE full_name = ?";
-        try (Connection conn = DateBase.Connection();
+        try (Connection conn = DataBase.Connection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, name);
             ResultSet rs = stmt.executeQuery();

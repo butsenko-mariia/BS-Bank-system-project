@@ -2,7 +2,8 @@ package program.Bank.Menu;
 
 
 import program.Bank.Client;
-import program.Bank.DateBase;
+import program.Bank.DataBase;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -39,7 +40,7 @@ public class SearchClientByPhone implements Command {
 
             Client client = new Client();
             client.setId(foundId);
-            DateBase.Fetch(client);
+            DataBase.Fetch(client);
 
             // Викликаємо красиве меню
             showClientDashboard(client);
@@ -69,7 +70,7 @@ public class SearchClientByPhone implements Command {
 
     private UUID findIdByPhone(String phone) {
         String query = "SELECT id FROM client WHERE mobile_phone = ?";
-        try (Connection conn = DateBase.Connection();
+        try (Connection conn = DataBase.Connection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, phone);
             ResultSet rs = stmt.executeQuery();

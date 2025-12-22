@@ -1,12 +1,10 @@
 package program.Bank.Builders;
 
-import program.Bank.DateBase;
 import program.Bank.Enums.AccountStatus;
 import program.Bank.Card;
 import program.Bank.Enums.CardType;
 
 import java.math.BigDecimal;
-import java.sql.SQLException;
 import java.util.UUID;
 
 public class CardBuilder {
