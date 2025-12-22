@@ -64,14 +64,6 @@ public class LoanBuilder {
         loan.setStatus(status);
         return this;
     }
-    public LoanBuilder fetch(){
-        DateBase.Fetch(loan);
-        return this;
-    }
-    public LoanBuilder upload(){
-        DateBase.Upload(loan);
-        return this;
-    }
     public Loan builder(){
         if (loan == null || loan.getId() == null || loan.getClient_id() == null || loan.getOriginal_sum() == null
                 || loan.getInterest_rate() == null|| loan.getOpen_date() == null|| loan.getClose_date() == null

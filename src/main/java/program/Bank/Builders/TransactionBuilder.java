@@ -57,14 +57,6 @@ public class TransactionBuilder {
         transaction.setStatus(status);
         return this;
     }
-    public TransactionBuilder fetch(){
-        DateBase.Fetch(transaction);
-        return this;
-    }
-    public TransactionBuilder upload(){
-        DateBase.Upload(transaction);
-        return this;
-    }
     public Transaction build(){
         if (transaction == null || transaction.getId() == null ||transaction.getAccount_id_from() == null ||
                 transaction.getAccount_id_to() == null || transaction.getSum() == null ||

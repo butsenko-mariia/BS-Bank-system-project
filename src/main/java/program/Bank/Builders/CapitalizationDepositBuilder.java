@@ -48,14 +48,6 @@ public class CapitalizationDepositBuilder {
         deposit.setStatus(status);
         return this;
     }
-    public CapitalizationDepositBuilder fetch(){
-        DateBase.Fetch(deposit);
-        return this;
-    }
-    public CapitalizationDepositBuilder upload(){
-        DateBase.Upload(deposit);
-        return this;
-    }
     public Deposit build(){
         if (deposit == null || deposit.getId() == null || deposit.getClient_id() == null ||
                 deposit.getOriginal_sum() == null || deposit.getOpen_date() == null ||

@@ -67,14 +67,6 @@ public class ClientBuilder {
         client.setStatus(status);
         return this;
     }
-    public ClientBuilder fetch(){
-        DateBase.Fetch(client);
-        return this;
-    }
-    public ClientBuilder upload(){
-        DateBase.Upload(client);
-        return this;
-    }
     public Client build() {
         if (client == null || client.getId() == null || client.getFull_name() == null || client.getPassport_number() == null
                 || client.getIndividual_tax_number() == null) {
