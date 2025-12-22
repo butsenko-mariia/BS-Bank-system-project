@@ -1,21 +1,14 @@
 package program.Bank;
-import program.Bank.Enums.ClientStatus;
 
+import program.Bank.Enums.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 public class Client {
-    private static Logger log = LogManager.getLogger(Client.class);
-
+    private static final Logger log = LogManager.getLogger(Client.class);
     private UUID id;
     private String full_name;
     private LocalDate date_of_birth;
@@ -231,26 +224,14 @@ public class Client {
 
     public void setStatus(ClientStatus status) {
         log.info("Встановлення статусу клієнта: {}", status);
-        boolean ifMatchStatus = false;
-        for (ClientStatus clientStatus : ClientStatus.values()) {
-            if (status == clientStatus) {
-                this.status = status;
-                ifMatchStatus = true;
-
-            }
-        }
-
-        if (!ifMatchStatus) {
-            log.error("Невірний статус клієнта: {}", status);
-            throw new IllegalArgumentException("Invalid client status.");
-        }
+        this.status = status;
         log.debug("Статус клієнта успішно встановлено: {}", this.status);
     }
 
     public BigDecimal getBalance() {
         log.debug("Розрахунок загального балансу клієнта ID: {}", id);
         BigDecimal balance = new BigDecimal(0);
-        //тут має бути функція яка рахує суму на всії рахунках клієнта
+        //тут має бути функція яка рахує суму на всі рахунках клієнта
         log.debug("Розрахований баланс клієнта: {}", balance);
         return balance;
     }
@@ -260,7 +241,7 @@ public class Client {
     public String toString() {
         log.debug("Перетворення даних клієнта в текстове представлення");
         return String.format(
-                "Сlient id = " + this.getId() + "\n" +
+                "Client id = " + this.getId() + "\n" +
                         ",\nFull name = " + this.getFull_name() +
                         ",\nDate of birth = " + this.getDate_of_birth() +
                         ",\nSex = " + this.getSex() +

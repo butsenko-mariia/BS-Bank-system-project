@@ -3,13 +3,12 @@ package program.Bank.Menu;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import program.Bank.Enums.Result;
-
 import java.util.Scanner;
 
 //This is a leaf of composite pattern
 public class Command extends MenuComponent {
-    private Runnable action;
-    private Logger log = LogManager.getLogger(Command.class);
+    private final Runnable action;
+    private final Logger log = LogManager.getLogger(Command.class);
 
     public Command(String name, Runnable action) {
         super(name);
@@ -22,7 +21,7 @@ public class Command extends MenuComponent {
         try {
             action.run();
         } catch (Exception e) {
-            String mes = "Error occured: " + e.getMessage();
+            String mes = "Error occurred: " + e.getMessage();
             log.error(mes);
             System.out.println(mes);
         }

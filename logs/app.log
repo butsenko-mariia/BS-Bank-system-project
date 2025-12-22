@@ -6777,3 +6777,11 @@ Status = ACTIVE.
 2025-12-18 04:05:04.355 [main] DEBUG program.Bank.Deposit - Interest rate was set: 0.08.
 2025-12-18 04:05:04.355 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
 2025-12-18 04:05:04.355 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
+2025-12-22 22:15:02.286 [main] DEBUG program.Bank.DataBase - Created DateBase.
+2025-12-22 22:15:02.296 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-22 22:15:02.297 [main] DEBUG program.Bank.Menu.Menu - Register new Client has been added
+2025-12-22 22:15:02.298 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by id has been added
+2025-12-22 22:15:02.299 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by passport number has been added
+2025-12-22 22:15:02.300 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by phone number has been added
+2025-12-22 22:15:02.300 [main] DEBUG program.Bank.Menu.Menu - === ENTER CLIENT === has been added
+2025-12-22 22:17:17.116 [main] ERROR program.Bank.Menu.Command - Error occurred: Text '26 05 2006' could not be parsed at index 0

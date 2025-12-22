@@ -3,17 +3,10 @@ package program.Bank;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import program.Bank.Enums.AccountStatus;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
-import java.util.Scanner;
 import java.util.UUID;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public abstract class Deposit implements Account {
 
@@ -213,7 +206,6 @@ public abstract class Deposit implements Account {
         log.info("Starting close procedure for Deposit {}.", this.id);
         this.InterestCalculation(LocalDate.now());
         log.debug("Current profit was calculated in 'Close method': {}.", this.profit);
-        Client current_client = new Client(this.client_id);
 
         if (this.close_date.isAfter(LocalDate.now())) {
             log.warn("Attempting early closure for Deposit {}. Planned close date: {}.", this.id, this.close_date);

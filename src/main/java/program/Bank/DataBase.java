@@ -6,7 +6,6 @@ import program.Bank.Enums.ClientStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import program.Bank.Enums.TransactionStatus;
-
 import java.sql.*;
 import java.util.UUID;
 

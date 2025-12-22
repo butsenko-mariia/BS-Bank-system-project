@@ -3,9 +3,9 @@ package program.Bank.Menu;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import program.Bank.Enums.Result;
-
 import java.util.*;
-//This is a conyeiner of composite pattern
+
+//This is a container of composite pattern
 public class Menu extends MenuComponent {
     private final List<MenuComponent> commands = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);

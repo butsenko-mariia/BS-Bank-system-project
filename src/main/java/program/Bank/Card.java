@@ -1,21 +1,14 @@
 package program.Bank;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import program.Bank.Enums.AccountStatus;
 import program.Bank.Enums.CardType;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.math.BigDecimal;
 import java.util.UUID;
 
 public class Card implements Account{
-    private static Logger log = LogManager.getLogger(Card.class);
+    private static final Logger log = LogManager.getLogger(Card.class);
 
     private UUID id;
     private UUID client_id;
@@ -157,7 +150,7 @@ public class Card implements Account{
 
     public void PrintFullInfo() {
         log.info("Виведення повної інформації про картку ID: {}", id);
-        System.out.println(this.toString());
+        System.out.println(this);
         log.debug("Повну інформацію про картку виведено");
     }
 
