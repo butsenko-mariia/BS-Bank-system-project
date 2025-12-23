@@ -95,7 +95,7 @@ public class DepositeService {
         } catch (Exception e) {
             String mes = "Помилка при завантаженні депозитів: " + e.getMessage();
             log.error(mes);
-            System.out.println(mes);
+            ui.print(mes);
         }
     }
 

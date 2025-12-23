@@ -21,6 +21,7 @@ public class Transaction {
     private UUID account_id_from;
     private UUID account_id_to;
     private TransactionStatus status;
+    private final ConsoleUI ui = new ConsoleUI();
 
     public Transaction() {
         this.setId();
@@ -163,8 +164,6 @@ public class Transaction {
     }
 
     public void setAccount_id_from(UUID account_id_from) {
-        // ВИДАЛЯЄМО перевірку на null!
-        // Гроші можуть прийти "нізвідки" (наприклад, поповнення готівкою)
         this.account_id_from = account_id_from;
         log.debug("Sender account ID set: {}.", account_id_from);
     }
@@ -174,8 +173,6 @@ public class Transaction {
     }
 
     public void setAccount_id_to(UUID account_id_to) {
-        // ВИДАЛЯЄМО перевірку на null!
-        // Гроші можуть піти "в нікуди" (магазин, банкомат)
         this.account_id_to = account_id_to;
         log.debug("Receiver account ID set: {}.", account_id_to);
     }
@@ -216,7 +213,7 @@ public class Transaction {
 
     public void PrintInfo(){
         String info = this.toString();
-        System.out.println(info);
+        ui.print(info);
         log.info("Print transaction info:\n{}", info);
     }
 }

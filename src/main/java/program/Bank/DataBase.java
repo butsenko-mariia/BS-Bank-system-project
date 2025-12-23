@@ -67,7 +67,7 @@ public class DataBase {
 
         } catch (SQLException e) {
             log.error(e.getMessage());
-            System.err.println("Sql failed: " + e.getMessage());
+            log.error("Sql failed: " + e.getMessage());
         }
     }
 
@@ -103,7 +103,7 @@ public class DataBase {
 
         } catch (SQLException e) {
             log.error(e.getMessage());
-            System.err.println("Sql failed: " + e.getMessage());
+            log.error("Sql failed: " + e.getMessage());
         }
     }
 
@@ -134,7 +134,7 @@ public class DataBase {
             }
         } catch (SQLException e) {
             log.error(e.getMessage());
-            System.err.println("Sql failed: " + e.getMessage());
+            log.error("Sql failed: " + e.getMessage());
         }
     }
 
@@ -171,7 +171,7 @@ public class DataBase {
             }
         } catch (SQLException e) {
             log.error(e.getMessage());
-            System.err.println("Sql failed: " + e.getMessage());
+            log.error("Sql failed: " + e.getMessage());
         }
     }
 
@@ -200,7 +200,7 @@ public class DataBase {
         }
         catch (SQLException e) {
             log.error(e.getMessage());
-            System.err.println("Sql failed: " + e.getMessage());
+            log.error("Sql failed: " + e.getMessage());
         }
     }
 
@@ -221,7 +221,7 @@ public class DataBase {
 
             log.info("New card: {} was successfully created at base.", card.getCard_number());
         } catch (SQLException e) {
-            System.err.println("Sql failed: " + e.getMessage());
+            log.error("Sql failed: " + e.getMessage());
         }
     }
 
@@ -249,7 +249,7 @@ public class DataBase {
 
             log.info("New client: {} was successfully created at base.", client.getFull_name());
         } catch (SQLException e) {
-            System.err.println("Sql failed: " + e.getMessage());
+            log.error("Sql failed: " + e.getMessage());
         }
     }
 
@@ -279,7 +279,7 @@ public class DataBase {
 
             log.info("New deposit: {} was successfully created at base.", deposit.getId());
         } catch (SQLException e) {
-            System.err.println("Sql failed: " + e.getMessage());
+            log.error("Sql failed: " + e.getMessage());
         }
     }
 
@@ -311,7 +311,7 @@ public class DataBase {
 
             log.info("New loan: {} was successfully created at base.", loan.getId());
         } catch (SQLException e) {
-            System.err.println("Sql failed: " + e.getMessage());
+            log.error("Sql failed: " + e.getMessage());
         }
     }
 
@@ -338,7 +338,7 @@ public class DataBase {
 
             log.info("New transaction: {} was successfully created at base.", transaction.getId());
         } catch (SQLException e) {
-            System.err.println("Sql failed: " + e.getMessage());
+            log.error("Sql failed: " + e.getMessage());
         }
     }
 
@@ -491,7 +491,6 @@ public class DataBase {
 
         } catch (SQLException e) {
             log.error("Failed to update transaction: {}", e.getMessage());
-            System.err.println("Sql failed: " + e.getMessage());
         }
     }
 }

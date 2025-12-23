@@ -3,7 +3,6 @@ package program.Bank;
 import program.Bank.Enums.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -22,6 +21,7 @@ public class Client {
     private String record_number;
     private String place_of_work_or_study;
     private ClientStatus status;
+    private final ConsoleUI ui =  new ConsoleUI();
 
     public Client() {
         log.debug("Створення нового екземпляру Client");
@@ -228,15 +228,6 @@ public class Client {
         log.debug("Статус клієнта успішно встановлено: {}", this.status);
     }
 
-    public BigDecimal getBalance() {
-        log.debug("Розрахунок загального балансу клієнта ID: {}", id);
-        BigDecimal balance = new BigDecimal(0);
-        //тут має бути функція яка рахує суму на всі рахунках клієнта
-        log.debug("Розрахований баланс клієнта: {}", balance);
-        return balance;
-    }
-
-
     @Override
     public String toString() {
         log.debug("Перетворення даних клієнта в текстове представлення");
@@ -258,7 +249,7 @@ public class Client {
 
     public void PrintClientFullInfo() {
         log.info("Виведення повної інформації про клієнта ID: {}", id);
-        System.out.printf(this.toString());
+        ui.print(this.toString());
         log.debug("Повну інформацію про клієнта виведено");
     }
 
@@ -269,6 +260,6 @@ public class Client {
                         "Status: " + this.getStatus() + "\n" +
                         "Mobile phone: " + this.getMobile_phone());
 
-        System.out.printf(mes);
+        ui.print(mes);
     }
 }

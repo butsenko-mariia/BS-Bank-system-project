@@ -50,7 +50,6 @@ public abstract class Deposit implements Account {
     }
 
     public void setClient_id(UUID client_id) {
-        //додати перевірку на існування клієнта
         if (client_id == null) {
             log.error("Error occurred: trying to set null client's ID.");
             throw new IllegalArgumentException("Client id cannot be null.");
@@ -235,11 +234,6 @@ public abstract class Deposit implements Account {
 
         log.info("Closing financial summary for Deposit {}: Profit = {}, Tax = {}, PayOut = {}.",
                 this.id, currentProfit, taxAmount, totalToPay);
-
-//        System.out.println("----- Закриття депозиту -----");
-//        System.out.println("Нараховані відсотки: " + currentProfit + " " + this.currency);
-//        System.out.println("Податок : " + taxAmount + " " + this.currency);
-//        System.out.println("До виплати клієнту: " + totalToPay + " " + this.currency);
 
         this.setStatus(AccountStatus.CLOSED);
         log.info("Deposit {} successfully CLOSED.", this.id);

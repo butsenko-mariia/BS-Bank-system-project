@@ -2,6 +2,7 @@ package program.Bank.Services;
 
 import program.Bank.Builders.ClientBuilder;
 import program.Bank.Client;
+import program.Bank.ConsoleUI;
 import program.Bank.DataBase;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,6 +17,7 @@ import java.util.UUID;
 public class ClientService {
     private final Logger log = LogManager.getLogger(ClientService.class);
     private final DataBase dataBase;
+    private final ConsoleUI ui =  new ConsoleUI();
 
     public ClientService(DataBase dataBase) {
         this.dataBase = dataBase;
@@ -78,7 +80,7 @@ public class ClientService {
         } catch (Exception e) {
             String mes = "Помилка БД: " + e.getMessage();
             log.error(mes);
-            System.out.println(mes);
+            ui.print(mes);
         }
         return null;
     }

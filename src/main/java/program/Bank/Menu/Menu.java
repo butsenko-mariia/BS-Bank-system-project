@@ -2,7 +2,10 @@ package program.Bank.Menu;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import program.Bank.ConsoleUI;
 import program.Bank.Enums.Result;
+
+import java.io.Console;
 import java.util.*;
 
 //This is a container of composite pattern
@@ -10,6 +13,7 @@ public class Menu extends MenuComponent {
     private final List<MenuComponent> commands = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
     private final Logger log = LogManager.getLogger(Menu.class);
+    private final ConsoleUI ui = new ConsoleUI();
 
     public Menu(String name) {
         super(name);
@@ -20,7 +24,7 @@ public class Menu extends MenuComponent {
         if (commands.isEmpty()) {
             String mes = "Menu is empty. Returning";
             log.warn(mes);
-            System.out.println(mes);
+            ui.print(mes);
             return Result.RETURN;
         }
 
@@ -32,12 +36,12 @@ public class Menu extends MenuComponent {
             int commandName;
 
             try {
-                commandName = Integer.parseInt(scanner.nextLine());
+                commandName = Integer.parseInt(ui.ask(""));
             }
             catch (NumberFormatException e) {
                 String mes = "Invalid input. Enter a number.";
                 log.warn(mes);
-                System.out.println(mes);
+                ui.print(mes);
                 continue;
             }
 
@@ -57,7 +61,7 @@ public class Menu extends MenuComponent {
             else{
                 String mes = "Command not found. Try again";
                 log.warn(mes);
-                System.out.println(mes);
+                ui.print(mes);
             }
 
         } while (result == Result.CONTINUE);
@@ -71,7 +75,7 @@ public class Menu extends MenuComponent {
         for (int i =  0; i < commands.size(); i++){
             commandNames.append(i+1).append(". ").append(commands.get(i).getName()).append("\n");
         }
-        System.out.println("Enter one of the available commands: "+commandNames+"\n");
+        ui.print("Enter one of the available commands: "+commandNames+"\n");
     }
 
     public void add(MenuComponent command) {
