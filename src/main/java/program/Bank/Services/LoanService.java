@@ -78,7 +78,7 @@ public class LoanService {
         } catch (Exception e) {
             String mes = "Помилка при завантаженні кредитів: " + e.getMessage();
             log.error(mes);
-            System.out.println(mes);
+            ui.print(mes);
         }
     }
 
@@ -138,6 +138,7 @@ public class LoanService {
             }
         } catch (Exception e) {
             log.error("Помилка отримання списку депозитів: " + e.getMessage());
+            ui.print("Помилка отримання списку депозитів: " +e.getMessage());
         }
         return loans;
     }
