@@ -217,6 +217,28 @@ public class CardService {
         }
     }
 
+    public java.util.List<Card> getClientCards(UUID clientId) {
+        java.util.List<Card> cards = new java.util.ArrayList<>();
+        String query = "SELECT id FROM card WHERE client_id = ?";
+
+        try (Connection conn = dataBase.Connection(); //
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setObject(1, clientId);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                UUID cardId = (UUID) rs.getObject("id");
+                Card card = new Card(cardId);
+                dataBase.Fetch(card); // Завантажуємо дані картки
+                cards.add(card);
+            }
+        } catch (Exception e) {
+            log.error("Помилка отримання списку карток: " + e.getMessage());
+        }
+        return cards;
+    }
+
     public boolean Transfer(String receiverCardNumber, BigDecimal amount, String transactionInfo) {
         TopUpCard(receiverCardNumber, amount);
 

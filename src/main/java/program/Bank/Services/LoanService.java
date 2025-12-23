@@ -11,6 +11,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class LoanService {
@@ -109,5 +111,34 @@ public class LoanService {
         catch(Exception e){
             ui.print(e.getMessage());
         }
+    }
+
+    public Loan GetLoan(UUID loan_id){
+        Loan loan = new Loan(loan_id);
+        dataBase.Fetch(loan);
+
+        return loan;
+    }
+
+    public List<Loan> getClientLoans(UUID clientId) {
+        List<Loan> loans = new ArrayList<>();
+        String query = "SELECT id FROM loan WHERE client_id = ?";
+
+        try (Connection conn = dataBase.Connection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setObject(1, clientId);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                UUID loanId = (UUID) rs.getObject("id");
+                Loan loan = new Loan(loanId);
+                dataBase.Fetch(loan);
+                loans.add(loan);
+            }
+        } catch (Exception e) {
+            log.error("Помилка отримання списку депозитів: " + e.getMessage());
+        }
+        return loans;
     }
 }

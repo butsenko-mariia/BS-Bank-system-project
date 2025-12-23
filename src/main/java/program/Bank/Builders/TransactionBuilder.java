@@ -56,10 +56,14 @@ public class TransactionBuilder {
         return this;
     }
     public Transaction build(){
-        if (transaction == null || transaction.getId() == null ||transaction.getAccount_id_from() == null ||
-                transaction.getAccount_id_to() == null || transaction.getSum() == null ||
-                transaction.getOpen_date() == null || transaction.getOpen_time() == null || transaction.getCurrency() == null){
-            throw  new IllegalStateException("Some fields are null.");
+        // Залишаємо перевірку тільки для критичних полів (ID, сума, дата, валюта)
+        // Прибираємо account_id_from та account_id_to з перевірки
+        if (transaction == null || transaction.getId() == null ||
+                transaction.getSum() == null ||
+                transaction.getOpen_date() == null || transaction.getOpen_time() == null ||
+                transaction.getCurrency() == null){
+
+            throw new IllegalStateException("Critical fields (ID, Sum, Date) are null.");
         }
         return transaction;
     }
