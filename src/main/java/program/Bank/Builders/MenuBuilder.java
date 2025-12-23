@@ -431,7 +431,20 @@ public class MenuBuilder {
             loanService.FullEarlyRepayment(loan, amount);
         }));
         certainLoanMenu.add(new Command("Close Loan", () -> {
-            loanService.CloseLoan(loan);
+            BigDecimal change = loanService.CloseLoan(loan);
+
+            String cardNumber = ui.ask("Enter card number where change should be sent");
+            boolean succes = cardService.Transfer(cardNumber, change, "Change from loan");
+            if (succes) {
+                String mes = "Loan has been sent successfully!";
+                ui.print(mes);
+                log.debug(mes);
+            }
+            else{
+                String mes = "Loan hasn't been sent successfully!";
+                ui.print(mes);
+                log.debug(mes);
+            }
         }));
 
         certainLoanMenu.add(ExitCommand());
