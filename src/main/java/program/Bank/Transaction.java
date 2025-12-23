@@ -166,6 +166,7 @@ public class Transaction {
         // ВИДАЛЯЄМО перевірку на null!
         // Гроші можуть прийти "нізвідки" (наприклад, поповнення готівкою)
         this.account_id_from = account_id_from;
+        log.debug("Sender account ID set: {}.", account_id_from);
     }
 
     public UUID getAccount_id_to() {
@@ -176,6 +177,7 @@ public class Transaction {
         // ВИДАЛЯЄМО перевірку на null!
         // Гроші можуть піти "в нікуди" (магазин, банкомат)
         this.account_id_to = account_id_to;
+        log.debug("Receiver account ID set: {}.", account_id_to);
     }
     public TransactionStatus getStatus() {
         return status;

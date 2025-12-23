@@ -150,39 +150,65 @@ public class MenuBuilder {
         clientMenu.add(new Command("Transactions' history", () -> {
             ui.print("\n=== TRANSACTION HISTORY ===");
 
-            // 1. Отримуємо картки клієнта (використовуючи метод, який ми щойно додали)
-            java.util.List<Card> cards = cardService.getClientCards(client.getId());
+            // 1. Створюємо загальний список для всіх типів рахунків
+            // (Не забудь імпортувати java.util.ArrayList та java.util.List)
+            java.util.List<Account> allAccounts = new java.util.ArrayList<>();
 
-            if (cards.isEmpty()) {
-                ui.print("У вас немає активних карток.");
+            // 2. Додаємо картки
+            allAccounts.addAll(cardService.getClientCards(client.getId()));
+
+            // 3. Додаємо депозити (переконайся, що в DepositeService є такий метод)
+            // allAccounts.addAll(depositeService.getClientDeposits(client.getId()));
+
+            // 4. Додаємо кредити (переконайся, що в LoanService є такий метод)
+            // allAccounts.addAll(loanService.getClientLoans(client.getId()));
+
+            if (allAccounts.isEmpty()) {
+                ui.print("У вас немає активних рахунків (карток, депозитів чи кредитів).");
                 return;
             }
 
-            // 2. Проходимо по кожній картці
-            for (Card card : cards) {
+            // 5. Проходимо по кожному акаунту (поліморфізм: неважливо, чи це картка, чи депозит)
+            for (Account account : allAccounts) {
+                String type = "ACCOUNT";
+                String info = account.getId().toString();
+
+                // Визначаємо тип для гарного виводу в консоль
+                if (account instanceof Card) {
+                    type = "CARD";
+                    info = ((Card) account).getCard_number();
+                } else if (account instanceof Deposit) {
+                    type = "DEPOSIT";
+                    // info = "Deposit #" + ... ;
+                } else if (account instanceof Loan) {
+                    type = "LOAN";
+                    // info = "Loan #" + ... ;
+                }
+
                 ui.print("\n-----------------------------------------------------");
-                ui.print(" CARD: " + card.getCard_number() + " (" + card.getCurrency() + ")");
+                // Передбачається, що в інтерфейсі Account є метод getCurrency()
+                ui.print(" " + type + ": " + info + " (" + account.getCurrency() + ")");
                 ui.print("-----------------------------------------------------");
 
-                // 3. Запитуємо історію у TransactionService
-                java.util.List<Transaction> history = transactionService.getTransactionHistory(card.getId());
+                // 6. Запитуємо історію у TransactionService по ID акаунта
+                java.util.List<Transaction> history = transactionService.getTransactionHistory(account.getId());
 
                 if (history.isEmpty()) {
                     ui.print("  No transactions found.");
                 } else {
-                    // 4. Малюємо табличку
+                    // Малюємо табличку
                     System.out.printf("%-12s | %-22s | %-15s%n", "DATE", "INFO", "AMOUNT");
                     System.out.println("-------------|------------------------|----------------");
 
                     for (Transaction t : history) {
                         String date = t.getOpen_date().toString();
-                        String info = t.getOperation_info();
-                        // Обрізаємо довгий текст, щоб таблиця була рівною
-                        if (info.length() > 20) info = info.substring(0, 20) + "..";
+                        String infoText = t.getOperation_info();
+
+                        if (infoText.length() > 20) infoText = infoText.substring(0, 20) + "..";
 
                         String amount = t.getSign() + t.getSum() + " " + t.getCurrency();
 
-                        System.out.printf("%-12s | %-22s | %15s%n", date, info, amount);
+                        System.out.printf("%-12s | %-22s | %15s%n", date, infoText, amount);
                     }
                 }
             }
