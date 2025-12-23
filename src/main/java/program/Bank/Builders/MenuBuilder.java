@@ -9,6 +9,7 @@ import program.Bank.Services.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 public class MenuBuilder {
@@ -154,54 +155,37 @@ public class MenuBuilder {
 
         clientMenu.add(new Command("Transactions' history", () -> {
             ui.print("\n=== TRANSACTION HISTORY ===");
-
-            // 1. Створюємо загальний список для всіх типів рахунків
-            // (Не забудь імпортувати java.util.ArrayList та java.util.List)
-            java.util.List<Account> allAccounts = new java.util.ArrayList<>();
-
-            // 2. Додаємо картки
+            List<Account> allAccounts = new java.util.ArrayList<>();
             allAccounts.addAll(cardService.getClientCards(client.getId()));
-
-            // 3. Додаємо депозити (переконайся, що в DepositeService є такий метод)
-            // allAccounts.addAll(depositeService.getClientDeposits(client.getId()));
-
-            // 4. Додаємо кредити (переконайся, що в LoanService є такий метод)
-            // allAccounts.addAll(loanService.getClientLoans(client.getId()));
+            allAccounts.addAll(depositeService.getClientDeposits(client.getId()));
+            allAccounts.addAll(loanService.getClientLoans(client.getId()));
 
             if (allAccounts.isEmpty()) {
                 ui.print("У вас немає активних рахунків (карток, депозитів чи кредитів).");
                 return;
             }
 
-            // 5. Проходимо по кожному акаунту (поліморфізм: неважливо, чи це картка, чи депозит)
             for (Account account : allAccounts) {
                 String type = "ACCOUNT";
-                String info = account.getId().toString();
+                String info = account.toString();
 
-                // Визначаємо тип для гарного виводу в консоль
                 if (account instanceof Card) {
                     type = "CARD";
-                    info = ((Card) account).getCard_number();
                 } else if (account instanceof Deposit) {
                     type = "DEPOSIT";
-                    // info = "Deposit #" + ... ;
                 } else if (account instanceof Loan) {
                     type = "LOAN";
-                    // info = "Loan #" + ... ;
                 }
 
                 ui.print("\n-----------------------------------------------------");
-                // Передбачається, що в інтерфейсі Account є метод getCurrency()
                 ui.print(" " + type + ": " + info + " (" + account.getCurrency() + ")");
                 ui.print("-----------------------------------------------------");
 
-                // 6. Запитуємо історію у TransactionService по ID акаунта
                 java.util.List<Transaction> history = transactionService.getTransactionHistory(account.getId());
 
                 if (history.isEmpty()) {
                     ui.print("  No transactions found.");
                 } else {
-                    // Малюємо табличку
                     System.out.printf("%-12s | %-22s | %-15s%n", "DATE", "INFO", "AMOUNT");
                     System.out.println("-------------|------------------------|----------------");
 
