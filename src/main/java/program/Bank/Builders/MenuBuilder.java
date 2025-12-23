@@ -94,7 +94,7 @@ public class MenuBuilder {
         Menu loginMenu = new Menu("=== LOG IN CLIENT's CABINET ===");
 
         loginMenu.add(new Command("Return", () -> {}));
-        loginMenu.add(new Command(("Enter Client's account by id"), () -> {
+        loginMenu.add(new Command(("Enter Client's account by full name"), () -> {
             Login("name", "Enter Client`s full name");
         }));
         loginMenu.add(new Command(("Enter Client's account by passport number"), () -> {
@@ -148,7 +148,45 @@ public class MenuBuilder {
         }));
 
         clientMenu.add(new Command("Transactions' history", () -> {
-            //Історія
+            ui.print("\n=== TRANSACTION HISTORY ===");
+
+            // 1. Отримуємо картки клієнта (використовуючи метод, який ми щойно додали)
+            java.util.List<Card> cards = cardService.getClientCards(client.getId());
+
+            if (cards.isEmpty()) {
+                ui.print("У вас немає активних карток.");
+                return;
+            }
+
+            // 2. Проходимо по кожній картці
+            for (Card card : cards) {
+                ui.print("\n-----------------------------------------------------");
+                ui.print(" CARD: " + card.getCard_number() + " (" + card.getCurrency() + ")");
+                ui.print("-----------------------------------------------------");
+
+                // 3. Запитуємо історію у TransactionService
+                java.util.List<Transaction> history = transactionService.getTransactionHistory(card.getId());
+
+                if (history.isEmpty()) {
+                    ui.print("  No transactions found.");
+                } else {
+                    // 4. Малюємо табличку
+                    System.out.printf("%-12s | %-22s | %-15s%n", "DATE", "INFO", "AMOUNT");
+                    System.out.println("-------------|------------------------|----------------");
+
+                    for (Transaction t : history) {
+                        String date = t.getOpen_date().toString();
+                        String info = t.getOperation_info();
+                        // Обрізаємо довгий текст, щоб таблиця була рівною
+                        if (info.length() > 20) info = info.substring(0, 20) + "..";
+
+                        String amount = t.getSign() + t.getSum() + " " + t.getCurrency();
+
+                        System.out.printf("%-12s | %-22s | %15s%n", date, info, amount);
+                    }
+                }
+            }
+            ui.print("-----------------------------------------------------");
         }));
 
         clientMenu.add(new Command("Client's data", () -> {
@@ -244,8 +282,17 @@ public class MenuBuilder {
             BigDecimal amount = new BigDecimal(ui.ask("Enter amount to transfer:"));
             boolean success = cardService.Transfer(card, receiverNumber, amount);
             if (success) {
-                //Сніжано напиши метод кріейт транзакціон
-                //transactionService.CreateTransaction(card.getId(), receiverNumber, amount, "TRANSFER");
+                // 2. ЯКЩО успішно - записуємо транзакцію через твій сервіс
+                transactionService.createTransaction(
+                        card.getId(),       // Твоя картка (ID)
+                        receiverNumber,     // Номер картки отримувача (String)
+                        amount,             // Сума
+                        "Transfer to " + receiverNumber // Опис операції
+                );
+                ui.print("Transaction recorded.");
+
+            } else {
+                ui.print("Transfer failed. Please check balance or card number.");
             }
         }));
         certainCardMenu.add(new Command("View card's details", () -> {

@@ -163,19 +163,9 @@ public class Transaction {
     }
 
     public void setAccount_id_from(UUID account_id_from) {
-        if (account_id_from == null) {
-            String msg = "Sender Account ID cannot be null.";
-            log.error(msg);
-            throw new IllegalArgumentException(msg);
-        }
-        if (this.account_id_to != null && this.account_id_to.equals(account_id_from)) {
-            String msg = "Sender Account cannot be the same as Receiver Account.";
-            log.error(msg);
-            throw new IllegalArgumentException(msg);
-        }
-
+        // ВИДАЛЯЄМО перевірку на null!
+        // Гроші можуть прийти "нізвідки" (наприклад, поповнення готівкою)
         this.account_id_from = account_id_from;
-        log.debug("Sender account ID set: {}.", account_id_from);
     }
 
     public UUID getAccount_id_to() {
@@ -183,21 +173,10 @@ public class Transaction {
     }
 
     public void setAccount_id_to(UUID account_id_to) {
-        if (account_id_to == null) {
-            String msg = "Receiver Account ID cannot be null.";
-            log.error(msg);
-            throw new IllegalArgumentException(msg);
-        }
-        if (this.account_id_from != null && this.account_id_from.equals(account_id_to)) {
-            String msg = "Receiver Account cannot be the same as Sender Account.";
-            log.error(msg);
-            throw new IllegalArgumentException(msg);
-        }
-
+        // ВИДАЛЯЄМО перевірку на null!
+        // Гроші можуть піти "в нікуди" (магазин, банкомат)
         this.account_id_to = account_id_to;
-        log.debug("Receiver account ID set: {}.", account_id_to);
     }
-
     public TransactionStatus getStatus() {
         return status;
     }
