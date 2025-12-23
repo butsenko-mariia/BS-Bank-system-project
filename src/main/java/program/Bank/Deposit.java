@@ -202,7 +202,7 @@ public abstract class Deposit implements Account {
 
     abstract public void InterestCalculation(LocalDate date);
 
-    public void Close(boolean confirm_early_close) {
+    public BigDecimal Close(boolean confirm_early_close) {
         log.info("Starting close procedure for Deposit {}.", this.id);
         this.InterestCalculation(LocalDate.now());
         log.debug("Current profit was calculated in 'Close method': {}.", this.profit);
@@ -214,7 +214,7 @@ public abstract class Deposit implements Account {
                 String mes = "Early closure cancelled by user for Deposit " + this.id + ".";
                 log.info(mes);
                 System.out.println(mes);
-                return;
+                return null;
             }
             String mes = "A penalty rate has been applied due to early termination.";
             System.out.println(mes);
@@ -236,18 +236,15 @@ public abstract class Deposit implements Account {
         log.info("Closing financial summary for Deposit {}: Profit = {}, Tax = {}, PayOut = {}.",
                 this.id, currentProfit, taxAmount, totalToPay);
 
-        System.out.println("----- Закриття депозиту -----");
-        System.out.println("Нараховані відсотки: " + currentProfit + " " + this.currency);
-        System.out.println("Податок : " + taxAmount + " " + this.currency);
-        System.out.println("До виплати клієнту: " + totalToPay + " " + this.currency);
+//        System.out.println("----- Закриття депозиту -----");
+//        System.out.println("Нараховані відсотки: " + currentProfit + " " + this.currency);
+//        System.out.println("Податок : " + taxAmount + " " + this.currency);
+//        System.out.println("До виплати клієнту: " + totalToPay + " " + this.currency);
 
         this.setStatus(AccountStatus.CLOSED);
         log.info("Deposit {} successfully CLOSED.", this.id);
 
-
-//тут має бути функція яка переводить обраному рахунку суму депозита та нараховані відсотки
-//  видаляє інформацію про депозит з таблиці в бд депозитів та переводить
-// в архівну таблицю
+        return totalToPay;
     }
 
 }
