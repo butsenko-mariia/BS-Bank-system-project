@@ -12,6 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class DepositeService {
@@ -136,5 +138,28 @@ public class DepositeService {
         dataBase.Fetch(deposit);
 
         return deposit;
+    }
+
+    public List<Deposit> getClientDeposits(UUID clientId) {
+        List<Deposit> deposits = new ArrayList<>();
+        String query = "SELECT id FROM deposit WHERE client_id = ?";
+
+        try (Connection conn = dataBase.Connection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setObject(1, clientId);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                UUID depositId = (UUID) rs.getObject("id");
+                String type = getDepositType(depositId);
+                Deposit deposit = type.equals("StandardDeposit") ? new StandardDeposit(depositId) : new CapitalizationDeposit(depositId);
+                dataBase.Fetch(deposit);
+                deposits.add(deposit);
+            }
+        } catch (Exception e) {
+            log.error("Помилка отримання списку депозитів: " + e.getMessage());
+        }
+        return deposits;
     }
 }

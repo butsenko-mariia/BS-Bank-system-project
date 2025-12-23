@@ -238,6 +238,7 @@ public class CardService {
         }
         return cards;
     }
+
     public boolean Transfer(String receiverCardNumber, BigDecimal amount, String transactionInfo) {
         TopUpCard(receiverCardNumber, amount);
 

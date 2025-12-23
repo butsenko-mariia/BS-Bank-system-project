@@ -31,11 +31,7 @@ public class TransactionService {
         log.info("Creating transaction log. Amount: {} {}", amount, currency);
 
         try {
-            UUID transactionId = UUID.randomUUID();
-
-            // Використовуємо Builder для створення об'єкта
             Transaction transaction = TransactionBuilder.create()
-                    .id(transactionId)
                     .account_id_from(fromAccountId)
                     .account_id_to(toAccountId)
                     .sum(amount)
@@ -48,7 +44,7 @@ public class TransactionService {
 
             dataBase.Upload(transaction);
 
-            log.info("Transaction recorded successfully with ID: {}", transactionId);
+            log.info("Transaction recorded successfully with ID: {}", transaction.getId());
 
         } catch (Exception e) {
             log.error("Failed to record transaction: {}", e.getMessage());
