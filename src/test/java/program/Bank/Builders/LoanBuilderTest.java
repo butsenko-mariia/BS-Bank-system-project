@@ -17,7 +17,6 @@ class LoanBuilderTest {
         UUID clientId = UUID.randomUUID();
         BigDecimal sum = new BigDecimal("20000");
 
-        // Зверніть увагу: метод називається builder(), а не build() у вашому коді LoanBuilder
         Loan loan = LoanBuilder.create()
                 .client_id(clientId)
                 .original_sum(sum)
@@ -44,9 +43,8 @@ class LoanBuilderTest {
                 .open_date(LocalDate.now())
                 .close_date(LocalDate.now().plusMonths(12))
                 .status(AccountStatus.ACTIVE);
-        // currency НЕ задаємо
 
-        Loan loan = builder.build(); // або .build()
+        Loan loan = builder.build();
 
         assertNotNull(loan);
         assertEquals("UAH", loan.getCurrency(), "Currency should default to UAH if not provided");

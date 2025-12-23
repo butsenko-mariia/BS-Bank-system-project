@@ -7,6 +7,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import program.Bank.DataBase;
 import program.Bank.Transaction;
+import program.Bank.Enums.TransactionStatus;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -26,14 +27,15 @@ class TransactionServiceTest {
 
     @Test
     void shouldCreateTransaction() {
-         transactionService.createTransaction(
-                UUID.randomUUID(),       // Від кого
-                UUID.randomUUID(),       // Кому
-                new BigDecimal("100.00"), // Сума
-                "UAH",                   // Валюта
-                "Test Payment"           // Опис
+        transactionService.createTransaction(
+                UUID.randomUUID(),
+                UUID.randomUUID(),
+                new BigDecimal("100.00"),
+                "UAH",
+                "Test Payment",
+                TransactionStatus.COMPLETED
         );
 
-         verify(dataBase, times(1)).Upload(any(Transaction.class));
+        verify(dataBase, times(1)).Upload(any(Transaction.class));
     }
 }

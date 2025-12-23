@@ -208,7 +208,8 @@ public class CardService {
                     receiver.getId(),
                     amount,
                     senderCard.getCurrency(),
-                    "Transfer to " + receiverCardNumber
+                    "Transfer to " + receiverCardNumber,
+                    TransactionStatus.COMPLETED
             );
 
             log.warn(mes);
@@ -267,11 +268,12 @@ public class CardService {
             String mes = "Переказ успішний! Надіслано: \" + amount + \" \" + senderCard.getCurrency()";
 
             transactionService.createTransaction(
-                    null, // Відправника немає (готівка)
+                    null,
                     receiver.getId(),
                     amount,
                     receiver.getCurrency(),
-                    transactionInfo
+                    transactionInfo,
+                    TransactionStatus.COMPLETED
             );
 
             log.warn(mes);
