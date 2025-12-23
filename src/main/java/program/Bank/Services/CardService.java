@@ -98,11 +98,26 @@ public class CardService {
         return null;
     }
 
-    public void TopUpCard(Card card, BigDecimal amount) {
+    public boolean IfActiveCard(Card card){
         if (card == null) {
             String mes = "Картку з номером " + card.getCard_number() + " не знайдено.";
             log.warn(mes);
             ui.print(mes);
+            return false;
+        }
+
+        if(card.getStatus() != AccountStatus.ACTIVE){
+            String mes = "Карткa з номером " + card.getCard_number() + " неактивна.";
+            log.warn(mes);
+            ui.print(mes);
+            return false;
+        }
+
+        return true;
+    }
+
+    public void TopUpCard(Card card, BigDecimal amount) {
+        if (!IfActiveCard(card)) {
             return;
         }
 
@@ -123,10 +138,7 @@ public class CardService {
     }
 
     public void WithDraw(Card card, BigDecimal amount) {
-        if (card == null) {
-            String mes = "Картку з номером " + card.getCard_number() + " не знайдено.";
-            log.warn(mes);
-            ui.print(mes);
+        if (!IfActiveCard(card)) {
             return;
         }
 
@@ -135,10 +147,7 @@ public class CardService {
     }
 
     public void BlockCard(Card card) {
-        if (card == null) {
-            String mes = "Картку з номером " + card.getCard_number() + " не знайдено.";
-            log.warn(mes);
-            ui.print(mes);
+        if (!IfActiveCard(card)) {
             return;
         }
 
@@ -159,7 +168,6 @@ public class CardService {
     }
 
     public BigDecimal CloseCard(Card card) {
-
         if (card == null) {
             String mes = "Картку з номером " + card.getCard_number() + " не знайдено.";
             log.warn(mes);
@@ -171,5 +179,32 @@ public class CardService {
         dataBase.Update(card);
 
         return change;
+    }
+
+    public boolean Transfer(Card senderCard, String receiverCardNumber, BigDecimal amount) {
+        if (senderCard.getCard_number().equals(receiverCardNumber)) {
+            String mes = "Помилка: Неможливо зробити переказ на ту ж саму картку.";
+            log.warn(mes);
+            ui.print(mes);
+            return false;
+        }
+
+        WithDraw(senderCard, amount);
+        TopUpCard(receiverCardNumber, amount);
+
+        try {
+            dataBase.Update(senderCard);
+            dataBase.Update(GetCardByNumber(receiverCardNumber));
+
+            String mes = "Переказ успішний! Надіслано: \" + amount + \" \" + senderCard.getCurrency()";
+            log.warn(mes);
+            ui.print(mes);
+            return true;
+        }
+        catch (Exception e) {
+            log.error("Помилка транзакції: " + e.getMessage());
+            ui.print("Сталася технічна помилка під час переказу.");
+            return false;
+        }
     }
 }

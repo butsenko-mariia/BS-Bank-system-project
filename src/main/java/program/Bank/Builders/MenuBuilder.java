@@ -239,11 +239,14 @@ public class MenuBuilder {
             ui.print("Withdraw Successful!\nRecieve your cash from the Bankomat");
         }));
         certainCardMenu.add(new Command("Make a transaction", () -> {
-
-            //Сніжан додай тут реалізацію транзакції
-
-
-
+            ui.print("=== MONEY TRANSFER ===");
+            String receiverNumber = ui.ask("Enter receiver card number:");
+            BigDecimal amount = new BigDecimal(ui.ask("Enter amount to transfer:"));
+            boolean success = cardService.Transfer(card, receiverNumber, amount);
+            if (success) {
+                //Сніжано напиши метод кріейт транзакціон
+                //transactionService.CreateTransaction(card.getId(), receiverNumber, amount, "TRANSFER");
+            }
         }));
         certainCardMenu.add(new Command("View card's details", () -> {
             cardService.PrintFullDetails(card);
