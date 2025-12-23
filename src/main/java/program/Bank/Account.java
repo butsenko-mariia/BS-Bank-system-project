@@ -8,4 +8,5 @@ public interface Account {
     String toString();
     void PrintFullInfo();
     void PrintInfo();
+    String getCurrency();
 }

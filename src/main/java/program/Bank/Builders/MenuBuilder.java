@@ -94,7 +94,7 @@ public class MenuBuilder {
         Menu loginMenu = new Menu("=== LOG IN CLIENT's CABINET ===");
 
         loginMenu.add(new Command("Return", () -> {}));
-        loginMenu.add(new Command(("Enter Client's account by id"), () -> {
+        loginMenu.add(new Command(("Enter Client's account by full name"), () -> {
             Login("name", "Enter Client`s full name");
         }));
         loginMenu.add(new Command(("Enter Client's account by passport number"), () -> {
@@ -153,7 +153,71 @@ public class MenuBuilder {
         }));
 
         clientMenu.add(new Command("Transactions' history", () -> {
-            //Історія
+            ui.print("\n=== TRANSACTION HISTORY ===");
+
+            // 1. Створюємо загальний список для всіх типів рахунків
+            // (Не забудь імпортувати java.util.ArrayList та java.util.List)
+            java.util.List<Account> allAccounts = new java.util.ArrayList<>();
+
+            // 2. Додаємо картки
+            allAccounts.addAll(cardService.getClientCards(client.getId()));
+
+            // 3. Додаємо депозити (переконайся, що в DepositeService є такий метод)
+            // allAccounts.addAll(depositeService.getClientDeposits(client.getId()));
+
+            // 4. Додаємо кредити (переконайся, що в LoanService є такий метод)
+            // allAccounts.addAll(loanService.getClientLoans(client.getId()));
+
+            if (allAccounts.isEmpty()) {
+                ui.print("У вас немає активних рахунків (карток, депозитів чи кредитів).");
+                return;
+            }
+
+            // 5. Проходимо по кожному акаунту (поліморфізм: неважливо, чи це картка, чи депозит)
+            for (Account account : allAccounts) {
+                String type = "ACCOUNT";
+                String info = account.getId().toString();
+
+                // Визначаємо тип для гарного виводу в консоль
+                if (account instanceof Card) {
+                    type = "CARD";
+                    info = ((Card) account).getCard_number();
+                } else if (account instanceof Deposit) {
+                    type = "DEPOSIT";
+                    // info = "Deposit #" + ... ;
+                } else if (account instanceof Loan) {
+                    type = "LOAN";
+                    // info = "Loan #" + ... ;
+                }
+
+                ui.print("\n-----------------------------------------------------");
+                // Передбачається, що в інтерфейсі Account є метод getCurrency()
+                ui.print(" " + type + ": " + info + " (" + account.getCurrency() + ")");
+                ui.print("-----------------------------------------------------");
+
+                // 6. Запитуємо історію у TransactionService по ID акаунта
+                java.util.List<Transaction> history = transactionService.getTransactionHistory(account.getId());
+
+                if (history.isEmpty()) {
+                    ui.print("  No transactions found.");
+                } else {
+                    // Малюємо табличку
+                    System.out.printf("%-12s | %-22s | %-15s%n", "DATE", "INFO", "AMOUNT");
+                    System.out.println("-------------|------------------------|----------------");
+
+                    for (Transaction t : history) {
+                        String date = t.getOpen_date().toString();
+                        String infoText = t.getOperation_info();
+
+                        if (infoText.length() > 20) infoText = infoText.substring(0, 20) + "..";
+
+                        String amount = t.getSign() + t.getSum() + " " + t.getCurrency();
+
+                        System.out.printf("%-12s | %-22s | %15s%n", date, infoText, amount);
+                    }
+                }
+            }
+            ui.print("-----------------------------------------------------");
         }));
 
         clientMenu.add(new Command("Client's data", () -> {
@@ -248,8 +312,25 @@ public class MenuBuilder {
             BigDecimal amount = new BigDecimal(ui.ask("Enter amount to transfer:"));
             boolean success = cardService.Transfer(card, receiverNumber, amount);
             if (success) {
-                //Сніжано напиши метод кріейт транзакціон
-                //transactionService.CreateTransaction(card.getId(), receiverNumber, amount, "TRANSFER");
+                // 1. Нам треба знайти ID картки отримувача, бо TransactionService приймає тільки UUID
+                Card receiverCard = cardService.GetCardByNumber(receiverNumber);
+
+                // (Ми знаємо, що receiverCard існує, бо success = true, але для безпеки можна перевірити)
+                UUID receiverId = (receiverCard != null) ? receiverCard.getId() : null;
+
+                // 2. Викликаємо метод запису історії
+                transactionService.createTransaction(
+                        card.getId(),         // ID відправника (UUID)
+                        receiverId,           // ID отримувача (UUID) - виправлено!
+                        amount,               // Сума
+                        card.getCurrency(),   // Валюта (додали, бо метод вимагає)
+                        "Transfer to " + receiverNumber // Опис
+                );
+
+                ui.print("Transaction recorded.");
+
+            } else {
+                ui.print("Transfer failed. Please check balance or card number.");
             }
         }));
         certainCardMenu.add(new Command("View card's details", () -> {
