@@ -74,7 +74,7 @@ public class CardService {
         } catch (Exception e) {
             String mes = "Помилка при завантаженні карток: " + e.getMessage();
             log.error(mes);
-            System.out.println(mes);
+            ui.print(mes);
         }
     }
 
