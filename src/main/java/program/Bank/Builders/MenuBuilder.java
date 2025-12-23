@@ -282,13 +282,21 @@ public class MenuBuilder {
             BigDecimal amount = new BigDecimal(ui.ask("Enter amount to transfer:"));
             boolean success = cardService.Transfer(card, receiverNumber, amount);
             if (success) {
-                // 2. ЯКЩО успішно - записуємо транзакцію через твій сервіс
+                // 1. Нам треба знайти ID картки отримувача, бо TransactionService приймає тільки UUID
+                Card receiverCard = cardService.GetCardByNumber(receiverNumber);
+
+                // (Ми знаємо, що receiverCard існує, бо success = true, але для безпеки можна перевірити)
+                UUID receiverId = (receiverCard != null) ? receiverCard.getId() : null;
+
+                // 2. Викликаємо метод запису історії
                 transactionService.createTransaction(
-                        card.getId(),       // Твоя картка (ID)
-                        receiverNumber,     // Номер картки отримувача (String)
-                        amount,             // Сума
-                        "Transfer to " + receiverNumber // Опис операції
+                        card.getId(),         // ID відправника (UUID)
+                        receiverId,           // ID отримувача (UUID) - виправлено!
+                        amount,               // Сума
+                        card.getCurrency(),   // Валюта (додали, бо метод вимагає)
+                        "Transfer to " + receiverNumber // Опис
                 );
+
                 ui.print("Transaction recorded.");
 
             } else {

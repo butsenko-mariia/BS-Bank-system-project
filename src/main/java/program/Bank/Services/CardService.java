@@ -207,7 +207,7 @@ public class CardService {
             return false;
         }
     }
-    // Додай цей метод в клас CardService
+
     public java.util.List<Card> getClientCards(UUID clientId) {
         java.util.List<Card> cards = new java.util.ArrayList<>();
         String query = "SELECT id FROM card WHERE client_id = ?";

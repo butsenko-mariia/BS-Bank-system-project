@@ -26,51 +26,42 @@ public class TransactionService {
         this.dataBase = dataBase;
     }
 
-    /**
-     * СТВОРЕННЯ ЗАПИСУ ПРО ТРАНЗАКЦІЮ
-     * Викликається після успішного переказу в CardService.
-     * Автоматично знаходить ID отримувача за номером картки.
-     */
-    public void createTransaction(UUID fromCardId, String toCardNumber, BigDecimal amount, String operationInfo) {
-        // 1. Знаходимо ID картки отримувача по номеру
-        UUID toCardId = getCardIdByNumber(toCardNumber);
 
-        // Якщо картку не знайдено (хоча CardService вже мав це перевірити)
-        if (toCardId == null) {
-            log.warn("Transaction log failed: Receiver card {} not found.", toCardNumber);
-            return;
+    public void createTransaction(UUID fromAccountId, UUID toAccountId, BigDecimal amount, String currency, String operationInfo) {
+        log.info("Creating transaction log. Amount: {} {}", amount, currency);
+
+        try {
+            UUID transactionId = UUID.randomUUID();
+
+            // Використовуємо Builder для створення об'єкта
+            Transaction transaction = TransactionBuilder.create()
+                    .id(transactionId)
+                    .account_id_from(fromAccountId)
+                    .account_id_to(toAccountId)
+                    .sum(amount)
+                    .currency(currency)
+                    .operation_info(operationInfo)
+                    .open_date(LocalDate.now())
+                    .open_time(LocalTime.now())
+                    .status(TransactionStatus.COMPLETED)
+                    .build();
+
+            dataBase.Upload(transaction);
+
+            log.info("Transaction recorded successfully with ID: {}", transactionId);
+
+        } catch (Exception e) {
+            log.error("Failed to record transaction: {}", e.getMessage());
         }
-
-        UUID transactionId = UUID.randomUUID();
-
-        // 2. Будуємо об'єкт транзакції
-        Transaction transaction = TransactionBuilder.create()
-                .id(transactionId)
-                .account_id_from(fromCardId)
-                .account_id_to(toCardId)
-                .sum(amount)
-                .currency("UAH") // За замовчуванням UAH, можна передавати параметром
-                .operation_info(operationInfo)
-                .open_date(LocalDate.now())
-                .open_time(LocalTime.now())
-                .status(TransactionStatus.COMPLETED) // Статус COMPLETED, бо гроші вже переказані
-                .build();
-
-        // 3. Зберігаємо в базу даних
-        dataBase.Upload(transaction);
-
-        log.info("Transaction recorded: " + transactionId);
     }
 
-    /**
-     * ОТРИМАННЯ ІСТОРІЇ (для меню History)
-     * Повертає список транзакцій для конкретної картки з правильними знаками +/-.
-     */
+
     public List<Transaction> getTransactionHistory(UUID accountId) {
+        log.info("Fetching transaction history for account: {}", accountId);
+
         List<Transaction> history = new ArrayList<>();
 
-        // SQL: Шукаємо транзакції, де accountId є або відправником, або отримувачем
-        String query = "SELECT * FROM transaction " +
+        String query = "SELECT id FROM transaction " +
                 "WHERE account_id_from = ? OR account_id_to = ? " +
                 "ORDER BY open_date DESC, open_time DESC";
 
@@ -83,21 +74,13 @@ public class TransactionService {
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()) {
-                // Відновлюємо об'єкт через Builder
-                Transaction t = TransactionBuilder.create()
-                        .id((UUID) rs.getObject("id"))
-                        .account_id_from((UUID) rs.getObject("account_id_from"))
-                        .account_id_to((UUID) rs.getObject("account_id_to"))
-                        .sum(rs.getBigDecimal("sum"))
-                        .currency(rs.getString("currency"))
-                        .operation_info(rs.getString("operation_info"))
-                        .open_date(rs.getDate("open_date").toLocalDate())
-                        .open_time(rs.getTime("open_time").toLocalTime())
-                        .status(TransactionStatus.valueOf(rs.getString("status")))
-                        .build();
+                UUID transId = (UUID) rs.getObject("id");
 
-                // Логіка знаку: якщо ми відправили -> "-", якщо отримали -> "+"
-                if (accountId.equals(t.getAccount_id_from())) {
+                Transaction t = new Transaction(transId);
+                dataBase.Fetch(t);
+
+
+                if (t.getAccount_id_from() != null && t.getAccount_id_from().equals(accountId)) {
                     t.setSign("-");
                 } else {
                     t.setSign("+");
@@ -105,41 +88,27 @@ public class TransactionService {
 
                 history.add(t);
             }
+            log.info("Found {} transactions for account {}", history.size(), accountId);
+
         } catch (SQLException e) {
-            log.error("Error loading history: " + e.getMessage());
+            log.error("SQL Error while loading history: {}", e.getMessage());
+        } catch (Exception e) {
+            log.error("Unexpected error: {}", e.getMessage());
         }
 
         return history;
     }
 
-    /**
-     * ДОПОМІЖНИЙ МЕТОД: Пошук ID картки за номером.
-     * Потрібен, бо користувач вводить номер "4149...", а в базі транзакціям треба UUID.
-     */
-    private UUID getCardIdByNumber(String cardNumber) {
-        String query = "SELECT id FROM card WHERE card_number = ?";
-        try (Connection conn = dataBase.Connection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
 
-            stmt.setString(1, cardNumber);
-            ResultSet rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                return (UUID) rs.getObject("id");
-            }
-        } catch (SQLException e) {
-            log.error("SQL Error in getCardIdByNumber: " + e.getMessage());
-        }
-        return null;
-    }
-
-    /**
-     * Пошук однієї транзакції за ID (стандартний метод)
-     */
     public Transaction getTransactionById(UUID id) {
+        log.debug("Looking for transaction by ID: {}", id);
         Transaction transaction = new Transaction(id);
         dataBase.Fetch(transaction);
-        if (transaction.getOpen_date() == null) return null;
+
+        if (transaction.getOpen_date() == null) {
+            log.warn("Transaction not found in DB: {}", id);
+            return null;
+        }
         return transaction;
     }
 }
