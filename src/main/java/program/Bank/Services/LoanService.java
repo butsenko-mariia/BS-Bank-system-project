@@ -110,4 +110,11 @@ public class LoanService {
             ui.print(e.getMessage());
         }
     }
+
+    public Loan GetLoan(UUID loan_id){
+        Loan loan = new Loan(loan_id);
+        dataBase.Fetch(loan);
+
+        return loan;
+    }
 }

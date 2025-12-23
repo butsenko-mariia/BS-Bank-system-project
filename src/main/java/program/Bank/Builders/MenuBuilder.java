@@ -126,27 +126,30 @@ public class MenuBuilder {
             clientMenu.execute();
         }
     }
-
+//MAIN MENU
     public Menu ClientMenu(Client client){
         Menu clientMenu = new Menu("=== CLIENT PERSONAL CABINET ===");
 
-        clientMenu.add(new Command("Information about client's accounts", () -> {
-            // Тут виклик AccountService.printInfo(client)
+        clientMenu.add(new Command("Client's full information", () -> {
+            ui.print("=== CLIENT INFO ===");
+            clientService.FullInfo(client);
         }));
 
+        clientMenu.add(new Command("Return", () -> {}));
+
         clientMenu.add(new Command("Cards", () -> {
-            Menu cardMenu = CardMenu();
+            Menu cardMenu = CardMenu(client);
             cardMenu.execute();
         }));
 
         clientMenu.add(new Command("Deposit", () -> {
-            depositeService.ShowAllClientDeposits(client);
             Menu depositMenu = DepositMenu(client);
             depositMenu.execute();
         }));
 
         clientMenu.add(new Command("Credits", () -> {
-            //Функціонал кредитів
+            Menu loanMenu = LoanMenu(client);
+            loanMenu.execute();
         }));
 
         clientMenu.add(new Command("Transactions' history", () -> {
@@ -163,10 +166,10 @@ public class MenuBuilder {
         return clientMenu;
     }
 
-    public Menu CardMenu(){
+    public Menu CardMenu(Client client){
         Menu cardMenu = new Menu("=== CARDS CABINET ===");
         ui.print("Your current cards:");
-        cardService.PrintAllClientsCards(currentClient);
+        cardService.PrintAllClientsCards(client);
 
         cardMenu.add(new Command("Return", () -> {}));
         cardMenu.add(new Command("Open new card", () -> {
@@ -259,11 +262,15 @@ public class MenuBuilder {
             cardService.CloseCard(card);
         }));
 
+        certainCardMenu.add(ExitCommand());
+
         return certainCardMenu;
     }
 
     public Menu DepositMenu(Client client){
         Menu depositMenu = new Menu("=== DEPOSIT CABINET ===");
+        depositeService.ShowAllClientDeposits(client);
+
         depositMenu.add(new Command("Return", () -> {}));
         depositMenu.add(new Command("Open Deposit", () -> {
             Deposit currentDeposit = OpenDeposit();
@@ -276,6 +283,8 @@ public class MenuBuilder {
             Menu certainDepositMenu = CertainDepositMenu(currentDeposit);
             certainDepositMenu.execute();
         }));
+
+        depositMenu.add(ExitCommand());
 
         return  depositMenu;
     }
@@ -316,7 +325,9 @@ public class MenuBuilder {
         Menu certainDepositMenu = new Menu("=== WORK WITH THE DEPOSIT ===");
         depositeService.PrintFullDetails(deposit);
         certainDepositMenu.add(new Command("Return", () -> {}));
-        certainDepositMenu.add(new Command("Show Deposit's information details", () -> {}));
+        certainDepositMenu.add(new Command("Show Deposit's information details", () -> {
+            depositeService.PrintFullDetails(deposit);
+        }));
         certainDepositMenu.add(new Command("Early close Deposit", () -> {
 
             BigDecimal depositSum = depositeService.EarlyCloseDeposit(deposit);
@@ -326,6 +337,8 @@ public class MenuBuilder {
             BigDecimal depositSum = depositeService.CloseDeposit(deposit);
             DepositPayment(depositSum);
         }));
+
+        certainDepositMenu.add(ExitCommand());
 
         return  certainDepositMenu;
     }
@@ -343,5 +356,86 @@ public class MenuBuilder {
             ui.print(mes);
             log.debug(mes);
         }
+    }
+
+    public Menu LoanMenu(Client client){
+        Menu loanMenu = new Menu("=== LOAN CABINET ===");
+        loanService.ShowAllClientLoans(client);
+
+        loanMenu.add(new Command("Return", () -> {}));
+        loanMenu.add(new Command("Open Loan", () -> {
+            Loan currentLoan= OpenLoan();
+            Menu certainLoanMenu = CertainLoanMenu(currentLoan);
+            certainLoanMenu.execute();
+        }));
+        loanMenu.add(new Command("Work with an existing loan", () -> {
+            UUID idLoan = UUID.fromString(ui.ask("Enter loan's id"));
+            Loan currentLoan = loanService.GetLoan(idLoan);
+            Menu certainLoanMenu = CertainLoanMenu(currentLoan);
+            certainLoanMenu.execute();
+        }));
+
+        return  loanMenu;
+    }
+
+    public Loan OpenLoan(){
+        ui.print("=== OPEN NEW Loan ===");
+
+        Loan loan = null;
+
+        try {
+            UUID client_id = this.currentClient.getId();
+            BigDecimal original_sum = new BigDecimal(ui.ask("Enter original sum"));
+            LocalDate open_date = LocalDate.parse(ui.ask("Enter open date"));
+            LocalDate close_date = LocalDate.parse(ui.ask("Enter close date"));
+            BigDecimal interest_rate =  new BigDecimal(ui.ask("Enter interest rate"));
+            String currency =  ui.ask("Enter currency");
+
+            loan = loanService.OpenLoan(client_id, original_sum,open_date,close_date,interest_rate,currency);
+        }
+        catch (Exception e){
+            String mes = "Error occurred: "+ e.getMessage();
+            ui.print(mes);
+            log.error(mes);
+        }
+
+        if (loan != null) {
+            ui.print("=== Loan was created successfully! ===");
+            loanService.PrintFullDetails(loan);
+        }
+
+        return loan;
+    }
+
+    public Menu CertainLoanMenu(Loan loan){
+        Menu certainLoanMenu = new Menu("=== WORK WITH THE LOAN ===");
+        loanService.PrintFullDetails(loan);
+        certainLoanMenu.add(new Command("Return", () -> {}));
+        certainLoanMenu.add(new Command("Show Loan's information details", () -> {
+            loanService.PrintFullDetails(loan);
+        }));
+        certainLoanMenu.add(new Command("Make monthly payment", () -> {
+            BigDecimal amount =  new BigDecimal(ui.ask("Enter how much do you want to pay"));
+            try {
+                loanService.RegularPayment(loan, amount);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+        }));
+        certainLoanMenu.add(new Command("Display payment schedule", () -> {
+            loanService.DisplaySchedule(loan);
+        }));
+        certainLoanMenu.add(new Command( "Early repayment and closure", () -> {
+            BigDecimal amount =  new BigDecimal(ui.ask("Enter how much do you want to pay"));
+            loanService.FullEarlyRepayment(loan, amount);
+        }));
+        certainLoanMenu.add(new Command("Close Loan", () -> {
+            loanService.CloseLoan(loan);
+        }));
+
+        certainLoanMenu.add(ExitCommand());
+
+        return  certainLoanMenu;
     }
 }
