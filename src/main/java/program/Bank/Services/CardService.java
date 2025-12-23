@@ -15,14 +15,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.UUID;
-
+import program.Bank.Enums.TransactionStatus;
 public class CardService {
     private final Logger log = LogManager.getLogger(CardService.class);
     private final DataBase dataBase;
     private final ConsoleUI ui = new ConsoleUI();
-
+    private final TransactionService transactionService;
     public CardService(DataBase dataBase) {
         this.dataBase = dataBase;
+        this.transactionService = new TransactionService(dataBase);
     }
 
     public Card CreateCard(UUID client_id, String card_number, CardType card_type, String currency) {
@@ -198,10 +199,17 @@ public class CardService {
 
             String transactionInfo = "Transfer from " +  senderCard.getCard_number() + " to " + GetCardByNumber(receiverCardNumber)
                     +": " + amount;
-
+            Card receiver = GetCardByNumber(receiverCardNumber);
+            dataBase.Update(receiver);
             String mes = "Переказ успішний! Надіслано: \" + amount + \" \" + senderCard.getCurrency()";
 
-            //Сне допиши створення тут транзакції!
+            transactionService.createTransaction(
+                    senderCard.getId(),
+                    receiver.getId(),
+                    amount,
+                    senderCard.getCurrency(),
+                    "Transfer to " + receiverCardNumber
+            );
 
             log.warn(mes);
             ui.print(mes);
@@ -210,8 +218,18 @@ public class CardService {
         catch (Exception e) {
             log.error("Помилка транзакції: " + e.getMessage());
 
-            //тут також має створюватись транзакція але відмінена
+            Card receiver = GetCardByNumber(receiverCardNumber);
+            // Перевіряємо на null, бо помилка могла бути через те, що картки не існує
+            UUID receiverId = (receiver != null) ? receiver.getId() : null;
 
+            transactionService.createTransaction(
+                    senderCard.getId(),
+                    receiverId,
+                    amount,
+                    senderCard.getCurrency(),
+                    "Failed transfer to " + receiverCardNumber,
+                    TransactionStatus.CANCELLED // Статус "Відмінено"
+            );
             ui.print("Сталася технічна помилка під час переказу.");
             return false;
         }
@@ -244,10 +262,17 @@ public class CardService {
 
         try {
             dataBase.Update(GetCardByNumber(receiverCardNumber));
-
+            Card receiver = GetCardByNumber(receiverCardNumber);
+            dataBase.Update(receiver);
             String mes = "Переказ успішний! Надіслано: \" + amount + \" \" + senderCard.getCurrency()";
 
-            //Сне допиши створення тут транзакції!
+            transactionService.createTransaction(
+                    null, // Відправника немає (готівка)
+                    receiver.getId(),
+                    amount,
+                    receiver.getCurrency(),
+                    transactionInfo
+            );
 
             log.warn(mes);
             ui.print(mes);
@@ -256,7 +281,18 @@ public class CardService {
         catch (Exception e) {
             log.error("Помилка транзакції: " + e.getMessage());
 
-            //тут також має створюватись транзакція але відмінена
+            Card receiver = GetCardByNumber(receiverCardNumber);
+            UUID receiverId = (receiver != null) ? receiver.getId() : null;
+            String currency = (receiver != null) ? receiver.getCurrency() : "UAH";
+
+            transactionService.createTransaction(
+                    null,
+                    receiverId,
+                    amount,
+                    currency,
+                    transactionInfo + " (Failed)",
+                    TransactionStatus.CANCELLED
+            );
 
             ui.print("Сталася технічна помилка під час переказу.");
             return false;
