@@ -3,10 +3,13 @@ package program.Bank.Builders;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import program.Bank.*;
+import program.Bank.Enums.*;
 import program.Bank.Menu.*;
 import program.Bank.Services.*;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class MenuBuilder {
     private final ClientService clientService;
@@ -44,7 +47,8 @@ public class MenuBuilder {
             clientMenu.execute();
         }));
         mainMenu.add(new Command("Log into Client's cabinet", () -> {
-            LoginMenu();
+            Menu loginMenu = LoginMenu();
+            loginMenu.execute();
         }));
 
         return mainMenu;
@@ -53,28 +57,40 @@ public class MenuBuilder {
     public void RegisterNewClient() {
         ui.print("=== REGISTER CLIENT ===");
 
-        String full_name = ui.ask("Enter Full name:");
-        String date_of_birth = ui.ask("Enter Date of Birth:");
-        String sex =  ui.ask("Enter Sex");
-        String nationality = ui.ask("Enter Nationality:");
-        String mobile_phone = ui.ask("Enter Mobile phone:");
-        String individual_tax_number = ui.ask("Enter Individual tax number:");
-        String passport_number = ui.ask("Enter Passport number:");
-        String legal_address = ui.ask("Enter Legal address:");
-        String place_of_birth = ui.ask("Enter Place of Birth:");
-        String record_number =ui.ask("Enter Record number:");
-        String place_of_work_or_study = ui.ask("Enter Place of Work or Study:");
+        Client client = null;
 
-        Client client = clientService.RegisterClient(full_name, date_of_birth, sex, nationality, mobile_phone, individual_tax_number,
-                passport_number, legal_address, place_of_birth, record_number, place_of_work_or_study);
+        try {
+            String full_name = ui.ask("Enter Full name:");
+            String date_of_birth = ui.ask("Enter Date of Birth:");
+            String sex = ui.ask("Enter Sex");
+            String nationality = ui.ask("Enter Nationality:");
+            String mobile_phone = ui.ask("Enter Mobile phone:");
+            String individual_tax_number = ui.ask("Enter Individual tax number:");
+            String passport_number = ui.ask("Enter Passport number:");
+            String legal_address = ui.ask("Enter Legal address:");
+            String place_of_birth = ui.ask("Enter Place of Birth:");
+            String record_number = ui.ask("Enter Record number:");
+            String place_of_work_or_study = ui.ask("Enter Place of Work or Study:");
 
-        ui.print("=== Client was created successfully! ===");
-        clientService.FullInfo(client);
+            client = clientService.RegisterClient(full_name, date_of_birth, sex, nationality, mobile_phone, individual_tax_number,
+                    passport_number, legal_address, place_of_birth, record_number, place_of_work_or_study);
+
+        }
+        catch (Exception e) {
+            String mes = "Error occurred: " + e.getMessage();
+            ui.print(mes);
+            log.error(mes);
+        }
+
+        if(client != null) {
+            ui.print("=== Client was created successfully! ===");
+            clientService.FullInfo(client);
+        }
 
         this.currentClient = client;
     }
 
-    public void LoginMenu(){
+    public Menu LoginMenu(){
         Menu loginMenu = new Menu("=== LOG IN CLIENT's CABINET ===");
 
         loginMenu.add(new Command("Return", () -> {}));
@@ -88,7 +104,8 @@ public class MenuBuilder {
             Login("phone", "Enter Client`s phone number");
         }));
         loginMenu.add(ExitCommand());
-        loginMenu.execute();
+
+        return loginMenu;
     }
 
     public void Login(String type, String promptMsg) {
@@ -118,7 +135,8 @@ public class MenuBuilder {
         }));
 
         clientMenu.add(new Command("Cards", () -> {
-            // Тут виклик підменю карток
+            Menu cardMenu = CardMenu();
+            cardMenu.execute();
         }));
 
         clientMenu.add(new Command("Deposit", () -> {
@@ -141,5 +159,102 @@ public class MenuBuilder {
         clientMenu.add(ExitCommand());
 
         return clientMenu;
+    }
+
+    public Menu CardMenu(){
+        Menu cardMenu = new Menu("=== CARDS CABINET ===");
+        ui.print("Your current cards:");
+        cardService.PrintAllClientsCards(currentClient);
+
+        cardMenu.add(new Command("Return", () -> {}));
+        cardMenu.add(new Command("Open new card", () -> {
+            Card card = OpenNewCard();
+            Menu certainCardMenu = CertainCardMenu(card);
+            certainCardMenu.execute();
+        }));
+        cardMenu.add(new Command("Work with an existing card", () -> {
+            String cardNumber = ui.ask("Enter card number");
+            Card card = cardService.GetCardByNumber(cardNumber);
+            Menu certainCardMenu = CertainCardMenu(card);
+            certainCardMenu.execute();
+        }));
+
+        cardMenu.add(ExitCommand());
+
+        return  cardMenu;
+    }
+
+    public Card OpenNewCard(){
+        ui.print("=== OPEN NEW CARD ===");
+
+        Card card = null;
+
+        try {
+
+            UUID client_id = this.currentClient.getId();
+            String card_number = ui.ask("Enter Card Number");
+            CardType card_type = CardType.valueOf(ui.ask("Enter Card Type"));
+            String currency = ui.ask("Enter Currency");
+
+            card = cardService.CreateCard(client_id, card_number, card_type, currency);
+        }
+        catch (Exception e){
+            String mes = "Error occurred: "+ e.getMessage();
+            ui.print(mes);
+            log.error(mes);
+        }
+
+        if (card != null) {
+            ui.print("=== Card was created successfully! ===");
+            cardService.PrintFullDetails(card);
+        }
+
+        return card;
+    }
+
+    public Menu CertainCardMenu(Card card){
+        Menu certainCardMenu = new Menu("=== WORK WITH THE CARD ===");
+        cardService.PrintShortInfo(card);
+        certainCardMenu.add(new Command("Return", () -> {}));
+        certainCardMenu.add(new Command("Top up card", () -> {
+            Menu topUpMenu = new Menu("=== TOP UP CARD ===");
+            topUpMenu.add(new Command("Return", () -> {}));
+            topUpMenu.add(new Command("Top up current card", () -> {
+                BigDecimal amount = new BigDecimal(ui.ask("Which sum would you like to top up?"));
+                cardService.TopUpCard(card, amount);
+                ui.print("Put money into the Bankomat\nTop up Successful!");
+            }));
+            topUpMenu.add(new Command("Top up card with the following card number", () -> {
+                String cardNumber = ui.ask("Enter card number");
+                BigDecimal amount = new BigDecimal(ui.ask("Which sum would you like to top up?"));
+                cardService.TopUpCard(cardNumber, amount);
+                ui.print("Put money into the Bankomat\nTop up Successful!");
+            }));
+            topUpMenu.add(ExitCommand());
+            topUpMenu.execute();
+        }));
+        certainCardMenu.add(new Command("Withdraw cash", () -> {
+            BigDecimal amount = new BigDecimal(ui.ask("Which sum would you like to withdraw?"));
+            cardService.WithDraw(card, amount);
+            ui.print("Withdraw Successful!\nRecieve your cash from the Bankomat");
+        }));
+        certainCardMenu.add(new Command("Make a transaction", () -> {
+
+            //Сніжан додай тут реалізацію транзакції
+
+
+
+        }));
+        certainCardMenu.add(new Command("View card's details", () -> {
+            cardService.PrintFullDetails(card);
+        }));
+        certainCardMenu.add(new Command("Block card", () -> {
+            cardService.BlockCard(card);
+        }));
+        certainCardMenu.add(new Command("Close card", () -> {
+            cardService.CloseCard(card);
+        }));
+
+        return certainCardMenu;
     }
 }
