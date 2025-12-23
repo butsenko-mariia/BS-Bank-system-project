@@ -62,7 +62,7 @@ public class LoanBuilder {
         loan.setStatus(status);
         return this;
     }
-    public Loan builder(){
+    public Loan build(){
         if (loan == null || loan.getId() == null || loan.getClient_id() == null || loan.getOriginal_sum() == null
                 || loan.getInterest_rate() == null|| loan.getOpen_date() == null|| loan.getClose_date() == null
                 || loan.getCurrency() == null) {
