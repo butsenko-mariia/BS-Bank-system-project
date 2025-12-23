@@ -8,7 +8,7 @@ import program.Bank.Menu.*;
 import program.Bank.Services.*;
 
 import java.math.BigDecimal;
-import java.util.Scanner;
+import java.time.LocalDate;
 import java.util.UUID;
 
 public class MenuBuilder {
@@ -140,7 +140,9 @@ public class MenuBuilder {
         }));
 
         clientMenu.add(new Command("Deposit", () -> {
-            // Функціонал депозитів
+            depositeService.ShowAllClientDeposits(client);
+            Menu depositMenu = DepositMenu(client);
+            depositMenu.execute();
         }));
 
         clientMenu.add(new Command("Credits", () -> {
@@ -190,7 +192,6 @@ public class MenuBuilder {
         Card card = null;
 
         try {
-
             UUID client_id = this.currentClient.getId();
             String card_number = ui.ask("Enter Card Number");
             CardType card_type = CardType.valueOf(ui.ask("Enter Card Type"));
@@ -259,5 +260,88 @@ public class MenuBuilder {
         }));
 
         return certainCardMenu;
+    }
+
+    public Menu DepositMenu(Client client){
+        Menu depositMenu = new Menu("=== DEPOSIT CABINET ===");
+        depositMenu.add(new Command("Return", () -> {}));
+        depositMenu.add(new Command("Open Deposit", () -> {
+            Deposit currentDeposit = OpenDeposit();
+            Menu certainDepositMenu = CertainDepositMenu(currentDeposit);
+            certainDepositMenu.execute();
+        }));
+        depositMenu.add(new Command("Work with an existing deposit", () -> {
+            UUID idDeposit = UUID.fromString(ui.ask("Enter deposit's id"));
+            Deposit currentDeposit = depositeService.GetDeposit(idDeposit);
+            Menu certainDepositMenu = CertainDepositMenu(currentDeposit);
+            certainDepositMenu.execute();
+        }));
+
+        return  depositMenu;
+    }
+
+    public Deposit OpenDeposit(){
+        ui.print("=== OPEN NEW DEPOSIT ===");
+
+        Deposit deposit = null;
+
+        try {
+            UUID client_id = this.currentClient.getId();
+            BigDecimal original_sum = new BigDecimal(ui.ask("Enter original sum"));
+            LocalDate open_date = LocalDate.parse(ui.ask("Enter open date"));
+            LocalDate close_date = LocalDate.parse(ui.ask("Enter close date"));
+            BigDecimal interest_rate =  new BigDecimal(ui.ask("Enter interest rate"));
+            String currency =  ui.ask("Enter currency");
+            String type  = ui.ask("Enter type of deposit");
+
+            deposit = type.equals("StandardDeposit") ?
+                    depositeService.OpenStandardDeposit(client_id,original_sum,open_date,close_date,interest_rate,currency)
+                    : depositeService.OpenCapitalizationDeposit(client_id,original_sum,open_date,close_date,interest_rate,currency);
+        }
+        catch (Exception e){
+            String mes = "Error occurred: "+ e.getMessage();
+            ui.print(mes);
+            log.error(mes);
+        }
+
+        if (deposit != null) {
+            ui.print("=== Deposit was created successfully! ===");
+            depositeService.PrintFullDetails(deposit);
+        }
+
+        return deposit;
+    }
+
+    public Menu CertainDepositMenu(Deposit deposit){
+        Menu certainDepositMenu = new Menu("=== WORK WITH THE DEPOSIT ===");
+        depositeService.PrintFullDetails(deposit);
+        certainDepositMenu.add(new Command("Return", () -> {}));
+        certainDepositMenu.add(new Command("Show Deposit's information details", () -> {}));
+        certainDepositMenu.add(new Command("Early close Deposit", () -> {
+
+            BigDecimal depositSum = depositeService.EarlyCloseDeposit(deposit);
+            DepositPayment(depositSum);
+        }));
+        certainDepositMenu.add(new Command("Close Deposit", () -> {
+            BigDecimal depositSum = depositeService.CloseDeposit(deposit);
+            DepositPayment(depositSum);
+        }));
+
+        return  certainDepositMenu;
+    }
+
+    private void DepositPayment(BigDecimal depositSum){
+        String cardNumber = ui.ask("Enter card number where deposit money should be sent");
+        boolean succes = cardService.Transfer(cardNumber, depositSum, "Deposit payment");
+        if (succes) {
+            String mes = "Deposit has been sent successfully!";
+            ui.print(mes);
+            log.debug(mes);
+        }
+        else{
+            String mes = "Deposit hasn't been sent successfully!";
+            ui.print(mes);
+            log.debug(mes);
+        }
     }
 }

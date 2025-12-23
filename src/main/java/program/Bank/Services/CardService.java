@@ -196,15 +196,49 @@ public class CardService {
             dataBase.Update(senderCard);
             dataBase.Update(GetCardByNumber(receiverCardNumber));
 
+            String transactionInfo = "Transfer from " +  senderCard.getCard_number() + " to " + GetCardByNumber(receiverCardNumber)
+                    +": " + amount;
+
             String mes = "Переказ успішний! Надіслано: \" + amount + \" \" + senderCard.getCurrency()";
+
+            //Сне допиши створення тут транзакції!
+
             log.warn(mes);
             ui.print(mes);
             return true;
         }
         catch (Exception e) {
             log.error("Помилка транзакції: " + e.getMessage());
+
+            //тут також має створюватись транзакція але відмінена
+
             ui.print("Сталася технічна помилка під час переказу.");
             return false;
         }
     }
+
+    public boolean Transfer(String receiverCardNumber, BigDecimal amount, String transactionInfo) {
+        TopUpCard(receiverCardNumber, amount);
+
+        try {
+            dataBase.Update(GetCardByNumber(receiverCardNumber));
+
+            String mes = "Переказ успішний! Надіслано: \" + amount + \" \" + senderCard.getCurrency()";
+
+            //Сне допиши створення тут транзакції!
+
+            log.warn(mes);
+            ui.print(mes);
+            return true;
+        }
+        catch (Exception e) {
+            log.error("Помилка транзакції: " + e.getMessage());
+
+            //тут також має створюватись транзакція але відмінена
+
+            ui.print("Сталася технічна помилка під час переказу.");
+            return false;
+        }
+    }
+
 }
