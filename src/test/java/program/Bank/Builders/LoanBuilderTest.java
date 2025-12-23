@@ -26,7 +26,7 @@ class LoanBuilderTest {
                 .close_date(LocalDate.now().plusMonths(24))
                 .currency("EUR")
                 .status(AccountStatus.ACTIVE)
-                .builder();
+                .build();
 
         assertNotNull(loan);
         assertNotNull(loan.getId());
@@ -46,7 +46,7 @@ class LoanBuilderTest {
                 .status(AccountStatus.ACTIVE);
         // currency НЕ задаємо
 
-        Loan loan = builder.builder(); // або .build()
+        Loan loan = builder.build(); // або .build()
 
         assertNotNull(loan);
         assertEquals("UAH", loan.getCurrency(), "Currency should default to UAH if not provided");
@@ -60,6 +60,6 @@ class LoanBuilderTest {
                 .interest_rate(new BigDecimal("0.1"))
                 .currency("UAH");
 
-        assertThrows(IllegalStateException.class, builder::builder);
+        assertThrows(IllegalStateException.class, builder::build);
     }
 }

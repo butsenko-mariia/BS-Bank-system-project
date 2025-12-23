@@ -335,7 +335,7 @@ public class Loan implements Account {
     public void RegularPayment(BigDecimal payment) throws PaymentException {
         if (payment == null || payment.compareTo(BigDecimal.ZERO) <= 0){
             log.error("Error: Attempted zero or null payment.");
-            throw new PaymentException("Payment date must be positive");
+            throw new PaymentException("Payment sum must be positive");
         }
 
         log.info("Starting RegularPayment processing. Amount: {}.", payment);
