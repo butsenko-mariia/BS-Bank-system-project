@@ -24,14 +24,14 @@ public class Client {
     private final ConsoleUI ui =  new ConsoleUI();
 
     public Client() {
-        log.debug("Створення нового екземпляру Client");
+        log.debug("Creating a new Client instance");
         this.setId();
         this.status = ClientStatus.ACTIVE;
-        log.debug("Client створено зі статусом ACTIVE");
+        log.debug("Client created with status ACTIVE");
     }
 
     public Client(UUID id) {
-        log.debug("Створення екземпляру Client з існуючим ID: {}", id);
+        log.debug("Creating Client instance with existing ID: {}", id);
         this.setId(id);
     }
 
@@ -40,23 +40,23 @@ public class Client {
     }
 
     public void setId() {
-        log.info("Спроба генерації нового ID клієнта");
+        log.info("Attempting to generate new client ID");
         if (id != null) {
-            log.error("ID клієнта вже встановлено: {}", id);
+            log.error("Client ID already set: {}", id);
             throw new IllegalStateException("Client ID is already set");
         }
         this.id = UUID.randomUUID();
-        log.info("ID клієнта успішно згенеровано: {}", id);
+        log.info("Client ID successfully generated: {}", id);
     }
 
     public void setId(UUID id) {
-        log.info("Встановлення існуючого ID клієнта: {}", id);
+        log.info("Setting existing client ID: {}", id);
         if (id == null) {
-            log.error("Спроба встановити null як ID клієнта");
+            log.error("Attempt to set null as client ID");
             throw new NumberFormatException("ID must be not null");
         }
         this.id = id;
-        log.debug("ID клієнта успішно встановлено");
+        log.debug("Client ID successfully set");
     }
 
     public String getFull_name() {
@@ -64,17 +64,17 @@ public class Client {
     }
 
     public void setFull_name(String full_name) {
-        log.info("Встановлення повного імені: {}", full_name);
+        log.info("Setting full name: {}", full_name);
         if (full_name == null || full_name.isEmpty()) {
-            log.error("Повне ім'я порожнє або null");
+            log.error("Full name is empty or null");
             throw new IllegalArgumentException("Full name cannot be empty.");
         }
         if (!full_name.matches("^[A-Za-zА-Яа-яІіЇїЄє'\\-\\s]+$")) {
-            log.error("Невірний формат повного імені (містить цифри чи спец. символи): {}", full_name);
+            log.error("Invalid full name format (contains numbers or special symbols): {}", full_name);
             throw new IllegalArgumentException("Full name cannot contain numbers or special symbols.");
         }
         this.full_name = full_name.trim();
-        log.debug("Повне ім'я успішно встановлено: {}", this.full_name);
+        log.debug("Full name successfully set: {}", this.full_name);
     }
 
     public LocalDate getDate_of_birth() {
@@ -82,13 +82,13 @@ public class Client {
     }
 
     public void setDate_of_birth(LocalDate date_of_birth) {
-        log.info("Встановлення дати народження: {}", date_of_birth);
+        log.info("Setting date of birth: {}", date_of_birth);
         if (date_of_birth == null) {
-            log.error("Дата народження є null");
+            log.error("Date of birth is null");
             throw new IllegalArgumentException("Date of birth must be in format dd.mm.yyyy.");
         }
         this.date_of_birth = date_of_birth;
-        log.debug("Дату народження успішно встановлено");
+        log.debug("Date of birth successfully set");
     }
 
     public String getSex() {
@@ -96,13 +96,13 @@ public class Client {
     }
 
     public void setSex(String sex) {
-        log.info("Встановлення статі: {}", sex);
+        log.info("Setting gender: {}", sex);
         if (!sex.equalsIgnoreCase("M") && !sex.equalsIgnoreCase("W")) {
-            log.error("Невірне значення статі: {}", sex);
+            log.error("Invalid gender value: {}", sex);
             throw new IllegalArgumentException("Gender must be 'M' or 'W'.");
         }
         this.sex = sex.toUpperCase();
-        log.debug("Стать успішно встановлено: {}", this.sex);
+        log.debug("Gender successfully set: {}", this.sex);
     }
 
     public String getNationality() {
@@ -110,13 +110,13 @@ public class Client {
     }
 
     public void setNationality(String nationality) {
-        log.info("Встановлення національності: {}", nationality);
+        log.info("Setting nationality: {}", nationality);
         if (nationality == null || nationality.trim().isEmpty()) {
-            log.error("Національність порожня або null");
+            log.error("Nationality is empty or null");
             throw new IllegalArgumentException("Nationality cannot be empty.");
         }
         this.nationality = nationality.trim();
-        log.debug("Національність успішно встановлено: {}", this.nationality);
+        log.debug("Nationality successfully set: {}", this.nationality);
     }
 
     public String getMobile_phone() {
@@ -124,13 +124,13 @@ public class Client {
     }
 
     public void setMobile_phone(String mobile_phone) {
-        log.info("Встановлення мобільного телефону: {}", mobile_phone);
+        log.info("Setting mobile phone: {}", mobile_phone);
         if (mobile_phone == null || !mobile_phone.matches("^\\+380\\d{9}$")) {
-            log.error("Невірний формат номеру телефону: {}", mobile_phone);
+            log.error("Invalid phone number format: {}", mobile_phone);
             throw new IllegalArgumentException("Phone number must be in format +380XXXXXXXXX.");
         }
         this.mobile_phone = mobile_phone;
-        log.debug("Номер телефону успішно встановлено");
+        log.debug("Phone number successfully set");
     }
 
     public String getIndividual_tax_number() {
@@ -138,13 +138,13 @@ public class Client {
     }
 
     public void setIndividual_tax_number(String individual_tax_number) {
-        log.info("Встановлення індивідуального податкового номеру (ІПН)");
+        log.info("Setting individual tax number (ITN)");
         if (individual_tax_number == null || individual_tax_number.trim().isEmpty()) {
-            log.error("ІПН порожній або null");
+            log.error("ITN is empty or null");
             throw new IllegalArgumentException("Individual tax  number cannot be empty.");
         }
         this.individual_tax_number = individual_tax_number;
-        log.debug("ІПН успішно встановлено: {}", this.individual_tax_number);
+        log.debug("ITN successfully set: {}", this.individual_tax_number);
     }
 
     public String getPassport_number() {
@@ -152,13 +152,13 @@ public class Client {
     }
 
     public void setPassport_number(String passport_number) {
-        log.info("Встановлення номеру паспорта");
+        log.info("Setting passport number");
         if (passport_number == null || passport_number.trim().isEmpty()) {
-            log.error("Номер паспорта порожній або null");
+            log.error("Passport number is empty or null");
             throw new IllegalArgumentException("Passport number cannot be empty.");
         }
         this.passport_number = passport_number;
-        log.debug("Номер паспорта успішно встановлено: {}", this.passport_number);
+        log.debug("Passport number successfully set: {}", this.passport_number);
     }
 
     public String getRecord_number() {
@@ -166,13 +166,13 @@ public class Client {
     }
 
     public void setRecord_number(String record_number) {
-        log.info("Встановлення номеру запису");
+        log.info("Setting record number");
         if (record_number == null || record_number.trim().isEmpty()) {
-            log.error("Номер запису порожній або null");
+            log.error("Record number is empty or null");
             throw new IllegalArgumentException("Record number cannot be empty.");
         }
         this.record_number = record_number.trim();
-        log.debug("Номер запису успішно встановлено: {}", this.record_number);
+        log.debug("Record number successfully set: {}", this.record_number);
     }
 
     public String getPlace_of_birth() {
@@ -180,13 +180,13 @@ public class Client {
     }
 
     public void setPlace_of_birth(String place_of_birth) {
-        log.info("Встановлення місця народження: {}", place_of_birth);
+        log.info("Setting place of birth: {}", place_of_birth);
         if (place_of_birth == null || place_of_birth.trim().isEmpty()) {
-            log.error("Місце народження порожнє або null");
+            log.error("Place of birth is empty or null");
             throw new IllegalArgumentException("Place of birth cannot be empty.");
         }
         this.place_of_birth = place_of_birth.trim();
-        log.debug("Місце народження успішно встановлено: {}", this.place_of_birth);
+        log.debug("Place of birth successfully set: {}", this.place_of_birth);
 
     }
 
@@ -195,13 +195,13 @@ public class Client {
     }
 
     public void setLegal_address(String legal_address) {
-        log.info("Встановлення юридичної адреси: {}", legal_address);
+        log.info("Setting legal address: {}", legal_address);
         if (legal_address == null || legal_address.trim().isEmpty()) {
-            log.error("Юридична адреса порожня або null");
+            log.error("Legal address is empty or null");
             throw new IllegalArgumentException("Address cannot be empty.");
         }
         this.legal_address = legal_address.trim();
-        log.debug("Юридичну адресу успішно встановлено: {}", this.legal_address);
+        log.debug("Legal address successfully set: {}", this.legal_address);
     }
 
     public String getPlace_of_work_or_study() {
@@ -209,13 +209,13 @@ public class Client {
     }
 
     public void setPlace_of_work_or_study(String place_of_work_or_study) {
-        log.info("Встановлення місця роботи/навчання: {}", place_of_work_or_study);
+        log.info("Setting place of work/study: {}", place_of_work_or_study);
         if (place_of_work_or_study == null || place_of_work_or_study.trim().isEmpty()) {
-            log.error("Місце роботи/навчання порожнє або null");
+            log.error("Place of work/study is empty or null");
             throw new IllegalArgumentException("Place of work/study cannot be empty.");
         }
         this.place_of_work_or_study = place_of_work_or_study.trim();
-        log.debug("Місце роботи/навчання успішно встановлено: {}", this.place_of_work_or_study);
+        log.debug("Place of work/study successfully set: {}", this.place_of_work_or_study);
     }
 
     public ClientStatus getStatus() {
@@ -223,14 +223,14 @@ public class Client {
     }
 
     public void setStatus(ClientStatus status) {
-        log.info("Встановлення статусу клієнта: {}", status);
+        log.info("Setting client status: {}", status);
         this.status = status;
-        log.debug("Статус клієнта успішно встановлено: {}", this.status);
+        log.debug("Client status successfully set: {}", this.status);
     }
 
     @Override
     public String toString() {
-        log.debug("Перетворення даних клієнта в текстове представлення");
+        log.debug("Converting client data to text representation");
         return String.format(
                 "Client id = " + this.getId()+
                         ",\nFull name = " + this.getFull_name() +
@@ -248,13 +248,13 @@ public class Client {
     }
 
     public void PrintClientFullInfo() {
-        log.info("Виведення повної інформації про клієнта ID: {}", id);
+        log.info("Printing full info for client ID: {}", id);
         ui.print(this.toString());
-        log.debug("Повну інформацію про клієнта виведено");
+        log.debug("Full client info printed");
     }
 
     public void PrintInfo() {
-        log.debug("Виводимо коротку інформацію про клієнта");
+        log.debug("Printing short client info");
         String mes = String.format(
                 "Welcome, " + this.getFull_name() + "!\n" +
                         "Status: " + this.getStatus() + "\n" +

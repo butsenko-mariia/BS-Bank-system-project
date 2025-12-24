@@ -85,8 +85,8 @@ public class ClientService {
             }
 
         } catch (Exception e) {
-            String mes = "Помилка БД: " + e.getMessage();
-            log.error("Database error during client search: {}", e.getMessage());
+            String mes = "Database error: " + e.getMessage();
+            log.error(mes);
             ui.print(mes);
         }
         return null;
