@@ -294,24 +294,11 @@ public class MenuBuilder {
             ui.print("=== MONEY TRANSFER ===");
             String receiverNumber = ui.ask("Enter receiver card number:");
             BigDecimal amount = new BigDecimal(ui.ask("Enter amount to transfer:"));
+
             boolean success = cardService.Transfer(card, receiverNumber, amount);
-            if (success) {
-                // 1. Нам треба знайти ID картки отримувача, бо TransactionService приймає тільки UUID
-                Card receiverCard = cardService.GetCardByNumber(receiverNumber);
 
-                // (Ми знаємо, що receiverCard існує, бо success = true, але для безпеки можна перевірити)
-                UUID receiverId = (receiverCard != null) ? receiverCard.getId() : null;
-
-                // 2. Викликаємо метод запису історії
-                transactionService.createTransaction(
-                        card.getId(),         // ID відправника (UUID)
-                        receiverId,           // ID отримувача (UUID) - виправлено!
-                        amount,               // Сума
-                        card.getCurrency(),   // Валюта (додали, бо метод вимагає)
-                        "Transfer to " + receiverNumber // Опис
-                );
-
-                ui.print("Transaction recorded.");
+             if (!success) {
+                ui.print("Transfer failed. Please check balance or card number.");
 
             } else {
                 ui.print("Transfer failed. Please check balance or card number.");

@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 import program.Bank.Enums.Result;
 import java.util.Scanner;
 
-//This is a leaf of composite pattern
 public class Command extends MenuComponent {
     private final Runnable action;
     private final Logger log = LogManager.getLogger(Command.class);
