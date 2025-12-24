@@ -36,7 +36,7 @@ public class Menu extends MenuComponent {
             int commandName;
 
             try {
-                commandName = Integer.parseInt(ui.ask(""));
+                commandName = Integer.parseInt(ui.ask("Enter command")) - 1;
             }
             catch (NumberFormatException e) {
                 String mes = "Invalid input. Enter a number.";
@@ -45,13 +45,15 @@ public class Menu extends MenuComponent {
                 continue;
             }
 
-            if (commandName == 0) {
-                String mes = "User commanded to return. Returning...";
-                log.info(mes);
-                return Result.RETURN;
-            }
-            else if (commandName > 0 && commandName <= commands.size()){
-                MenuComponent command = commands.get(commandName - 1);
+            if (commandName >= 0 && commandName <= commands.size()){
+                MenuComponent command = commands.get(commandName);
+
+                if (command.getName().equalsIgnoreCase("return")) {
+                    String mes = "User commanded to return. Returning...";
+                    log.info(mes);
+                    return Result.RETURN;
+                }
+
                 Result childResult = command.execute();
 
                 if (childResult == Result.EXIT) {
@@ -70,12 +72,12 @@ public class Menu extends MenuComponent {
     }
 
     private void prompt(){
-        System.out.println("\n=== " + name.toUpperCase() + " ===");
+        ui.print("\n" + name.toUpperCase() + "\n");
         StringBuilder commandNames = new StringBuilder();
         for (int i =  0; i < commands.size(); i++){
             commandNames.append(i+1).append(". ").append(commands.get(i).getName()).append("\n");
         }
-        ui.print("Enter one of the available commands: "+commandNames+"\n");
+        ui.print("Enter one of the available commands: \n"+commandNames+"\n");
     }
 
     public void add(MenuComponent command) {
