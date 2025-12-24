@@ -162,7 +162,7 @@ public class MenuBuilder {
             allAccounts.addAll(loanService.getClientLoans(client.getId()));
 
             if (allAccounts.isEmpty()) {
-                ui.print("У вас немає активних рахунків (карток, депозитів чи кредитів).");
+                ui.print("You do not have any active accounts (cards, deposits, or loans).");
                 return;
             }
 
@@ -293,6 +293,7 @@ public class MenuBuilder {
         }));
         certainCardMenu.add(new Command("Make a transaction", () -> {
             ui.print("=== MONEY TRANSFER ===");
+
             String receiverNumber = ui.ask("Enter receiver card number");
             BigDecimal amount = new BigDecimal(ui.ask("Enter amount to transfer"));
             boolean success = cardService.Transfer(card, receiverNumber, amount);
@@ -308,6 +309,10 @@ public class MenuBuilder {
                 );
 
                 ui.print("Transaction recorded.");
+           
+
+             if (!success) {
+                ui.print("Transfer failed. Please check balance or card number.");
 
             } else {
                 ui.print("Transfer failed. Please check balance or card number.");

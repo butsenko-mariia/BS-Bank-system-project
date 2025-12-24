@@ -56,8 +56,7 @@ public class TransactionBuilder {
         return this;
     }
     public Transaction build(){
-        // Залишаємо перевірку тільки для критичних полів (ID, сума, дата, валюта)
-        // Прибираємо account_id_from та account_id_to з перевірки
+
         if (transaction == null || transaction.getId() == null ||
                 transaction.getSum() == null ||
                 transaction.getOpen_date() == null || transaction.getOpen_time() == null ||

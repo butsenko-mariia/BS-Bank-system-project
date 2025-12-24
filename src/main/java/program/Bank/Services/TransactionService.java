@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class TransactionService {
-    private final Logger log = LogManager.getLogger(TransactionService.class);
+    private static final Logger log = LogManager.getLogger(TransactionService.class);
     private final DataBase dataBase;
 
     public TransactionService(DataBase dataBase) {
@@ -27,12 +27,12 @@ public class TransactionService {
     }
 
 
-    public void createTransaction(UUID fromAccountId, UUID toAccountId, BigDecimal amount, String currency, String operationInfo) {
-        log.info("Creating transaction log. Amount: {} {}", amount, currency);
+    public void createTransaction(UUID fromAccountId, UUID toAccountId, BigDecimal amount, String currency, String operationInfo, TransactionStatus status) {
+        log.info("Creating transaction log. Amount: {} {}, Status: {}", amount, currency, status);
 
         try {
             Transaction transaction = TransactionBuilder.create()
-
+                    .id(UUID.randomUUID())
                     .account_id_from(fromAccountId)
                     .account_id_to(toAccountId)
                     .sum(amount)
@@ -40,11 +40,10 @@ public class TransactionService {
                     .operation_info(operationInfo)
                     .open_date(LocalDate.now())
                     .open_time(LocalTime.now())
-                    .status(TransactionStatus.COMPLETED)
+                    .status(status)
                     .build();
 
             dataBase.Upload(transaction);
-
             log.info("Transaction recorded successfully with ID: {}", transaction.getId());
 
         } catch (Exception e) {

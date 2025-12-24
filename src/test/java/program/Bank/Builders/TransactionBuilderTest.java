@@ -87,15 +87,19 @@ class TransactionBuilderTest {
 
 
     @Test
-    void testBuild_MissingAccountIdFrom_ShouldThrowException() {
+    void testBuild_CashDeposit_ShouldAllowNullSender() {
         TransactionBuilder builder = TransactionBuilder.create()
                 .id(UUID.randomUUID())
                 .account_id_to(UUID.randomUUID())
                 .sum(new BigDecimal("100"))
                 .currency("USD")
+                .status(TransactionStatus.COMPLETED)
                 .open_date(LocalDate.now())
                 .open_time(LocalTime.now());
 
-        assertThrows(IllegalStateException.class, builder::build);
+        Transaction tx = builder.build();
+
+        assertNotNull(tx, "Transaction should be created even without a sender (cash deposit)");
+        assertNull(tx.getAccount_id_from(), "Sender ID must be null");
     }
 }

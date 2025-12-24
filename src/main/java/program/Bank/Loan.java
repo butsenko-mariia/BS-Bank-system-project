@@ -312,9 +312,9 @@ public class Loan implements Account {
 
     public void PrintInfo(){
         String info = "#" + this.id + " - " + this.original_sum + " " + this.currency + " (" + this.interest_rate + "%)\n" +
-                "Залишок: " + this.current_balance + " "+ this.currency +"\n" +
-                "Щомісячний платіж: "+ this.monthly_payment+ " " + this.currency +"\n" +
-                "Наступний платіж: " + this.next_payment_date;
+                "Balance: " + this.current_balance + " "+ this.currency +"\n" +
+                "Monthly payment: "+ this.monthly_payment+ " " + this.currency +"\n" +
+                "Next payment date: " + this.next_payment_date;
 
         System.out.println(info);
         log.info("Short Loan Info printed:\n{}", info);
@@ -347,7 +347,7 @@ public class Loan implements Account {
             processPrincipalBody(payment);
         }
         catch (PaymentException e){
-            String msg = "Увага (Exception): " + e.getMessage();
+            String msg = "Warning (Exception): " + e.getMessage();
             System.out.println(msg);
             log.warn(msg);
         }
@@ -359,8 +359,8 @@ public class Loan implements Account {
             BigDecimal daily_rate = this.interest_rate.divide(BigDecimal.valueOf(365), 10, RoundingMode.HALF_UP);
             BigDecimal days_overdue_interest = this.current_balance.multiply(daily_rate).multiply(BigDecimal.valueOf(days_overdue));
 
-            String message = ("Нараховано пеню за " + days_overdue +
-                    " днів:  " + days_overdue_interest + " " + this.currency + ".");
+            String message = ("Overdue fine accrued for " + days_overdue +
+                    " days: " + days_overdue_interest + " " + this.currency + ".");
 
             System.out.println(message);
             log.warn(message);
@@ -369,7 +369,7 @@ public class Loan implements Account {
                 BigDecimal debt = days_overdue_interest.subtract(payment);
                 this.overdue_sum = this.overdue_sum.add(debt);
 
-                String debtMsg = "Внесеної суми недостатньо щоб покрити прострочку. Коштів не вистачило на покриття пені. Залишок боргу: " + debt;
+                String debtMsg = "Entered amount is insufficient to cover the fine. Outstanding fine balance: " + debt;
                 log.warn(debtMsg);
                 throw new PaymentException(debtMsg);
             }
@@ -383,8 +383,8 @@ public class Loan implements Account {
         if (this.overdue_sum.compareTo(BigDecimal.ZERO) > 0) {
             if (payment.compareTo(this.overdue_sum) < 0){
                 this.overdue_sum = this.overdue_sum.subtract(payment);
-                String message = ("Внесеної суми недостатньо щоб покрити весь борг за минулі штрафи. Покриється лише " +
-                        "частина боргу. Поточний борг тепер зіставлятиме - " + this.overdue_sum + ".");
+                String message = ("Entered amount is insufficient to cover previous fines. Only partial " +
+                        "debt is covered. Current debt is now - " + this.overdue_sum + ".");
 
                 System.out.println(message);
                 log.warn(message);
@@ -394,7 +394,7 @@ public class Loan implements Account {
             BigDecimal remaining = payment.subtract(this.overdue_sum);
             this.overdue_sum = BigDecimal.ZERO;
 
-            String message = ("Старий борг за прострочку погашено повністю.");
+            String message = ("Old overdue debt fully paid.");
             System.out.println(message);
             log.info(message);
 
@@ -410,8 +410,8 @@ public class Loan implements Account {
             BigDecimal debt_sum = interest.subtract(payment);
             this.overdue_sum = this.overdue_sum.add(debt_sum);
 
-            String message = ("Внесеної суми недостатньо щоб покрити місячний відсоток. Частина відсотків буде" +
-                    " погашена, недостаюча сума (" + debt_sum + " " + this.currency +") перейдe в борг.");
+            String message = ("Entered amount is insufficient to cover monthly interest. Part of the interest " +
+                    "is covered, the missing sum (" + debt_sum + " " + this.currency +") is added to debt.");
 
             System.out.println(message);
             log.warn(message);
@@ -433,7 +433,7 @@ public class Loan implements Account {
                 return;
             }
 
-            String message = ("Внесена сума перевищує місячний платіж. Переплата піде на погашення тіла. Сума щомісячного платежу буде зменшена.");
+            String message = ("Entered amount exceeds the monthly payment. Overpayment will be applied to the principal. Monthly payment amount will be reduced.");
             System.out.println(message);
             log.info(message);
 
@@ -442,7 +442,7 @@ public class Loan implements Account {
             int term = months_left <= 0 ? 1 : (int) months_left;
             this.monthly_payment = CalculateMonthlyPayment(this.current_balance, term);
 
-            String recalcMsg = ("Щомісячний платіж перераховано: " + this.monthly_payment);
+            String recalcMsg = ("Monthly payment recalculated: " + this.monthly_payment);
             System.out.println(recalcMsg);
             log.info(recalcMsg);
         }
@@ -451,8 +451,8 @@ public class Loan implements Account {
             BigDecimal debt = plannedBody.subtract(payment);
             this.overdue_sum = this.overdue_sum.add(debt);
 
-            String message = "Внесена сума менша за встановлений місячний платіж. Відсотки та частина кредиту" +
-                    " буде погашена, недостаюча сума: " + debt + " перейде в борг.";
+            String message = "Entered amount is less than the scheduled monthly payment. Interest and part of the loan " +
+                    "will be covered, missing sum: " + debt + " is added to debt.";
             System.out.println(message);
             log.warn(message);
         }
@@ -461,13 +461,13 @@ public class Loan implements Account {
     public void FullEarlyRepayment(BigDecimal payment){
         String message;
         if (payment.compareTo(this.current_balance) >= 0){
-            message = "Внесеної суми достатньо для закриття кредиту. Ваш кредит закрито:)";
+            message = "Entered amount is sufficient to close the loan. Your loan is closed :)";
             System.out.println(message);
             log.info(message);
 
             if (payment.compareTo(this.current_balance) > 0) {
                 this.change = payment.subtract(this.current_balance);
-                String changeMsg = "Ваша решта: " + this.change;
+                String changeMsg = "Your change: " + this.change;
                 System.out.println(changeMsg);
                 log.info(changeMsg);
             }
@@ -475,7 +475,7 @@ public class Loan implements Account {
             this.Close();
         }
         else{
-            message = "Внесеної суми недостатньо для закриття кредиту:(. Вам не вистачає: " +
+            message = "Entered amount is insufficient for full repayment :(. Missing amount: " +
                     this.current_balance.subtract(payment);
             System.out.println(message);
             log.warn(message);
@@ -493,9 +493,9 @@ public class Loan implements Account {
             BigDecimal body = this.monthly_payment.subtract(interest);
             temp_balance = temp_balance.subtract(body);
 
-            String line = "Щомісячний платіж №"+(payment_index + i)+":\n" +
-                    "           Платіж "+this.monthly_payment+" (Відсотки: "+interest+", Тіло: "+body+"). " +
-                    "Залишок: "+temp_balance+". Дата виплати: "+this.next_payment_date.plusMonths(i)+".";
+            String line = "Monthly payment №"+(payment_index + i)+":\n" +
+                    "           Payment "+this.monthly_payment+" (Interest: "+interest+", Principal: "+body+"). " +
+                    "Remaining: "+temp_balance+". Due date: "+this.next_payment_date.plusMonths(i)+".";
 
             System.out.println(line);
             log.debug(line);
