@@ -15,7 +15,7 @@ import java.util.Scanner;
 import java.util.UUID;
 
 public class ClientService {
-    private final Logger log = LogManager.getLogger(ClientService.class);
+    private static final Logger log = LogManager.getLogger(ClientService.class);
     private final DataBase dataBase;
     private final ConsoleUI ui =  new ConsoleUI();
 
@@ -25,7 +25,7 @@ public class ClientService {
     public Client RegisterClient(String full_name, String date_of_birth, String sex, String nationality, String mobile_phone,
                                  String individual_tax_number, String passport_number, String legal_address,
                                  String place_of_birth, String record_number, String place_of_work_or_study){
-
+        log.info("Registering new client: {}", full_name);
         LocalDate birthDate = LocalDate.parse(date_of_birth);
         Client newClient = ClientBuilder.create()
                 .full_name(full_name)
@@ -42,15 +42,18 @@ public class ClientService {
                 .build();
 
         dataBase.Upload(newClient);
-
+        log.info("Client registered successfully. ID: {}", newClient.getId());
         return newClient;
     }
 
     public void FullInfo(Client client){
+
+        log.debug("Printing full info for client: {}", client.getId());
         client.PrintClientFullInfo();
     }
 
     public Client SearchClient(String searchFilter, String searchValue){
+        log.info("Searching client by {}.", searchFilter);
         String query = "";
 
         switch (searchFilter.toLowerCase()) {
@@ -75,11 +78,15 @@ public class ClientService {
                 UUID clientId = (UUID) rs.getObject("id");
                 Client client = new Client(clientId);
                 dataBase.Fetch(client);
+                log.info("Client found: {}", clientId);
                 return client;
+            }else {
+                log.info("Client not found by filter: {}", searchFilter);
             }
+
         } catch (Exception e) {
             String mes = "Помилка БД: " + e.getMessage();
-            log.error(mes);
+            log.error("Database error during client search: {}", e.getMessage());
             ui.print(mes);
         }
         return null;
