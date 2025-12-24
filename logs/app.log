@@ -6785,3 +6785,473 @@ Status = ACTIVE.
 2025-12-22 22:15:02.300 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by phone number has been added
 2025-12-22 22:15:02.300 [main] DEBUG program.Bank.Menu.Menu - === ENTER CLIENT === has been added
 2025-12-22 22:17:17.116 [main] ERROR program.Bank.Menu.Command - Error occurred: Text '26 05 2006' could not be parsed at index 0
+2025-12-23 19:05:17.848 [main] DEBUG program.Bank.DataBase - Created DateBase.
+2025-12-23 19:05:17.859 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-23 19:05:17.860 [main] DEBUG program.Bank.Menu.Menu - Register new Client has been added
+2025-12-23 19:05:17.860 [main] DEBUG program.Bank.Menu.Menu - Log into Client's cabinet has been added
+2025-12-23 19:05:31.993 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-23 19:05:31.993 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by full name has been added
+2025-12-23 19:05:31.994 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by passport number has been added
+2025-12-23 19:05:31.995 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by phone number has been added
+2025-12-23 19:05:31.995 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-23 19:06:03.557 [main] ERROR program.Bank.Services.ClientService - Помилка БД: ��������: ���������� "postgres" �� ������� �������������� �� ��������� ������
+2025-12-23 19:06:03.557 [main] ERROR program.Bank.Builders.MenuBuilder - Ваш аккаунт не знайдено або його не існує. Спробуйте ще раз або створіть новий акаунт
+2025-12-23 19:06:31.046 [main] DEBUG program.Bank.DataBase - Created DateBase.
+2025-12-23 19:06:31.058 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-23 19:06:31.059 [main] DEBUG program.Bank.Menu.Menu - Register new Client has been added
+2025-12-23 19:06:31.059 [main] DEBUG program.Bank.Menu.Menu - Log into Client's cabinet has been added
+2025-12-23 19:06:36.033 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-23 19:06:36.034 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by full name has been added
+2025-12-23 19:06:36.035 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by passport number has been added
+2025-12-23 19:06:36.037 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by phone number has been added
+2025-12-23 19:06:36.037 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-23 19:06:47.046 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-23 19:06:47.047 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-23 19:06:47.047 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
+2025-12-23 19:06:47.048 [main] INFO  program.Bank.DataBase - Loading client data by ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-23 19:06:47.118 [main] INFO  program.Bank.Client - Встановлення повного імені: Butsenko Mariia
+2025-12-23 19:06:47.119 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Butsenko Mariia
+2025-12-23 19:06:47.123 [main] INFO  program.Bank.Client - Встановлення дати народження: 2006-05-26
+2025-12-23 19:06:47.123 [main] DEBUG program.Bank.Client - Дату народження успішно встановлено
+2025-12-23 19:06:47.123 [main] INFO  program.Bank.Client - Встановлення статі: W
+2025-12-23 19:06:47.123 [main] DEBUG program.Bank.Client - Стать успішно встановлено: W
+2025-12-23 19:06:47.123 [main] INFO  program.Bank.Client - Встановлення національності: Ukrainian
+2025-12-23 19:06:47.123 [main] DEBUG program.Bank.Client - Національність успішно встановлено: Ukrainian
+2025-12-23 19:06:47.123 [main] INFO  program.Bank.Client - Встановлення мобільного телефону: +380996703512
+2025-12-23 19:06:47.124 [main] DEBUG program.Bank.Client - Номер телефону успішно встановлено
+2025-12-23 19:06:47.124 [main] INFO  program.Bank.Client - Встановлення індивідуального податкового номеру (ІПН)
+2025-12-23 19:06:47.124 [main] DEBUG program.Bank.Client - ІПН успішно встановлено: 11111
+2025-12-23 19:06:47.125 [main] INFO  program.Bank.Client - Встановлення номеру паспорта
+2025-12-23 19:06:47.125 [main] DEBUG program.Bank.Client - Номер паспорта успішно встановлено: 1111
+2025-12-23 19:06:47.125 [main] INFO  program.Bank.Client - Встановлення юридичної адреси: Heroiv Maidanu 9, 475
+2025-12-23 19:06:47.125 [main] DEBUG program.Bank.Client - Юридичну адресу успішно встановлено: Heroiv Maidanu 9, 475
+2025-12-23 19:06:47.125 [main] INFO  program.Bank.Client - Встановлення місця народження: Cherkassy
+2025-12-23 19:06:47.125 [main] DEBUG program.Bank.Client - Місце народження успішно встановлено: Cherkassy
+2025-12-23 19:06:47.125 [main] INFO  program.Bank.Client - Встановлення номеру запису
+2025-12-23 19:06:47.125 [main] DEBUG program.Bank.Client - Номер запису успішно встановлено: 111
+2025-12-23 19:06:47.126 [main] INFO  program.Bank.Client - Встановлення місця роботи/навчання: CHNU
+2025-12-23 19:06:47.126 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: CHNU
+2025-12-23 19:06:47.128 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
+2025-12-23 19:06:47.128 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
+2025-12-23 19:06:47.128 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
+2025-12-23 19:06:47.133 [main] DEBUG program.Bank.Menu.Menu - Client's full information has been added
+2025-12-23 19:06:47.135 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-23 19:06:47.136 [main] DEBUG program.Bank.Menu.Menu - Cards has been added
+2025-12-23 19:06:47.137 [main] DEBUG program.Bank.Menu.Menu - Deposit has been added
+2025-12-23 19:06:47.138 [main] DEBUG program.Bank.Menu.Menu - Credits has been added
+2025-12-23 19:06:47.140 [main] DEBUG program.Bank.Menu.Menu - Transactions' history has been added
+2025-12-23 19:06:47.141 [main] DEBUG program.Bank.Menu.Menu - Client's data has been added
+2025-12-23 19:06:47.142 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-23 19:06:51.304 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-23 19:06:51.304 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-23 19:06:51.304 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
+2025-12-23 19:06:51.304 [main] INFO  program.Bank.DataBase - Fetching card data by ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-23 19:06:51.456 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-23 19:06:51.456 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
+2025-12-23 19:06:51.457 [main] INFO  program.Bank.Card - Встановлення номеру картки: 4149 1122 3344 5555
+2025-12-23 19:06:51.457 [main] DEBUG program.Bank.Card - Номер картки успішно встановлено
+2025-12-23 19:06:51.468 [main] INFO  program.Bank.Card - Встановлення балансу картки: 2000.0000
+2025-12-23 19:06:51.468 [main] DEBUG program.Bank.Card - Баланс картки успішно встановлено
+2025-12-23 19:06:51.469 [main] INFO  program.Bank.Card - Встановлення валюти картки: UAH
+2025-12-23 19:06:51.469 [main] DEBUG program.Bank.Card - Валюту картки успішно встановлено: UAH
+2025-12-23 19:06:51.471 [main] ERROR program.Bank.Services.CardService - Помилка при завантаженні карток: Name is null
+2025-12-23 19:06:51.473 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-23 19:06:51.475 [main] DEBUG program.Bank.Menu.Menu - Open new card has been added
+2025-12-23 19:06:51.476 [main] DEBUG program.Bank.Menu.Menu - Work with an existing card has been added
+2025-12-23 19:06:51.477 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-23 19:10:37.864 [main] DEBUG program.Bank.Card - Створення нового екземпляру Card
+2025-12-23 19:10:37.865 [main] INFO  program.Bank.Card - Генерація нового ID картки
+2025-12-23 19:10:37.865 [main] INFO  program.Bank.Card - ID картки успішно згенеровано: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-23 19:10:37.867 [main] INFO  program.Bank.Card - Card створено: баланс = 0, валюта = GRN, статус = ACTIVE
+2025-12-23 19:10:37.867 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-23 19:10:37.867 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
+2025-12-23 19:10:37.867 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5056  7890 0000 1111
+2025-12-23 19:10:37.867 [main] DEBUG program.Bank.Card - Номер картки успішно встановлено
+2025-12-23 19:10:37.867 [main] INFO  program.Bank.Card - Встановлення типу картки: UNIVERSAL
+2025-12-23 19:10:37.868 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: UNIVERSAL
+2025-12-23 19:10:37.868 [main] INFO  program.Bank.Card - Встановлення валюти картки: USD
+2025-12-23 19:10:37.868 [main] DEBUG program.Bank.Card - Валюту картки успішно встановлено: USD
+2025-12-23 19:10:37.868 [main] INFO  program.Bank.DataBase - Uploading card id data by ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-23 19:10:38.028 [main] INFO  program.Bank.DataBase - New card: 5056  7890 0000 1111 was successfully created at base.
+2025-12-23 19:10:38.028 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-23 19:10:38.028 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
+2025-12-23 19:10:38.030 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
+2025-12-23 19:10:38.031 [main] INFO  program.Bank.Card - Виведення короткої інформації про картку ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-23 19:10:38.032 [main] DEBUG program.Bank.Card - Коротку інформацію про картку виведено
+2025-12-23 19:10:38.033 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-23 19:10:38.033 [main] DEBUG program.Bank.Menu.Menu - Top up card has been added
+2025-12-23 19:10:38.034 [main] DEBUG program.Bank.Menu.Menu - Withdraw cash has been added
+2025-12-23 19:10:38.034 [main] DEBUG program.Bank.Menu.Menu - Make a transaction has been added
+2025-12-23 19:10:38.035 [main] DEBUG program.Bank.Menu.Menu - View card's details has been added
+2025-12-23 19:10:38.036 [main] DEBUG program.Bank.Menu.Menu - Block card has been added
+2025-12-23 19:10:38.037 [main] DEBUG program.Bank.Menu.Menu - Close card has been added
+2025-12-23 19:10:38.037 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-23 19:10:51.918 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-23 19:10:51.918 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
+2025-12-23 19:10:51.918 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
+2025-12-23 19:11:07.706 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-23 19:11:07.708 [main] DEBUG program.Bank.Menu.Menu - Top up current card has been added
+2025-12-23 19:11:07.709 [main] DEBUG program.Bank.Menu.Menu - Top up card with the following card number has been added
+2025-12-23 19:11:07.710 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-23 19:11:14.938 [main] INFO  program.Bank.Card - Поповнення картки ID: 302629bd-baff-412e-ac6a-d3a9d181f85a. Сума: 1000
+2025-12-23 19:11:14.938 [main] INFO  program.Bank.Card - Картку ID: 302629bd-baff-412e-ac6a-d3a9d181f85a успішно поповнено. Сума: 1000. Новий баланс: 1000
+2025-12-23 19:11:14.939 [main] INFO  program.Bank.DataBase - Updating card data for ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-23 19:11:15.107 [main] INFO  program.Bank.DataBase - Card 5056  7890 0000 1111 updated successfully.
+2025-12-23 19:16:53.367 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
+2025-12-23 19:16:53.367 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
+2025-12-23 19:16:53.368 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
+2025-12-23 19:16:53.368 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
+2025-12-23 19:17:52.218 [main] DEBUG program.Bank.DataBase - Created DateBase.
+2025-12-23 19:17:52.231 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-23 19:17:52.232 [main] DEBUG program.Bank.Menu.Menu - Register new Client has been added
+2025-12-23 19:17:52.233 [main] DEBUG program.Bank.Menu.Menu - Log into Client's cabinet has been added
+2025-12-23 19:18:17.589 [main] DEBUG program.Bank.DataBase - Created DateBase.
+2025-12-23 19:18:17.600 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-23 19:18:17.600 [main] DEBUG program.Bank.Menu.Menu - Register new Client has been added
+2025-12-23 19:18:17.601 [main] DEBUG program.Bank.Menu.Menu - Log into Client's cabinet has been added
+2025-12-23 19:18:24.310 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-23 19:18:24.311 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by full name has been added
+2025-12-23 19:18:24.312 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by passport number has been added
+2025-12-23 19:18:24.313 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by phone number has been added
+2025-12-23 19:18:24.313 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-23 19:18:47.548 [main] DEBUG program.Bank.Client - Створення екземпляру Client з існуючим ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-23 19:18:47.548 [main] INFO  program.Bank.Client - Встановлення існуючого ID клієнта: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-23 19:18:47.548 [main] DEBUG program.Bank.Client - ID клієнта успішно встановлено
+2025-12-23 19:18:47.548 [main] INFO  program.Bank.DataBase - Loading client data by ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-23 19:18:47.598 [main] INFO  program.Bank.Client - Встановлення повного імені: Butsenko Mariia
+2025-12-23 19:18:47.598 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Butsenko Mariia
+2025-12-23 19:18:47.600 [main] INFO  program.Bank.Client - Встановлення дати народження: 2006-05-26
+2025-12-23 19:18:47.600 [main] DEBUG program.Bank.Client - Дату народження успішно встановлено
+2025-12-23 19:18:47.600 [main] INFO  program.Bank.Client - Встановлення статі: W
+2025-12-23 19:18:47.600 [main] DEBUG program.Bank.Client - Стать успішно встановлено: W
+2025-12-23 19:18:47.600 [main] INFO  program.Bank.Client - Встановлення національності: Ukrainian
+2025-12-23 19:18:47.600 [main] DEBUG program.Bank.Client - Національність успішно встановлено: Ukrainian
+2025-12-23 19:18:47.600 [main] INFO  program.Bank.Client - Встановлення мобільного телефону: +380996703512
+2025-12-23 19:18:47.600 [main] DEBUG program.Bank.Client - Номер телефону успішно встановлено
+2025-12-23 19:18:47.601 [main] INFO  program.Bank.Client - Встановлення індивідуального податкового номеру (ІПН)
+2025-12-23 19:18:47.601 [main] DEBUG program.Bank.Client - ІПН успішно встановлено: 11111
+2025-12-23 19:18:47.601 [main] INFO  program.Bank.Client - Встановлення номеру паспорта
+2025-12-23 19:18:47.601 [main] DEBUG program.Bank.Client - Номер паспорта успішно встановлено: 1111
+2025-12-23 19:18:47.601 [main] INFO  program.Bank.Client - Встановлення юридичної адреси: Heroiv Maidanu 9, 475
+2025-12-23 19:18:47.601 [main] DEBUG program.Bank.Client - Юридичну адресу успішно встановлено: Heroiv Maidanu 9, 475
+2025-12-23 19:18:47.601 [main] INFO  program.Bank.Client - Встановлення місця народження: Cherkassy
+2025-12-23 19:18:47.601 [main] DEBUG program.Bank.Client - Місце народження успішно встановлено: Cherkassy
+2025-12-23 19:18:47.601 [main] INFO  program.Bank.Client - Встановлення номеру запису
+2025-12-23 19:18:47.601 [main] DEBUG program.Bank.Client - Номер запису успішно встановлено: 111
+2025-12-23 19:18:47.601 [main] INFO  program.Bank.Client - Встановлення місця роботи/навчання: CHNU
+2025-12-23 19:18:47.601 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: CHNU
+2025-12-23 19:18:47.602 [main] INFO  program.Bank.Client - Встановлення статусу клієнта: ACTIVE
+2025-12-23 19:18:47.602 [main] DEBUG program.Bank.Client - Статус клієнта успішно встановлено: ACTIVE
+2025-12-23 19:18:47.602 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
+2025-12-23 19:18:47.605 [main] DEBUG program.Bank.Menu.Menu - Client's full information has been added
+2025-12-23 19:18:47.606 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-23 19:18:47.606 [main] DEBUG program.Bank.Menu.Menu - Cards has been added
+2025-12-23 19:18:47.607 [main] DEBUG program.Bank.Menu.Menu - Deposit has been added
+2025-12-23 19:18:47.608 [main] DEBUG program.Bank.Menu.Menu - Credits has been added
+2025-12-23 19:18:47.609 [main] DEBUG program.Bank.Menu.Menu - Transactions' history has been added
+2025-12-23 19:18:47.609 [main] DEBUG program.Bank.Menu.Menu - Client's data has been added
+2025-12-23 19:18:47.610 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-23 19:18:51.049 [main] INFO  program.Bank.Menu.Menu - User commanded to return. Returning...
+2025-12-23 19:19:02.185 [main] INFO  program.Bank.Menu.Menu - User commanded to return. Returning...
+2025-12-23 19:19:05.712 [main] INFO  program.Bank.Menu.Menu - User commanded to return. Returning...
+2025-12-23 19:23:19.655 [main] DEBUG program.Bank.DataBase - Created DateBase.
+2025-12-23 19:23:19.665 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-23 19:23:19.666 [main] DEBUG program.Bank.Menu.Menu - Register new Client has been added
+2025-12-23 19:23:19.666 [main] DEBUG program.Bank.Menu.Menu - Log into Client's cabinet has been added
+2025-12-23 19:24:31.286 [main] DEBUG program.Bank.Client - Створення нового екземпляру Client
+2025-12-23 19:24:31.287 [main] INFO  program.Bank.Client - Спроба генерації нового ID клієнта
+2025-12-23 19:24:31.337 [main] INFO  program.Bank.Client - ID клієнта успішно згенеровано: f1edfebc-d7f2-4fe4-aaf1-0abf089edeed
+2025-12-23 19:24:31.337 [main] DEBUG program.Bank.Client - Client створено зі статусом ACTIVE
+2025-12-23 19:24:31.338 [main] INFO  program.Bank.Client - Встановлення повного імені: Сніжана Герасименко
+2025-12-23 19:24:31.338 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Сніжана Герасименко
+2025-12-23 19:24:31.338 [main] INFO  program.Bank.Client - Встановлення дати народження: 2006-01-01
+2025-12-23 19:24:31.338 [main] DEBUG program.Bank.Client - Дату народження успішно встановлено
+2025-12-23 19:24:31.338 [main] INFO  program.Bank.Client - Встановлення статі: W
+2025-12-23 19:24:31.338 [main] DEBUG program.Bank.Client - Стать успішно встановлено: W
+2025-12-23 19:24:31.338 [main] INFO  program.Bank.Client - Встановлення національності: Ukrainian
+2025-12-23 19:24:31.338 [main] DEBUG program.Bank.Client - Національність успішно встановлено: Ukrainian
+2025-12-23 19:24:31.338 [main] INFO  program.Bank.Client - Встановлення мобільного телефону: +380996703510
+2025-12-23 19:24:31.339 [main] DEBUG program.Bank.Client - Номер телефону успішно встановлено
+2025-12-23 19:24:31.339 [main] INFO  program.Bank.Client - Встановлення індивідуального податкового номеру (ІПН)
+2025-12-23 19:24:31.339 [main] DEBUG program.Bank.Client - ІПН успішно встановлено: 666666
+2025-12-23 19:24:31.339 [main] INFO  program.Bank.Client - Встановлення номеру паспорта
+2025-12-23 19:24:31.339 [main] DEBUG program.Bank.Client - Номер паспорта успішно встановлено: 666666
+2025-12-23 19:24:31.339 [main] INFO  program.Bank.Client - Встановлення юридичної адреси: misto Smila
+2025-12-23 19:24:31.339 [main] DEBUG program.Bank.Client - Юридичну адресу успішно встановлено: misto Smila
+2025-12-23 19:24:31.339 [main] INFO  program.Bank.Client - Встановлення місця народження: Ukraine
+2025-12-23 19:24:31.339 [main] DEBUG program.Bank.Client - Місце народження успішно встановлено: Ukraine
+2025-12-23 19:24:31.339 [main] INFO  program.Bank.Client - Встановлення номеру запису
+2025-12-23 19:24:31.340 [main] DEBUG program.Bank.Client - Номер запису успішно встановлено: 777
+2025-12-23 19:24:31.340 [main] INFO  program.Bank.Client - Встановлення місця роботи/навчання: CHNU
+2025-12-23 19:24:31.340 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: CHNU
+2025-12-23 19:24:31.340 [main] INFO  program.Bank.DataBase - Uploading client data by ID: f1edfebc-d7f2-4fe4-aaf1-0abf089edeed
+2025-12-23 19:24:31.544 [main] INFO  program.Bank.DataBase - New client: Сніжана Герасименко was successfully created at base.
+2025-12-23 19:24:31.545 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: f1edfebc-d7f2-4fe4-aaf1-0abf089edeed
+2025-12-23 19:24:31.545 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
+2025-12-23 19:24:31.549 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
+2025-12-23 19:24:31.550 [main] DEBUG program.Bank.Menu.Menu - Client's full information has been added
+2025-12-23 19:24:31.551 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-23 19:24:31.551 [main] DEBUG program.Bank.Menu.Menu - Cards has been added
+2025-12-23 19:24:31.552 [main] DEBUG program.Bank.Menu.Menu - Deposit has been added
+2025-12-23 19:24:31.552 [main] DEBUG program.Bank.Menu.Menu - Credits has been added
+2025-12-23 19:24:31.553 [main] DEBUG program.Bank.Menu.Menu - Transactions' history has been added
+2025-12-23 19:24:31.554 [main] DEBUG program.Bank.Menu.Menu - Client's data has been added
+2025-12-23 19:24:31.554 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-23 19:24:39.746 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: f1edfebc-d7f2-4fe4-aaf1-0abf089edeed
+2025-12-23 19:24:39.746 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
+2025-12-23 19:24:39.747 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
+2025-12-23 19:24:53.079 [main] WARN  program.Bank.Services.LoanService - У даного клієнта немає відкритих кредитів.
+2025-12-23 19:24:53.083 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-23 19:24:53.084 [main] DEBUG program.Bank.Menu.Menu - Open Loan has been added
+2025-12-23 19:24:53.085 [main] DEBUG program.Bank.Menu.Menu - Work with an existing loan has been added
+2025-12-23 19:25:35.145 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
+2025-12-23 19:25:35.145 [main] INFO  program.Bank.Loan - Created new Loan with ID: 44ffd525-9967-4a60-9df5-6edd7b77ecc4.
+2025-12-23 19:25:35.146 [main] DEBUG program.Bank.Loan - Client ID set for Loan: f1edfebc-d7f2-4fe4-aaf1-0abf089edeed.
+2025-12-23 19:25:35.146 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0001.
+2025-12-23 19:25:35.146 [main] DEBUG program.Bank.Loan - Interest rate set: 0.1. Monthly rate calculated.
+2025-12-23 19:25:35.146 [main] DEBUG program.Bank.Loan - Original sum set: 1000.
+2025-12-23 19:25:35.146 [main] DEBUG program.Bank.Loan - Open date set: 2025-12-23.
+2025-12-23 19:25:35.147 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 200.1000.
+2025-12-23 19:25:35.147 [main] DEBUG program.Bank.Loan - Monthly payment set: 200.1000.
+2025-12-23 19:25:35.147 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 200.1000.
+2025-12-23 19:25:35.147 [main] DEBUG program.Bank.Loan - Close date set: 2026-05-26. Term calculated: 5 months.
+2025-12-23 19:25:35.148 [main] INFO  program.Bank.DataBase - Uploading loan data by ID: 44ffd525-9967-4a60-9df5-6edd7b77ecc4
+2025-12-23 19:25:35.205 [main] INFO  program.Bank.DataBase - New loan: 44ffd525-9967-4a60-9df5-6edd7b77ecc4 was successfully created at base.
+2025-12-23 19:25:35.208 [main] DEBUG program.Bank.Loan - Full loan info printed for ID: 44ffd525-9967-4a60-9df5-6edd7b77ecc4.
+2025-12-23 19:25:35.208 [main] DEBUG program.Bank.Loan - Full loan info printed for ID: 44ffd525-9967-4a60-9df5-6edd7b77ecc4.
+2025-12-23 19:25:35.209 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-23 19:25:35.210 [main] DEBUG program.Bank.Menu.Menu - Show Loan's information details has been added
+2025-12-23 19:25:35.210 [main] DEBUG program.Bank.Menu.Menu - Make monthly payment has been added
+2025-12-23 19:25:35.210 [main] DEBUG program.Bank.Menu.Menu - Display payment schedule has been added
+2025-12-23 19:25:35.211 [main] DEBUG program.Bank.Menu.Menu - Early repayment and closure has been added
+2025-12-23 19:25:35.211 [main] DEBUG program.Bank.Menu.Menu - Close Loan has been added
+2025-12-23 19:25:35.211 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-23 19:25:40.716 [main] INFO  program.Bank.Menu.Menu - User commanded to return. Returning...
+2025-12-23 19:25:49.959 [main] INFO  program.Bank.Menu.Menu - User commanded to return. Returning...
+2025-12-23 19:25:55.721 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 44ffd525-9967-4a60-9df5-6edd7b77ecc4.
+2025-12-23 19:25:55.721 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 44ffd525-9967-4a60-9df5-6edd7b77ecc4
+2025-12-23 19:25:55.763 [main] DEBUG program.Bank.Loan - Client ID set for Loan: f1edfebc-d7f2-4fe4-aaf1-0abf089edeed.
+2025-12-23 19:25:55.763 [main] DEBUG program.Bank.Loan - Original sum set: 1000.0000.
+2025-12-23 19:25:55.763 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0001.
+2025-12-23 19:25:55.763 [main] DEBUG program.Bank.Loan - Interest rate set: 0.1000. Monthly rate calculated.
+2025-12-23 19:25:55.764 [main] DEBUG program.Bank.Loan - Open date set: 2025-12-23.
+2025-12-23 19:25:55.765 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 200.10000000.
+2025-12-23 19:25:55.765 [main] DEBUG program.Bank.Loan - Monthly payment set: 200.10000000.
+2025-12-23 19:25:55.765 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 200.10000000.
+2025-12-23 19:25:55.765 [main] DEBUG program.Bank.Loan - Close date set: 2026-05-26. Term calculated: 5 months.
+2025-12-23 19:25:55.766 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
+2025-12-23 19:25:55.766 [main] DEBUG program.Bank.DataBase - Loan loaded successfully
+2025-12-23 19:25:55.768 [main] INFO  program.Bank.Loan - Short Loan Info printed:
+#44ffd525-9967-4a60-9df5-6edd7b77ecc4 - 1000.0000 UAH (0.1000%)
+Залишок: 1000.0000 UAH
+Щомісячний платіж: 200.1000 UAH
+Наступний платіж: 2026-01-23
+2025-12-23 19:25:55.768 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-23 19:25:55.768 [main] DEBUG program.Bank.Menu.Menu - Open Loan has been added
+2025-12-23 19:25:55.769 [main] DEBUG program.Bank.Menu.Menu - Work with an existing loan has been added
+2025-12-23 20:02:31.265 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
+2025-12-24 02:08:38.971 [main] DEBUG program.Bank.DataBase - Created DateBase.
+2025-12-24 02:08:38.997 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 02:08:38.998 [main] DEBUG program.Bank.Menu.Menu - Register new Client has been added
+2025-12-24 02:08:38.999 [main] DEBUG program.Bank.Menu.Menu - Log into Client's cabinet has been added
+2025-12-24 02:10:28.149 [main] DEBUG program.Bank.Client - Створення нового екземпляру Client
+2025-12-24 02:10:28.149 [main] INFO  program.Bank.Client - Спроба генерації нового ID клієнта
+2025-12-24 02:10:28.256 [main] INFO  program.Bank.Client - ID клієнта успішно згенеровано: a09e8eb8-0078-4d0c-b762-e54ac9d59112
+2025-12-24 02:10:28.258 [main] DEBUG program.Bank.Client - Client створено зі статусом ACTIVE
+2025-12-24 02:10:28.258 [main] INFO  program.Bank.Client - Встановлення повного імені: Igor Evtushevskii
+2025-12-24 02:10:28.259 [main] DEBUG program.Bank.Client - Повне ім'я успішно встановлено: Igor Evtushevskii
+2025-12-24 02:10:28.259 [main] INFO  program.Bank.Client - Встановлення дати народження: 2005-12-03
+2025-12-24 02:10:28.259 [main] DEBUG program.Bank.Client - Дату народження успішно встановлено
+2025-12-24 02:10:28.259 [main] INFO  program.Bank.Client - Встановлення статі: M
+2025-12-24 02:10:28.259 [main] DEBUG program.Bank.Client - Стать успішно встановлено: M
+2025-12-24 02:10:28.259 [main] INFO  program.Bank.Client - Встановлення національності: Ukrainian
+2025-12-24 02:10:28.260 [main] DEBUG program.Bank.Client - Національність успішно встановлено: Ukrainian
+2025-12-24 02:10:28.260 [main] INFO  program.Bank.Client - Встановлення мобільного телефону: +380681859724
+2025-12-24 02:10:28.260 [main] DEBUG program.Bank.Client - Номер телефону успішно встановлено
+2025-12-24 02:10:28.261 [main] INFO  program.Bank.Client - Встановлення індивідуального податкового номеру (ІПН)
+2025-12-24 02:10:28.261 [main] DEBUG program.Bank.Client - ІПН успішно встановлено: 123456789
+2025-12-24 02:10:28.261 [main] INFO  program.Bank.Client - Встановлення номеру паспорта
+2025-12-24 02:10:28.261 [main] DEBUG program.Bank.Client - Номер паспорта успішно встановлено: 987654
+2025-12-24 02:10:28.262 [main] INFO  program.Bank.Client - Встановлення юридичної адреси: Europe
+2025-12-24 02:10:28.262 [main] DEBUG program.Bank.Client - Юридичну адресу успішно встановлено: Europe
+2025-12-24 02:10:28.262 [main] INFO  program.Bank.Client - Встановлення місця народження: Ukraine
+2025-12-24 02:10:28.262 [main] DEBUG program.Bank.Client - Місце народження успішно встановлено: Ukraine
+2025-12-24 02:10:28.262 [main] INFO  program.Bank.Client - Встановлення номеру запису
+2025-12-24 02:10:28.263 [main] DEBUG program.Bank.Client - Номер запису успішно встановлено: 888
+2025-12-24 02:10:28.263 [main] INFO  program.Bank.Client - Встановлення місця роботи/навчання: CHNU
+2025-12-24 02:10:28.263 [main] DEBUG program.Bank.Client - Місце роботи/навчання успішно встановлено: CHNU
+2025-12-24 02:10:28.263 [main] INFO  program.Bank.DataBase - Uploading client data by ID: a09e8eb8-0078-4d0c-b762-e54ac9d59112
+2025-12-24 02:10:28.743 [main] INFO  program.Bank.DataBase - New client: Igor Evtushevskii was successfully created at base.
+2025-12-24 02:10:28.744 [main] INFO  program.Bank.Client - Виведення повної інформації про клієнта ID: a09e8eb8-0078-4d0c-b762-e54ac9d59112
+2025-12-24 02:10:28.744 [main] DEBUG program.Bank.Client - Перетворення даних клієнта в текстове представлення
+2025-12-24 02:10:28.751 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
+2025-12-24 02:10:28.752 [main] DEBUG program.Bank.Menu.Menu - Client's full information has been added
+2025-12-24 02:10:28.753 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 02:10:28.755 [main] DEBUG program.Bank.Menu.Menu - Cards has been added
+2025-12-24 02:10:28.756 [main] DEBUG program.Bank.Menu.Menu - Deposit has been added
+2025-12-24 02:10:28.757 [main] DEBUG program.Bank.Menu.Menu - Credits has been added
+2025-12-24 02:10:28.758 [main] DEBUG program.Bank.Menu.Menu - Transactions' history has been added
+2025-12-24 02:10:28.759 [main] DEBUG program.Bank.Menu.Menu - Client's data has been added
+2025-12-24 02:10:28.759 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 02:12:46.519 [main] WARN  program.Bank.Services.CardService - У даного клієнта немає відкритих карток.
+2025-12-24 02:12:46.522 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 02:12:46.524 [main] DEBUG program.Bank.Menu.Menu - Open new card has been added
+2025-12-24 02:12:46.525 [main] DEBUG program.Bank.Menu.Menu - Work with an existing card has been added
+2025-12-24 02:12:46.525 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 02:13:35.561 [main] DEBUG program.Bank.Card - Створення нового екземпляру Card
+2025-12-24 02:13:35.561 [main] INFO  program.Bank.Card - Генерація нового ID картки
+2025-12-24 02:13:35.561 [main] INFO  program.Bank.Card - ID картки успішно згенеровано: 180377e1-45ac-4f2d-9060-f25e257619c0
+2025-12-24 02:13:35.623 [main] INFO  program.Bank.Card - Card створено: баланс = 0, валюта = GRN, статус = ACTIVE
+2025-12-24 02:13:35.623 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: a09e8eb8-0078-4d0c-b762-e54ac9d59112
+2025-12-24 02:13:35.623 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
+2025-12-24 02:13:35.623 [main] INFO  program.Bank.Card - Встановлення номеру картки: 4122 3456 7890 1167
+2025-12-24 02:13:35.624 [main] DEBUG program.Bank.Card - Номер картки успішно встановлено
+2025-12-24 02:13:35.624 [main] INFO  program.Bank.Card - Встановлення типу картки: ESUPPORT
+2025-12-24 02:13:35.624 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: ESUPPORT
+2025-12-24 02:13:35.624 [main] INFO  program.Bank.Card - Встановлення валюти картки: UAH
+2025-12-24 02:13:35.624 [main] DEBUG program.Bank.Card - Валюту картки успішно встановлено: UAH
+2025-12-24 02:13:35.624 [main] INFO  program.Bank.DataBase - Uploading card id data by ID: 180377e1-45ac-4f2d-9060-f25e257619c0
+2025-12-24 02:13:35.742 [main] INFO  program.Bank.DataBase - New card: 4122 3456 7890 1167 was successfully created at base.
+2025-12-24 02:13:35.744 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: 180377e1-45ac-4f2d-9060-f25e257619c0
+2025-12-24 02:13:35.744 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
+2025-12-24 02:13:35.749 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
+2025-12-24 02:13:35.750 [main] INFO  program.Bank.Card - Виведення короткої інформації про картку ID: 180377e1-45ac-4f2d-9060-f25e257619c0
+2025-12-24 02:13:35.755 [main] DEBUG program.Bank.Card - Коротку інформацію про картку виведено
+2025-12-24 02:13:35.757 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 02:13:35.758 [main] DEBUG program.Bank.Menu.Menu - Top up card has been added
+2025-12-24 02:13:35.760 [main] DEBUG program.Bank.Menu.Menu - Withdraw cash has been added
+2025-12-24 02:13:35.761 [main] DEBUG program.Bank.Menu.Menu - Make a transaction has been added
+2025-12-24 02:13:35.763 [main] DEBUG program.Bank.Menu.Menu - View card's details has been added
+2025-12-24 02:13:35.764 [main] DEBUG program.Bank.Menu.Menu - Block card has been added
+2025-12-24 02:13:35.765 [main] DEBUG program.Bank.Menu.Menu - Close card has been added
+2025-12-24 02:13:35.765 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 02:13:42.002 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 02:13:42.004 [main] DEBUG program.Bank.Menu.Menu - Top up current card has been added
+2025-12-24 02:13:42.006 [main] DEBUG program.Bank.Menu.Menu - Top up card with the following card number has been added
+2025-12-24 02:13:42.006 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 02:14:02.094 [main] INFO  program.Bank.Card - Поповнення картки ID: 180377e1-45ac-4f2d-9060-f25e257619c0. Сума: 2150
+2025-12-24 02:14:02.095 [main] INFO  program.Bank.Card - Картку ID: 180377e1-45ac-4f2d-9060-f25e257619c0 успішно поповнено. Сума: 2150. Новий баланс: 2150
+2025-12-24 02:14:02.095 [main] INFO  program.Bank.DataBase - Updating card data for ID: 180377e1-45ac-4f2d-9060-f25e257619c0
+2025-12-24 02:14:02.306 [main] INFO  program.Bank.DataBase - Card 4122 3456 7890 1167 updated successfully.
+2025-12-24 02:17:38.006 [main] INFO  program.Bank.Menu.Menu - User commanded to return. Returning...
+2025-12-24 02:17:48.924 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: 180377e1-45ac-4f2d-9060-f25e257619c0
+2025-12-24 02:17:48.924 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
+2025-12-24 02:17:48.925 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
+2025-12-24 02:18:15.033 [main] INFO  program.Bank.Card - Спроба зняття коштів з картки ID: 180377e1-45ac-4f2d-9060-f25e257619c0. Сума: 150
+2025-12-24 02:18:15.034 [main] INFO  program.Bank.Card - Кошти успішно знято з картки ID: 180377e1-45ac-4f2d-9060-f25e257619c0. Сума: 150. Новий баланс: 2000
+2025-12-24 02:18:15.036 [main] INFO  program.Bank.DataBase - Updating card data for ID: 180377e1-45ac-4f2d-9060-f25e257619c0
+2025-12-24 02:18:15.238 [main] INFO  program.Bank.DataBase - Card 4122 3456 7890 1167 updated successfully.
+2025-12-24 02:24:23.537 [main] INFO  program.Bank.Card - Спроба зняття коштів з картки ID: 180377e1-45ac-4f2d-9060-f25e257619c0. Сума: 1200
+2025-12-24 02:24:23.538 [main] INFO  program.Bank.Card - Кошти успішно знято з картки ID: 180377e1-45ac-4f2d-9060-f25e257619c0. Сума: 1200. Новий баланс: 800
+2025-12-24 02:24:23.538 [main] INFO  program.Bank.DataBase - Updating card data for ID: 180377e1-45ac-4f2d-9060-f25e257619c0
+2025-12-24 02:24:23.740 [main] INFO  program.Bank.DataBase - Card 4122 3456 7890 1167 updated successfully.
+2025-12-24 02:24:23.840 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 02:24:23.841 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 02:24:23.841 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
+2025-12-24 02:24:23.841 [main] INFO  program.Bank.DataBase - Fetching card data by ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 02:24:24.041 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 02:24:24.041 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
+2025-12-24 02:24:24.042 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5152 8973 6666 5555
+2025-12-24 02:24:24.042 [main] DEBUG program.Bank.Card - Номер картки успішно встановлено
+2025-12-24 02:24:24.048 [main] INFO  program.Bank.Card - Встановлення балансу картки: 10320.0235
+2025-12-24 02:24:24.048 [main] DEBUG program.Bank.Card - Баланс картки успішно встановлено
+2025-12-24 02:24:24.049 [main] INFO  program.Bank.Card - Встановлення валюти картки: UAH
+2025-12-24 02:24:24.049 [main] DEBUG program.Bank.Card - Валюту картки успішно встановлено: UAH
+2025-12-24 02:24:24.051 [main] ERROR program.Bank.Services.CardService - Помилка пошуку картки: Name is null
+2025-12-24 02:24:24.052 [main] ERROR program.Bank.Menu.Command - Error occurred: Cannot invoke "program.Bank.Card.getCard_number()" because "card" is null
+2025-12-24 02:25:06.021 [main] INFO  program.Bank.Card - Спроба зняття коштів з картки ID: 180377e1-45ac-4f2d-9060-f25e257619c0. Сума: 100
+2025-12-24 02:25:06.022 [main] INFO  program.Bank.Card - Кошти успішно знято з картки ID: 180377e1-45ac-4f2d-9060-f25e257619c0. Сума: 100. Новий баланс: 700
+2025-12-24 02:25:06.022 [main] INFO  program.Bank.DataBase - Updating card data for ID: 180377e1-45ac-4f2d-9060-f25e257619c0
+2025-12-24 02:25:06.119 [main] INFO  program.Bank.DataBase - Card 4122 3456 7890 1167 updated successfully.
+2025-12-24 02:25:06.208 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 02:25:06.209 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 02:25:06.209 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
+2025-12-24 02:25:06.209 [main] INFO  program.Bank.DataBase - Fetching card data by ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 02:25:06.292 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 02:25:06.292 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
+2025-12-24 02:25:06.293 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5056  7890 0000 1111
+2025-12-24 02:25:06.293 [main] DEBUG program.Bank.Card - Номер картки успішно встановлено
+2025-12-24 02:25:06.293 [main] INFO  program.Bank.Card - Встановлення балансу картки: 1000.0000
+2025-12-24 02:25:06.293 [main] DEBUG program.Bank.Card - Баланс картки успішно встановлено
+2025-12-24 02:25:06.293 [main] INFO  program.Bank.Card - Встановлення валюти картки: USD
+2025-12-24 02:25:06.293 [main] DEBUG program.Bank.Card - Валюту картки успішно встановлено: USD
+2025-12-24 02:25:06.294 [main] INFO  program.Bank.Card - Встановлення типу картки: UNIVERSAL
+2025-12-24 02:25:06.294 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: UNIVERSAL
+2025-12-24 02:25:06.294 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
+2025-12-24 02:25:06.294 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
+2025-12-24 02:25:06.295 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 02:25:06.297 [main] INFO  program.Bank.Card - Поповнення картки ID: 302629bd-baff-412e-ac6a-d3a9d181f85a. Сума: 100
+2025-12-24 02:25:06.297 [main] INFO  program.Bank.Card - Картку ID: 302629bd-baff-412e-ac6a-d3a9d181f85a успішно поповнено. Сума: 100. Новий баланс: 1100.0000
+2025-12-24 02:25:06.297 [main] INFO  program.Bank.DataBase - Updating card data for ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 02:25:06.390 [main] INFO  program.Bank.DataBase - Card 5056  7890 0000 1111 updated successfully.
+2025-12-24 02:25:06.391 [main] INFO  program.Bank.DataBase - Updating card data for ID: 180377e1-45ac-4f2d-9060-f25e257619c0
+2025-12-24 02:25:06.478 [main] INFO  program.Bank.DataBase - Card 4122 3456 7890 1167 updated successfully.
+2025-12-24 02:25:06.686 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 02:25:06.686 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 02:25:06.686 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
+2025-12-24 02:25:06.686 [main] INFO  program.Bank.DataBase - Fetching card data by ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 02:25:06.773 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 02:25:06.773 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
+2025-12-24 02:25:06.773 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5056  7890 0000 1111
+2025-12-24 02:25:06.773 [main] DEBUG program.Bank.Card - Номер картки успішно встановлено
+2025-12-24 02:25:06.773 [main] INFO  program.Bank.Card - Встановлення балансу картки: 1100.0000
+2025-12-24 02:25:06.773 [main] DEBUG program.Bank.Card - Баланс картки успішно встановлено
+2025-12-24 02:25:06.774 [main] INFO  program.Bank.Card - Встановлення валюти картки: USD
+2025-12-24 02:25:06.774 [main] DEBUG program.Bank.Card - Валюту картки успішно встановлено: USD
+2025-12-24 02:25:06.774 [main] INFO  program.Bank.Card - Встановлення типу картки: UNIVERSAL
+2025-12-24 02:25:06.774 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: UNIVERSAL
+2025-12-24 02:25:06.774 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
+2025-12-24 02:25:06.775 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
+2025-12-24 02:25:06.775 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 02:25:06.776 [main] INFO  program.Bank.DataBase - Updating card data for ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 02:25:06.868 [main] INFO  program.Bank.DataBase - Card 5056  7890 0000 1111 updated successfully.
+2025-12-24 02:25:06.954 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 02:25:06.954 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 02:25:06.954 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
+2025-12-24 02:25:06.954 [main] INFO  program.Bank.DataBase - Fetching card data by ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 02:25:07.039 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 02:25:07.039 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
+2025-12-24 02:25:07.039 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5056  7890 0000 1111
+2025-12-24 02:25:07.039 [main] DEBUG program.Bank.Card - Номер картки успішно встановлено
+2025-12-24 02:25:07.040 [main] INFO  program.Bank.Card - Встановлення балансу картки: 1100.0000
+2025-12-24 02:25:07.040 [main] DEBUG program.Bank.Card - Баланс картки успішно встановлено
+2025-12-24 02:25:07.040 [main] INFO  program.Bank.Card - Встановлення валюти картки: USD
+2025-12-24 02:25:07.040 [main] DEBUG program.Bank.Card - Валюту картки успішно встановлено: USD
+2025-12-24 02:25:07.040 [main] INFO  program.Bank.Card - Встановлення типу картки: UNIVERSAL
+2025-12-24 02:25:07.040 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: UNIVERSAL
+2025-12-24 02:25:07.041 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
+2025-12-24 02:25:07.041 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
+2025-12-24 02:25:07.041 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 02:25:07.041 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
+2025-12-24 02:25:07.045 [main] WARN  program.Bank.Services.CardService - Переказ успішний! Надіслано: " + amount + " " + senderCard.getCurrency()
+2025-12-24 02:25:07.234 [main] DEBUG program.Bank.Card - Створення екземпляру Card з існуючим ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 02:25:07.234 [main] INFO  program.Bank.Card - Встановлення існуючого ID картки: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 02:25:07.234 [main] DEBUG program.Bank.Card - ID картки успішно встановлено
+2025-12-24 02:25:07.234 [main] INFO  program.Bank.DataBase - Fetching card data by ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 02:25:07.323 [main] INFO  program.Bank.Card - Встановлення ID клієнта для картки: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 02:25:07.323 [main] DEBUG program.Bank.Card - ID клієнта успішно встановлено для картки
+2025-12-24 02:25:07.323 [main] INFO  program.Bank.Card - Встановлення номеру картки: 5056  7890 0000 1111
+2025-12-24 02:25:07.323 [main] DEBUG program.Bank.Card - Номер картки успішно встановлено
+2025-12-24 02:25:07.323 [main] INFO  program.Bank.Card - Встановлення балансу картки: 1100.0000
+2025-12-24 02:25:07.324 [main] DEBUG program.Bank.Card - Баланс картки успішно встановлено
+2025-12-24 02:25:07.324 [main] INFO  program.Bank.Card - Встановлення валюти картки: USD
+2025-12-24 02:25:07.324 [main] DEBUG program.Bank.Card - Валюту картки успішно встановлено: USD
+2025-12-24 02:25:07.324 [main] INFO  program.Bank.Card - Встановлення типу картки: UNIVERSAL
+2025-12-24 02:25:07.324 [main] DEBUG program.Bank.Card - Тип картки успішно встановлено: UNIVERSAL
+2025-12-24 02:25:07.324 [main] INFO  program.Bank.Card - Встановлення статусу картки: ACTIVE
+2025-12-24 02:25:07.324 [main] DEBUG program.Bank.Card - Статус картки успішно встановлено: ACTIVE
+2025-12-24 02:25:07.324 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 02:25:07.326 [main] INFO  program.Bank.Services.TransactionService - Creating transaction log. Amount: 100 UAH
+2025-12-24 02:25:07.378 [main] DEBUG program.Bank.Transaction - Created new empty Transaction with ID: dfe55040-4dba-4385-ac67-f0033870f289.
+2025-12-24 02:25:07.379 [main] DEBUG program.Bank.Transaction - Sender account ID set: 180377e1-45ac-4f2d-9060-f25e257619c0.
+2025-12-24 02:25:07.379 [main] DEBUG program.Bank.Transaction - Receiver account ID set: 302629bd-baff-412e-ac6a-d3a9d181f85a.
+2025-12-24 02:25:07.379 [main] DEBUG program.Bank.Transaction - Transaction sum set: 100 (Sign: +).
+2025-12-24 02:25:07.399 [main] DEBUG program.Bank.Transaction - Transaction status updated: COMPLETED.
+2025-12-24 02:25:07.400 [main] INFO  program.Bank.DataBase - Uploading transaction data by ID: dfe55040-4dba-4385-ac67-f0033870f289
+2025-12-24 02:25:07.601 [main] INFO  program.Bank.DataBase - New transaction: dfe55040-4dba-4385-ac67-f0033870f289 was successfully created at base.
+2025-12-24 02:25:07.601 [main] INFO  program.Bank.Services.TransactionService - Transaction recorded successfully with ID: dfe55040-4dba-4385-ac67-f0033870f289
+2025-12-24 02:25:16.865 [main] INFO  program.Bank.Card - Виведення повної інформації про картку ID: 180377e1-45ac-4f2d-9060-f25e257619c0
+2025-12-24 02:25:16.866 [main] DEBUG program.Bank.Card - Перетворення даних картки в текстове представлення
+2025-12-24 02:25:16.867 [main] DEBUG program.Bank.Card - Повну інформацію про картку виведено
+2025-12-24 02:26:09.436 [main] INFO  program.Bank.Menu.Menu - User commanded to return. Returning...
+2025-12-24 02:26:40.649 [main] ERROR program.Bank.Menu.Command - Error occurred: Cannot invoke "program.Bank.Card.PrintInfo()" because "card" is null

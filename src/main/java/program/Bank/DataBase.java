@@ -13,7 +13,7 @@ public class DataBase {
     private static volatile DataBase instance;
     private static final String URL = "jdbc:postgresql://localhost:5432/BankSystem";
     private static final String USER = "postgres"; // зазвичай стандартний
-    private static final String PASSWORD = "291205nana";
+    private static final String PASSWORD = "new password";
     private static final Logger log = LogManager.getLogger(DataBase.class);
 
     private DataBase() {
