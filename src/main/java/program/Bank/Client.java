@@ -232,7 +232,7 @@ public class Client {
     public String toString() {
         log.debug("Перетворення даних клієнта в текстове представлення");
         return String.format(
-                "Client id = " + this.getId() + "\n" +
+                "Client id = " + this.getId()+
                         ",\nFull name = " + this.getFull_name() +
                         ",\nDate of birth = " + this.getDate_of_birth() +
                         ",\nSex = " + this.getSex() +

@@ -61,17 +61,17 @@ public class MenuBuilder {
         Client client = null;
 
         try {
-            String full_name = ui.ask("Enter Full name:");
-            String date_of_birth = ui.ask("Enter Date of Birth:");
+            String full_name = ui.ask("Enter Full name");
+            String date_of_birth = ui.ask("Enter Date of Birth");
             String sex = ui.ask("Enter Sex");
-            String nationality = ui.ask("Enter Nationality:");
-            String mobile_phone = ui.ask("Enter Mobile phone:");
-            String individual_tax_number = ui.ask("Enter Individual tax number:");
-            String passport_number = ui.ask("Enter Passport number:");
-            String legal_address = ui.ask("Enter Legal address:");
-            String place_of_birth = ui.ask("Enter Place of Birth:");
-            String record_number = ui.ask("Enter Record number:");
-            String place_of_work_or_study = ui.ask("Enter Place of Work or Study:");
+            String nationality = ui.ask("Enter Nationality");
+            String mobile_phone = ui.ask("Enter Mobile phone");
+            String individual_tax_number = ui.ask("Enter Individual tax number");
+            String passport_number = ui.ask("Enter Passport number");
+            String legal_address = ui.ask("Enter Legal address");
+            String place_of_birth = ui.ask("Enter Place of Birth");
+            String record_number = ui.ask("Enter Record number");
+            String place_of_work_or_study = ui.ask("Enter Place of Work or Study");
 
             client = clientService.RegisterClient(full_name, date_of_birth, sex, nationality, mobile_phone, individual_tax_number,
                     passport_number, legal_address, place_of_birth, record_number, place_of_work_or_study);
