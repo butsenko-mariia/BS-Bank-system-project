@@ -76,9 +76,9 @@ public abstract class Deposit implements Account {
     }
 
     public void setProfit(BigDecimal profit) {
-        if (profit == null || profit.compareTo(BigDecimal.ZERO) < 0) {
-            log.error("Error occurred: trying to set deposit profit null or bellow the zero.");
-            throw new IllegalArgumentException("Balance must be bigger than zero and must not be null.");
+        if (profit == null) {
+            log.error("Error occurred: trying to set deposit profit null.");
+            throw new IllegalArgumentException("Balance must not be null.");
         }
         this.profit = profit;
         log.debug("Deposit profit was set: {}.", profit);

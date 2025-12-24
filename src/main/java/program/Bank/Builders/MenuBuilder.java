@@ -9,6 +9,7 @@ import program.Bank.Services.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -110,7 +111,7 @@ public class MenuBuilder {
     }
 
     public void Login(String type, String promptMsg) {
-        String value = ui.ask(promptMsg);
+        String value = ui.ask(promptMsg).trim();
 
         Client client = clientService.SearchClient(type, value);
 
@@ -131,12 +132,12 @@ public class MenuBuilder {
     public Menu ClientMenu(Client client){
         Menu clientMenu = new Menu("=== CLIENT PERSONAL CABINET ===");
 
+        clientMenu.add(new Command("Return", () -> {}));
+
         clientMenu.add(new Command("Client's full information", () -> {
             ui.print("=== CLIENT INFO ===");
             clientService.FullInfo(client);
         }));
-
-        clientMenu.add(new Command("Return", () -> {}));
 
         clientMenu.add(new Command("Cards", () -> {
             Menu cardMenu = CardMenu(client);
@@ -155,7 +156,7 @@ public class MenuBuilder {
 
         clientMenu.add(new Command("Transactions' history", () -> {
             ui.print("\n=== TRANSACTION HISTORY ===");
-            List<Account> allAccounts = new java.util.ArrayList<>();
+            List<Account> allAccounts = new ArrayList<>();
             allAccounts.addAll(cardService.getClientCards(client.getId()));
             allAccounts.addAll(depositeService.getClientDeposits(client.getId()));
             allAccounts.addAll(loanService.getClientLoans(client.getId()));
@@ -216,7 +217,7 @@ public class MenuBuilder {
 
     public Menu CardMenu(Client client){
         Menu cardMenu = new Menu("=== CARDS CABINET ===");
-        ui.print("Your current cards:");
+        ui.print("Your current cards");
         cardService.PrintAllClientsCards(client);
 
         cardMenu.add(new Command("Return", () -> {}));
@@ -292,10 +293,23 @@ public class MenuBuilder {
         }));
         certainCardMenu.add(new Command("Make a transaction", () -> {
             ui.print("=== MONEY TRANSFER ===");
-            String receiverNumber = ui.ask("Enter receiver card number:");
-            BigDecimal amount = new BigDecimal(ui.ask("Enter amount to transfer:"));
 
+            String receiverNumber = ui.ask("Enter receiver card number");
+            BigDecimal amount = new BigDecimal(ui.ask("Enter amount to transfer"));
             boolean success = cardService.Transfer(card, receiverNumber, amount);
+            if (success) {
+                Card receiverCard = cardService.GetCardByNumber(receiverNumber);
+                UUID receiverId = (receiverCard != null) ? receiverCard.getId() : null;
+                transactionService.createTransaction(
+                        card.getId(),
+                        receiverId,
+                        amount,
+                        card.getCurrency(),
+                        "Transfer to " + receiverNumber
+                );
+
+                ui.print("Transaction recorded.");
+           
 
              if (!success) {
                 ui.print("Transfer failed. Please check balance or card number.");

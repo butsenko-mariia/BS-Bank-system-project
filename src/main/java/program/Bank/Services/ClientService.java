@@ -58,13 +58,14 @@ public class ClientService {
 
         switch (searchFilter.toLowerCase()) {
             case "name":
-                query = "SELECT id FROM client WHERE full_name = ?";
+                query = "SELECT id FROM client WHERE trim(full_name) = ?";
                 break;
             case "passport":
-                query = "SELECT id FROM client WHERE passport_number = ?";
+                query = "SELECT id FROM client WHERE trim(passport_number) = ?";
                 break;
             case "phone":
-                query = "SELECT id FROM client WHERE mobile_phone = ?";
+                query = "SELECT id FROM client WHERE trim(mobile_phone) = ?";
+                break;
             default:
                 return null;
 
