@@ -12,9 +12,14 @@ import program.Bank.Enums.CardType;
 import java.util.UUID;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
+/**
+ * Перевіряє процес відкриття нової картки.
+ * Головна мета: впевнитися, що при виклику CreateCard створюється об'єкт Card
+ * із вказаними параметрами (валюта, тип) і відправляється на збереження в базу.
+ */
 @ExtendWith(MockitoExtension.class)
 class CardServiceTest {
 
@@ -25,11 +30,19 @@ class CardServiceTest {
     private CardService cardService;
 
     @Test
-    void shouldCreateCard() {
-        // Дія: Створюємо картку
-        cardService.CreateCard(UUID.randomUUID(), "1111222233334444", CardType.UNIVERSAL, "UAH");
+    void shouldCreateCardWithRealData() {
+        UUID clientId = UUID.randomUUID();
+        String cardNumber = "4149499988887777";
+        CardType cardType = CardType.UNIVERSAL;
+        String currency = "UAH";
 
-        // Перевірка: Чи пішов запит у базу?
+        cardService.CreateCard(
+                clientId,
+                cardNumber,
+                cardType,
+                currency
+        );
+
         verify(dataBase, times(1)).Upload(any(Card.class));
     }
 }
