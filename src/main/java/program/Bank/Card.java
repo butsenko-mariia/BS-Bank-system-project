@@ -158,7 +158,8 @@ public class Card implements Account{
         log.info("Printing short info for card ID: {}", id);
         System.out.println("#" + this.id + " - " + this.card_number + "\n" +
                 "card type - " + this.getCard_type().toString() + "\n" +
-                "Current balance: " + this.balance + " " + this.currency);
+                "Current balance: " + this.balance + " " + this.currency + "\n" +
+                "Current status: " + this.status);
         log.debug("Short card info printed");
     }
 

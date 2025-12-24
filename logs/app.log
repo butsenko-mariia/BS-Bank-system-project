@@ -8239,3 +8239,1481 @@ Status = ACTIVE.
 2025-12-24 15:06:14.449 [main] DEBUG program.Bank.Client - Повну інформацію про клієнта виведено
 2025-12-24 15:11:07.424 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
 2025-12-24 15:11:07.425 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
+2025-12-24 15:27:43.152 [main] DEBUG program.Bank.DataBase - Created DateBase.
+2025-12-24 15:27:43.173 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:27:43.175 [main] DEBUG program.Bank.Menu.Menu - Register new Client has been added
+2025-12-24 15:27:43.176 [main] DEBUG program.Bank.Menu.Menu - Log into Client's cabinet has been added
+2025-12-24 15:27:49.581 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:27:49.584 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by full name has been added
+2025-12-24 15:27:49.586 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by passport number has been added
+2025-12-24 15:27:49.588 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by phone number has been added
+2025-12-24 15:27:49.589 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:28:07.429 [main] INFO  program.Bank.Services.ClientService - Searching client by name.
+2025-12-24 15:28:07.944 [main] DEBUG program.Bank.Client - Creating Client instance with existing ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:28:07.944 [main] INFO  program.Bank.Client - Setting existing client ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:28:07.944 [main] DEBUG program.Bank.Client - Client ID successfully set
+2025-12-24 15:28:07.944 [main] INFO  program.Bank.DataBase - Loading client data by ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:28:08.045 [main] INFO  program.Bank.Client - Setting full name: Butsenko Mariia
+2025-12-24 15:28:08.046 [main] DEBUG program.Bank.Client - Full name successfully set: Butsenko Mariia
+2025-12-24 15:28:08.049 [main] INFO  program.Bank.Client - Setting date of birth: 2006-05-26
+2025-12-24 15:28:08.049 [main] DEBUG program.Bank.Client - Date of birth successfully set
+2025-12-24 15:28:08.049 [main] INFO  program.Bank.Client - Setting gender: W
+2025-12-24 15:28:08.050 [main] DEBUG program.Bank.Client - Gender successfully set: W
+2025-12-24 15:28:08.050 [main] INFO  program.Bank.Client - Setting nationality: Ukrainian
+2025-12-24 15:28:08.050 [main] DEBUG program.Bank.Client - Nationality successfully set: Ukrainian
+2025-12-24 15:28:08.050 [main] INFO  program.Bank.Client - Setting mobile phone: +380996703512
+2025-12-24 15:28:08.051 [main] DEBUG program.Bank.Client - Phone number successfully set
+2025-12-24 15:28:08.052 [main] INFO  program.Bank.Client - Setting individual tax number (ITN)
+2025-12-24 15:28:08.052 [main] DEBUG program.Bank.Client - ITN successfully set: 11111
+2025-12-24 15:28:08.052 [main] INFO  program.Bank.Client - Setting passport number
+2025-12-24 15:28:08.053 [main] DEBUG program.Bank.Client - Passport number successfully set: 1111
+2025-12-24 15:28:08.053 [main] INFO  program.Bank.Client - Setting legal address: Heroiv Maidanu 9, 475
+2025-12-24 15:28:08.053 [main] DEBUG program.Bank.Client - Legal address successfully set: Heroiv Maidanu 9, 475
+2025-12-24 15:28:08.053 [main] INFO  program.Bank.Client - Setting place of birth: Cherkassy
+2025-12-24 15:28:08.054 [main] DEBUG program.Bank.Client - Place of birth successfully set: Cherkassy
+2025-12-24 15:28:08.054 [main] INFO  program.Bank.Client - Setting record number
+2025-12-24 15:28:08.054 [main] DEBUG program.Bank.Client - Record number successfully set: 111
+2025-12-24 15:28:08.055 [main] INFO  program.Bank.Client - Setting place of work/study: CHNU
+2025-12-24 15:28:08.055 [main] DEBUG program.Bank.Client - Place of work/study successfully set: CHNU
+2025-12-24 15:28:08.056 [main] INFO  program.Bank.Client - Setting client status: ACTIVE
+2025-12-24 15:28:08.057 [main] DEBUG program.Bank.Client - Client status successfully set: ACTIVE
+2025-12-24 15:28:08.057 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
+2025-12-24 15:28:08.059 [main] INFO  program.Bank.Services.ClientService - Client found: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:28:08.063 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:28:08.065 [main] DEBUG program.Bank.Menu.Menu - Client's full information has been added
+2025-12-24 15:28:08.066 [main] DEBUG program.Bank.Menu.Menu - Cards has been added
+2025-12-24 15:28:08.070 [main] DEBUG program.Bank.Menu.Menu - Deposit has been added
+2025-12-24 15:28:08.072 [main] DEBUG program.Bank.Menu.Menu - Credits has been added
+2025-12-24 15:28:08.074 [main] DEBUG program.Bank.Menu.Menu - Transactions' history has been added
+2025-12-24 15:28:08.077 [main] DEBUG program.Bank.Menu.Menu - Client's data has been added
+2025-12-24 15:28:08.077 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:28:20.209 [main] DEBUG program.Bank.Services.ClientService - Printing full info for client: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:28:20.209 [main] INFO  program.Bank.Client - Printing full info for client ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:28:20.210 [main] DEBUG program.Bank.Client - Converting client data to text representation
+2025-12-24 15:28:20.220 [main] DEBUG program.Bank.Client - Full client info printed
+2025-12-24 15:28:21.765 [main] INFO  program.Bank.Services.CardService - Fetching all cards for client: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:28:21.890 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:28:21.890 [main] INFO  program.Bank.Card - Setting existing card ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:28:21.890 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:28:21.891 [main] INFO  program.Bank.DataBase - Fetching card data by ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:28:21.990 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:28:21.990 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:28:21.990 [main] INFO  program.Bank.Card - Setting card number: 4149 0643 3330 9842
+2025-12-24 15:28:21.990 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:28:22.017 [main] INFO  program.Bank.Card - Setting card balance: 103.0100
+2025-12-24 15:28:22.017 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:28:22.018 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:28:22.018 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:28:22.020 [main] INFO  program.Bank.Card - Setting card type: ESUPPORT
+2025-12-24 15:28:22.021 [main] DEBUG program.Bank.Card - Card type successfully set: ESUPPORT
+2025-12-24 15:28:22.023 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:28:22.023 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:28:22.023 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:28:22.024 [main] INFO  program.Bank.Card - Printing short info for card ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:28:22.028 [main] DEBUG program.Bank.Card - Short card info printed
+2025-12-24 15:28:22.029 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:28:22.029 [main] INFO  program.Bank.Card - Setting existing card ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:28:22.030 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:28:22.030 [main] INFO  program.Bank.DataBase - Fetching card data by ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:28:22.221 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:28:22.222 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:28:22.222 [main] INFO  program.Bank.Card - Setting card number: 5152 8973 6666 5555
+2025-12-24 15:28:22.222 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:28:22.222 [main] INFO  program.Bank.Card - Setting card balance: 10320.0235
+2025-12-24 15:28:22.222 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:28:22.222 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:28:22.222 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:28:22.222 [main] INFO  program.Bank.Card - Setting card type: JUNIOR
+2025-12-24 15:28:22.223 [main] DEBUG program.Bank.Card - Card type successfully set: JUNIOR
+2025-12-24 15:28:22.223 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:28:22.223 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:28:22.223 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:28:22.223 [main] INFO  program.Bank.Card - Printing short info for card ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:28:22.224 [main] DEBUG program.Bank.Card - Short card info printed
+2025-12-24 15:28:22.224 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:28:22.224 [main] INFO  program.Bank.Card - Setting existing card ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:28:22.224 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:28:22.224 [main] INFO  program.Bank.DataBase - Fetching card data by ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:28:22.325 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:28:22.325 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:28:22.325 [main] INFO  program.Bank.Card - Setting card number: 5056  7890 0000 1111
+2025-12-24 15:28:22.326 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:28:22.327 [main] INFO  program.Bank.Card - Setting card balance: 1600.0000
+2025-12-24 15:28:22.327 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:28:22.327 [main] INFO  program.Bank.Card - Setting card currency: USD
+2025-12-24 15:28:22.327 [main] DEBUG program.Bank.Card - Card currency successfully set: USD
+2025-12-24 15:28:22.327 [main] INFO  program.Bank.Card - Setting card type: UNIVERSAL
+2025-12-24 15:28:22.327 [main] DEBUG program.Bank.Card - Card type successfully set: UNIVERSAL
+2025-12-24 15:28:22.328 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:28:22.328 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:28:22.328 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:28:22.329 [main] INFO  program.Bank.Card - Printing short info for card ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:28:22.329 [main] DEBUG program.Bank.Card - Short card info printed
+2025-12-24 15:28:22.330 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:28:22.331 [main] INFO  program.Bank.Card - Setting existing card ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:28:22.331 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:28:22.331 [main] INFO  program.Bank.DataBase - Fetching card data by ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:28:22.429 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:28:22.429 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:28:22.429 [main] INFO  program.Bank.Card - Setting card number: 4149 1122 3344 5555
+2025-12-24 15:28:22.429 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:28:22.430 [main] INFO  program.Bank.Card - Setting card balance: 0.0000
+2025-12-24 15:28:22.430 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:28:22.430 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:28:22.430 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:28:22.430 [main] INFO  program.Bank.Card - Setting card type: UNIVERSAL
+2025-12-24 15:28:22.430 [main] DEBUG program.Bank.Card - Card type successfully set: UNIVERSAL
+2025-12-24 15:28:22.430 [main] INFO  program.Bank.Card - Setting card status: CLOSED
+2025-12-24 15:28:22.431 [main] DEBUG program.Bank.Card - Card status successfully set: CLOSED
+2025-12-24 15:28:22.431 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:28:22.431 [main] INFO  program.Bank.Card - Printing short info for card ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:28:22.432 [main] DEBUG program.Bank.Card - Short card info printed
+2025-12-24 15:28:22.437 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:28:22.439 [main] DEBUG program.Bank.Menu.Menu - Open new card has been added
+2025-12-24 15:28:22.440 [main] DEBUG program.Bank.Menu.Menu - Work with an existing card has been added
+2025-12-24 15:28:22.440 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:28:32.896 [main] DEBUG program.Bank.Services.CardService - Searching for card by number: 4149 1122 3344 5555
+2025-12-24 15:28:32.981 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:28:32.982 [main] INFO  program.Bank.Card - Setting existing card ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:28:32.982 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:28:32.982 [main] INFO  program.Bank.DataBase - Fetching card data by ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:28:33.059 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:28:33.059 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:28:33.059 [main] INFO  program.Bank.Card - Setting card number: 4149 1122 3344 5555
+2025-12-24 15:28:33.059 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:28:33.059 [main] INFO  program.Bank.Card - Setting card balance: 0.0000
+2025-12-24 15:28:33.059 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:28:33.059 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:28:33.060 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:28:33.060 [main] INFO  program.Bank.Card - Setting card type: UNIVERSAL
+2025-12-24 15:28:33.060 [main] DEBUG program.Bank.Card - Card type successfully set: UNIVERSAL
+2025-12-24 15:28:33.060 [main] INFO  program.Bank.Card - Setting card status: CLOSED
+2025-12-24 15:28:33.060 [main] DEBUG program.Bank.Card - Card status successfully set: CLOSED
+2025-12-24 15:28:33.060 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:28:33.061 [main] INFO  program.Bank.Card - Printing short info for card ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:28:33.061 [main] DEBUG program.Bank.Card - Short card info printed
+2025-12-24 15:28:33.062 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:28:33.063 [main] DEBUG program.Bank.Menu.Menu - Top up card has been added
+2025-12-24 15:28:33.065 [main] DEBUG program.Bank.Menu.Menu - Withdraw cash has been added
+2025-12-24 15:28:33.066 [main] DEBUG program.Bank.Menu.Menu - Make a transaction has been added
+2025-12-24 15:28:33.067 [main] DEBUG program.Bank.Menu.Menu - View card's details has been added
+2025-12-24 15:28:33.068 [main] DEBUG program.Bank.Menu.Menu - Block card has been added
+2025-12-24 15:28:33.069 [main] DEBUG program.Bank.Menu.Menu - Close card has been added
+2025-12-24 15:28:33.069 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:28:57.208 [main] INFO  program.Bank.Services.CardService - Initiating transfer from 4149 1122 3344 5555 to 5168 0000 0000 2222. Amount: 50
+2025-12-24 15:28:57.209 [main] WARN  program.Bank.Services.CardService - The card with number 4149 1122 3344 5555 is inactive.
+2025-12-24 15:28:57.210 [main] WARN  program.Bank.Services.CardService - Attempt to withdraw from inactive card: 4149 1122 3344 5555
+2025-12-24 15:28:57.210 [main] DEBUG program.Bank.Services.CardService - Searching for card by number: 5168 0000 0000 2222
+2025-12-24 15:28:57.305 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: c0000002-2222-2222-2222-222222222222
+2025-12-24 15:28:57.305 [main] INFO  program.Bank.Card - Setting existing card ID: c0000002-2222-2222-2222-222222222222
+2025-12-24 15:28:57.305 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:28:57.305 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000002-2222-2222-2222-222222222222
+2025-12-24 15:28:57.383 [main] INFO  program.Bank.Card - Setting client ID for card: 22222222-2222-2222-2222-222222222222
+2025-12-24 15:28:57.384 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:28:57.384 [main] INFO  program.Bank.Card - Setting card number: 5168 0000 0000 2222
+2025-12-24 15:28:57.384 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:28:57.384 [main] INFO  program.Bank.Card - Setting card balance: 15400.5000
+2025-12-24 15:28:57.384 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:28:57.384 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:28:57.384 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:28:57.384 [main] INFO  program.Bank.Card - Setting card type: PAYMENT
+2025-12-24 15:28:57.384 [main] DEBUG program.Bank.Card - Card type successfully set: PAYMENT
+2025-12-24 15:28:57.384 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:28:57.384 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:28:57.384 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:28:57.385 [main] INFO  program.Bank.Services.CardService - Topping up card 5168 0000 0000 2222. Amount: 50
+2025-12-24 15:28:57.385 [main] INFO  program.Bank.Card - Topping up card ID: c0000002-2222-2222-2222-222222222222. Amount: 50
+2025-12-24 15:28:57.385 [main] INFO  program.Bank.Card - Card ID: c0000002-2222-2222-2222-222222222222 successfully topped up. Amount: 50. New balance: 15450.5000
+2025-12-24 15:28:57.385 [main] INFO  program.Bank.DataBase - Updating card data for ID: c0000002-2222-2222-2222-222222222222
+2025-12-24 15:28:57.474 [main] INFO  program.Bank.DataBase - Card 5168 0000 0000 2222 updated successfully.
+2025-12-24 15:28:57.475 [main] INFO  program.Bank.Services.CardService - Card 5168 0000 0000 2222 topped up successfully. New balance: 15450.5000
+2025-12-24 15:28:57.475 [main] INFO  program.Bank.DataBase - Updating card data for ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:28:57.558 [main] INFO  program.Bank.DataBase - Card 4149 1122 3344 5555 updated successfully.
+2025-12-24 15:28:57.558 [main] DEBUG program.Bank.Services.CardService - Searching for card by number: 5168 0000 0000 2222
+2025-12-24 15:28:57.639 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: c0000002-2222-2222-2222-222222222222
+2025-12-24 15:28:57.639 [main] INFO  program.Bank.Card - Setting existing card ID: c0000002-2222-2222-2222-222222222222
+2025-12-24 15:28:57.639 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:28:57.640 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000002-2222-2222-2222-222222222222
+2025-12-24 15:28:57.828 [main] INFO  program.Bank.Card - Setting client ID for card: 22222222-2222-2222-2222-222222222222
+2025-12-24 15:28:57.829 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:28:57.829 [main] INFO  program.Bank.Card - Setting card number: 5168 0000 0000 2222
+2025-12-24 15:28:57.829 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:28:57.829 [main] INFO  program.Bank.Card - Setting card balance: 15450.5000
+2025-12-24 15:28:57.829 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:28:57.829 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:28:57.829 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:28:57.829 [main] INFO  program.Bank.Card - Setting card type: PAYMENT
+2025-12-24 15:28:57.829 [main] DEBUG program.Bank.Card - Card type successfully set: PAYMENT
+2025-12-24 15:28:57.829 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:28:57.829 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:28:57.830 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:28:57.830 [main] INFO  program.Bank.DataBase - Updating card data for ID: c0000002-2222-2222-2222-222222222222
+2025-12-24 15:28:57.914 [main] INFO  program.Bank.DataBase - Card 5168 0000 0000 2222 updated successfully.
+2025-12-24 15:28:57.916 [main] INFO  program.Bank.Services.TransactionService - Creating transaction log. Amount: 50 UAH, Status: COMPLETED
+2025-12-24 15:28:57.922 [main] DEBUG program.Bank.Transaction - Created new empty Transaction with ID: 9635f4ab-bda3-436e-be61-6ee614218b39.
+2025-12-24 15:28:57.922 [main] DEBUG program.Bank.Transaction - Sender account ID set: bf35242d-0bed-47a2-bab8-918ec93a4943.
+2025-12-24 15:28:57.922 [main] DEBUG program.Bank.Transaction - Receiver account ID set: c0000002-2222-2222-2222-222222222222.
+2025-12-24 15:28:57.922 [main] DEBUG program.Bank.Transaction - Transaction sum set: 50 (Sign: +).
+2025-12-24 15:28:57.922 [main] DEBUG program.Bank.Transaction - Transaction status updated: COMPLETED.
+2025-12-24 15:28:57.923 [main] INFO  program.Bank.DataBase - Uploading transaction data by ID: c74b35bb-f721-42a8-84a7-fe7f1998fedc
+2025-12-24 15:28:58.128 [main] INFO  program.Bank.DataBase - New transaction: c74b35bb-f721-42a8-84a7-fe7f1998fedc was successfully created at base.
+2025-12-24 15:28:58.129 [main] INFO  program.Bank.Services.TransactionService - Transaction recorded successfully with ID: c74b35bb-f721-42a8-84a7-fe7f1998fedc
+2025-12-24 15:28:58.129 [main] INFO  program.Bank.Services.CardService - Transfer successful.
+2025-12-24 15:33:35.274 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
+2025-12-24 15:33:35.275 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
+2025-12-24 15:36:12.198 [main] DEBUG program.Bank.DataBase - Created DateBase.
+2025-12-24 15:36:12.218 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:36:12.219 [main] DEBUG program.Bank.Menu.Menu - Register new Client has been added
+2025-12-24 15:36:12.221 [main] DEBUG program.Bank.Menu.Menu - Log into Client's cabinet has been added
+2025-12-24 15:36:17.029 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:36:17.032 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by full name has been added
+2025-12-24 15:36:17.033 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by passport number has been added
+2025-12-24 15:36:17.035 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by phone number has been added
+2025-12-24 15:36:17.036 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:36:24.857 [main] INFO  program.Bank.Services.ClientService - Searching client by phone.
+2025-12-24 15:36:25.540 [main] DEBUG program.Bank.Client - Creating Client instance with existing ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:36:25.540 [main] INFO  program.Bank.Client - Setting existing client ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:36:25.540 [main] DEBUG program.Bank.Client - Client ID successfully set
+2025-12-24 15:36:25.541 [main] INFO  program.Bank.DataBase - Loading client data by ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:36:25.655 [main] INFO  program.Bank.Client - Setting full name: Butsenko Mariia
+2025-12-24 15:36:25.655 [main] DEBUG program.Bank.Client - Full name successfully set: Butsenko Mariia
+2025-12-24 15:36:25.658 [main] INFO  program.Bank.Client - Setting date of birth: 2006-05-26
+2025-12-24 15:36:25.658 [main] DEBUG program.Bank.Client - Date of birth successfully set
+2025-12-24 15:36:25.658 [main] INFO  program.Bank.Client - Setting gender: W
+2025-12-24 15:36:25.658 [main] DEBUG program.Bank.Client - Gender successfully set: W
+2025-12-24 15:36:25.658 [main] INFO  program.Bank.Client - Setting nationality: Ukrainian
+2025-12-24 15:36:25.658 [main] DEBUG program.Bank.Client - Nationality successfully set: Ukrainian
+2025-12-24 15:36:25.659 [main] INFO  program.Bank.Client - Setting mobile phone: +380996703512
+2025-12-24 15:36:25.659 [main] DEBUG program.Bank.Client - Phone number successfully set
+2025-12-24 15:36:25.660 [main] INFO  program.Bank.Client - Setting individual tax number (ITN)
+2025-12-24 15:36:25.660 [main] DEBUG program.Bank.Client - ITN successfully set: 11111
+2025-12-24 15:36:25.660 [main] INFO  program.Bank.Client - Setting passport number
+2025-12-24 15:36:25.660 [main] DEBUG program.Bank.Client - Passport number successfully set: 1111
+2025-12-24 15:36:25.660 [main] INFO  program.Bank.Client - Setting legal address: Heroiv Maidanu 9, 475
+2025-12-24 15:36:25.660 [main] DEBUG program.Bank.Client - Legal address successfully set: Heroiv Maidanu 9, 475
+2025-12-24 15:36:25.661 [main] INFO  program.Bank.Client - Setting place of birth: Cherkassy
+2025-12-24 15:36:25.661 [main] DEBUG program.Bank.Client - Place of birth successfully set: Cherkassy
+2025-12-24 15:36:25.661 [main] INFO  program.Bank.Client - Setting record number
+2025-12-24 15:36:25.661 [main] DEBUG program.Bank.Client - Record number successfully set: 111
+2025-12-24 15:36:25.662 [main] INFO  program.Bank.Client - Setting place of work/study: CHNU
+2025-12-24 15:36:25.662 [main] DEBUG program.Bank.Client - Place of work/study successfully set: CHNU
+2025-12-24 15:36:25.663 [main] INFO  program.Bank.Client - Setting client status: ACTIVE
+2025-12-24 15:36:25.663 [main] DEBUG program.Bank.Client - Client status successfully set: ACTIVE
+2025-12-24 15:36:25.663 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
+2025-12-24 15:36:25.665 [main] INFO  program.Bank.Services.ClientService - Client found: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:36:25.668 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:36:25.670 [main] DEBUG program.Bank.Menu.Menu - Client's full information has been added
+2025-12-24 15:36:25.671 [main] DEBUG program.Bank.Menu.Menu - Cards has been added
+2025-12-24 15:36:25.673 [main] DEBUG program.Bank.Menu.Menu - Deposit has been added
+2025-12-24 15:36:25.674 [main] DEBUG program.Bank.Menu.Menu - Credits has been added
+2025-12-24 15:36:25.675 [main] DEBUG program.Bank.Menu.Menu - Transactions' history has been added
+2025-12-24 15:36:25.677 [main] DEBUG program.Bank.Menu.Menu - Client's data has been added
+2025-12-24 15:36:25.677 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:36:27.810 [main] INFO  program.Bank.Services.CardService - Fetching all cards for client: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:36:27.917 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:36:27.917 [main] INFO  program.Bank.Card - Setting existing card ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:36:27.917 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:36:27.918 [main] INFO  program.Bank.DataBase - Fetching card data by ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:36:28.015 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:36:28.015 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:36:28.015 [main] INFO  program.Bank.Card - Setting card number: 4149 0643 3330 9842
+2025-12-24 15:36:28.016 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:36:28.039 [main] INFO  program.Bank.Card - Setting card balance: 103.0100
+2025-12-24 15:36:28.039 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:36:28.039 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:36:28.039 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:36:28.041 [main] INFO  program.Bank.Card - Setting card type: ESUPPORT
+2025-12-24 15:36:28.041 [main] DEBUG program.Bank.Card - Card type successfully set: ESUPPORT
+2025-12-24 15:36:28.044 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:36:28.044 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:36:28.044 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:36:28.045 [main] INFO  program.Bank.Card - Printing short info for card ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:36:28.050 [main] DEBUG program.Bank.Card - Short card info printed
+2025-12-24 15:36:28.051 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:36:28.051 [main] INFO  program.Bank.Card - Setting existing card ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:36:28.051 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:36:28.051 [main] INFO  program.Bank.DataBase - Fetching card data by ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:36:28.245 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:36:28.245 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:36:28.246 [main] INFO  program.Bank.Card - Setting card number: 5152 8973 6666 5555
+2025-12-24 15:36:28.246 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:36:28.246 [main] INFO  program.Bank.Card - Setting card balance: 10320.0235
+2025-12-24 15:36:28.246 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:36:28.246 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:36:28.246 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:36:28.246 [main] INFO  program.Bank.Card - Setting card type: JUNIOR
+2025-12-24 15:36:28.246 [main] DEBUG program.Bank.Card - Card type successfully set: JUNIOR
+2025-12-24 15:36:28.247 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:36:28.247 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:36:28.247 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:36:28.248 [main] INFO  program.Bank.Card - Printing short info for card ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:36:28.248 [main] DEBUG program.Bank.Card - Short card info printed
+2025-12-24 15:36:28.248 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:36:28.249 [main] INFO  program.Bank.Card - Setting existing card ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:36:28.249 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:36:28.249 [main] INFO  program.Bank.DataBase - Fetching card data by ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:36:28.331 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:36:28.331 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:36:28.331 [main] INFO  program.Bank.Card - Setting card number: 5056  7890 0000 1111
+2025-12-24 15:36:28.331 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:36:28.331 [main] INFO  program.Bank.Card - Setting card balance: 1600.0000
+2025-12-24 15:36:28.331 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:36:28.331 [main] INFO  program.Bank.Card - Setting card currency: USD
+2025-12-24 15:36:28.332 [main] DEBUG program.Bank.Card - Card currency successfully set: USD
+2025-12-24 15:36:28.332 [main] INFO  program.Bank.Card - Setting card type: UNIVERSAL
+2025-12-24 15:36:28.332 [main] DEBUG program.Bank.Card - Card type successfully set: UNIVERSAL
+2025-12-24 15:36:28.332 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:36:28.332 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:36:28.332 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:36:28.333 [main] INFO  program.Bank.Card - Printing short info for card ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:36:28.333 [main] DEBUG program.Bank.Card - Short card info printed
+2025-12-24 15:36:28.334 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:36:28.334 [main] INFO  program.Bank.Card - Setting existing card ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:36:28.334 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:36:28.334 [main] INFO  program.Bank.DataBase - Fetching card data by ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:36:28.420 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:36:28.420 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:36:28.420 [main] INFO  program.Bank.Card - Setting card number: 4149 1122 3344 5555
+2025-12-24 15:36:28.420 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:36:28.421 [main] INFO  program.Bank.Card - Setting card balance: 0.0000
+2025-12-24 15:36:28.421 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:36:28.421 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:36:28.421 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:36:28.421 [main] INFO  program.Bank.Card - Setting card type: UNIVERSAL
+2025-12-24 15:36:28.421 [main] DEBUG program.Bank.Card - Card type successfully set: UNIVERSAL
+2025-12-24 15:36:28.421 [main] INFO  program.Bank.Card - Setting card status: CLOSED
+2025-12-24 15:36:28.421 [main] DEBUG program.Bank.Card - Card status successfully set: CLOSED
+2025-12-24 15:36:28.421 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:36:28.422 [main] INFO  program.Bank.Card - Printing short info for card ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:36:28.422 [main] DEBUG program.Bank.Card - Short card info printed
+2025-12-24 15:36:28.424 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:36:28.425 [main] DEBUG program.Bank.Menu.Menu - Open new card has been added
+2025-12-24 15:36:28.426 [main] DEBUG program.Bank.Menu.Menu - Work with an existing card has been added
+2025-12-24 15:36:28.427 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:36:42.870 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
+2025-12-24 15:36:42.871 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
+2025-12-24 15:36:42.872 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
+2025-12-24 15:37:23.873 [main] DEBUG program.Bank.DataBase - Created DateBase.
+2025-12-24 15:37:23.895 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:37:23.896 [main] DEBUG program.Bank.Menu.Menu - Register new Client has been added
+2025-12-24 15:37:23.897 [main] DEBUG program.Bank.Menu.Menu - Log into Client's cabinet has been added
+2025-12-24 15:37:27.598 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:37:27.600 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by full name has been added
+2025-12-24 15:37:27.602 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by passport number has been added
+2025-12-24 15:37:27.604 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by phone number has been added
+2025-12-24 15:37:27.605 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:37:33.930 [main] INFO  program.Bank.Services.ClientService - Searching client by phone.
+2025-12-24 15:37:34.461 [main] DEBUG program.Bank.Client - Creating Client instance with existing ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:37:34.461 [main] INFO  program.Bank.Client - Setting existing client ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:37:34.461 [main] DEBUG program.Bank.Client - Client ID successfully set
+2025-12-24 15:37:34.461 [main] INFO  program.Bank.DataBase - Loading client data by ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:37:34.579 [main] INFO  program.Bank.Client - Setting full name: Butsenko Mariia
+2025-12-24 15:37:34.579 [main] DEBUG program.Bank.Client - Full name successfully set: Butsenko Mariia
+2025-12-24 15:37:34.582 [main] INFO  program.Bank.Client - Setting date of birth: 2006-05-26
+2025-12-24 15:37:34.582 [main] DEBUG program.Bank.Client - Date of birth successfully set
+2025-12-24 15:37:34.583 [main] INFO  program.Bank.Client - Setting gender: W
+2025-12-24 15:37:34.583 [main] DEBUG program.Bank.Client - Gender successfully set: W
+2025-12-24 15:37:34.583 [main] INFO  program.Bank.Client - Setting nationality: Ukrainian
+2025-12-24 15:37:34.583 [main] DEBUG program.Bank.Client - Nationality successfully set: Ukrainian
+2025-12-24 15:37:34.583 [main] INFO  program.Bank.Client - Setting mobile phone: +380996703512
+2025-12-24 15:37:34.584 [main] DEBUG program.Bank.Client - Phone number successfully set
+2025-12-24 15:37:34.584 [main] INFO  program.Bank.Client - Setting individual tax number (ITN)
+2025-12-24 15:37:34.584 [main] DEBUG program.Bank.Client - ITN successfully set: 11111
+2025-12-24 15:37:34.585 [main] INFO  program.Bank.Client - Setting passport number
+2025-12-24 15:37:34.585 [main] DEBUG program.Bank.Client - Passport number successfully set: 1111
+2025-12-24 15:37:34.585 [main] INFO  program.Bank.Client - Setting legal address: Heroiv Maidanu 9, 475
+2025-12-24 15:37:34.585 [main] DEBUG program.Bank.Client - Legal address successfully set: Heroiv Maidanu 9, 475
+2025-12-24 15:37:34.586 [main] INFO  program.Bank.Client - Setting place of birth: Cherkassy
+2025-12-24 15:37:34.586 [main] DEBUG program.Bank.Client - Place of birth successfully set: Cherkassy
+2025-12-24 15:37:34.586 [main] INFO  program.Bank.Client - Setting record number
+2025-12-24 15:37:34.586 [main] DEBUG program.Bank.Client - Record number successfully set: 111
+2025-12-24 15:37:34.587 [main] INFO  program.Bank.Client - Setting place of work/study: CHNU
+2025-12-24 15:37:34.587 [main] DEBUG program.Bank.Client - Place of work/study successfully set: CHNU
+2025-12-24 15:37:34.588 [main] INFO  program.Bank.Client - Setting client status: ACTIVE
+2025-12-24 15:37:34.589 [main] DEBUG program.Bank.Client - Client status successfully set: ACTIVE
+2025-12-24 15:37:34.589 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
+2025-12-24 15:37:34.591 [main] INFO  program.Bank.Services.ClientService - Client found: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:37:34.594 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:37:34.595 [main] DEBUG program.Bank.Menu.Menu - Client's full information has been added
+2025-12-24 15:37:34.597 [main] DEBUG program.Bank.Menu.Menu - Cards has been added
+2025-12-24 15:37:34.598 [main] DEBUG program.Bank.Menu.Menu - Deposit has been added
+2025-12-24 15:37:34.600 [main] DEBUG program.Bank.Menu.Menu - Credits has been added
+2025-12-24 15:37:34.601 [main] DEBUG program.Bank.Menu.Menu - Transactions' history has been added
+2025-12-24 15:37:34.603 [main] DEBUG program.Bank.Menu.Menu - Client's data has been added
+2025-12-24 15:37:34.603 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:37:38.647 [main] INFO  program.Bank.Services.CardService - Fetching all cards for client: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:37:38.854 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:37:38.855 [main] INFO  program.Bank.Card - Setting existing card ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:37:38.855 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:37:38.855 [main] INFO  program.Bank.DataBase - Fetching card data by ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:37:38.967 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:37:38.967 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:37:38.967 [main] INFO  program.Bank.Card - Setting card number: 4149 0643 3330 9842
+2025-12-24 15:37:38.967 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:37:38.992 [main] INFO  program.Bank.Card - Setting card balance: 103.0100
+2025-12-24 15:37:38.992 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:37:38.992 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:37:38.993 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:37:38.994 [main] INFO  program.Bank.Card - Setting card type: ESUPPORT
+2025-12-24 15:37:38.994 [main] DEBUG program.Bank.Card - Card type successfully set: ESUPPORT
+2025-12-24 15:37:38.996 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:37:38.996 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:37:38.997 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:37:38.998 [main] INFO  program.Bank.Card - Printing short info for card ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:37:39.002 [main] DEBUG program.Bank.Card - Short card info printed
+2025-12-24 15:37:39.003 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:37:39.003 [main] INFO  program.Bank.Card - Setting existing card ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:37:39.003 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:37:39.003 [main] INFO  program.Bank.DataBase - Fetching card data by ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:37:39.082 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:37:39.083 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:37:39.083 [main] INFO  program.Bank.Card - Setting card number: 5152 8973 6666 5555
+2025-12-24 15:37:39.083 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:37:39.083 [main] INFO  program.Bank.Card - Setting card balance: 10320.0235
+2025-12-24 15:37:39.083 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:37:39.083 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:37:39.083 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:37:39.083 [main] INFO  program.Bank.Card - Setting card type: JUNIOR
+2025-12-24 15:37:39.084 [main] DEBUG program.Bank.Card - Card type successfully set: JUNIOR
+2025-12-24 15:37:39.084 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:37:39.084 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:37:39.084 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:37:39.085 [main] INFO  program.Bank.Card - Printing short info for card ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:37:39.085 [main] DEBUG program.Bank.Card - Short card info printed
+2025-12-24 15:37:39.085 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:37:39.085 [main] INFO  program.Bank.Card - Setting existing card ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:37:39.086 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:37:39.086 [main] INFO  program.Bank.DataBase - Fetching card data by ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:37:39.163 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:37:39.163 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:37:39.163 [main] INFO  program.Bank.Card - Setting card number: 5056  7890 0000 1111
+2025-12-24 15:37:39.163 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:37:39.163 [main] INFO  program.Bank.Card - Setting card balance: 1600.0000
+2025-12-24 15:37:39.163 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:37:39.164 [main] INFO  program.Bank.Card - Setting card currency: USD
+2025-12-24 15:37:39.164 [main] DEBUG program.Bank.Card - Card currency successfully set: USD
+2025-12-24 15:37:39.164 [main] INFO  program.Bank.Card - Setting card type: UNIVERSAL
+2025-12-24 15:37:39.164 [main] DEBUG program.Bank.Card - Card type successfully set: UNIVERSAL
+2025-12-24 15:37:39.164 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:37:39.164 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:37:39.164 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:37:39.165 [main] INFO  program.Bank.Card - Printing short info for card ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:37:39.165 [main] DEBUG program.Bank.Card - Short card info printed
+2025-12-24 15:37:39.165 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:37:39.165 [main] INFO  program.Bank.Card - Setting existing card ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:37:39.166 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:37:39.166 [main] INFO  program.Bank.DataBase - Fetching card data by ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:37:39.250 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:37:39.250 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:37:39.250 [main] INFO  program.Bank.Card - Setting card number: 4149 1122 3344 5555
+2025-12-24 15:37:39.250 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:37:39.251 [main] INFO  program.Bank.Card - Setting card balance: 0.0000
+2025-12-24 15:37:39.251 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:37:39.251 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:37:39.251 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:37:39.251 [main] INFO  program.Bank.Card - Setting card type: UNIVERSAL
+2025-12-24 15:37:39.251 [main] DEBUG program.Bank.Card - Card type successfully set: UNIVERSAL
+2025-12-24 15:37:39.251 [main] INFO  program.Bank.Card - Setting card status: CLOSED
+2025-12-24 15:37:39.251 [main] DEBUG program.Bank.Card - Card status successfully set: CLOSED
+2025-12-24 15:37:39.251 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:37:39.252 [main] INFO  program.Bank.Card - Printing short info for card ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:37:39.253 [main] DEBUG program.Bank.Card - Short card info printed
+2025-12-24 15:37:39.255 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:37:39.258 [main] DEBUG program.Bank.Menu.Menu - Open new card has been added
+2025-12-24 15:37:39.259 [main] DEBUG program.Bank.Menu.Menu - Work with an existing card has been added
+2025-12-24 15:37:39.260 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:37:50.798 [main] DEBUG program.Bank.Services.CardService - Searching for card by number: 4149 0643 3330 9842
+2025-12-24 15:37:50.897 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:37:50.897 [main] INFO  program.Bank.Card - Setting existing card ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:37:50.898 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:37:50.898 [main] INFO  program.Bank.DataBase - Fetching card data by ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:37:50.977 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:37:50.978 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:37:50.978 [main] INFO  program.Bank.Card - Setting card number: 4149 0643 3330 9842
+2025-12-24 15:37:50.978 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:37:50.978 [main] INFO  program.Bank.Card - Setting card balance: 103.0100
+2025-12-24 15:37:50.978 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:37:50.978 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:37:50.978 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:37:50.979 [main] INFO  program.Bank.Card - Setting card type: ESUPPORT
+2025-12-24 15:37:50.979 [main] DEBUG program.Bank.Card - Card type successfully set: ESUPPORT
+2025-12-24 15:37:50.979 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:37:50.979 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:37:50.979 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:37:50.980 [main] INFO  program.Bank.Card - Printing short info for card ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:37:50.980 [main] DEBUG program.Bank.Card - Short card info printed
+2025-12-24 15:37:50.982 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:37:50.984 [main] DEBUG program.Bank.Menu.Menu - Top up card has been added
+2025-12-24 15:37:50.986 [main] DEBUG program.Bank.Menu.Menu - Withdraw cash has been added
+2025-12-24 15:37:50.988 [main] DEBUG program.Bank.Menu.Menu - Make a transaction has been added
+2025-12-24 15:37:50.989 [main] DEBUG program.Bank.Menu.Menu - View card's details has been added
+2025-12-24 15:37:50.990 [main] DEBUG program.Bank.Menu.Menu - Block card has been added
+2025-12-24 15:37:50.991 [main] DEBUG program.Bank.Menu.Menu - Close card has been added
+2025-12-24 15:37:50.992 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:37:52.584 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:37:52.586 [main] DEBUG program.Bank.Menu.Menu - Top up current card has been added
+2025-12-24 15:37:52.588 [main] DEBUG program.Bank.Menu.Menu - Top up card with the following card number has been added
+2025-12-24 15:37:52.588 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:37:57.671 [main] INFO  program.Bank.Services.CardService - Topping up card 4149 0643 3330 9842. Amount: 100
+2025-12-24 15:37:57.672 [main] INFO  program.Bank.Card - Topping up card ID: 9d654faf-fd46-4113-9787-607c12b96b0e. Amount: 100
+2025-12-24 15:37:57.672 [main] INFO  program.Bank.Card - Card ID: 9d654faf-fd46-4113-9787-607c12b96b0e successfully topped up. Amount: 100. New balance: 203.0100
+2025-12-24 15:37:57.672 [main] INFO  program.Bank.DataBase - Updating card data for ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:37:57.861 [main] INFO  program.Bank.DataBase - Card 4149 0643 3330 9842 updated successfully.
+2025-12-24 15:37:57.863 [main] INFO  program.Bank.Services.CardService - Card 4149 0643 3330 9842 topped up successfully. New balance: 203.0100
+2025-12-24 15:38:01.093 [main] INFO  program.Bank.Menu.Menu - User commanded to return. Returning...
+2025-12-24 15:38:06.639 [main] DEBUG program.Bank.Services.CardService - Printing full details for card: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:38:06.639 [main] INFO  program.Bank.Card - Printing full info for card ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:38:06.639 [main] DEBUG program.Bank.Card - Converting card data to text representation
+2025-12-24 15:38:06.640 [main] DEBUG program.Bank.Card - Full card info printed
+2025-12-24 15:38:12.792 [main] DEBUG program.Bank.Services.CardService - Printing full details for card: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:38:12.792 [main] INFO  program.Bank.Card - Printing full info for card ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:38:12.792 [main] DEBUG program.Bank.Card - Converting card data to text representation
+2025-12-24 15:38:12.793 [main] DEBUG program.Bank.Card - Full card info printed
+2025-12-24 15:38:23.095 [main] INFO  program.Bank.Services.CardService - Withdrawing from card 4149 0643 3330 9842. Amount: 50
+2025-12-24 15:38:23.095 [main] INFO  program.Bank.Card - Attempting to withdraw funds from card ID: 9d654faf-fd46-4113-9787-607c12b96b0e. Amount: 50
+2025-12-24 15:38:23.095 [main] INFO  program.Bank.Card - Funds successfully withdrawn from card ID: 9d654faf-fd46-4113-9787-607c12b96b0e. Amount: 50. New balance: 153.0100
+2025-12-24 15:38:23.096 [main] INFO  program.Bank.DataBase - Updating card data for ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:38:23.201 [main] INFO  program.Bank.DataBase - Card 4149 0643 3330 9842 updated successfully.
+2025-12-24 15:38:23.202 [main] INFO  program.Bank.Services.CardService - Withdrawal from card 4149 0643 3330 9842 successful. New balance: 153.0100
+2025-12-24 15:38:45.645 [main] INFO  program.Bank.Services.CardService - Initiating transfer from 4149 0643 3330 9842 to 5375 0000 0000 7777. Amount: 12
+2025-12-24 15:38:45.646 [main] INFO  program.Bank.Services.CardService - Withdrawing from card 4149 0643 3330 9842. Amount: 12
+2025-12-24 15:38:45.646 [main] INFO  program.Bank.Card - Attempting to withdraw funds from card ID: 9d654faf-fd46-4113-9787-607c12b96b0e. Amount: 12
+2025-12-24 15:38:45.646 [main] INFO  program.Bank.Card - Funds successfully withdrawn from card ID: 9d654faf-fd46-4113-9787-607c12b96b0e. Amount: 12. New balance: 141.0100
+2025-12-24 15:38:45.646 [main] INFO  program.Bank.DataBase - Updating card data for ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:38:45.748 [main] INFO  program.Bank.DataBase - Card 4149 0643 3330 9842 updated successfully.
+2025-12-24 15:38:45.749 [main] INFO  program.Bank.Services.CardService - Withdrawal from card 4149 0643 3330 9842 successful. New balance: 141.0100
+2025-12-24 15:38:45.749 [main] DEBUG program.Bank.Services.CardService - Searching for card by number: 5375 0000 0000 7777
+2025-12-24 15:38:45.832 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: c0000007-7777-7777-7777-777777777777
+2025-12-24 15:38:45.832 [main] INFO  program.Bank.Card - Setting existing card ID: c0000007-7777-7777-7777-777777777777
+2025-12-24 15:38:45.833 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:38:45.833 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000007-7777-7777-7777-777777777777
+2025-12-24 15:38:45.914 [main] INFO  program.Bank.Card - Setting client ID for card: 77777777-7777-7777-7777-777777777777
+2025-12-24 15:38:45.914 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:38:45.914 [main] INFO  program.Bank.Card - Setting card number: 5375 0000 0000 7777
+2025-12-24 15:38:45.914 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:38:45.914 [main] INFO  program.Bank.Card - Setting card balance: 99000.0000
+2025-12-24 15:38:45.915 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:38:45.915 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:38:45.915 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:38:45.915 [main] INFO  program.Bank.Card - Setting card type: PAYMENT
+2025-12-24 15:38:45.915 [main] DEBUG program.Bank.Card - Card type successfully set: PAYMENT
+2025-12-24 15:38:45.915 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:38:45.915 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:38:45.915 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:38:45.916 [main] INFO  program.Bank.Services.CardService - Topping up card 5375 0000 0000 7777. Amount: 12
+2025-12-24 15:38:45.916 [main] INFO  program.Bank.Card - Topping up card ID: c0000007-7777-7777-7777-777777777777. Amount: 12
+2025-12-24 15:38:45.916 [main] INFO  program.Bank.Card - Card ID: c0000007-7777-7777-7777-777777777777 successfully topped up. Amount: 12. New balance: 99012.0000
+2025-12-24 15:38:45.916 [main] INFO  program.Bank.DataBase - Updating card data for ID: c0000007-7777-7777-7777-777777777777
+2025-12-24 15:38:46.128 [main] INFO  program.Bank.DataBase - Card 5375 0000 0000 7777 updated successfully.
+2025-12-24 15:38:46.129 [main] INFO  program.Bank.Services.CardService - Card 5375 0000 0000 7777 topped up successfully. New balance: 99012.0000
+2025-12-24 15:38:46.129 [main] INFO  program.Bank.DataBase - Updating card data for ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:38:46.230 [main] INFO  program.Bank.DataBase - Card 4149 0643 3330 9842 updated successfully.
+2025-12-24 15:38:46.231 [main] DEBUG program.Bank.Services.CardService - Searching for card by number: 5375 0000 0000 7777
+2025-12-24 15:38:46.421 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: c0000007-7777-7777-7777-777777777777
+2025-12-24 15:38:46.421 [main] INFO  program.Bank.Card - Setting existing card ID: c0000007-7777-7777-7777-777777777777
+2025-12-24 15:38:46.421 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:38:46.421 [main] INFO  program.Bank.DataBase - Fetching card data by ID: c0000007-7777-7777-7777-777777777777
+2025-12-24 15:38:46.605 [main] INFO  program.Bank.Card - Setting client ID for card: 77777777-7777-7777-7777-777777777777
+2025-12-24 15:38:46.605 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:38:46.605 [main] INFO  program.Bank.Card - Setting card number: 5375 0000 0000 7777
+2025-12-24 15:38:46.605 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:38:46.605 [main] INFO  program.Bank.Card - Setting card balance: 99012.0000
+2025-12-24 15:38:46.605 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:38:46.605 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:38:46.605 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:38:46.605 [main] INFO  program.Bank.Card - Setting card type: PAYMENT
+2025-12-24 15:38:46.606 [main] DEBUG program.Bank.Card - Card type successfully set: PAYMENT
+2025-12-24 15:38:46.606 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:38:46.606 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:38:46.606 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:38:46.607 [main] INFO  program.Bank.DataBase - Updating card data for ID: c0000007-7777-7777-7777-777777777777
+2025-12-24 15:38:46.696 [main] INFO  program.Bank.DataBase - Card 5375 0000 0000 7777 updated successfully.
+2025-12-24 15:38:46.698 [main] INFO  program.Bank.Services.TransactionService - Creating transaction log. Amount: 12 UAH, Status: COMPLETED
+2025-12-24 15:38:46.702 [main] DEBUG program.Bank.Transaction - Created new empty Transaction with ID: 8dc5b627-f55c-4da7-b2fc-2d3bbc85b9d3.
+2025-12-24 15:38:46.702 [main] DEBUG program.Bank.Transaction - Sender account ID set: 9d654faf-fd46-4113-9787-607c12b96b0e.
+2025-12-24 15:38:46.703 [main] DEBUG program.Bank.Transaction - Receiver account ID set: c0000007-7777-7777-7777-777777777777.
+2025-12-24 15:38:46.703 [main] DEBUG program.Bank.Transaction - Transaction sum set: 12 (Sign: +).
+2025-12-24 15:38:46.703 [main] DEBUG program.Bank.Transaction - Transaction status updated: COMPLETED.
+2025-12-24 15:38:46.703 [main] INFO  program.Bank.DataBase - Uploading transaction data by ID: 3314b44f-5aa5-4da4-aebb-d8828268a0b6
+2025-12-24 15:38:46.786 [main] INFO  program.Bank.DataBase - New transaction: 3314b44f-5aa5-4da4-aebb-d8828268a0b6 was successfully created at base.
+2025-12-24 15:38:46.786 [main] INFO  program.Bank.Services.TransactionService - Transaction recorded successfully with ID: 3314b44f-5aa5-4da4-aebb-d8828268a0b6
+2025-12-24 15:38:46.787 [main] INFO  program.Bank.Services.CardService - Transfer successful.
+2025-12-24 15:38:59.077 [main] INFO  program.Bank.Menu.Menu - User commanded to return. Returning...
+2025-12-24 15:39:01.527 [main] INFO  program.Bank.Menu.Menu - User commanded to return. Returning...
+2025-12-24 15:39:03.732 [main] INFO  program.Bank.Services.DepositeService - Fetching all deposits for client: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:39:04.015 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d7262bc3-846d-4c69-aafc-e5fd8adfaa10.
+2025-12-24 15:39:04.015 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d7262bc3-846d-4c69-aafc-e5fd8adfaa10.
+2025-12-24 15:39:04.016 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d7262bc3-846d-4c69-aafc-e5fd8adfaa10
+2025-12-24 15:39:04.114 [main] DEBUG program.Bank.Deposit - Client's ID was set: 73b54d65-3f52-4690-98f2-447ddf232b83.
+2025-12-24 15:39:04.114 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
+2025-12-24 15:39:04.114 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
+2025-12-24 15:39:04.115 [main] DEBUG program.Bank.Deposit - Open date was set: 2025-12-24.
+2025-12-24 15:39:04.116 [main] DEBUG program.Bank.Deposit - Close date was set: 2026-03-24.
+2025-12-24 15:39:04.116 [main] DEBUG program.Bank.Deposit - Interest rate was set: 1.4000.
+2025-12-24 15:39:04.116 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
+2025-12-24 15:39:04.116 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
+2025-12-24 15:39:04.116 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
+2025-12-24 15:39:04.117 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d7262bc3-846d-4c69-aafc-e5fd8adfaa10.
+2025-12-24 15:39:04.117 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 0, Sum = 10000.0000, Rate = 1.4000.
+2025-12-24 15:39:04.118 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.00.
+2025-12-24 15:39:04.118 [main] DEBUG program.Bank.StandardDeposit - Calculated profit for StandardDeposit d7262bc3-846d-4c69-aafc-e5fd8adfaa10: 0.00.
+2025-12-24 15:39:04.118 [main] DEBUG program.Bank.Deposit - Current profit was calculated in 'printInfo method': 0.00.
+2025-12-24 15:39:04.119 [main] DEBUG program.Bank.Deposit - Object information in 'printInfo method' was printed: #d7262bc3-846d-4c69-aafc-e5fd8adfaa10 - 10000.0000 UAH(140.0000%)
+End date: 2026-03-24
+Accrued: 0.00.
+2025-12-24 15:39:04.121 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:39:04.123 [main] DEBUG program.Bank.Menu.Menu - Open Deposit has been added
+2025-12-24 15:39:04.124 [main] DEBUG program.Bank.Menu.Menu - Work with an existing deposit has been added
+2025-12-24 15:39:04.125 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:40:34.619 [main] INFO  program.Bank.Menu.Menu - User commanded to return. Returning...
+2025-12-24 15:40:38.860 [main] DEBUG program.Bank.Services.CardService - Getting list of cards for client: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:40:38.939 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:40:38.939 [main] INFO  program.Bank.Card - Setting existing card ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:40:38.940 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:40:38.940 [main] INFO  program.Bank.DataBase - Fetching card data by ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:40:39.014 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:40:39.015 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:40:39.015 [main] INFO  program.Bank.Card - Setting card number: 5152 8973 6666 5555
+2025-12-24 15:40:39.015 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:40:39.015 [main] INFO  program.Bank.Card - Setting card balance: 10320.0235
+2025-12-24 15:40:39.015 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:40:39.015 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:40:39.015 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:40:39.015 [main] INFO  program.Bank.Card - Setting card type: JUNIOR
+2025-12-24 15:40:39.015 [main] DEBUG program.Bank.Card - Card type successfully set: JUNIOR
+2025-12-24 15:40:39.015 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:40:39.015 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:40:39.015 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:40:39.016 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:40:39.016 [main] INFO  program.Bank.Card - Setting existing card ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:40:39.016 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:40:39.016 [main] INFO  program.Bank.DataBase - Fetching card data by ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:40:39.121 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:40:39.121 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:40:39.121 [main] INFO  program.Bank.Card - Setting card number: 5056  7890 0000 1111
+2025-12-24 15:40:39.121 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:40:39.121 [main] INFO  program.Bank.Card - Setting card balance: 1600.0000
+2025-12-24 15:40:39.121 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:40:39.121 [main] INFO  program.Bank.Card - Setting card currency: USD
+2025-12-24 15:40:39.121 [main] DEBUG program.Bank.Card - Card currency successfully set: USD
+2025-12-24 15:40:39.121 [main] INFO  program.Bank.Card - Setting card type: UNIVERSAL
+2025-12-24 15:40:39.122 [main] DEBUG program.Bank.Card - Card type successfully set: UNIVERSAL
+2025-12-24 15:40:39.122 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:40:39.122 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:40:39.122 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:40:39.122 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:40:39.123 [main] INFO  program.Bank.Card - Setting existing card ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:40:39.123 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:40:39.123 [main] INFO  program.Bank.DataBase - Fetching card data by ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:40:39.213 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:40:39.213 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:40:39.213 [main] INFO  program.Bank.Card - Setting card number: 4149 1122 3344 5555
+2025-12-24 15:40:39.213 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:40:39.213 [main] INFO  program.Bank.Card - Setting card balance: 0.0000
+2025-12-24 15:40:39.213 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:40:39.213 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:40:39.213 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:40:39.214 [main] INFO  program.Bank.Card - Setting card type: UNIVERSAL
+2025-12-24 15:40:39.214 [main] DEBUG program.Bank.Card - Card type successfully set: UNIVERSAL
+2025-12-24 15:40:39.214 [main] INFO  program.Bank.Card - Setting card status: CLOSED
+2025-12-24 15:40:39.214 [main] DEBUG program.Bank.Card - Card status successfully set: CLOSED
+2025-12-24 15:40:39.214 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:40:39.214 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:40:39.215 [main] INFO  program.Bank.Card - Setting existing card ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:40:39.215 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:40:39.215 [main] INFO  program.Bank.DataBase - Fetching card data by ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:40:39.288 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:40:39.288 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:40:39.288 [main] INFO  program.Bank.Card - Setting card number: 4149 0643 3330 9842
+2025-12-24 15:40:39.288 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:40:39.288 [main] INFO  program.Bank.Card - Setting card balance: 141.0100
+2025-12-24 15:40:39.288 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:40:39.289 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:40:39.289 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:40:39.289 [main] INFO  program.Bank.Card - Setting card type: ESUPPORT
+2025-12-24 15:40:39.289 [main] DEBUG program.Bank.Card - Card type successfully set: ESUPPORT
+2025-12-24 15:40:39.289 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:40:39.289 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:40:39.289 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:40:39.290 [main] DEBUG program.Bank.Services.DepositeService - Getting list of deposits for client: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:40:39.550 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d7262bc3-846d-4c69-aafc-e5fd8adfaa10.
+2025-12-24 15:40:39.550 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d7262bc3-846d-4c69-aafc-e5fd8adfaa10.
+2025-12-24 15:40:39.550 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d7262bc3-846d-4c69-aafc-e5fd8adfaa10
+2025-12-24 15:40:39.649 [main] DEBUG program.Bank.Deposit - Client's ID was set: 73b54d65-3f52-4690-98f2-447ddf232b83.
+2025-12-24 15:40:39.650 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
+2025-12-24 15:40:39.650 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
+2025-12-24 15:40:39.650 [main] DEBUG program.Bank.Deposit - Open date was set: 2025-12-24.
+2025-12-24 15:40:39.650 [main] DEBUG program.Bank.Deposit - Close date was set: 2026-03-24.
+2025-12-24 15:40:39.651 [main] DEBUG program.Bank.Deposit - Interest rate was set: 1.4000.
+2025-12-24 15:40:39.651 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
+2025-12-24 15:40:39.651 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
+2025-12-24 15:40:39.651 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
+2025-12-24 15:40:39.652 [main] DEBUG program.Bank.Services.LoanService - Getting list of loans for client: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:40:39.735 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1.
+2025-12-24 15:40:39.735 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1
+2025-12-24 15:40:39.839 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 73b54d65-3f52-4690-98f2-447ddf232b83.
+2025-12-24 15:40:39.839 [main] DEBUG program.Bank.Loan - Original sum set: 450.0000.
+2025-12-24 15:40:39.839 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
+2025-12-24 15:40:39.840 [main] DEBUG program.Bank.Loan - Interest rate set: 0.2000. Monthly rate calculated.
+2025-12-24 15:40:39.840 [main] DEBUG program.Bank.Loan - Open date set: 2025-05-03.
+2025-12-24 15:40:39.841 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 64.35000000.
+2025-12-24 15:40:39.841 [main] DEBUG program.Bank.Loan - Monthly payment set: 64.35000000.
+2025-12-24 15:40:39.841 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 64.35000000.
+2025-12-24 15:40:39.841 [main] DEBUG program.Bank.Loan - Close date set: 2025-12-31. Term calculated: 7 months.
+2025-12-24 15:40:39.843 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
+2025-12-24 15:40:39.843 [main] DEBUG program.Bank.DataBase - Loan loaded successfully
+2025-12-24 15:40:39.843 [main] DEBUG program.Bank.Card - Converting card data to text representation
+2025-12-24 15:40:39.846 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:40:39.927 [main] INFO  program.Bank.Services.TransactionService - Found 0 transactions for account d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:40:39.928 [main] DEBUG program.Bank.Card - Converting card data to text representation
+2025-12-24 15:40:39.928 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:40:40.007 [main] DEBUG program.Bank.Transaction - Initialized Transaction with existing ID: dfe55040-4dba-4385-ac67-f0033870f289.
+2025-12-24 15:40:40.007 [main] INFO  program.Bank.DataBase - Fetching transaction data by ID: dfe55040-4dba-4385-ac67-f0033870f289
+2025-12-24 15:40:40.105 [main] DEBUG program.Bank.Transaction - Transaction sum set: 100.0000 (Sign: +).
+2025-12-24 15:40:40.105 [main] DEBUG program.Bank.Transaction - Sender account ID set: 180377e1-45ac-4f2d-9060-f25e257619c0.
+2025-12-24 15:40:40.105 [main] DEBUG program.Bank.Transaction - Receiver account ID set: 302629bd-baff-412e-ac6a-d3a9d181f85a.
+2025-12-24 15:40:40.106 [main] DEBUG program.Bank.Transaction - Transaction status updated: COMPLETED.
+2025-12-24 15:40:40.106 [main] INFO  program.Bank.Services.TransactionService - Found 1 transactions for account 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:40:40.108 [main] DEBUG program.Bank.Card - Converting card data to text representation
+2025-12-24 15:40:40.109 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:40:40.197 [main] DEBUG program.Bank.Transaction - Initialized Transaction with existing ID: c74b35bb-f721-42a8-84a7-fe7f1998fedc.
+2025-12-24 15:40:40.197 [main] INFO  program.Bank.DataBase - Fetching transaction data by ID: c74b35bb-f721-42a8-84a7-fe7f1998fedc
+2025-12-24 15:40:40.278 [main] DEBUG program.Bank.Transaction - Transaction sum set: 50.0000 (Sign: +).
+2025-12-24 15:40:40.278 [main] DEBUG program.Bank.Transaction - Sender account ID set: bf35242d-0bed-47a2-bab8-918ec93a4943.
+2025-12-24 15:40:40.278 [main] DEBUG program.Bank.Transaction - Receiver account ID set: c0000002-2222-2222-2222-222222222222.
+2025-12-24 15:40:40.278 [main] DEBUG program.Bank.Transaction - Transaction status updated: COMPLETED.
+2025-12-24 15:40:40.279 [main] DEBUG program.Bank.Transaction - Initialized Transaction with existing ID: fc1c2e05-45c0-4c7d-b439-7ef3889faa50.
+2025-12-24 15:40:40.279 [main] INFO  program.Bank.DataBase - Fetching transaction data by ID: fc1c2e05-45c0-4c7d-b439-7ef3889faa50
+2025-12-24 15:40:40.372 [main] DEBUG program.Bank.Transaction - Transaction sum set: 500.0000 (Sign: +).
+2025-12-24 15:40:40.372 [main] DEBUG program.Bank.Transaction - Sender account ID set: bf35242d-0bed-47a2-bab8-918ec93a4943.
+2025-12-24 15:40:40.374 [main] DEBUG program.Bank.Transaction - Receiver account ID set: 180377e1-45ac-4f2d-9060-f25e257619c0.
+2025-12-24 15:40:40.374 [main] DEBUG program.Bank.Transaction - Transaction status updated: COMPLETED.
+2025-12-24 15:40:40.374 [main] INFO  program.Bank.Services.TransactionService - Found 2 transactions for account bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:40:40.376 [main] DEBUG program.Bank.Card - Converting card data to text representation
+2025-12-24 15:40:40.377 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:40:40.458 [main] DEBUG program.Bank.Transaction - Initialized Transaction with existing ID: 3314b44f-5aa5-4da4-aebb-d8828268a0b6.
+2025-12-24 15:40:40.458 [main] INFO  program.Bank.DataBase - Fetching transaction data by ID: 3314b44f-5aa5-4da4-aebb-d8828268a0b6
+2025-12-24 15:40:40.639 [main] DEBUG program.Bank.Transaction - Transaction sum set: 12.0000 (Sign: +).
+2025-12-24 15:40:40.639 [main] DEBUG program.Bank.Transaction - Sender account ID set: 9d654faf-fd46-4113-9787-607c12b96b0e.
+2025-12-24 15:40:40.639 [main] DEBUG program.Bank.Transaction - Receiver account ID set: c0000007-7777-7777-7777-777777777777.
+2025-12-24 15:40:40.639 [main] DEBUG program.Bank.Transaction - Transaction status updated: COMPLETED.
+2025-12-24 15:40:40.640 [main] INFO  program.Bank.Services.TransactionService - Found 1 transactions for account 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:40:40.641 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d7262bc3-846d-4c69-aafc-e5fd8adfaa10.
+2025-12-24 15:40:40.641 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 0, Sum = 10000.0000, Rate = 1.4000.
+2025-12-24 15:40:40.641 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.00.
+2025-12-24 15:40:40.641 [main] DEBUG program.Bank.StandardDeposit - Calculated profit for StandardDeposit d7262bc3-846d-4c69-aafc-e5fd8adfaa10: 0.00.
+2025-12-24 15:40:40.644 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: d7262bc3-846d-4c69-aafc-e5fd8adfaa10
+2025-12-24 15:40:40.717 [main] INFO  program.Bank.Services.TransactionService - Found 0 transactions for account d7262bc3-846d-4c69-aafc-e5fd8adfaa10
+2025-12-24 15:40:40.724 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: 0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1
+2025-12-24 15:40:40.805 [main] INFO  program.Bank.Services.TransactionService - Found 0 transactions for account 0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1
+2025-12-24 15:41:42.000 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
+2025-12-24 15:41:42.000 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
+2025-12-24 15:43:25.758 [main] DEBUG program.Bank.DataBase - Created DateBase.
+2025-12-24 15:43:25.777 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:43:25.779 [main] DEBUG program.Bank.Menu.Menu - Register new Client has been added
+2025-12-24 15:43:25.779 [main] DEBUG program.Bank.Menu.Menu - Log into Client's cabinet has been added
+2025-12-24 15:43:32.164 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:43:32.166 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by full name has been added
+2025-12-24 15:43:32.167 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by passport number has been added
+2025-12-24 15:43:32.169 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by phone number has been added
+2025-12-24 15:43:32.169 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:43:41.065 [main] INFO  program.Bank.Services.ClientService - Searching client by phone.
+2025-12-24 15:43:41.763 [main] DEBUG program.Bank.Client - Creating Client instance with existing ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:43:41.763 [main] INFO  program.Bank.Client - Setting existing client ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:43:41.763 [main] DEBUG program.Bank.Client - Client ID successfully set
+2025-12-24 15:43:41.763 [main] INFO  program.Bank.DataBase - Loading client data by ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:43:41.855 [main] INFO  program.Bank.Client - Setting full name: Butsenko Mariia
+2025-12-24 15:43:41.855 [main] DEBUG program.Bank.Client - Full name successfully set: Butsenko Mariia
+2025-12-24 15:43:41.857 [main] INFO  program.Bank.Client - Setting date of birth: 2006-05-26
+2025-12-24 15:43:41.857 [main] DEBUG program.Bank.Client - Date of birth successfully set
+2025-12-24 15:43:41.858 [main] INFO  program.Bank.Client - Setting gender: W
+2025-12-24 15:43:41.858 [main] DEBUG program.Bank.Client - Gender successfully set: W
+2025-12-24 15:43:41.858 [main] INFO  program.Bank.Client - Setting nationality: Ukrainian
+2025-12-24 15:43:41.858 [main] DEBUG program.Bank.Client - Nationality successfully set: Ukrainian
+2025-12-24 15:43:41.858 [main] INFO  program.Bank.Client - Setting mobile phone: +380996703512
+2025-12-24 15:43:41.859 [main] DEBUG program.Bank.Client - Phone number successfully set
+2025-12-24 15:43:41.859 [main] INFO  program.Bank.Client - Setting individual tax number (ITN)
+2025-12-24 15:43:41.859 [main] DEBUG program.Bank.Client - ITN successfully set: 11111
+2025-12-24 15:43:41.859 [main] INFO  program.Bank.Client - Setting passport number
+2025-12-24 15:43:41.859 [main] DEBUG program.Bank.Client - Passport number successfully set: 1111
+2025-12-24 15:43:41.860 [main] INFO  program.Bank.Client - Setting legal address: Heroiv Maidanu 9, 475
+2025-12-24 15:43:41.860 [main] DEBUG program.Bank.Client - Legal address successfully set: Heroiv Maidanu 9, 475
+2025-12-24 15:43:41.860 [main] INFO  program.Bank.Client - Setting place of birth: Cherkassy
+2025-12-24 15:43:41.860 [main] DEBUG program.Bank.Client - Place of birth successfully set: Cherkassy
+2025-12-24 15:43:41.860 [main] INFO  program.Bank.Client - Setting record number
+2025-12-24 15:43:41.861 [main] DEBUG program.Bank.Client - Record number successfully set: 111
+2025-12-24 15:43:41.861 [main] INFO  program.Bank.Client - Setting place of work/study: CHNU
+2025-12-24 15:43:41.861 [main] DEBUG program.Bank.Client - Place of work/study successfully set: CHNU
+2025-12-24 15:43:41.862 [main] INFO  program.Bank.Client - Setting client status: ACTIVE
+2025-12-24 15:43:41.863 [main] DEBUG program.Bank.Client - Client status successfully set: ACTIVE
+2025-12-24 15:43:41.863 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
+2025-12-24 15:43:41.865 [main] INFO  program.Bank.Services.ClientService - Client found: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:43:41.868 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:43:41.869 [main] DEBUG program.Bank.Menu.Menu - Client's full information has been added
+2025-12-24 15:43:41.870 [main] DEBUG program.Bank.Menu.Menu - Cards has been added
+2025-12-24 15:43:41.872 [main] DEBUG program.Bank.Menu.Menu - Deposit has been added
+2025-12-24 15:43:41.873 [main] DEBUG program.Bank.Menu.Menu - Credits has been added
+2025-12-24 15:43:41.875 [main] DEBUG program.Bank.Menu.Menu - Transactions' history has been added
+2025-12-24 15:43:41.875 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:43:44.087 [main] INFO  program.Bank.Services.DepositeService - Fetching all deposits for client: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:43:44.239 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d7262bc3-846d-4c69-aafc-e5fd8adfaa10.
+2025-12-24 15:43:44.239 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d7262bc3-846d-4c69-aafc-e5fd8adfaa10.
+2025-12-24 15:43:44.240 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d7262bc3-846d-4c69-aafc-e5fd8adfaa10
+2025-12-24 15:43:44.317 [main] DEBUG program.Bank.Deposit - Client's ID was set: 73b54d65-3f52-4690-98f2-447ddf232b83.
+2025-12-24 15:43:44.317 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
+2025-12-24 15:43:44.318 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
+2025-12-24 15:43:44.318 [main] DEBUG program.Bank.Deposit - Open date was set: 2025-12-24.
+2025-12-24 15:43:44.318 [main] DEBUG program.Bank.Deposit - Close date was set: 2026-03-24.
+2025-12-24 15:43:44.318 [main] DEBUG program.Bank.Deposit - Interest rate was set: 1.4000.
+2025-12-24 15:43:44.319 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
+2025-12-24 15:43:44.320 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
+2025-12-24 15:43:44.320 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
+2025-12-24 15:43:44.322 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d7262bc3-846d-4c69-aafc-e5fd8adfaa10.
+2025-12-24 15:43:44.323 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 0, Sum = 10000.0000, Rate = 1.4000.
+2025-12-24 15:43:44.323 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.00.
+2025-12-24 15:43:44.323 [main] DEBUG program.Bank.StandardDeposit - Calculated profit for StandardDeposit d7262bc3-846d-4c69-aafc-e5fd8adfaa10: 0.00.
+2025-12-24 15:43:44.324 [main] DEBUG program.Bank.Deposit - Current profit was calculated in 'printInfo method': 0.00.
+2025-12-24 15:43:44.326 [main] DEBUG program.Bank.Deposit - Object information in 'printInfo method' was printed: #d7262bc3-846d-4c69-aafc-e5fd8adfaa10 - 10000.0000 UAH(140.0000%)
+End date: 2026-03-24
+Accrued: 0.00.
+2025-12-24 15:43:44.328 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:43:44.329 [main] DEBUG program.Bank.Menu.Menu - Open Deposit has been added
+2025-12-24 15:43:44.331 [main] DEBUG program.Bank.Menu.Menu - Work with an existing deposit has been added
+2025-12-24 15:43:44.331 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:43:50.113 [main] INFO  program.Bank.Menu.Menu - User commanded to return. Returning...
+2025-12-24 15:43:52.217 [main] INFO  program.Bank.Services.LoanService - Fetching all loans for client: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:43:52.333 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1.
+2025-12-24 15:43:52.334 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1
+2025-12-24 15:43:52.417 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 73b54d65-3f52-4690-98f2-447ddf232b83.
+2025-12-24 15:43:52.417 [main] DEBUG program.Bank.Loan - Original sum set: 450.0000.
+2025-12-24 15:43:52.418 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
+2025-12-24 15:43:52.418 [main] DEBUG program.Bank.Loan - Interest rate set: 0.2000. Monthly rate calculated.
+2025-12-24 15:43:52.418 [main] DEBUG program.Bank.Loan - Open date set: 2025-05-03.
+2025-12-24 15:43:52.420 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 64.35000000.
+2025-12-24 15:43:52.420 [main] DEBUG program.Bank.Loan - Monthly payment set: 64.35000000.
+2025-12-24 15:43:52.420 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 64.35000000.
+2025-12-24 15:43:52.420 [main] DEBUG program.Bank.Loan - Close date set: 2025-12-31. Term calculated: 7 months.
+2025-12-24 15:43:52.423 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
+2025-12-24 15:43:52.423 [main] DEBUG program.Bank.DataBase - Loan loaded successfully
+2025-12-24 15:43:52.427 [main] INFO  program.Bank.Loan - Short Loan Info printed:
+#0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1 - 450.0000 UAH (0.2000%)
+Balance: 450.0000 UAH
+Monthly payment: 64.3500 UAH
+Next payment date: 2025-06-03
+2025-12-24 15:43:52.430 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:43:52.431 [main] DEBUG program.Bank.Menu.Menu - Open Loan has been added
+2025-12-24 15:43:52.432 [main] DEBUG program.Bank.Menu.Menu - Work with an existing loan has been added
+2025-12-24 15:48:05.108 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
+2025-12-24 15:48:05.109 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
+2025-12-24 15:48:05.110 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
+2025-12-24 15:48:08.893 [main] DEBUG program.Bank.DataBase - Created DateBase.
+2025-12-24 15:48:08.911 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:48:08.913 [main] DEBUG program.Bank.Menu.Menu - Register new Client has been added
+2025-12-24 15:48:08.913 [main] DEBUG program.Bank.Menu.Menu - Log into Client's cabinet has been added
+2025-12-24 15:48:16.879 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:48:16.882 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by full name has been added
+2025-12-24 15:48:16.883 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by passport number has been added
+2025-12-24 15:48:16.886 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by phone number has been added
+2025-12-24 15:48:16.886 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:48:24.580 [main] INFO  program.Bank.Services.ClientService - Searching client by phone.
+2025-12-24 15:48:25.166 [main] DEBUG program.Bank.Client - Creating Client instance with existing ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:48:25.166 [main] INFO  program.Bank.Client - Setting existing client ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:48:25.166 [main] DEBUG program.Bank.Client - Client ID successfully set
+2025-12-24 15:48:25.167 [main] INFO  program.Bank.DataBase - Loading client data by ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:48:25.247 [main] INFO  program.Bank.Client - Setting full name: Butsenko Mariia
+2025-12-24 15:48:25.247 [main] DEBUG program.Bank.Client - Full name successfully set: Butsenko Mariia
+2025-12-24 15:48:25.250 [main] INFO  program.Bank.Client - Setting date of birth: 2006-05-26
+2025-12-24 15:48:25.250 [main] DEBUG program.Bank.Client - Date of birth successfully set
+2025-12-24 15:48:25.250 [main] INFO  program.Bank.Client - Setting gender: W
+2025-12-24 15:48:25.250 [main] DEBUG program.Bank.Client - Gender successfully set: W
+2025-12-24 15:48:25.250 [main] INFO  program.Bank.Client - Setting nationality: Ukrainian
+2025-12-24 15:48:25.251 [main] DEBUG program.Bank.Client - Nationality successfully set: Ukrainian
+2025-12-24 15:48:25.251 [main] INFO  program.Bank.Client - Setting mobile phone: +380996703512
+2025-12-24 15:48:25.251 [main] DEBUG program.Bank.Client - Phone number successfully set
+2025-12-24 15:48:25.251 [main] INFO  program.Bank.Client - Setting individual tax number (ITN)
+2025-12-24 15:48:25.251 [main] DEBUG program.Bank.Client - ITN successfully set: 11111
+2025-12-24 15:48:25.252 [main] INFO  program.Bank.Client - Setting passport number
+2025-12-24 15:48:25.252 [main] DEBUG program.Bank.Client - Passport number successfully set: 1111
+2025-12-24 15:48:25.252 [main] INFO  program.Bank.Client - Setting legal address: Heroiv Maidanu 9, 475
+2025-12-24 15:48:25.252 [main] DEBUG program.Bank.Client - Legal address successfully set: Heroiv Maidanu 9, 475
+2025-12-24 15:48:25.252 [main] INFO  program.Bank.Client - Setting place of birth: Cherkassy
+2025-12-24 15:48:25.253 [main] DEBUG program.Bank.Client - Place of birth successfully set: Cherkassy
+2025-12-24 15:48:25.253 [main] INFO  program.Bank.Client - Setting record number
+2025-12-24 15:48:25.253 [main] DEBUG program.Bank.Client - Record number successfully set: 111
+2025-12-24 15:48:25.253 [main] INFO  program.Bank.Client - Setting place of work/study: CHNU
+2025-12-24 15:48:25.253 [main] DEBUG program.Bank.Client - Place of work/study successfully set: CHNU
+2025-12-24 15:48:25.255 [main] INFO  program.Bank.Client - Setting client status: ACTIVE
+2025-12-24 15:48:25.255 [main] DEBUG program.Bank.Client - Client status successfully set: ACTIVE
+2025-12-24 15:48:25.255 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
+2025-12-24 15:48:25.256 [main] INFO  program.Bank.Services.ClientService - Client found: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:48:25.259 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:48:25.260 [main] DEBUG program.Bank.Menu.Menu - Client's full information has been added
+2025-12-24 15:48:25.261 [main] DEBUG program.Bank.Menu.Menu - Cards has been added
+2025-12-24 15:48:25.263 [main] DEBUG program.Bank.Menu.Menu - Deposit has been added
+2025-12-24 15:48:25.264 [main] DEBUG program.Bank.Menu.Menu - Credits has been added
+2025-12-24 15:48:25.265 [main] DEBUG program.Bank.Menu.Menu - Transactions' history has been added
+2025-12-24 15:48:25.265 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:48:28.008 [main] INFO  program.Bank.Services.DepositeService - Fetching all deposits for client: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:48:28.152 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d7262bc3-846d-4c69-aafc-e5fd8adfaa10.
+2025-12-24 15:48:28.153 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d7262bc3-846d-4c69-aafc-e5fd8adfaa10.
+2025-12-24 15:48:28.153 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d7262bc3-846d-4c69-aafc-e5fd8adfaa10
+2025-12-24 15:48:28.243 [main] DEBUG program.Bank.Deposit - Client's ID was set: 73b54d65-3f52-4690-98f2-447ddf232b83.
+2025-12-24 15:48:28.244 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
+2025-12-24 15:48:28.244 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
+2025-12-24 15:48:28.245 [main] DEBUG program.Bank.Deposit - Open date was set: 2025-12-24.
+2025-12-24 15:48:28.245 [main] DEBUG program.Bank.Deposit - Close date was set: 2026-03-24.
+2025-12-24 15:48:28.246 [main] DEBUG program.Bank.Deposit - Interest rate was set: 1.4000.
+2025-12-24 15:48:28.246 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
+2025-12-24 15:48:28.248 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
+2025-12-24 15:48:28.248 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
+2025-12-24 15:48:28.252 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d7262bc3-846d-4c69-aafc-e5fd8adfaa10.
+2025-12-24 15:48:28.253 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 0, Sum = 10000.0000, Rate = 1.4000.
+2025-12-24 15:48:28.253 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.00.
+2025-12-24 15:48:28.253 [main] DEBUG program.Bank.StandardDeposit - Calculated profit for StandardDeposit d7262bc3-846d-4c69-aafc-e5fd8adfaa10: 0.00.
+2025-12-24 15:48:28.254 [main] DEBUG program.Bank.Deposit - Current profit was calculated in 'printInfo method': 0.00.
+2025-12-24 15:48:28.257 [main] DEBUG program.Bank.Deposit - Object information in 'printInfo method' was printed: #d7262bc3-846d-4c69-aafc-e5fd8adfaa10 - 10000.0000 UAH(140.0000%)
+End date: 2026-03-24
+Accrued: 0.00.
+2025-12-24 15:48:28.259 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:48:28.261 [main] DEBUG program.Bank.Menu.Menu - Open Deposit has been added
+2025-12-24 15:48:28.263 [main] DEBUG program.Bank.Menu.Menu - Work with an existing deposit has been added
+2025-12-24 15:48:28.263 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:48:32.607 [main] INFO  program.Bank.Menu.Menu - User commanded to return. Returning...
+2025-12-24 15:48:38.376 [main] INFO  program.Bank.Services.LoanService - Fetching all loans for client: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:48:38.579 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1.
+2025-12-24 15:48:38.579 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1
+2025-12-24 15:48:38.679 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 73b54d65-3f52-4690-98f2-447ddf232b83.
+2025-12-24 15:48:38.679 [main] DEBUG program.Bank.Loan - Original sum set: 450.0000.
+2025-12-24 15:48:38.680 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
+2025-12-24 15:48:38.680 [main] DEBUG program.Bank.Loan - Interest rate set: 0.2000. Monthly rate calculated.
+2025-12-24 15:48:38.680 [main] DEBUG program.Bank.Loan - Open date set: 2025-05-03.
+2025-12-24 15:48:38.682 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 64.35000000.
+2025-12-24 15:48:38.682 [main] DEBUG program.Bank.Loan - Monthly payment set: 64.35000000.
+2025-12-24 15:48:38.682 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 64.35000000.
+2025-12-24 15:48:38.682 [main] DEBUG program.Bank.Loan - Close date set: 2025-12-31. Term calculated: 7 months.
+2025-12-24 15:48:38.684 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
+2025-12-24 15:48:38.685 [main] DEBUG program.Bank.DataBase - Loan loaded successfully
+2025-12-24 15:48:38.689 [main] INFO  program.Bank.Loan - Short Loan Info printed:
+#0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1 - 450.0000 UAH (0.2000%)
+Balance: 450.0000 UAH
+Monthly payment: 64.3500 UAH
+Next payment date: 2025-06-03
+2025-12-24 15:48:38.691 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:48:38.693 [main] DEBUG program.Bank.Menu.Menu - Open Loan has been added
+2025-12-24 15:48:38.695 [main] DEBUG program.Bank.Menu.Menu - Work with an existing loan has been added
+2025-12-24 15:48:40.211 [main] INFO  program.Bank.Menu.Menu - User commanded to return. Returning...
+2025-12-24 15:48:41.949 [main] DEBUG program.Bank.Services.CardService - Getting list of cards for client: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:48:42.042 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:48:42.042 [main] INFO  program.Bank.Card - Setting existing card ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:48:42.042 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:48:42.043 [main] INFO  program.Bank.DataBase - Fetching card data by ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:48:42.127 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:48:42.127 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:48:42.127 [main] INFO  program.Bank.Card - Setting card number: 5152 8973 6666 5555
+2025-12-24 15:48:42.127 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:48:42.127 [main] INFO  program.Bank.Card - Setting card balance: 10320.0235
+2025-12-24 15:48:42.127 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:48:42.128 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:48:42.128 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:48:42.129 [main] INFO  program.Bank.Card - Setting card type: JUNIOR
+2025-12-24 15:48:42.130 [main] DEBUG program.Bank.Card - Card type successfully set: JUNIOR
+2025-12-24 15:48:42.130 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:48:42.130 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:48:42.130 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:48:42.130 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:48:42.131 [main] INFO  program.Bank.Card - Setting existing card ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:48:42.131 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:48:42.131 [main] INFO  program.Bank.DataBase - Fetching card data by ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:48:42.212 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:48:42.212 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:48:42.212 [main] INFO  program.Bank.Card - Setting card number: 5056  7890 0000 1111
+2025-12-24 15:48:42.212 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:48:42.213 [main] INFO  program.Bank.Card - Setting card balance: 1600.0000
+2025-12-24 15:48:42.213 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:48:42.213 [main] INFO  program.Bank.Card - Setting card currency: USD
+2025-12-24 15:48:42.213 [main] DEBUG program.Bank.Card - Card currency successfully set: USD
+2025-12-24 15:48:42.213 [main] INFO  program.Bank.Card - Setting card type: UNIVERSAL
+2025-12-24 15:48:42.213 [main] DEBUG program.Bank.Card - Card type successfully set: UNIVERSAL
+2025-12-24 15:48:42.213 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:48:42.213 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:48:42.213 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:48:42.214 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:48:42.214 [main] INFO  program.Bank.Card - Setting existing card ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:48:42.214 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:48:42.214 [main] INFO  program.Bank.DataBase - Fetching card data by ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:48:42.291 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:48:42.291 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:48:42.291 [main] INFO  program.Bank.Card - Setting card number: 4149 1122 3344 5555
+2025-12-24 15:48:42.291 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:48:42.291 [main] INFO  program.Bank.Card - Setting card balance: 0.0000
+2025-12-24 15:48:42.291 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:48:42.291 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:48:42.292 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:48:42.292 [main] INFO  program.Bank.Card - Setting card type: UNIVERSAL
+2025-12-24 15:48:42.292 [main] DEBUG program.Bank.Card - Card type successfully set: UNIVERSAL
+2025-12-24 15:48:42.292 [main] INFO  program.Bank.Card - Setting card status: CLOSED
+2025-12-24 15:48:42.292 [main] DEBUG program.Bank.Card - Card status successfully set: CLOSED
+2025-12-24 15:48:42.292 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:48:42.292 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:48:42.293 [main] INFO  program.Bank.Card - Setting existing card ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:48:42.293 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:48:42.293 [main] INFO  program.Bank.DataBase - Fetching card data by ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:48:42.371 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:48:42.372 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:48:42.372 [main] INFO  program.Bank.Card - Setting card number: 4149 0643 3330 9842
+2025-12-24 15:48:42.372 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:48:42.372 [main] INFO  program.Bank.Card - Setting card balance: 141.0100
+2025-12-24 15:48:42.372 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:48:42.372 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:48:42.372 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:48:42.372 [main] INFO  program.Bank.Card - Setting card type: ESUPPORT
+2025-12-24 15:48:42.373 [main] DEBUG program.Bank.Card - Card type successfully set: ESUPPORT
+2025-12-24 15:48:42.373 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:48:42.373 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:48:42.373 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:48:42.373 [main] DEBUG program.Bank.Services.DepositeService - Getting list of deposits for client: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:48:42.632 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d7262bc3-846d-4c69-aafc-e5fd8adfaa10.
+2025-12-24 15:48:42.632 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d7262bc3-846d-4c69-aafc-e5fd8adfaa10.
+2025-12-24 15:48:42.632 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d7262bc3-846d-4c69-aafc-e5fd8adfaa10
+2025-12-24 15:48:42.716 [main] DEBUG program.Bank.Deposit - Client's ID was set: 73b54d65-3f52-4690-98f2-447ddf232b83.
+2025-12-24 15:48:42.716 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
+2025-12-24 15:48:42.717 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
+2025-12-24 15:48:42.717 [main] DEBUG program.Bank.Deposit - Open date was set: 2025-12-24.
+2025-12-24 15:48:42.717 [main] DEBUG program.Bank.Deposit - Close date was set: 2026-03-24.
+2025-12-24 15:48:42.717 [main] DEBUG program.Bank.Deposit - Interest rate was set: 1.4000.
+2025-12-24 15:48:42.717 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
+2025-12-24 15:48:42.717 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
+2025-12-24 15:48:42.718 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
+2025-12-24 15:48:42.718 [main] DEBUG program.Bank.Services.LoanService - Getting list of loans for client: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:48:42.799 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1.
+2025-12-24 15:48:42.800 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1
+2025-12-24 15:48:42.899 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 73b54d65-3f52-4690-98f2-447ddf232b83.
+2025-12-24 15:48:42.899 [main] DEBUG program.Bank.Loan - Original sum set: 450.0000.
+2025-12-24 15:48:42.899 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
+2025-12-24 15:48:42.899 [main] DEBUG program.Bank.Loan - Interest rate set: 0.2000. Monthly rate calculated.
+2025-12-24 15:48:42.900 [main] DEBUG program.Bank.Loan - Open date set: 2025-05-03.
+2025-12-24 15:48:42.900 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 64.35000000.
+2025-12-24 15:48:42.900 [main] DEBUG program.Bank.Loan - Monthly payment set: 64.35000000.
+2025-12-24 15:48:42.901 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 64.35000000.
+2025-12-24 15:48:42.901 [main] DEBUG program.Bank.Loan - Close date set: 2025-12-31. Term calculated: 7 months.
+2025-12-24 15:48:42.901 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
+2025-12-24 15:48:42.901 [main] DEBUG program.Bank.DataBase - Loan loaded successfully
+2025-12-24 15:48:42.902 [main] DEBUG program.Bank.Card - Converting card data to text representation
+2025-12-24 15:48:42.906 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:48:42.984 [main] INFO  program.Bank.Services.TransactionService - Found 0 transactions for account d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:48:42.984 [main] DEBUG program.Bank.Card - Converting card data to text representation
+2025-12-24 15:48:42.985 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:48:43.062 [main] DEBUG program.Bank.Transaction - Initialized Transaction with existing ID: dfe55040-4dba-4385-ac67-f0033870f289.
+2025-12-24 15:48:43.062 [main] INFO  program.Bank.DataBase - Fetching transaction data by ID: dfe55040-4dba-4385-ac67-f0033870f289
+2025-12-24 15:48:43.146 [main] DEBUG program.Bank.Transaction - Transaction sum set: 100.0000 (Sign: +).
+2025-12-24 15:48:43.147 [main] DEBUG program.Bank.Transaction - Sender account ID set: 180377e1-45ac-4f2d-9060-f25e257619c0.
+2025-12-24 15:48:43.147 [main] DEBUG program.Bank.Transaction - Receiver account ID set: 302629bd-baff-412e-ac6a-d3a9d181f85a.
+2025-12-24 15:48:43.148 [main] DEBUG program.Bank.Transaction - Transaction status updated: COMPLETED.
+2025-12-24 15:48:43.148 [main] INFO  program.Bank.Services.TransactionService - Found 1 transactions for account 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:48:43.151 [main] DEBUG program.Bank.Card - Converting card data to text representation
+2025-12-24 15:48:43.151 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:48:43.228 [main] DEBUG program.Bank.Transaction - Initialized Transaction with existing ID: c74b35bb-f721-42a8-84a7-fe7f1998fedc.
+2025-12-24 15:48:43.229 [main] INFO  program.Bank.DataBase - Fetching transaction data by ID: c74b35bb-f721-42a8-84a7-fe7f1998fedc
+2025-12-24 15:48:43.413 [main] DEBUG program.Bank.Transaction - Transaction sum set: 50.0000 (Sign: +).
+2025-12-24 15:48:43.413 [main] DEBUG program.Bank.Transaction - Sender account ID set: bf35242d-0bed-47a2-bab8-918ec93a4943.
+2025-12-24 15:48:43.413 [main] DEBUG program.Bank.Transaction - Receiver account ID set: c0000002-2222-2222-2222-222222222222.
+2025-12-24 15:48:43.413 [main] DEBUG program.Bank.Transaction - Transaction status updated: COMPLETED.
+2025-12-24 15:48:43.414 [main] DEBUG program.Bank.Transaction - Initialized Transaction with existing ID: fc1c2e05-45c0-4c7d-b439-7ef3889faa50.
+2025-12-24 15:48:43.414 [main] INFO  program.Bank.DataBase - Fetching transaction data by ID: fc1c2e05-45c0-4c7d-b439-7ef3889faa50
+2025-12-24 15:48:43.490 [main] DEBUG program.Bank.Transaction - Transaction sum set: 500.0000 (Sign: +).
+2025-12-24 15:48:43.490 [main] DEBUG program.Bank.Transaction - Sender account ID set: bf35242d-0bed-47a2-bab8-918ec93a4943.
+2025-12-24 15:48:43.490 [main] DEBUG program.Bank.Transaction - Receiver account ID set: 180377e1-45ac-4f2d-9060-f25e257619c0.
+2025-12-24 15:48:43.490 [main] DEBUG program.Bank.Transaction - Transaction status updated: COMPLETED.
+2025-12-24 15:48:43.491 [main] INFO  program.Bank.Services.TransactionService - Found 2 transactions for account bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:48:43.493 [main] DEBUG program.Bank.Card - Converting card data to text representation
+2025-12-24 15:48:43.493 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:48:43.573 [main] DEBUG program.Bank.Transaction - Initialized Transaction with existing ID: 3314b44f-5aa5-4da4-aebb-d8828268a0b6.
+2025-12-24 15:48:43.573 [main] INFO  program.Bank.DataBase - Fetching transaction data by ID: 3314b44f-5aa5-4da4-aebb-d8828268a0b6
+2025-12-24 15:48:43.656 [main] DEBUG program.Bank.Transaction - Transaction sum set: 12.0000 (Sign: +).
+2025-12-24 15:48:43.656 [main] DEBUG program.Bank.Transaction - Sender account ID set: 9d654faf-fd46-4113-9787-607c12b96b0e.
+2025-12-24 15:48:43.656 [main] DEBUG program.Bank.Transaction - Receiver account ID set: c0000007-7777-7777-7777-777777777777.
+2025-12-24 15:48:43.656 [main] DEBUG program.Bank.Transaction - Transaction status updated: COMPLETED.
+2025-12-24 15:48:43.657 [main] INFO  program.Bank.Services.TransactionService - Found 1 transactions for account 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:48:43.659 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d7262bc3-846d-4c69-aafc-e5fd8adfaa10.
+2025-12-24 15:48:43.659 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 0, Sum = 10000.0000, Rate = 1.4000.
+2025-12-24 15:48:43.659 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.00.
+2025-12-24 15:48:43.659 [main] DEBUG program.Bank.StandardDeposit - Calculated profit for StandardDeposit d7262bc3-846d-4c69-aafc-e5fd8adfaa10: 0.00.
+2025-12-24 15:48:43.660 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: d7262bc3-846d-4c69-aafc-e5fd8adfaa10
+2025-12-24 15:48:43.736 [main] INFO  program.Bank.Services.TransactionService - Found 0 transactions for account d7262bc3-846d-4c69-aafc-e5fd8adfaa10
+2025-12-24 15:48:43.741 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: 0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1
+2025-12-24 15:48:43.827 [main] INFO  program.Bank.Services.TransactionService - Found 0 transactions for account 0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1
+2025-12-24 15:51:54.818 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
+2025-12-24 15:51:54.819 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
+2025-12-24 15:53:23.659 [main] DEBUG program.Bank.DataBase - Created DateBase.
+2025-12-24 15:53:23.681 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:53:23.683 [main] DEBUG program.Bank.Menu.Menu - Register new Client has been added
+2025-12-24 15:53:23.685 [main] DEBUG program.Bank.Menu.Menu - Log into Client's cabinet has been added
+2025-12-24 15:53:29.352 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:53:29.355 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by full name has been added
+2025-12-24 15:53:29.357 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by passport number has been added
+2025-12-24 15:53:29.359 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by phone number has been added
+2025-12-24 15:53:29.359 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:53:35.351 [main] INFO  program.Bank.Services.ClientService - Searching client by passport.
+2025-12-24 15:53:35.882 [main] DEBUG program.Bank.Client - Creating Client instance with existing ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:53:35.883 [main] INFO  program.Bank.Client - Setting existing client ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:53:35.883 [main] DEBUG program.Bank.Client - Client ID successfully set
+2025-12-24 15:53:35.883 [main] INFO  program.Bank.DataBase - Loading client data by ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:53:35.975 [main] INFO  program.Bank.Client - Setting full name: Butsenko Mariia
+2025-12-24 15:53:35.975 [main] DEBUG program.Bank.Client - Full name successfully set: Butsenko Mariia
+2025-12-24 15:53:35.978 [main] INFO  program.Bank.Client - Setting date of birth: 2006-05-26
+2025-12-24 15:53:35.978 [main] DEBUG program.Bank.Client - Date of birth successfully set
+2025-12-24 15:53:35.978 [main] INFO  program.Bank.Client - Setting gender: W
+2025-12-24 15:53:35.978 [main] DEBUG program.Bank.Client - Gender successfully set: W
+2025-12-24 15:53:35.979 [main] INFO  program.Bank.Client - Setting nationality: Ukrainian
+2025-12-24 15:53:35.979 [main] DEBUG program.Bank.Client - Nationality successfully set: Ukrainian
+2025-12-24 15:53:35.979 [main] INFO  program.Bank.Client - Setting mobile phone: +380996703512
+2025-12-24 15:53:35.980 [main] DEBUG program.Bank.Client - Phone number successfully set
+2025-12-24 15:53:35.980 [main] INFO  program.Bank.Client - Setting individual tax number (ITN)
+2025-12-24 15:53:35.980 [main] DEBUG program.Bank.Client - ITN successfully set: 11111
+2025-12-24 15:53:35.981 [main] INFO  program.Bank.Client - Setting passport number
+2025-12-24 15:53:35.981 [main] DEBUG program.Bank.Client - Passport number successfully set: 1111
+2025-12-24 15:53:35.981 [main] INFO  program.Bank.Client - Setting legal address: Heroiv Maidanu 9, 475
+2025-12-24 15:53:35.981 [main] DEBUG program.Bank.Client - Legal address successfully set: Heroiv Maidanu 9, 475
+2025-12-24 15:53:35.981 [main] INFO  program.Bank.Client - Setting place of birth: Cherkassy
+2025-12-24 15:53:35.982 [main] DEBUG program.Bank.Client - Place of birth successfully set: Cherkassy
+2025-12-24 15:53:35.982 [main] INFO  program.Bank.Client - Setting record number
+2025-12-24 15:53:35.982 [main] DEBUG program.Bank.Client - Record number successfully set: 111
+2025-12-24 15:53:35.983 [main] INFO  program.Bank.Client - Setting place of work/study: CHNU
+2025-12-24 15:53:35.983 [main] DEBUG program.Bank.Client - Place of work/study successfully set: CHNU
+2025-12-24 15:53:35.984 [main] INFO  program.Bank.Client - Setting client status: ACTIVE
+2025-12-24 15:53:35.985 [main] DEBUG program.Bank.Client - Client status successfully set: ACTIVE
+2025-12-24 15:53:35.985 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
+2025-12-24 15:53:35.987 [main] INFO  program.Bank.Services.ClientService - Client found: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:53:35.991 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:53:35.992 [main] DEBUG program.Bank.Menu.Menu - Client's full information has been added
+2025-12-24 15:53:35.994 [main] DEBUG program.Bank.Menu.Menu - Cards has been added
+2025-12-24 15:53:35.996 [main] DEBUG program.Bank.Menu.Menu - Deposit has been added
+2025-12-24 15:53:35.998 [main] DEBUG program.Bank.Menu.Menu - Credits has been added
+2025-12-24 15:53:36.000 [main] DEBUG program.Bank.Menu.Menu - Transactions' history has been added
+2025-12-24 15:53:36.000 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:53:38.212 [main] DEBUG program.Bank.Services.CardService - Getting list of cards for client: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:53:38.344 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:53:38.345 [main] INFO  program.Bank.Card - Setting existing card ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:53:38.345 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:53:38.345 [main] INFO  program.Bank.DataBase - Fetching card data by ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:53:38.549 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:53:38.549 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:53:38.549 [main] INFO  program.Bank.Card - Setting card number: 5152 8973 6666 5555
+2025-12-24 15:53:38.549 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:53:38.574 [main] INFO  program.Bank.Card - Setting card balance: 10320.0235
+2025-12-24 15:53:38.575 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:53:38.575 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:53:38.575 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:53:38.577 [main] INFO  program.Bank.Card - Setting card type: JUNIOR
+2025-12-24 15:53:38.577 [main] DEBUG program.Bank.Card - Card type successfully set: JUNIOR
+2025-12-24 15:53:38.579 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:53:38.580 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:53:38.580 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:53:38.581 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:53:38.581 [main] INFO  program.Bank.Card - Setting existing card ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:53:38.581 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:53:38.581 [main] INFO  program.Bank.DataBase - Fetching card data by ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:53:38.666 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:53:38.667 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:53:38.667 [main] INFO  program.Bank.Card - Setting card number: 5056  7890 0000 1111
+2025-12-24 15:53:38.667 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:53:38.667 [main] INFO  program.Bank.Card - Setting card balance: 1600.0000
+2025-12-24 15:53:38.667 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:53:38.668 [main] INFO  program.Bank.Card - Setting card currency: USD
+2025-12-24 15:53:38.668 [main] DEBUG program.Bank.Card - Card currency successfully set: USD
+2025-12-24 15:53:38.668 [main] INFO  program.Bank.Card - Setting card type: UNIVERSAL
+2025-12-24 15:53:38.668 [main] DEBUG program.Bank.Card - Card type successfully set: UNIVERSAL
+2025-12-24 15:53:38.668 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:53:38.668 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:53:38.669 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:53:38.669 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:53:38.670 [main] INFO  program.Bank.Card - Setting existing card ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:53:38.670 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:53:38.670 [main] INFO  program.Bank.DataBase - Fetching card data by ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:53:38.771 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:53:38.771 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:53:38.771 [main] INFO  program.Bank.Card - Setting card number: 4149 1122 3344 5555
+2025-12-24 15:53:38.771 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:53:38.771 [main] INFO  program.Bank.Card - Setting card balance: 0.0000
+2025-12-24 15:53:38.772 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:53:38.772 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:53:38.772 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:53:38.772 [main] INFO  program.Bank.Card - Setting card type: UNIVERSAL
+2025-12-24 15:53:38.772 [main] DEBUG program.Bank.Card - Card type successfully set: UNIVERSAL
+2025-12-24 15:53:38.772 [main] INFO  program.Bank.Card - Setting card status: CLOSED
+2025-12-24 15:53:38.772 [main] DEBUG program.Bank.Card - Card status successfully set: CLOSED
+2025-12-24 15:53:38.772 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:53:38.773 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:53:38.773 [main] INFO  program.Bank.Card - Setting existing card ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:53:38.773 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:53:38.773 [main] INFO  program.Bank.DataBase - Fetching card data by ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:53:38.862 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:53:38.862 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:53:38.862 [main] INFO  program.Bank.Card - Setting card number: 4149 0643 3330 9842
+2025-12-24 15:53:38.862 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:53:38.862 [main] INFO  program.Bank.Card - Setting card balance: 141.0100
+2025-12-24 15:53:38.862 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:53:38.863 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:53:38.863 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:53:38.863 [main] INFO  program.Bank.Card - Setting card type: ESUPPORT
+2025-12-24 15:53:38.863 [main] DEBUG program.Bank.Card - Card type successfully set: ESUPPORT
+2025-12-24 15:53:38.863 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:53:38.863 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:53:38.863 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:53:38.864 [main] DEBUG program.Bank.Services.DepositeService - Getting list of deposits for client: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:53:39.148 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d7262bc3-846d-4c69-aafc-e5fd8adfaa10.
+2025-12-24 15:53:39.149 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d7262bc3-846d-4c69-aafc-e5fd8adfaa10.
+2025-12-24 15:53:39.149 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d7262bc3-846d-4c69-aafc-e5fd8adfaa10
+2025-12-24 15:53:39.338 [main] DEBUG program.Bank.Deposit - Client's ID was set: 73b54d65-3f52-4690-98f2-447ddf232b83.
+2025-12-24 15:53:39.338 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
+2025-12-24 15:53:39.338 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
+2025-12-24 15:53:39.339 [main] DEBUG program.Bank.Deposit - Open date was set: 2025-12-24.
+2025-12-24 15:53:39.339 [main] DEBUG program.Bank.Deposit - Close date was set: 2026-03-24.
+2025-12-24 15:53:39.339 [main] DEBUG program.Bank.Deposit - Interest rate was set: 1.4000.
+2025-12-24 15:53:39.339 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
+2025-12-24 15:53:39.340 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
+2025-12-24 15:53:39.341 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
+2025-12-24 15:53:39.342 [main] DEBUG program.Bank.Services.LoanService - Getting list of loans for client: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:53:39.438 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1.
+2025-12-24 15:53:39.438 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1
+2025-12-24 15:53:39.530 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 73b54d65-3f52-4690-98f2-447ddf232b83.
+2025-12-24 15:53:39.531 [main] DEBUG program.Bank.Loan - Original sum set: 450.0000.
+2025-12-24 15:53:39.531 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
+2025-12-24 15:53:39.531 [main] DEBUG program.Bank.Loan - Interest rate set: 0.2000. Monthly rate calculated.
+2025-12-24 15:53:39.531 [main] DEBUG program.Bank.Loan - Open date set: 2025-05-03.
+2025-12-24 15:53:39.533 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 64.35000000.
+2025-12-24 15:53:39.533 [main] DEBUG program.Bank.Loan - Monthly payment set: 64.35000000.
+2025-12-24 15:53:39.533 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 64.35000000.
+2025-12-24 15:53:39.534 [main] DEBUG program.Bank.Loan - Close date set: 2025-12-31. Term calculated: 7 months.
+2025-12-24 15:53:39.536 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
+2025-12-24 15:53:39.536 [main] DEBUG program.Bank.DataBase - Loan loaded successfully
+2025-12-24 15:53:39.537 [main] DEBUG program.Bank.Card - Converting card data to text representation
+2025-12-24 15:53:39.544 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:53:39.627 [main] INFO  program.Bank.Services.TransactionService - Found 0 transactions for account d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:53:39.628 [main] DEBUG program.Bank.Card - Converting card data to text representation
+2025-12-24 15:53:39.629 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:53:39.713 [main] DEBUG program.Bank.Transaction - Initialized Transaction with existing ID: dfe55040-4dba-4385-ac67-f0033870f289.
+2025-12-24 15:53:39.713 [main] INFO  program.Bank.DataBase - Fetching transaction data by ID: dfe55040-4dba-4385-ac67-f0033870f289
+2025-12-24 15:53:39.916 [main] DEBUG program.Bank.Transaction - Transaction sum set: 100.0000 (Sign: +).
+2025-12-24 15:53:39.917 [main] DEBUG program.Bank.Transaction - Sender account ID set: 180377e1-45ac-4f2d-9060-f25e257619c0.
+2025-12-24 15:53:39.918 [main] DEBUG program.Bank.Transaction - Receiver account ID set: 302629bd-baff-412e-ac6a-d3a9d181f85a.
+2025-12-24 15:53:39.920 [main] DEBUG program.Bank.Transaction - Transaction status updated: COMPLETED.
+2025-12-24 15:53:39.921 [main] INFO  program.Bank.Services.TransactionService - Found 1 transactions for account 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:53:39.924 [main] DEBUG program.Bank.Card - Converting card data to text representation
+2025-12-24 15:53:39.924 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:53:40.017 [main] DEBUG program.Bank.Transaction - Initialized Transaction with existing ID: c74b35bb-f721-42a8-84a7-fe7f1998fedc.
+2025-12-24 15:53:40.017 [main] INFO  program.Bank.DataBase - Fetching transaction data by ID: c74b35bb-f721-42a8-84a7-fe7f1998fedc
+2025-12-24 15:53:40.101 [main] DEBUG program.Bank.Transaction - Transaction sum set: 50.0000 (Sign: +).
+2025-12-24 15:53:40.101 [main] DEBUG program.Bank.Transaction - Sender account ID set: bf35242d-0bed-47a2-bab8-918ec93a4943.
+2025-12-24 15:53:40.101 [main] DEBUG program.Bank.Transaction - Receiver account ID set: c0000002-2222-2222-2222-222222222222.
+2025-12-24 15:53:40.101 [main] DEBUG program.Bank.Transaction - Transaction status updated: COMPLETED.
+2025-12-24 15:53:40.102 [main] DEBUG program.Bank.Transaction - Initialized Transaction with existing ID: fc1c2e05-45c0-4c7d-b439-7ef3889faa50.
+2025-12-24 15:53:40.102 [main] INFO  program.Bank.DataBase - Fetching transaction data by ID: fc1c2e05-45c0-4c7d-b439-7ef3889faa50
+2025-12-24 15:53:40.186 [main] DEBUG program.Bank.Transaction - Transaction sum set: 500.0000 (Sign: +).
+2025-12-24 15:53:40.186 [main] DEBUG program.Bank.Transaction - Sender account ID set: bf35242d-0bed-47a2-bab8-918ec93a4943.
+2025-12-24 15:53:40.186 [main] DEBUG program.Bank.Transaction - Receiver account ID set: 180377e1-45ac-4f2d-9060-f25e257619c0.
+2025-12-24 15:53:40.187 [main] DEBUG program.Bank.Transaction - Transaction status updated: COMPLETED.
+2025-12-24 15:53:40.187 [main] INFO  program.Bank.Services.TransactionService - Found 2 transactions for account bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:53:40.190 [main] DEBUG program.Bank.Card - Converting card data to text representation
+2025-12-24 15:53:40.190 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:53:40.281 [main] DEBUG program.Bank.Transaction - Initialized Transaction with existing ID: 3314b44f-5aa5-4da4-aebb-d8828268a0b6.
+2025-12-24 15:53:40.281 [main] INFO  program.Bank.DataBase - Fetching transaction data by ID: 3314b44f-5aa5-4da4-aebb-d8828268a0b6
+2025-12-24 15:53:40.357 [main] DEBUG program.Bank.Transaction - Transaction sum set: 12.0000 (Sign: +).
+2025-12-24 15:53:40.358 [main] DEBUG program.Bank.Transaction - Sender account ID set: 9d654faf-fd46-4113-9787-607c12b96b0e.
+2025-12-24 15:53:40.358 [main] DEBUG program.Bank.Transaction - Receiver account ID set: c0000007-7777-7777-7777-777777777777.
+2025-12-24 15:53:40.358 [main] DEBUG program.Bank.Transaction - Transaction status updated: COMPLETED.
+2025-12-24 15:53:40.358 [main] INFO  program.Bank.Services.TransactionService - Found 1 transactions for account 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:53:40.360 [main] DEBUG program.Bank.StandardDeposit - Starting standard profit calculation for Deposit d7262bc3-846d-4c69-aafc-e5fd8adfaa10.
+2025-12-24 15:53:40.361 [main] DEBUG program.Bank.StandardDeposit - Calculation parameters: Days = 0, Sum = 10000.0000, Rate = 1.4000.
+2025-12-24 15:53:40.361 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.00.
+2025-12-24 15:53:40.361 [main] DEBUG program.Bank.StandardDeposit - Calculated profit for StandardDeposit d7262bc3-846d-4c69-aafc-e5fd8adfaa10: 0.00.
+2025-12-24 15:53:40.365 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: d7262bc3-846d-4c69-aafc-e5fd8adfaa10
+2025-12-24 15:53:40.438 [main] INFO  program.Bank.Services.TransactionService - Found 0 transactions for account d7262bc3-846d-4c69-aafc-e5fd8adfaa10
+2025-12-24 15:53:40.445 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: 0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1
+2025-12-24 15:53:40.524 [main] INFO  program.Bank.Services.TransactionService - Found 0 transactions for account 0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1
+2025-12-24 15:55:29.248 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
+2025-12-24 15:55:29.249 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
+2025-12-24 15:56:03.498 [main] DEBUG program.Bank.DataBase - Created DateBase.
+2025-12-24 15:56:03.519 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:56:03.520 [main] DEBUG program.Bank.Menu.Menu - Register new Client has been added
+2025-12-24 15:56:03.521 [main] DEBUG program.Bank.Menu.Menu - Log into Client's cabinet has been added
+2025-12-24 15:56:06.633 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:56:06.635 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by full name has been added
+2025-12-24 15:56:06.638 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by passport number has been added
+2025-12-24 15:56:06.640 [main] DEBUG program.Bank.Menu.Menu - Enter Client's account by phone number has been added
+2025-12-24 15:56:06.641 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:56:13.563 [main] INFO  program.Bank.Services.ClientService - Searching client by passport.
+2025-12-24 15:56:14.088 [main] DEBUG program.Bank.Client - Creating Client instance with existing ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:56:14.089 [main] INFO  program.Bank.Client - Setting existing client ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:56:14.089 [main] DEBUG program.Bank.Client - Client ID successfully set
+2025-12-24 15:56:14.089 [main] INFO  program.Bank.DataBase - Loading client data by ID: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:56:14.298 [main] INFO  program.Bank.Client - Setting full name: Butsenko Mariia
+2025-12-24 15:56:14.299 [main] DEBUG program.Bank.Client - Full name successfully set: Butsenko Mariia
+2025-12-24 15:56:14.302 [main] INFO  program.Bank.Client - Setting date of birth: 2006-05-26
+2025-12-24 15:56:14.302 [main] DEBUG program.Bank.Client - Date of birth successfully set
+2025-12-24 15:56:14.302 [main] INFO  program.Bank.Client - Setting gender: W
+2025-12-24 15:56:14.302 [main] DEBUG program.Bank.Client - Gender successfully set: W
+2025-12-24 15:56:14.303 [main] INFO  program.Bank.Client - Setting nationality: Ukrainian
+2025-12-24 15:56:14.303 [main] DEBUG program.Bank.Client - Nationality successfully set: Ukrainian
+2025-12-24 15:56:14.303 [main] INFO  program.Bank.Client - Setting mobile phone: +380996703512
+2025-12-24 15:56:14.304 [main] DEBUG program.Bank.Client - Phone number successfully set
+2025-12-24 15:56:14.304 [main] INFO  program.Bank.Client - Setting individual tax number (ITN)
+2025-12-24 15:56:14.305 [main] DEBUG program.Bank.Client - ITN successfully set: 11111
+2025-12-24 15:56:14.305 [main] INFO  program.Bank.Client - Setting passport number
+2025-12-24 15:56:14.305 [main] DEBUG program.Bank.Client - Passport number successfully set: 1111
+2025-12-24 15:56:14.305 [main] INFO  program.Bank.Client - Setting legal address: Heroiv Maidanu 9, 475
+2025-12-24 15:56:14.305 [main] DEBUG program.Bank.Client - Legal address successfully set: Heroiv Maidanu 9, 475
+2025-12-24 15:56:14.306 [main] INFO  program.Bank.Client - Setting place of birth: Cherkassy
+2025-12-24 15:56:14.306 [main] DEBUG program.Bank.Client - Place of birth successfully set: Cherkassy
+2025-12-24 15:56:14.306 [main] INFO  program.Bank.Client - Setting record number
+2025-12-24 15:56:14.306 [main] DEBUG program.Bank.Client - Record number successfully set: 111
+2025-12-24 15:56:14.306 [main] INFO  program.Bank.Client - Setting place of work/study: CHNU
+2025-12-24 15:56:14.306 [main] DEBUG program.Bank.Client - Place of work/study successfully set: CHNU
+2025-12-24 15:56:14.309 [main] INFO  program.Bank.Client - Setting client status: ACTIVE
+2025-12-24 15:56:14.309 [main] DEBUG program.Bank.Client - Client status successfully set: ACTIVE
+2025-12-24 15:56:14.309 [main] DEBUG program.Bank.DataBase - Fetched client successfully.
+2025-12-24 15:56:14.312 [main] INFO  program.Bank.Services.ClientService - Client found: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:56:14.317 [main] DEBUG program.Bank.Menu.Menu - Return has been added
+2025-12-24 15:56:14.319 [main] DEBUG program.Bank.Menu.Menu - Client's full information has been added
+2025-12-24 15:56:14.321 [main] DEBUG program.Bank.Menu.Menu - Cards has been added
+2025-12-24 15:56:14.324 [main] DEBUG program.Bank.Menu.Menu - Deposit has been added
+2025-12-24 15:56:14.326 [main] DEBUG program.Bank.Menu.Menu - Credits has been added
+2025-12-24 15:56:14.328 [main] DEBUG program.Bank.Menu.Menu - Transactions' history has been added
+2025-12-24 15:56:14.328 [main] DEBUG program.Bank.Menu.Menu - Exit has been added
+2025-12-24 15:56:16.294 [main] DEBUG program.Bank.Services.CardService - Getting list of cards for client: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:56:16.419 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:56:16.420 [main] INFO  program.Bank.Card - Setting existing card ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:56:16.420 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:56:16.420 [main] INFO  program.Bank.DataBase - Fetching card data by ID: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:56:16.516 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:56:16.516 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:56:16.516 [main] INFO  program.Bank.Card - Setting card number: 5152 8973 6666 5555
+2025-12-24 15:56:16.516 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:56:16.543 [main] INFO  program.Bank.Card - Setting card balance: 10320.0235
+2025-12-24 15:56:16.543 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:56:16.543 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:56:16.543 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:56:16.545 [main] INFO  program.Bank.Card - Setting card type: JUNIOR
+2025-12-24 15:56:16.545 [main] DEBUG program.Bank.Card - Card type successfully set: JUNIOR
+2025-12-24 15:56:16.546 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:56:16.547 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:56:16.547 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:56:16.548 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:56:16.548 [main] INFO  program.Bank.Card - Setting existing card ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:56:16.548 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:56:16.549 [main] INFO  program.Bank.DataBase - Fetching card data by ID: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:56:16.634 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:56:16.634 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:56:16.634 [main] INFO  program.Bank.Card - Setting card number: 5056  7890 0000 1111
+2025-12-24 15:56:16.635 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:56:16.635 [main] INFO  program.Bank.Card - Setting card balance: 1600.0000
+2025-12-24 15:56:16.635 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:56:16.635 [main] INFO  program.Bank.Card - Setting card currency: USD
+2025-12-24 15:56:16.635 [main] DEBUG program.Bank.Card - Card currency successfully set: USD
+2025-12-24 15:56:16.636 [main] INFO  program.Bank.Card - Setting card type: UNIVERSAL
+2025-12-24 15:56:16.636 [main] DEBUG program.Bank.Card - Card type successfully set: UNIVERSAL
+2025-12-24 15:56:16.636 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:56:16.636 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:56:16.636 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:56:16.637 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:56:16.637 [main] INFO  program.Bank.Card - Setting existing card ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:56:16.637 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:56:16.638 [main] INFO  program.Bank.DataBase - Fetching card data by ID: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:56:16.725 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:56:16.725 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:56:16.725 [main] INFO  program.Bank.Card - Setting card number: 4149 1122 3344 5555
+2025-12-24 15:56:16.725 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:56:16.725 [main] INFO  program.Bank.Card - Setting card balance: 0.0000
+2025-12-24 15:56:16.725 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:56:16.725 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:56:16.726 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:56:16.726 [main] INFO  program.Bank.Card - Setting card type: UNIVERSAL
+2025-12-24 15:56:16.726 [main] DEBUG program.Bank.Card - Card type successfully set: UNIVERSAL
+2025-12-24 15:56:16.726 [main] INFO  program.Bank.Card - Setting card status: CLOSED
+2025-12-24 15:56:16.726 [main] DEBUG program.Bank.Card - Card status successfully set: CLOSED
+2025-12-24 15:56:16.726 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:56:16.727 [main] DEBUG program.Bank.Card - Creating a Card instance with an existing ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:56:16.727 [main] INFO  program.Bank.Card - Setting existing card ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:56:16.727 [main] DEBUG program.Bank.Card - Card ID successfully set
+2025-12-24 15:56:16.727 [main] INFO  program.Bank.DataBase - Fetching card data by ID: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:56:16.813 [main] INFO  program.Bank.Card - Setting client ID for card: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:56:16.813 [main] DEBUG program.Bank.Card - Client ID successfully set for card
+2025-12-24 15:56:16.813 [main] INFO  program.Bank.Card - Setting card number: 4149 0643 3330 9842
+2025-12-24 15:56:16.813 [main] DEBUG program.Bank.Card - Card number successfully set
+2025-12-24 15:56:16.814 [main] INFO  program.Bank.Card - Setting card balance: 141.0100
+2025-12-24 15:56:16.814 [main] DEBUG program.Bank.Card - Card balance successfully set
+2025-12-24 15:56:16.814 [main] INFO  program.Bank.Card - Setting card currency: UAH
+2025-12-24 15:56:16.814 [main] DEBUG program.Bank.Card - Card currency successfully set: UAH
+2025-12-24 15:56:16.814 [main] INFO  program.Bank.Card - Setting card type: ESUPPORT
+2025-12-24 15:56:16.814 [main] DEBUG program.Bank.Card - Card type successfully set: ESUPPORT
+2025-12-24 15:56:16.815 [main] INFO  program.Bank.Card - Setting card status: ACTIVE
+2025-12-24 15:56:16.815 [main] DEBUG program.Bank.Card - Card status successfully set: ACTIVE
+2025-12-24 15:56:16.815 [main] DEBUG program.Bank.DataBase - Card data loaded successfully
+2025-12-24 15:56:16.816 [main] DEBUG program.Bank.Services.DepositeService - Getting list of deposits for client: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:56:16.981 [main] DEBUG program.Bank.Deposit - Deposit ID was set: d7262bc3-846d-4c69-aafc-e5fd8adfaa10.
+2025-12-24 15:56:16.981 [main] DEBUG program.Bank.StandardDeposit - Initialized StandardDeposit with existing ID: d7262bc3-846d-4c69-aafc-e5fd8adfaa10.
+2025-12-24 15:56:16.982 [main] INFO  program.Bank.DataBase - Fetching deposit data by ID: d7262bc3-846d-4c69-aafc-e5fd8adfaa10
+2025-12-24 15:56:17.056 [main] DEBUG program.Bank.Deposit - Client's ID was set: 73b54d65-3f52-4690-98f2-447ddf232b83.
+2025-12-24 15:56:17.056 [main] DEBUG program.Bank.Deposit - Original deposit sum was set: 10000.0000.
+2025-12-24 15:56:17.057 [main] DEBUG program.Bank.Deposit - Deposit profit was set: 0.0000.
+2025-12-24 15:56:17.057 [main] DEBUG program.Bank.Deposit - Open date was set: 2025-12-24.
+2025-12-24 15:56:17.057 [main] DEBUG program.Bank.Deposit - Close date was set: 2026-03-24.
+2025-12-24 15:56:17.057 [main] DEBUG program.Bank.Deposit - Interest rate was set: 1.4000.
+2025-12-24 15:56:17.058 [main] DEBUG program.Bank.Deposit - Currency was set: UAH.
+2025-12-24 15:56:17.058 [main] DEBUG program.Bank.Deposit - Status was set: ACTIVE.
+2025-12-24 15:56:17.059 [main] DEBUG program.Bank.DataBase - Deposit loaded successfully
+2025-12-24 15:56:17.060 [main] DEBUG program.Bank.Services.LoanService - Getting list of loans for client: 73b54d65-3f52-4690-98f2-447ddf232b83
+2025-12-24 15:56:17.146 [main] DEBUG program.Bank.Loan - Initialized Loan with existing ID: 0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1.
+2025-12-24 15:56:17.146 [main] INFO  program.Bank.DataBase - Fetching loan data by ID: 0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1
+2025-12-24 15:56:17.224 [main] DEBUG program.Bank.Loan - Client ID set for Loan: 73b54d65-3f52-4690-98f2-447ddf232b83.
+2025-12-24 15:56:17.224 [main] DEBUG program.Bank.Loan - Original sum set: 450.0000.
+2025-12-24 15:56:17.224 [main] DEBUG program.Bank.Loan - Monthly rate set: 0.0002.
+2025-12-24 15:56:17.224 [main] DEBUG program.Bank.Loan - Interest rate set: 0.2000. Monthly rate calculated.
+2025-12-24 15:56:17.225 [main] DEBUG program.Bank.Loan - Open date set: 2025-05-03.
+2025-12-24 15:56:17.226 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 64.35000000.
+2025-12-24 15:56:17.226 [main] DEBUG program.Bank.Loan - Monthly payment set: 64.35000000.
+2025-12-24 15:56:17.226 [main] DEBUG program.Bank.Loan - Monthly payment calculated: 64.35000000.
+2025-12-24 15:56:17.227 [main] DEBUG program.Bank.Loan - Close date set: 2025-12-31. Term calculated: 7 months.
+2025-12-24 15:56:17.228 [main] DEBUG program.Bank.Loan - Loan status changed to: ACTIVE.
+2025-12-24 15:56:17.228 [main] DEBUG program.Bank.DataBase - Loan loaded successfully
+2025-12-24 15:56:17.229 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:56:17.304 [main] INFO  program.Bank.Services.TransactionService - Found 0 transactions for account d4ff7d93-8ba4-4b4e-a984-7323c90ec455
+2025-12-24 15:56:17.305 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:56:17.383 [main] DEBUG program.Bank.Transaction - Initialized Transaction with existing ID: dfe55040-4dba-4385-ac67-f0033870f289.
+2025-12-24 15:56:17.384 [main] INFO  program.Bank.DataBase - Fetching transaction data by ID: dfe55040-4dba-4385-ac67-f0033870f289
+2025-12-24 15:56:17.464 [main] DEBUG program.Bank.Transaction - Transaction sum set: 100.0000 (Sign: +).
+2025-12-24 15:56:17.464 [main] DEBUG program.Bank.Transaction - Sender account ID set: 180377e1-45ac-4f2d-9060-f25e257619c0.
+2025-12-24 15:56:17.465 [main] DEBUG program.Bank.Transaction - Receiver account ID set: 302629bd-baff-412e-ac6a-d3a9d181f85a.
+2025-12-24 15:56:17.466 [main] DEBUG program.Bank.Transaction - Transaction status updated: COMPLETED.
+2025-12-24 15:56:17.466 [main] INFO  program.Bank.Services.TransactionService - Found 1 transactions for account 302629bd-baff-412e-ac6a-d3a9d181f85a
+2025-12-24 15:56:17.467 [main] DEBUG program.Bank.Card - Converting card data to text representation
+2025-12-24 15:56:17.474 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:56:17.552 [main] DEBUG program.Bank.Transaction - Initialized Transaction with existing ID: c74b35bb-f721-42a8-84a7-fe7f1998fedc.
+2025-12-24 15:56:17.552 [main] INFO  program.Bank.DataBase - Fetching transaction data by ID: c74b35bb-f721-42a8-84a7-fe7f1998fedc
+2025-12-24 15:56:17.627 [main] DEBUG program.Bank.Transaction - Transaction sum set: 50.0000 (Sign: +).
+2025-12-24 15:56:17.627 [main] DEBUG program.Bank.Transaction - Sender account ID set: bf35242d-0bed-47a2-bab8-918ec93a4943.
+2025-12-24 15:56:17.628 [main] DEBUG program.Bank.Transaction - Receiver account ID set: c0000002-2222-2222-2222-222222222222.
+2025-12-24 15:56:17.628 [main] DEBUG program.Bank.Transaction - Transaction status updated: COMPLETED.
+2025-12-24 15:56:17.628 [main] DEBUG program.Bank.Transaction - Initialized Transaction with existing ID: fc1c2e05-45c0-4c7d-b439-7ef3889faa50.
+2025-12-24 15:56:17.628 [main] INFO  program.Bank.DataBase - Fetching transaction data by ID: fc1c2e05-45c0-4c7d-b439-7ef3889faa50
+2025-12-24 15:56:17.708 [main] DEBUG program.Bank.Transaction - Transaction sum set: 500.0000 (Sign: +).
+2025-12-24 15:56:17.709 [main] DEBUG program.Bank.Transaction - Sender account ID set: bf35242d-0bed-47a2-bab8-918ec93a4943.
+2025-12-24 15:56:17.709 [main] DEBUG program.Bank.Transaction - Receiver account ID set: 180377e1-45ac-4f2d-9060-f25e257619c0.
+2025-12-24 15:56:17.709 [main] DEBUG program.Bank.Transaction - Transaction status updated: COMPLETED.
+2025-12-24 15:56:17.710 [main] INFO  program.Bank.Services.TransactionService - Found 2 transactions for account bf35242d-0bed-47a2-bab8-918ec93a4943
+2025-12-24 15:56:17.711 [main] DEBUG program.Bank.Card - Converting card data to text representation
+2025-12-24 15:56:17.713 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:56:17.813 [main] DEBUG program.Bank.Transaction - Initialized Transaction with existing ID: 3314b44f-5aa5-4da4-aebb-d8828268a0b6.
+2025-12-24 15:56:17.813 [main] INFO  program.Bank.DataBase - Fetching transaction data by ID: 3314b44f-5aa5-4da4-aebb-d8828268a0b6
+2025-12-24 15:56:17.889 [main] DEBUG program.Bank.Transaction - Transaction sum set: 12.0000 (Sign: +).
+2025-12-24 15:56:17.889 [main] DEBUG program.Bank.Transaction - Sender account ID set: 9d654faf-fd46-4113-9787-607c12b96b0e.
+2025-12-24 15:56:17.889 [main] DEBUG program.Bank.Transaction - Receiver account ID set: c0000007-7777-7777-7777-777777777777.
+2025-12-24 15:56:17.889 [main] DEBUG program.Bank.Transaction - Transaction status updated: COMPLETED.
+2025-12-24 15:56:17.890 [main] INFO  program.Bank.Services.TransactionService - Found 1 transactions for account 9d654faf-fd46-4113-9787-607c12b96b0e
+2025-12-24 15:56:17.890 [main] DEBUG program.Bank.Card - Converting card data to text representation
+2025-12-24 15:56:17.892 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: d7262bc3-846d-4c69-aafc-e5fd8adfaa10
+2025-12-24 15:56:18.071 [main] INFO  program.Bank.Services.TransactionService - Found 0 transactions for account d7262bc3-846d-4c69-aafc-e5fd8adfaa10
+2025-12-24 15:56:18.072 [main] INFO  program.Bank.Services.TransactionService - Fetching transaction history for account: 0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1
+2025-12-24 15:56:18.151 [main] INFO  program.Bank.Services.TransactionService - Found 0 transactions for account 0fff3861-0460-4dd2-bd7f-5e70e5f2f9a1
+2025-12-24 16:00:01.845 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found
+2025-12-24 16:00:01.845 [main] ERROR program.Bank.Menu.Command - Error occurred: No line found

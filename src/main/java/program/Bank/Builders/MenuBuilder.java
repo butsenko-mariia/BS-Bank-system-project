@@ -162,11 +162,21 @@ public class MenuBuilder {
             allAccounts.addAll(loanService.getClientLoans(client.getId()));
 
             if (allAccounts.isEmpty()) {
-                ui.print("You do not have any active accounts (cards, deposits, or loans).");
+                ui.print("You do not have any active accounts.");
                 return;
             }
 
+            boolean hasAnyHistory = false;
+
             for (Account account : allAccounts) {
+                java.util.List<Transaction> history = transactionService.getTransactionHistory(account.getId());
+
+                if (history.isEmpty()) {
+                    continue;
+                }
+
+                hasAnyHistory = true;
+
                 String type = "ACCOUNT";
                 String info = account.toString();
 
@@ -182,32 +192,25 @@ public class MenuBuilder {
                 ui.print(" " + type + ": " + info + " (" + account.getCurrency() + ")");
                 ui.print("-----------------------------------------------------");
 
-                java.util.List<Transaction> history = transactionService.getTransactionHistory(account.getId());
+                System.out.printf("%-12s | %-22s | %15s%n", "DATE", "INFO", "AMOUNT");
+                System.out.println("------------ | ---------------------- | ---------------");
 
-                if (history.isEmpty()) {
-                    ui.print("  No transactions found.");
-                } else {
-                    System.out.printf("%-12s | %-22s | %-15s%n", "DATE", "INFO", "AMOUNT");
-                    System.out.println("-------------|------------------------|----------------");
+                for (Transaction t : history) {
+                    String date = t.getOpen_date().toString();
+                    String infoText = t.getOperation_info();
 
-                    for (Transaction t : history) {
-                        String date = t.getOpen_date().toString();
-                        String infoText = t.getOperation_info();
+                    if (infoText.length() > 20) infoText = infoText.substring(0, 20) + "..";
 
-                        if (infoText.length() > 20) infoText = infoText.substring(0, 20) + "..";
+                    String amount = t.getSign() + t.getSum() + " " + account.getCurrency();
 
-                        String amount = t.getSign() + t.getSum() + " " + t.getCurrency();
-
-                        System.out.printf("%-12s | %-22s | %15s%n", date, infoText, amount);
-                    }
+                    System.out.printf("%-12s | %-22s | %15s%n", date, infoText, amount);
                 }
             }
             ui.print("-----------------------------------------------------");
-        }));
 
-        clientMenu.add(new Command("Client's data", () -> {
-            clientService.ShortInfoShow(client);
-            clientService.FullInfo(client);
+            if (!hasAnyHistory) {
+                ui.print("No transactions found for any of your accounts.");
+            }
         }));
 
         clientMenu.add(ExitCommand());
@@ -296,28 +299,14 @@ public class MenuBuilder {
 
             String receiverNumber = ui.ask("Enter receiver card number");
             BigDecimal amount = new BigDecimal(ui.ask("Enter amount to transfer"));
+
             boolean success = cardService.Transfer(card, receiverNumber, amount);
-            if (success) {
-                Card receiverCard = cardService.GetCardByNumber(receiverNumber);
-                UUID receiverId = (receiverCard != null) ? receiverCard.getId() : null;
-                transactionService.createTransaction(
-                        card.getId(),
-                        receiverId,
-                        amount,
-                        card.getCurrency(),
-                        "Transfer to " + receiverNumber
-                );
 
-                ui.print("Transaction recorded.");
-           
-
-             if (!success) {
-                ui.print("Transfer failed. Please check balance or card number.");
-
-            } else {
-                ui.print("Transfer failed. Please check balance or card number.");
+            if (!success) {
+                ui.print("Transfer failed. Please check balance, card number or try again later.");
             }
         }));
+
         certainCardMenu.add(new Command("View card's details", () -> {
             cardService.PrintFullDetails(card);
         }));
@@ -332,6 +321,7 @@ public class MenuBuilder {
 
         return certainCardMenu;
     }
+
 
     public Menu DepositMenu(Client client){
         Menu depositMenu = new Menu("=== DEPOSIT CABINET ===");

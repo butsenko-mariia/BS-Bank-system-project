@@ -22,6 +22,7 @@ public abstract class Deposit implements Account {
     private BigDecimal tax_rate = new BigDecimal("0.18");
     private BigDecimal military_rate = new BigDecimal("0.015");
     private static final Logger log = LogManager.getLogger(Deposit.class);
+    private final ConsoleUI ui = new ConsoleUI();
 
     public UUID getId() {
         return id;
@@ -196,6 +197,7 @@ public abstract class Deposit implements Account {
         String info = "#" + this.id + " - " + this.original_sum + " " + this.currency + "(" + (this.interest_rate.multiply(BigDecimal.valueOf(100))) + "%)\n" +
                 "End date: " + this.close_date + "\n" +
                 "Accrued: " + this.profit;
+        ui.print(info);
         log.debug("Object information in 'printInfo method' was printed: {}.", info);
     }
 
