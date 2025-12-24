@@ -14,6 +14,8 @@ import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class CardService {
@@ -217,8 +219,8 @@ public class CardService {
         }
     }
 
-    public java.util.List<Card> getClientCards(UUID clientId) {
-        java.util.List<Card> cards = new java.util.ArrayList<>();
+    public List<Card> getClientCards(UUID clientId) {
+        List<Card> cards = new ArrayList<>();
         String query = "SELECT id FROM card WHERE client_id = ?";
 
         try (Connection conn = dataBase.Connection(); //
@@ -230,7 +232,7 @@ public class CardService {
             while (rs.next()) {
                 UUID cardId = (UUID) rs.getObject("id");
                 Card card = new Card(cardId);
-                dataBase.Fetch(card); // Завантажуємо дані картки
+                dataBase.Fetch(card);
                 cards.add(card);
             }
         } catch (Exception e) {

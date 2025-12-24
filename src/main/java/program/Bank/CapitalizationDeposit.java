@@ -17,6 +17,7 @@ public class CapitalizationDeposit extends Deposit{
         this.setOpen_date();
         this.setCurrency("UAH");
         this.setStatus(AccountStatus.ACTIVE);
+        this.setProfit(BigDecimal.ZERO);
         log.info("Created new CapitalizationDeposit with generated ID: {}.", this.getId());
     }
     public CapitalizationDeposit(UUID id){

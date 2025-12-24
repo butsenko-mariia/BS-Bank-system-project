@@ -9,6 +9,7 @@ import program.Bank.Services.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -110,7 +111,7 @@ public class MenuBuilder {
     }
 
     public void Login(String type, String promptMsg) {
-        String value = ui.ask(promptMsg);
+        String value = ui.ask(promptMsg).trim();
 
         Client client = clientService.SearchClient(type, value);
 
@@ -131,12 +132,12 @@ public class MenuBuilder {
     public Menu ClientMenu(Client client){
         Menu clientMenu = new Menu("=== CLIENT PERSONAL CABINET ===");
 
+        clientMenu.add(new Command("Return", () -> {}));
+
         clientMenu.add(new Command("Client's full information", () -> {
             ui.print("=== CLIENT INFO ===");
             clientService.FullInfo(client);
         }));
-
-        clientMenu.add(new Command("Return", () -> {}));
 
         clientMenu.add(new Command("Cards", () -> {
             Menu cardMenu = CardMenu(client);
@@ -155,7 +156,7 @@ public class MenuBuilder {
 
         clientMenu.add(new Command("Transactions' history", () -> {
             ui.print("\n=== TRANSACTION HISTORY ===");
-            List<Account> allAccounts = new java.util.ArrayList<>();
+            List<Account> allAccounts = new ArrayList<>();
             allAccounts.addAll(cardService.getClientCards(client.getId()));
             allAccounts.addAll(depositeService.getClientDeposits(client.getId()));
             allAccounts.addAll(loanService.getClientLoans(client.getId()));
@@ -216,7 +217,7 @@ public class MenuBuilder {
 
     public Menu CardMenu(Client client){
         Menu cardMenu = new Menu("=== CARDS CABINET ===");
-        ui.print("Your current cards:");
+        ui.print("Your current cards");
         cardService.PrintAllClientsCards(client);
 
         cardMenu.add(new Command("Return", () -> {}));
@@ -292,23 +293,18 @@ public class MenuBuilder {
         }));
         certainCardMenu.add(new Command("Make a transaction", () -> {
             ui.print("=== MONEY TRANSFER ===");
-            String receiverNumber = ui.ask("Enter receiver card number:");
-            BigDecimal amount = new BigDecimal(ui.ask("Enter amount to transfer:"));
+            String receiverNumber = ui.ask("Enter receiver card number");
+            BigDecimal amount = new BigDecimal(ui.ask("Enter amount to transfer"));
             boolean success = cardService.Transfer(card, receiverNumber, amount);
             if (success) {
-                // 1. Нам треба знайти ID картки отримувача, бо TransactionService приймає тільки UUID
                 Card receiverCard = cardService.GetCardByNumber(receiverNumber);
-
-                // (Ми знаємо, що receiverCard існує, бо success = true, але для безпеки можна перевірити)
                 UUID receiverId = (receiverCard != null) ? receiverCard.getId() : null;
-
-                // 2. Викликаємо метод запису історії
                 transactionService.createTransaction(
-                        card.getId(),         // ID відправника (UUID)
-                        receiverId,           // ID отримувача (UUID) - виправлено!
-                        amount,               // Сума
-                        card.getCurrency(),   // Валюта (додали, бо метод вимагає)
-                        "Transfer to " + receiverNumber // Опис
+                        card.getId(),
+                        receiverId,
+                        amount,
+                        card.getCurrency(),
+                        "Transfer to " + receiverNumber
                 );
 
                 ui.print("Transaction recorded.");
