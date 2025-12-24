@@ -19,9 +19,11 @@ import java.util.UUID;
 public class DepositeService {
     private static final Logger log = LogManager.getLogger(DepositeService.class);    private final DataBase dataBase;
     private final ConsoleUI ui =  new ConsoleUI();
+    private final TransactionService transactionService;
 
     public DepositeService(DataBase dataBase) {
         this.dataBase = dataBase;
+        this.transactionService = new TransactionService(dataBase);
     }
 
     public Deposit OpenStandardDeposit(UUID client_id, BigDecimal original_sum, LocalDate open_date, LocalDate close_date,
@@ -38,6 +40,8 @@ public class DepositeService {
         dataBase.Upload(standardDeposit);
 
         log.info("Standard Deposit opened successfully. ID: {}", standardDeposit.getId());
+
+
         return standardDeposit;
     }
 
@@ -70,11 +74,14 @@ public class DepositeService {
 
     public void ShowAllClientDeposits(Client client){
         log.info("Fetching all deposits for client: {}", client.getId());
-        String query = "SELECT id  FROM deposit WHERE client_id = ?";
+
+        // ВИПРАВЛЕННЯ 1: Одразу дістаємо і ID, і TYPE. Це оптимізація і надійність.
+        String query = "SELECT id, deposit_type FROM deposit WHERE client_id = ?";
         boolean foundAny = false;
 
         try (Connection conn = dataBase.Connection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
+
             stmt.setObject(1, client.getId());
             ResultSet rs = stmt.executeQuery();
             ui.print("Your deposits:");
@@ -82,14 +89,23 @@ public class DepositeService {
             while (rs.next()) {
                 foundAny = true;
                 UUID depositId = (UUID) rs.getObject("id");
-                String type = getDepositType(depositId);
-                Deposit deposit = type.equals("StandardDeposit") ? new StandardDeposit(depositId)
-                        : new CapitalizationDeposit(depositId);
+                String type = rs.getString("deposit_type");
+
+                if (type != null) type = type.trim();
+
+                Deposit deposit;
+
+                if ("StandardDeposit".equalsIgnoreCase(type)) {
+                    deposit = new StandardDeposit(depositId);
+                } else {
+                    deposit = new CapitalizationDeposit(depositId);
+                }
 
                 if (deposit != null) {
                     dataBase.Fetch(deposit);
-                    deposit.PrintInfo();
+
                     ui.print("------------------------------");
+                    deposit.PrintInfo();
                 }
             }
 
@@ -97,8 +113,10 @@ public class DepositeService {
                 String mes = "This customer has no open deposits.";
                 log.info(mes);
                 ui.print(mes);
-
+            } else {
+                ui.print("------------------------------");
             }
+
         } catch (Exception e) {
             String mes = "Error when loading deposits: " + e.getMessage();
             log.error(mes);
