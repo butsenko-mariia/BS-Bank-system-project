@@ -17,7 +17,7 @@ import java.sql.ResultSet;
 import java.util.UUID;
 import program.Bank.Enums.TransactionStatus;
 public class CardService {
-    private final Logger log = LogManager.getLogger(CardService.class);
+    private static final Logger log = LogManager.getLogger(CardService.class);
     private final DataBase dataBase;
     private final ConsoleUI ui = new ConsoleUI();
     private final TransactionService transactionService;
@@ -27,6 +27,7 @@ public class CardService {
     }
 
     public Card CreateCard(UUID client_id, String card_number, CardType card_type, String currency) {
+        log.info("Creating new card for client: {}. Type: {}, Currency: {}", client_id, card_type, currency);
         Card card = CardBuilder.create()
                 .client_id(client_id)
                 .card_number(card_number)
@@ -34,10 +35,12 @@ public class CardService {
                 .currency(currency)
                 .build();
         dataBase.Upload(card);
+        log.info("Card created successfully. ID: {}", card.getId());
         return card;
     }
 
     public void PrintFullDetails(Card card) {
+        log.debug("Printing full details for card: {}", card.getId());
         card.PrintFullInfo();
     }
 
@@ -46,6 +49,7 @@ public class CardService {
     }
 
     public void PrintAllClientsCards(Client client) {
+        log.info("Fetching all cards for client: {}", client.getId());
         String query = "SELECT id FROM card WHERE client_id = ?";
         boolean foundAny = false;
 
@@ -80,6 +84,7 @@ public class CardService {
     }
 
     public Card GetCardByNumber(String cardNumber) {
+        log.debug("Searching for card by number: {}", cardNumber);
         String query = "SELECT id FROM card WHERE card_number = ?";
         try (Connection conn = dataBase.Connection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -94,8 +99,9 @@ public class CardService {
                 return card;
             }
         } catch (Exception e) {
-            log.error("Card search error: " + e.getMessage());
+            log.error("Error searching for card {}: {}", cardNumber, e.getMessage());
         }
+        log.warn("Card number {} not found in database.", cardNumber);
         return null;
     }
 
@@ -119,11 +125,13 @@ public class CardService {
 
     public void TopUpCard(Card card, BigDecimal amount) {
         if (!IfActiveCard(card)) {
+            log.warn("Attempt to top up inactive or null card: {}", (card != null ? card.getCard_number() : "null"));
             return;
         }
-
+        log.info("Topping up card {}. Amount: {}", card.getCard_number(), amount);
         card.TopUp(amount);
         dataBase.Update(card);
+        log.info("Card {} topped up successfully. New balance: {}", card.getCard_number(), card.getBalance());
     }
 
     public void TopUpCard(String cardNumber, BigDecimal amount) {
@@ -140,20 +148,24 @@ public class CardService {
 
     public void WithDraw(Card card, BigDecimal amount) {
         if (!IfActiveCard(card)) {
+            log.warn("Attempt to withdraw from inactive card: {}", card.getCard_number());
             return;
         }
-
+        log.info("Withdrawing from card {}. Amount: {}", card.getCard_number(), amount);
         card.Withdraw(amount);
         dataBase.Update(card);
+        log.info("Withdrawal from card {} successful. New balance: {}", card.getCard_number(), card.getBalance());
     }
 
     public void BlockCard(Card card) {
         if (!IfActiveCard(card)) {
+            log.warn("Attempt to block inactive or null card.");
             return;
         }
-
+        log.info("Blocking card: {}", card.getCard_number());
         card.Block();
         dataBase.Update(card);
+        log.info("Card {} blocked successfully.", card.getCard_number());
     }
 
     public void BlockCard(String cardNumber) {
@@ -175,14 +187,15 @@ public class CardService {
             ui.print(mes);
             return null;
         }
-
+        log.info("Closing card: {}", card.getCard_number());
         BigDecimal change = card.Close();
         dataBase.Update(card);
-
+        log.info("Card {} closed. Returned balance: {}", card.getCard_number(), change);
         return change;
     }
 
     public boolean Transfer(Card senderCard, String receiverCardNumber, BigDecimal amount) {
+        log.info("Initiating transfer from {} to {}. Amount: {}", senderCard.getCard_number(), receiverCardNumber, amount);
         if (senderCard.getCard_number().equals(receiverCardNumber)) {
             String mes = "Error: Unable to make a transfer to the same card.";
             log.warn(mes);
@@ -208,17 +221,18 @@ public class CardService {
                     receiver.getId(),
                     amount,
                     senderCard.getCurrency(),
-                    "Transfer to " + receiverCardNumber
+                    "Transfer to " + receiverCardNumber,
+                    TransactionStatus.COMPLETED
             );
 
-            log.warn(mes);
-            ui.print(mes);
+            log.info("Transfer successful. Amount: {} {}", amount, senderCard.getCurrency());            ui.print(mes);
             return true;
         }
         catch (Exception e) {
-            log.error("Transaction error: " + e.getMessage());
+            log.error("Transaction error during transfer: {}", e.getMessage());
 
             Card receiver = GetCardByNumber(receiverCardNumber);
+
             UUID receiverId = (receiver != null) ? receiver.getId() : null;
 
             transactionService.createTransaction(
@@ -235,6 +249,7 @@ public class CardService {
     }
 
     public java.util.List<Card> getClientCards(UUID clientId) {
+        log.debug("Getting list of cards for client: {}", clientId);
         java.util.List<Card> cards = new java.util.ArrayList<>();
         String query = "SELECT id FROM card WHERE client_id = ?";
 
@@ -251,12 +266,13 @@ public class CardService {
                 cards.add(card);
             }
         } catch (Exception e) {
-            log.error("Error receiving list of cards: " + e.getMessage());
+            log.error("Error retrieving card list for client {}: {}", clientId, e.getMessage());
         }
         return cards;
     }
 
     public boolean Transfer(String receiverCardNumber, BigDecimal amount, String transactionInfo) {
+        log.info("Initiating external transfer to {}. Amount: {}. Info: {}", receiverCardNumber, amount, transactionInfo);
         TopUpCard(receiverCardNumber, amount);
 
         try {
@@ -266,19 +282,19 @@ public class CardService {
             String mes = "Transfer successful! Sent: " + amount + " " + receiver.getCurrency();
 
             transactionService.createTransaction(
-                    null, // Відправника немає (готівка)
+                    null,
                     receiver.getId(),
                     amount,
                     receiver.getCurrency(),
-                    transactionInfo
+                    transactionInfo,
+                    TransactionStatus.COMPLETED
             );
 
-            log.warn(mes);
-            ui.print(mes);
+            log.info("External transfer successful. Sent: {} {}", amount, receiver.getCurrency());            ui.print(mes);
             return true;
         }
         catch (Exception e) {
-            log.error("Transaction error: " + e.getMessage());
+            log.error("Transaction error during external transfer: {}", e.getMessage());
 
             Card receiver = GetCardByNumber(receiverCardNumber);
             UUID receiverId = (receiver != null) ? receiver.getId() : null;

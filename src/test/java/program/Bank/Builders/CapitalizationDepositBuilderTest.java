@@ -14,14 +14,13 @@ class CapitalizationDepositBuilderTest {
 
     @Test
     void testBuild_Valid() {
-        // Arrange
         UUID clientId = UUID.randomUUID();
         BigDecimal sum = new BigDecimal("5000");
         LocalDate open = LocalDate.now();
         LocalDate close = open.plusMonths(12);
         BigDecimal rate = new BigDecimal("0.1");
 
-        // Act
+
         Deposit deposit = CapitalizationDepositBuilder.create()
                 .client_id(clientId)
                 .original_sum(sum)
@@ -32,9 +31,9 @@ class CapitalizationDepositBuilderTest {
                 .status(AccountStatus.ACTIVE)
                 .build();
 
-        // Assert
+
         assertNotNull(deposit);
-        assertNotNull(deposit.getId()); // ID генерується в конструкторі депозиту
+        assertNotNull(deposit.getId());
         assertEquals(clientId, deposit.getClient_id());
         assertEquals(sum, deposit.getOriginal_sum());
         assertEquals("UAH", deposit.getCurrency());
@@ -42,7 +41,6 @@ class CapitalizationDepositBuilderTest {
 
     @Test
     void testBuild_MissingFields_ShouldThrowException() {
-        // Спробуємо побудувати без client_id та дат
         CapitalizationDepositBuilder builder = CapitalizationDepositBuilder.create()
                 .original_sum(new BigDecimal("1000"))
                 .currency("USD");
@@ -57,7 +55,6 @@ class CapitalizationDepositBuilderTest {
 
         builder.reset();
 
-        // Після reset об'єкт очищується, тому build має викинути помилку через null поля
         assertThrows(IllegalStateException.class, builder::build);
     }
 }

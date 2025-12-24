@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class TransactionService {
-    private final Logger log = LogManager.getLogger(TransactionService.class);
+    private static final Logger log = LogManager.getLogger(TransactionService.class);
     private final DataBase dataBase;
 
     public TransactionService(DataBase dataBase) {
