@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class LoanService {
-    private final Logger log = LogManager.getLogger(LoanService.class);
+    private static final Logger log = LogManager.getLogger(LoanService.class);
     private final DataBase dataBase;
     private final ConsoleUI ui =  new ConsoleUI();
 
@@ -26,7 +26,7 @@ public class LoanService {
 
     public Loan OpenLoan(UUID client_id, BigDecimal original_sum, LocalDate open_date, LocalDate close_date,
                          BigDecimal interest_rate, String currency){
-
+        log.info("Initiating Loan opening for client: {}. Sum: {} {}", client_id, original_sum, currency);
         Loan loan = LoanBuilder.create()
                 .client_id(client_id)
                 .interest_rate(interest_rate)
@@ -36,10 +36,13 @@ public class LoanService {
                 .currency(currency)
                 .build();
         dataBase.Upload(loan);
+        log.info("Loan opened successfully. ID: {}", loan.getId());
         return loan;
     }
 
     public void PrintFullDetails(Loan loan){
+
+        log.debug("Printing full details for loan: {}", loan.getId());
         loan.PrintFullInfo();
     }
 
@@ -48,6 +51,7 @@ public class LoanService {
     }
 
     public void ShowAllClientLoans(Client client){
+        log.info("Fetching all loans for client: {}", client.getId());
         String query = "SELECT id  FROM loan WHERE client_id = ?";
         boolean foundAny = false;
 
@@ -71,49 +75,60 @@ public class LoanService {
 
             if (!foundAny) {
                 String mes = "У даного клієнта немає відкритих кредитів.";
-                log.warn(mes);
+                log.info("Client {} has no active loans.", client.getId());
                 ui.print(mes);
 
             }
         } catch (Exception e) {
             String mes = "Помилка при завантаженні кредитів: " + e.getMessage();
-            log.error(mes);
+            log.error("Error loading loans for client {}: {}", client.getId(), e.getMessage());
             ui.print(mes);
         }
     }
 
     public BigDecimal CloseLoan(Loan loan){
+        log.info("Attempting to close loan: {}", loan.getId());
         loan.Close();
         dataBase.Update(loan);
         if (loan.getChange().compareTo(BigDecimal.ZERO) > 0){
+            log.info("Loan {} closed. Change returned: {}", loan.getId(), loan.getChange());
             return loan.getChange();
         }
+        log.info("Loan {} closed without change.", loan.getId());
         return null;
     }
 
     public BigDecimal FullEarlyRepayment(Loan loan, BigDecimal amount){
+        log.info("Processing early repayment for loan: {}. Amount: {}", loan.getId(), amount);
         loan.FullEarlyRepayment(amount);
         dataBase.Update(loan);
         if (loan.getChange().compareTo(BigDecimal.ZERO) > 0){
+            log.info("Early repayment successful. Change: {}", loan.getChange());
             return loan.getChange();
         }
+        log.info("Early repayment successful. No change.");
         return null;
     }
 
     public void DisplaySchedule(Loan loan){
+        log.debug("Displaying schedule for loan: {}", loan.getId());
         loan.DisplaySchedule();
     }
 
     public void RegularPayment(Loan loan, BigDecimal payment) throws Exception {
+        log.info("Processing regular payment for loan: {}. Amount: {}", loan.getId(), payment);
         try {
             loan.RegularPayment(payment);
+            log.info("Regular payment accepted.");
         }
         catch(Exception e){
+            log.warn("Payment failed for loan {}: {}", loan.getId(), e.getMessage());
             ui.print(e.getMessage());
         }
     }
 
     public Loan GetLoan(UUID loan_id){
+        log.debug("Retrieving loan: {}", loan_id);
         Loan loan = new Loan(loan_id);
         dataBase.Fetch(loan);
 
@@ -121,6 +136,7 @@ public class LoanService {
     }
 
     public List<Loan> getClientLoans(UUID clientId) {
+        log.debug("Getting list of loans for client: {}", clientId);
         List<Loan> loans = new ArrayList<>();
         String query = "SELECT id FROM loan WHERE client_id = ?";
 
@@ -137,7 +153,7 @@ public class LoanService {
                 loans.add(loan);
             }
         } catch (Exception e) {
-            log.error("Помилка отримання списку депозитів: " + e.getMessage());
+            log.error("Error getting loan list for client {}: {}", clientId, e.getMessage());
             ui.print("Помилка отримання списку депозитів: " +e.getMessage());
         }
         return loans;
