@@ -70,13 +70,13 @@ public class LoanService {
             }
 
             if (!foundAny) {
-                String mes = "У даного клієнта немає відкритих кредитів.";
+                String mes = "This customer has no outstanding loans.";
                 log.warn(mes);
                 ui.print(mes);
 
             }
         } catch (Exception e) {
-            String mes = "Помилка при завантаженні кредитів: " + e.getMessage();
+            String mes = "Error loading credits: " + e.getMessage();
             log.error(mes);
             ui.print(mes);
         }
@@ -137,8 +137,8 @@ public class LoanService {
                 loans.add(loan);
             }
         } catch (Exception e) {
-            log.error("Помилка отримання списку депозитів: " + e.getMessage());
-            ui.print("Помилка отримання списку депозитів: " +e.getMessage());
+            log.error("Error retrieving list of loans: " + e.getMessage());
+            ui.print("Error retrieving list of loans: " +e.getMessage());
         }
         return loans;
     }

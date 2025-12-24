@@ -161,7 +161,7 @@ public class MenuBuilder {
             allAccounts.addAll(loanService.getClientLoans(client.getId()));
 
             if (allAccounts.isEmpty()) {
-                ui.print("У вас немає активних рахунків (карток, депозитів чи кредитів).");
+                ui.print("You do not have any active accounts (cards, deposits, or loans).");
                 return;
             }
 

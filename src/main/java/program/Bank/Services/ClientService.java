@@ -78,7 +78,7 @@ public class ClientService {
                 return client;
             }
         } catch (Exception e) {
-            String mes = "Помилка БД: " + e.getMessage();
+            String mes = "Database error: " + e.getMessage();
             log.error(mes);
             ui.print(mes);
         }

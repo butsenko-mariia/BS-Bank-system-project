@@ -64,7 +64,7 @@ public class CardService {
             }
 
             if (!foundAny) {
-                String mes = "У даного клієнта немає відкритих карток.";
+                String mes = "This customer does not have any open cards.";
                 log.warn(mes);
                 ui.print(mes);
 
@@ -73,7 +73,7 @@ public class CardService {
             }
 
         } catch (Exception e) {
-            String mes = "Помилка при завантаженні карток: " + e.getMessage();
+            String mes = "Error loading cards: " + e.getMessage();
             log.error(mes);
             ui.print(mes);
         }
@@ -94,21 +94,21 @@ public class CardService {
                 return card;
             }
         } catch (Exception e) {
-            log.error("Помилка пошуку картки: " + e.getMessage());
+            log.error("Card search error: " + e.getMessage());
         }
         return null;
     }
 
     public boolean IfActiveCard(Card card){
         if (card == null) {
-            String mes = "Картку з номером " + card.getCard_number() + " не знайдено.";
+            String mes = "Card with number " + card.getCard_number() + " not found.";
             log.warn(mes);
             ui.print(mes);
             return false;
         }
 
         if(card.getStatus() != AccountStatus.ACTIVE){
-            String mes = "Карткa з номером " + card.getCard_number() + " неактивна.";
+            String mes = "The card with number " + card.getCard_number() + " is inactive.";
             log.warn(mes);
             ui.print(mes);
             return false;
@@ -170,7 +170,7 @@ public class CardService {
 
     public BigDecimal CloseCard(Card card) {
         if (card == null) {
-            String mes = "Картку з номером " + card.getCard_number() + " не знайдено.";
+            String mes = "Card not found.";
             log.warn(mes);
             ui.print(mes);
             return null;
@@ -184,7 +184,7 @@ public class CardService {
 
     public boolean Transfer(Card senderCard, String receiverCardNumber, BigDecimal amount) {
         if (senderCard.getCard_number().equals(receiverCardNumber)) {
-            String mes = "Помилка: Неможливо зробити переказ на ту ж саму картку.";
+            String mes = "Error: Unable to make a transfer to the same card.";
             log.warn(mes);
             ui.print(mes);
             return false;
@@ -201,7 +201,7 @@ public class CardService {
                     +": " + amount;
             Card receiver = GetCardByNumber(receiverCardNumber);
             dataBase.Update(receiver);
-            String mes = "Переказ успішний! Надіслано: \" + amount + \" \" + senderCard.getCurrency()";
+            String mes = "Transfer successful! Sent: " + amount + " " + receiver.getCurrency();
 
             transactionService.createTransaction(
                     senderCard.getId(),
@@ -216,10 +216,9 @@ public class CardService {
             return true;
         }
         catch (Exception e) {
-            log.error("Помилка транзакції: " + e.getMessage());
+            log.error("Transaction error: " + e.getMessage());
 
             Card receiver = GetCardByNumber(receiverCardNumber);
-            // Перевіряємо на null, бо помилка могла бути через те, що картки не існує
             UUID receiverId = (receiver != null) ? receiver.getId() : null;
 
             transactionService.createTransaction(
@@ -230,7 +229,7 @@ public class CardService {
                     "Failed transfer to " + receiverCardNumber,
                     TransactionStatus.CANCELLED // Статус "Відмінено"
             );
-            ui.print("Сталася технічна помилка під час переказу.");
+            ui.print("A technical error occurred during the transfer.");
             return false;
         }
     }
@@ -252,7 +251,7 @@ public class CardService {
                 cards.add(card);
             }
         } catch (Exception e) {
-            log.error("Помилка отримання списку карток: " + e.getMessage());
+            log.error("Error receiving list of cards: " + e.getMessage());
         }
         return cards;
     }
@@ -264,7 +263,7 @@ public class CardService {
             dataBase.Update(GetCardByNumber(receiverCardNumber));
             Card receiver = GetCardByNumber(receiverCardNumber);
             dataBase.Update(receiver);
-            String mes = "Переказ успішний! Надіслано: \" + amount + \" \" + senderCard.getCurrency()";
+            String mes = "Transfer successful! Sent: " + amount + " " + receiver.getCurrency();
 
             transactionService.createTransaction(
                     null, // Відправника немає (готівка)
@@ -279,7 +278,7 @@ public class CardService {
             return true;
         }
         catch (Exception e) {
-            log.error("Помилка транзакції: " + e.getMessage());
+            log.error("Transaction error: " + e.getMessage());
 
             Card receiver = GetCardByNumber(receiverCardNumber);
             UUID receiverId = (receiver != null) ? receiver.getId() : null;
@@ -294,7 +293,7 @@ public class CardService {
                     TransactionStatus.CANCELLED
             );
 
-            ui.print("Сталася технічна помилка під час переказу.");
+            ui.print("A technical error occurred during the transfer.");
             return false;
         }
     }

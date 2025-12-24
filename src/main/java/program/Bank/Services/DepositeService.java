@@ -87,13 +87,13 @@ public class DepositeService {
             }
 
             if (!foundAny) {
-                String mes = "У даного клієнта немає відкритих депозитів.";
+                String mes = "This customer has no open deposits.";
                 log.warn(mes);
                 ui.print(mes);
 
             }
         } catch (Exception e) {
-            String mes = "Помилка при завантаженні депозитів: " + e.getMessage();
+            String mes = "Error when loading deposits: " + e.getMessage();
             log.error(mes);
             ui.print(mes);
         }
@@ -158,7 +158,7 @@ public class DepositeService {
                 deposits.add(deposit);
             }
         } catch (Exception e) {
-            log.error("Помилка отримання списку депозитів: " + e.getMessage());
+            log.error("Error retrieving deposit list: " + e.getMessage());
         }
         return deposits;
     }

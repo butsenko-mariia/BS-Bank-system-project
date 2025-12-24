@@ -194,8 +194,8 @@ public abstract class Deposit implements Account {
         this.InterestCalculation(LocalDate.now());
         log.debug("Current profit was calculated in 'printInfo method': {}.", this.profit);
         String info = "#" + this.id + " - " + this.original_sum + " " + this.currency + "(" + (this.interest_rate.multiply(BigDecimal.valueOf(100))) + "%)\n" +
-                "Дата закінчення: " + this.close_date + "\n" +
-                "Нараховано: " + this.profit;
+                "End date: " + this.close_date + "\n" +
+                "Accrued: " + this.profit;
         log.debug("Object information in 'printInfo method' was printed: {}.", info);
     }
 
