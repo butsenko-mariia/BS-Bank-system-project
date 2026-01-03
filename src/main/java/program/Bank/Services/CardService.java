@@ -2,11 +2,8 @@ package program.Bank.Services;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import program.Bank.*;
 import program.Bank.Builders.CardBuilder;
-import program.Bank.Card;
-import program.Bank.Client;
-import program.Bank.ConsoleUI;
-import program.Bank.DataBase;
 import program.Bank.Enums.AccountStatus;
 import program.Bank.Enums.CardType;
 
@@ -28,32 +25,35 @@ public class CardService {
         this.transactionService = new TransactionService(dataBase);
     }
 
-    public Card CreateCard(UUID client_id, String card_number, CardType card_type, String currency) {
+    public Card CreateCard(String client_id, String card_number, String card_type, String currency) {
         log.info("Creating new card for client: {}. Type: {}, Currency: {}", client_id, card_type, currency);
         Card card = CardBuilder.create()
-                .client_id(client_id)
+                .client_id(UUID.fromString(client_id))
                 .card_number(card_number)
-                .card_type(card_type)
+                .card_type(CardType.valueOf(card_type))
                 .currency(currency)
                 .build();
-        dataBase.Upload(card);
+        dataBase.Create(card);
         log.info("Card created successfully. ID: {}", card.getId());
         return card;
     }
 
-    public void PrintFullDetails(Card card) {
+    public String PrintFullDetails(Card card) {
         log.debug("Printing full details for card: {}", card.getId());
         card.PrintFullInfo();
+        return card.toString();
     }
 
-    public void PrintShortInfo(Card card){
-        card.PrintInfo();
+    public String PrintShortInfo(Card card){
+        return card.PrintInfo();
     }
 
-    public void PrintAllClientsCards(Client client) {
+    public List<Card> GetAllClientsCards(Client client) {
         log.info("Fetching all cards for client: {}", client.getId());
         String query = "SELECT id FROM card WHERE client_id = ?";
         boolean foundAny = false;
+
+        List<Card> cards = new ArrayList<>();
 
         try (Connection conn = dataBase.Connection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -64,7 +64,8 @@ public class CardService {
                 foundAny = true;
                 UUID cardId = (UUID) rs.getObject("id");
                 Card card = new Card(cardId);
-                dataBase.Fetch(card);
+                dataBase.Read(card);
+                cards.add(card);
                 ui.print("------------------------------");
                 card.PrintInfo();
             }
@@ -83,6 +84,7 @@ public class CardService {
             log.error(mes);
             ui.print(mes);
         }
+        return cards;
     }
 
     public Card GetCardByNumber(String cardNumber) {
@@ -97,7 +99,7 @@ public class CardService {
             if (rs.next()) {
                 UUID id = (UUID) rs.getObject("id");
                 Card card = new Card(id);
-                dataBase.Fetch(card);
+                dataBase.Read(card);
                 return card;
             }
         } catch (Exception e) {
@@ -125,150 +127,170 @@ public class CardService {
         return true;
     }
 
-    public void TopUpCard(Card card, BigDecimal amount) {
+    public boolean TopUpCard(Card card, BigDecimal amount) {
         if (!IfActiveCard(card)) {
             log.warn("Attempt to top up inactive or null card: {}", (card != null ? card.getCard_number() : "null"));
-            return;
+            return false;
         }
         log.info("Topping up card {}. Amount: {}", card.getCard_number(), amount);
 
         card.TopUp(amount);
         dataBase.Update(card);
 
-        transactionService.createTransaction(
-                null,
-                card.getId(),
-                amount,
-                card.getCurrency(),
-                "ATM Top Up",
-                TransactionStatus.COMPLETED
-        );
-
         log.info("Card {} topped up successfully. New balance: {}", card.getCard_number(), card.getBalance());
+        return true;
     }
 
-    public void WithDraw(Card card, BigDecimal amount) {
+    public boolean WithDraw(Card card, BigDecimal amount) {
         if (!IfActiveCard(card)) {
             log.warn("Attempt to withdraw from inactive card: {}", card.getCard_number());
-            return;
+            return false;
         }
+
+        if (card.getBalance().compareTo(amount) < 0) {
+            log.warn("Amount to withdraw more than card conclude: {}", card.getBalance());
+            return false;
+        }
+
         log.info("Withdrawing from card {}. Amount: {}", card.getCard_number(), amount);
 
         card.Withdraw(amount);
         dataBase.Update(card);
 
-        transactionService.createTransaction(
-                card.getId(),
-                null,
-                amount,
-                card.getCurrency(),
-                "ATM Withdrawal",
-                TransactionStatus.COMPLETED
-        );
-
         log.info("Withdrawal from card {} successful. New balance: {}", card.getCard_number(), card.getBalance());
+        return true;
     }
 
-    public void TopUpCard(String cardNumber, BigDecimal amount) {
+    public boolean TopUpCard(String cardNumber, BigDecimal amount) {
         Card card = GetCardByNumber(cardNumber);
 
-        TopUpCard(card, amount);
+        return TopUpCard(card, amount);
     }
 
-    public void WithDraw(String cardNumber, BigDecimal amount) {
+    public boolean WithDraw(String cardNumber, BigDecimal amount) {
         Card card = GetCardByNumber(cardNumber);
 
-        WithDraw(card, amount);
+        return WithDraw(card, amount);
     }
 
-
-    public void BlockCard(Card card) {
+    public boolean BlockCard(Card card) {
         if (!IfActiveCard(card)) {
             log.warn("Attempt to block inactive or null card.");
-            return;
+            return false;
         }
         log.info("Blocking card: {}", card.getCard_number());
         card.Block();
         dataBase.Update(card);
         log.info("Card {} blocked successfully.", card.getCard_number());
+        return true;
     }
 
-    public void BlockCard(String cardNumber) {
+    public boolean BlockCard(String cardNumber) {
         Card card = GetCardByNumber(cardNumber);
 
-        BlockCard(card);
+        return BlockCard(card);
     }
 
-    public BigDecimal CloseCard(String cardNumber) {
+    public boolean CloseCard(String cardNumber) {
         Card card = GetCardByNumber(cardNumber);
-
         return CloseCard(card);
     }
 
-    public BigDecimal CloseCard(Card card) {
-        if (card == null) {
+    public boolean CloseCard(Card card) {
+        if (!IfActiveCard(card)) {
             String mes = "Card not found.";
             log.warn(mes);
             ui.print(mes);
-            return null;
+            return false;
         }
         log.info("Closing card: {}", card.getCard_number());
-        BigDecimal change = card.Close();
+        card.Close();
         dataBase.Update(card);
-        log.info("Card {} closed. Returned balance: {}", card.getCard_number(), change);
-        return change;
+        log.info("Card {} closed. Returned balance: {}", card.getCard_number());
+        return true;
     }
 
     public boolean Transfer(Card senderCard, String receiverCardNumber, BigDecimal amount) {
         log.info("Initiating transfer from {} to {}. Amount: {}", senderCard.getCard_number(), receiverCardNumber, amount);
-
+        boolean result = true;
 
         if (senderCard.getCard_number().equals(receiverCardNumber)) {
             String mes = "Error: Unable to make a transfer to the same card.";
-            log.warn(mes);
+            log.error(mes);
             ui.print(mes);
-            return false;
+            result = false;
         }
 
-        if (!IfActiveCard(senderCard)) {
-            return false;
+        boolean ifWithDrawed = true;
+        boolean ifToppedUp = true;
+
+        if (result) {
+            ifWithDrawed = WithDraw(senderCard, amount);
+        }
+        if (!ifWithDrawed) {
+            String mes = "Error: Unable to withdraw.";
+            ui.print(mes);
+            log.error(mes);
+            result = false;
+        }
+        if (result) {
+            ifToppedUp = TopUpCard(receiverCardNumber, amount);
+        }
+        if (!ifToppedUp) {
+            String mes = "Error: Unable to topp up card.";
+            ui.print(mes);
+            log.error(mes);
+            result = false;
+            TopUpCard(senderCard, amount);
         }
 
-        if (senderCard.getBalance().compareTo(amount) < 0) {
-            ui.print("Insufficient funds.");
-            log.warn("Transfer failed: Insufficient funds on card {}", senderCard.getCard_number());
-            return false;
+        if (result) {
+            try {
+                dataBase.Update(senderCard);
+
+                Card receiverCard = GetCardByNumber(receiverCardNumber);
+                dataBase.Update(receiverCard);
+
+                String mes = "Transfer successful! Sent: " + amount + " " + senderCard.getCurrency();
+
+                transactionService.createTransaction(
+                        senderCard.getId(),
+                        receiverCard.getId(),
+                        amount,
+                        senderCard.getCurrency(),
+                        "Transfer from " + senderCard.getCard_number() + " to " + receiverCardNumber + " : "
+                        + amount + " " + senderCard.getCurrency(),
+                        TransactionStatus.COMPLETED
+                );
+
+                log.info("Transfer successful.");
+                ui.print(mes);
+                return true;
+            } catch (Exception e) {
+                log.error("Transaction failed: " + e.getMessage());
+                ui.print("System error during transfer.");
+                TopUpCard(senderCard, amount);
+                WithDraw(receiverCardNumber, amount);
+                return false;
+            }
         }
-
-        WithDraw(senderCard, amount);
-        TopUpCard(receiverCardNumber, amount);
-
-        try {
-            dataBase.Update(senderCard);
-
+        else{
             Card receiverCard = GetCardByNumber(receiverCardNumber);
-            dataBase.Update(receiverCard);
 
-            String mes = "Transfer successful! Sent: " + amount + " " + senderCard.getCurrency();
+            String mes = "Transfer failed!";
 
             transactionService.createTransaction(
                     senderCard.getId(),
                     receiverCard.getId(),
                     amount,
                     senderCard.getCurrency(),
-                    "Transfer to " + receiverCardNumber,
-                    TransactionStatus.COMPLETED
+                    "Transfer from " + senderCard.getCard_number() + " to " + receiverCardNumber + " : "
+                            + amount + " " + senderCard.getCurrency() + " FAILED",
+                    TransactionStatus.CANCELLED
             );
+        }
 
-            log.info("Transfer successful.");
-            ui.print(mes);
-            return true;
-        }
-        catch (Exception e) {
-            log.error("Transaction failed: " + e.getMessage());
-            ui.print("System error during transfer.");
-            return false;
-        }
+        return result;
     }
 
 
@@ -288,7 +310,7 @@ public class CardService {
             while (rs.next()) {
                 UUID cardId = (UUID) rs.getObject("id");
                 Card card = new Card(cardId);
-                dataBase.Fetch(card);
+                dataBase.Read(card);
                 cards.add(card);
             }
         } catch (Exception e) {
@@ -299,45 +321,51 @@ public class CardService {
 
     public boolean Transfer(String receiverCardNumber, BigDecimal amount, String transactionInfo) {
         log.info("Initiating external transfer to {}. Amount: {}. Info: {}", receiverCardNumber, amount, transactionInfo);
-        TopUpCard(receiverCardNumber, amount);
+        boolean ifToppedUp = TopUpCard(receiverCardNumber, amount);
 
-        try {
-            dataBase.Update(GetCardByNumber(receiverCardNumber));
-            Card receiver = GetCardByNumber(receiverCardNumber);
-            dataBase.Update(receiver);
-            String mes = "Transfer successful! Sent: " + amount + " " + receiver.getCurrency();
+        if (ifToppedUp) {
+            try {
+                dataBase.Update(GetCardByNumber(receiverCardNumber));
+                Card receiver = GetCardByNumber(receiverCardNumber);
+                dataBase.Update(receiver);
+                String mes = "Transfer successful! Sent: " + amount + " " + receiver.getCurrency();
 
-            transactionService.createTransaction(
-                    null,
-                    receiver.getId(),
-                    amount,
-                    receiver.getCurrency(),
-                    transactionInfo,
-                    TransactionStatus.COMPLETED
-            );
+                transactionService.createTransaction(
+                        null,
+                        receiver.getId(),
+                        amount,
+                        receiver.getCurrency(),
+                        transactionInfo,
+                        TransactionStatus.COMPLETED
+                );
 
-            log.info("External transfer successful. Sent: {} {}", amount, receiver.getCurrency());            ui.print(mes);
-            return true;
+                log.info("External transfer successful. Sent: {} {}", amount, receiver.getCurrency());
+                ui.print(mes);
+                return true;
+            } catch (Exception e) {
+                log.error("Transaction error during external transfer: {}", e.getMessage());
+
+                Card receiver = GetCardByNumber(receiverCardNumber);
+
+                transactionService.createTransaction(
+                        null,
+                        receiver.getId(),
+                        amount,
+                        receiver.getCurrency(),
+                        transactionInfo + " FAILED",
+                        TransactionStatus.CANCELLED
+                );
+
+                ui.print("A technical error occurred during the transfer.");
+                WithDraw(receiverCardNumber, amount);
+                return false;
+            }
         }
-        catch (Exception e) {
-            log.error("Transaction error during external transfer: {}", e.getMessage());
-
-            Card receiver = GetCardByNumber(receiverCardNumber);
-            UUID receiverId = (receiver != null) ? receiver.getId() : null;
-            String currency = (receiver != null) ? receiver.getCurrency() : "UAH";
-
-            transactionService.createTransaction(
-                    null,
-                    receiverId,
-                    amount,
-                    currency,
-                    transactionInfo + " (Failed)",
-                    TransactionStatus.CANCELLED
-            );
-
-            ui.print("A technical error occurred during the transfer.");
-            return false;
-        }
+        return ifToppedUp;
     }
 
+    public void DeleteCard(Card card) {
+        log.debug("Deleting card {}", card.getId());
+        dataBase.Delete(card);
+    }
 }

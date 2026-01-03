@@ -310,7 +310,7 @@ public class Loan implements Account {
         log.debug("Full loan info printed for ID: {}.", this.id);
     }
 
-    public void PrintInfo(){
+    public String PrintInfo(){
         String info = "#" + this.id + " - " + this.original_sum + " " + this.currency + " (" + this.interest_rate + "%)\n" +
                 "Balance: " + this.current_balance + " "+ this.currency +"\n" +
                 "Monthly payment: "+ this.monthly_payment+ " " + this.currency +"\n" +
@@ -318,6 +318,7 @@ public class Loan implements Account {
 
         System.out.println(info);
         log.info("Short Loan Info printed:\n{}", info);
+        return info;
     }
 
     public BigDecimal CalculateMonthlyPayment(BigDecimal sum, int months){

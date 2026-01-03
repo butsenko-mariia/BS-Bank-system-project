@@ -97,10 +97,7 @@ public class Client {
 
     public void setSex(String sex) {
         log.info("Setting gender: {}", sex);
-        if (!sex.equalsIgnoreCase("M") && !sex.equalsIgnoreCase("W")) {
-            log.error("Invalid gender value: {}", sex);
-            throw new IllegalArgumentException("Gender must be 'M' or 'W'.");
-        }
+
         this.sex = sex.toUpperCase();
         log.debug("Gender successfully set: {}", this.sex);
     }

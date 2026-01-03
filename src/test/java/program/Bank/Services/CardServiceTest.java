@@ -43,6 +43,6 @@ class CardServiceTest {
                 currency
         );
 
-        verify(dataBase, times(1)).Upload(any(Card.class));
+        verify(dataBase, times(1)).Create(any(Card.class));
     }
 }

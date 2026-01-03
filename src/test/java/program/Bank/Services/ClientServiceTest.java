@@ -31,6 +31,6 @@ class ClientServiceTest {
         );
 
         // 2. Перевірка: Чи зберіг сервіс клієнта в базу?
-        verify(dataBase, times(1)).Upload(any(Client.class));
+        verify(dataBase, times(1)).Create(any(Client.class));
     }
 }

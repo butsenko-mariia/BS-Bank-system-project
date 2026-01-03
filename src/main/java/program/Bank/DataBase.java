@@ -35,7 +35,7 @@ public class DataBase {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
-    public void Fetch(Client client){
+    public void Read(Client client){
         log.info("Loading client data by ID: {}", client.getId());
 
         String query = "SELECT * FROM client WHERE id = ?";
@@ -71,7 +71,7 @@ public class DataBase {
         }
     }
 
-    public void Fetch(Deposit deposit) {
+    public void Read(Deposit deposit) {
         log.info("Fetching deposit data by ID: {}", deposit.getId());
 
         String query = "SELECT * FROM deposit WHERE id = ?";
@@ -107,7 +107,7 @@ public class DataBase {
         }
     }
 
-    public void Fetch(Card card) {
+    public void Read(Card card) {
         log.info("Fetching card data by ID: {}", card.getId());
         String query = "SELECT * FROM card WHERE id = ?";
 
@@ -138,7 +138,7 @@ public class DataBase {
         }
     }
 
-    public void Fetch(Loan loan){
+    public void Read(Loan loan){
         log.info("Fetching loan data by ID: {}", loan.getId());
 
         String query = "SELECT * FROM loan WHERE id = ?";
@@ -175,7 +175,7 @@ public class DataBase {
         }
     }
 
-    public void Fetch(Transaction transaction){
+    public void Read(Transaction transaction){
         log.info("Fetching transaction data by ID: {}", transaction.getId());
 
         String query = "SELECT * FROM transaction WHERE id = ?";
@@ -204,7 +204,7 @@ public class DataBase {
         }
     }
 
-    public void Upload(Card card){
+    public void Create(Card card){
         log.info("Uploading card id data by ID: {}",card.getId());
         final String sql = "INSERT INTO card (id, client_id, card_number, card_type, balance, currency, status) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
@@ -225,7 +225,7 @@ public class DataBase {
         }
     }
 
-    public void Upload(Client client) {
+    public void Create(Client client) {
         log.info("Uploading client data by ID: {}", client.getId());
         final String sql = "INSERT INTO client (id, full_name, date_of_birth, sex, nationality, mobile_phone, individual_tax_number, passport_number, legal_address, place_of_birth, record_number, place_of_work_or_study, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -253,7 +253,7 @@ public class DataBase {
         }
     }
 
-    public void Upload(Deposit deposit) {
+    public void Create(Deposit deposit) {
         log.info("Uploading deposit data by ID: {}", deposit.getId());
 
         final String sql = "INSERT INTO deposit (id, client_id, original_sum, profit, open_date, close_date, interest_rate, currency, status, deposit_type, tax_rate, military_rate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -280,10 +280,11 @@ public class DataBase {
             log.info("New deposit: {} was successfully created at base.", deposit.getId());
         } catch (SQLException e) {
             log.error("Sql failed: " + e.getMessage());
+            throw new RuntimeException("Database error: " + e.getMessage());
         }
     }
 
-    public void Upload(Loan loan) {
+    public void Create(Loan loan) {
         log.info("Uploading loan data by ID: {}", loan.getId());
         final String sql = "INSERT INTO loan (id, client_id, original_sum, current_balance, open_date, close_date, next_payment_date, term_month, payment_day, monthly_payment, interest_rate, monthly_rate, currency, status, overdue_sum, change) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -312,10 +313,11 @@ public class DataBase {
             log.info("New loan: {} was successfully created at base.", loan.getId());
         } catch (SQLException e) {
             log.error("Sql failed: " + e.getMessage());
+            throw new RuntimeException("Database error: " + e.getMessage());
         }
     }
 
-    public void Upload(Transaction transaction) {
+    public void Create(Transaction transaction) {
         log.info("Uploading transaction data by ID: {}", transaction.getId());
         final String sql = "INSERT INTO transaction (id, open_date, open_time, sum, currency, operation_info, sign, account_id_from, account_id_to, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -491,6 +493,91 @@ public class DataBase {
 
         } catch (SQLException e) {
             log.error("Failed to update transaction: {}", e.getMessage());
+        }
+    }
+
+    public void Delete(Client client){
+        log.info("Deleting client data for ID: {}", client.getId());
+
+        final String sql = "DELETE FROM client WHERE id=?";
+
+        try (Connection connection = Connection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setObject(1, client.getId());
+            statement.executeUpdate();
+            log.info("Client {} deleted successfully.", client.getId());
+
+        } catch (SQLException e) {
+            log.error("Failed to delete client: {}", e.getMessage());
+        }
+    }
+
+    public void Delete(Card card){
+        log.info("Deleting card data for ID: {}", card.getId());
+
+        final String sql = "DELETE FROM card WHERE id=?";
+
+        try (Connection connection = Connection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setObject(1, card.getId());
+            statement.executeUpdate();
+            log.info("Card {} deleted successfully.", card.getId());
+
+        } catch (SQLException e) {
+            log.error("Failed to delete card: {}", e.getMessage());
+        }
+    }
+
+    public void Delete(Deposit deposit){
+        log.info("Deleting deposit data for ID: {}", deposit.getId());
+
+        final String sql = "DELETE FROM deposit WHERE id=?";
+
+        try (Connection connection = Connection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setObject(1, deposit.getId());
+            statement.executeUpdate();
+            log.info("Deposit {} deleted successfully.", deposit.getId());
+
+        } catch (SQLException e) {
+            log.error("Failed to delete deposit: {}", e.getMessage());
+        }
+    }
+
+    public void Delete(Loan loan){
+        log.info("Deleting loan data for ID: {}", loan.getId());
+
+        final String sql = "DELETE FROM loan WHERE id=?";
+
+        try (Connection connection = Connection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setObject(1, loan.getId());
+            statement.executeUpdate();
+            log.info("Loan {} deleted successfully.", loan.getId());
+
+        } catch (SQLException e) {
+            log.error("Failed to delete loan: {}", e.getMessage());
+        }
+    }
+
+    public void Delete(Transaction transaction){
+        log.info("Deleting transaction data for ID: {}", transaction.getId());
+
+        final String sql = "DELETE FROM transaction WHERE id=?";
+
+        try (Connection connection = Connection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setObject(1, transaction.getId());
+            statement.executeUpdate();
+            log.info("Transaction {} deleted successfully.", transaction.getId());
+
+        } catch (SQLException e) {
+            log.error("Failed to delete transaction: {}", e.getMessage());
         }
     }
 }

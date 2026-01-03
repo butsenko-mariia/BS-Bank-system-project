@@ -154,13 +154,15 @@ public class Card implements Account{
         log.debug("Full card info printed");
     }
 
-    public void PrintInfo(){
+    public String PrintInfo(){
         log.info("Printing short info for card ID: {}", id);
-        System.out.println("#" + this.id + " - " + this.card_number + "\n" +
+        String info = ("#" + this.id + " - " + this.card_number + "\n" +
                 "card type - " + this.getCard_type().toString() + "\n" +
                 "Current balance: " + this.balance + " " + this.currency + "\n" +
                 "Current status: " + this.status);
+        System.out.println(info);
         log.debug("Short card info printed");
+        return info;
     }
 
     public void Withdraw(BigDecimal amount){
@@ -203,7 +205,7 @@ public class Card implements Account{
         log.warn("Card ID: {} is blocked", id);
     }
 
-    public BigDecimal Close(){
+    public void Close(){
         log.info("Closing card ID: {}", id);
         if (this.getStatus() == AccountStatus.BLOCKED) {
             log.error("Attempting to close blocked card ID: {}", id);
@@ -215,6 +217,5 @@ public class Card implements Account{
         this.balance = BigDecimal.ZERO;
         log.debug("Card balance reset to 0");
 
-        return remainder;
     }
 }

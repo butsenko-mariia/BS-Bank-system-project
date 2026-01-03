@@ -26,18 +26,19 @@ public class DepositeService {
         this.transactionService = new TransactionService(dataBase);
     }
 
-    public Deposit OpenStandardDeposit(UUID client_id, BigDecimal original_sum, LocalDate open_date, LocalDate close_date,
-                                       BigDecimal interest_rate, String currency){
+    public Deposit OpenStandardDeposit(String client_id, String original_sum, String open_date, String close_date,
+                                       String interest_rate, String currency){
         log.info("Initiating Standard Deposit opening for client: {}. Sum: {} {}", client_id, original_sum, currency);
         Deposit standardDeposit = StandardDepositBuilder.create()
-                .client_id(client_id)
-                .original_sum(original_sum)
-                .open_date(open_date)
-                .close_date(close_date)
-                .interest_rate(interest_rate)
+                .client_id(UUID.fromString(client_id))
+                .original_sum(new BigDecimal(original_sum))
+                .open_date(LocalDate.parse(open_date))
+                .close_date(LocalDate.parse(close_date))
+                .interest_rate(new BigDecimal(interest_rate))
                 .currency(currency)
                 .build();
-        dataBase.Upload(standardDeposit);
+        standardDeposit.setProfit(BigDecimal.ZERO);
+        dataBase.Create(standardDeposit);
 
         log.info("Standard Deposit opened successfully. ID: {}", standardDeposit.getId());
 
@@ -45,27 +46,30 @@ public class DepositeService {
         return standardDeposit;
     }
 
-    public Deposit OpenCapitalizationDeposit(UUID client_id, BigDecimal original_sum, LocalDate open_date, LocalDate close_date,
-                                             BigDecimal interest_rate, String currency) {
+    public Deposit OpenCapitalizationDeposit(String client_id, String original_sum, String open_date, String close_date,
+                                             String interest_rate, String currency) {
         log.info("Initiating Capitalization Deposit opening for client: {}. Sum: {} {}", client_id, original_sum, currency);
         Deposit capitalizationDeposit = CapitalizationDepositBuilder.create()
-                .client_id(client_id)
-                .original_sum(original_sum)
-                .open_date(open_date)
-                .close_date(close_date)
-                .interest_rate(interest_rate)
+                .client_id(UUID.fromString(client_id))
+                .original_sum(new BigDecimal(original_sum))
+                .open_date(LocalDate.parse(open_date))
+                .close_date(LocalDate.parse(close_date))
+                .interest_rate(new BigDecimal(interest_rate))
                 .currency(currency)
                 .build();
-        dataBase.Upload(capitalizationDeposit);
+        capitalizationDeposit.setProfit(BigDecimal.ZERO);
+        dataBase.Create(capitalizationDeposit);
 
         log.info("Capitalization Deposit opened successfully. ID: {}", capitalizationDeposit.getId());
         return capitalizationDeposit;
     }
 
 
-    public void PrintFullDetails(Deposit deposit){
+    public String PrintFullDetails(Deposit deposit){
         log.debug("Request to print full details for deposit: {}", deposit.getId());
+        dataBase.Read(deposit);
         deposit.PrintFullInfo();
+        return deposit.toString();
     }
 
     public void PrintShortInfo(Deposit deposit){
@@ -102,7 +106,7 @@ public class DepositeService {
                 }
 
                 if (deposit != null) {
-                    dataBase.Fetch(deposit);
+                    dataBase.Read(deposit);
 
                     ui.print("------------------------------");
                     deposit.PrintInfo();
@@ -165,7 +169,7 @@ public class DepositeService {
         String type = getDepositType(deposit_id);
         Deposit deposit = type.equals("StandardDeposit") ? new StandardDeposit(deposit_id) : new CapitalizationDeposit(deposit_id);
         log.warn("Deposit type not found for ID: {}", deposit_id);
-        dataBase.Fetch(deposit);
+        dataBase.Read(deposit);
 
         return deposit;
     }
@@ -185,12 +189,17 @@ public class DepositeService {
                 UUID depositId = (UUID) rs.getObject("id");
                 String type = getDepositType(depositId);
                 Deposit deposit = type.equals("StandardDeposit") ? new StandardDeposit(depositId) : new CapitalizationDeposit(depositId);
-                dataBase.Fetch(deposit);
+                dataBase.Read(deposit);
                 deposits.add(deposit);
             }
         } catch (Exception e) {
             log.error("Error retrieving deposit list: " + e.getMessage());
         }
         return deposits;
+    }
+
+    public void DeleteDeposit(Deposit deposit){
+        log.debug("Deleting deposit: {}", deposit.getId());
+        dataBase.Delete(deposit);
     }
 }

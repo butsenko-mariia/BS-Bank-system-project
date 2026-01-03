@@ -1,5 +1,6 @@
 package program.Bank;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import program.Bank.Enums.AccountStatus;
@@ -23,7 +24,7 @@ public abstract class Deposit implements Account {
     private BigDecimal military_rate = new BigDecimal("0.015");
     private static final Logger log = LogManager.getLogger(Deposit.class);
     private final ConsoleUI ui = new ConsoleUI();
-
+    @JsonProperty("id")
     public UUID getId() {
         return id;
     }
@@ -45,7 +46,7 @@ public abstract class Deposit implements Account {
         this.id = id;
         log.debug("Deposit ID was set: {}.", id);
     }
-
+    @JsonProperty("clientId")
     public UUID getClient_id() {
         return client_id;
     }
@@ -58,7 +59,7 @@ public abstract class Deposit implements Account {
         this.client_id = client_id;
         log.debug("Client's ID was set: {}.", client_id);
     }
-
+    @JsonProperty("originalSum")
     public BigDecimal getOriginal_sum() {
         return original_sum;
     }
@@ -71,7 +72,7 @@ public abstract class Deposit implements Account {
         this.original_sum = original_sum;
         log.debug("Original deposit sum was set: {}.", original_sum);
     }
-
+    @JsonProperty("profit")
     public BigDecimal getProfit() {
         return profit;
     }
@@ -84,7 +85,7 @@ public abstract class Deposit implements Account {
         this.profit = profit;
         log.debug("Deposit profit was set: {}.", profit);
     }
-
+    @JsonProperty("openDate")
     public LocalDate getOpen_date() {
         return open_date;
     }
@@ -98,7 +99,7 @@ public abstract class Deposit implements Account {
         this.open_date = open_date;
         log.debug("Open date was set: {}.", open_date);
     }
-
+    @JsonProperty("closeDate")
     public LocalDate getClose_date() {
         return close_date;
     }
@@ -111,7 +112,7 @@ public abstract class Deposit implements Account {
         this.close_date = close_date;
         log.debug("Close date was set: {}.", close_date);
     }
-
+    @JsonProperty("interestRate")
     public BigDecimal getInterest_rate() {
         return interest_rate;
     }
@@ -124,7 +125,7 @@ public abstract class Deposit implements Account {
         this.interest_rate = interest_rate;
         log.debug("Interest rate was set: {}.", interest_rate);
     }
-
+    @JsonProperty("currency")
     public String getCurrency() {
         return currency;
     }
@@ -141,7 +142,7 @@ public abstract class Deposit implements Account {
         this.currency = currency;
         log.debug("Currency was set: {}.", currency);
     }
-
+    @JsonProperty("status")
     public AccountStatus getStatus() {
         return status;
     }
@@ -150,7 +151,10 @@ public abstract class Deposit implements Account {
         this.status = status;
         log.debug("Status was set: {}.", status);
     }
-
+    @JsonProperty("depositType")
+    public String getDepositType() {
+        return this.getClass().getSimpleName();
+    }
     public BigDecimal getTax() {
         return tax_rate.add(military_rate);
     }
@@ -191,7 +195,7 @@ public abstract class Deposit implements Account {
         log.debug("Object information was printed: {}.", this);
     }
 
-    public void PrintInfo() {
+    public String PrintInfo() {
         this.InterestCalculation(LocalDate.now());
         log.debug("Current profit was calculated in 'printInfo method': {}.", this.profit);
         String info = "#" + this.id + " - " + this.original_sum + " " + this.currency + "(" + (this.interest_rate.multiply(BigDecimal.valueOf(100))) + "%)\n" +
@@ -199,6 +203,7 @@ public abstract class Deposit implements Account {
                 "Accrued: " + this.profit;
         ui.print(info);
         log.debug("Object information in 'printInfo method' was printed: {}.", info);
+        return info;
     }
 
     abstract public void InterestCalculation(LocalDate date);

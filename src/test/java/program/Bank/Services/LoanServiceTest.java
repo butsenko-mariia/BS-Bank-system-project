@@ -42,6 +42,6 @@ class LoanServiceTest {
                 "UAH"
         );
 
-        verify(dataBase, times(1)).Upload(any(Loan.class));
+        verify(dataBase, times(1)).Create(any(Loan.class));
     }
 }

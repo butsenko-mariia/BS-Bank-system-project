@@ -41,7 +41,7 @@ class DepositeServiceTest {
                 "USD"
         );
 
-        verify(dataBase, times(1)).Upload(any(Deposit.class));
+        verify(dataBase, times(1)).Create(any(Deposit.class));
     }
 
     @Test
@@ -55,6 +55,6 @@ class DepositeServiceTest {
                 "EUR"
         );
 
-        verify(dataBase, times(1)).Upload(any(Deposit.class));
+        verify(dataBase, times(1)).Create(any(Deposit.class));
     }
 }

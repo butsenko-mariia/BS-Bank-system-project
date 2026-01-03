@@ -221,7 +221,7 @@ public class MenuBuilder {
     public Menu CardMenu(Client client){
         Menu cardMenu = new Menu("=== CARDS CABINET ===");
         ui.print("Your current cards");
-        cardService.PrintAllClientsCards(client);
+        cardService.GetAllClientsCards(client);
 
         cardMenu.add(new Command("Return", () -> {}));
         cardMenu.add(new Command("Open new card", () -> {
@@ -247,9 +247,9 @@ public class MenuBuilder {
         Card card = null;
 
         try {
-            UUID client_id = this.currentClient.getId();
+            String client_id = this.currentClient.getId().toString();
             String card_number = ui.ask("Enter Card Number");
-            CardType card_type = CardType.valueOf(ui.ask("Enter Card Type"));
+            String card_type = ui.ask("Enter Card Type");
             String currency = ui.ask("Enter Currency");
 
             card = cardService.CreateCard(client_id, card_number, card_type, currency);
@@ -350,24 +350,24 @@ public class MenuBuilder {
 
         Deposit deposit = null;
 
-        try {
-            UUID client_id = this.currentClient.getId();
-            BigDecimal original_sum = new BigDecimal(ui.ask("Enter original sum"));
-            LocalDate open_date = LocalDate.parse(ui.ask("Enter open date"));
-            LocalDate close_date = LocalDate.parse(ui.ask("Enter close date"));
-            BigDecimal interest_rate =  new BigDecimal(ui.ask("Enter interest rate"));
-            String currency =  ui.ask("Enter currency");
-            String type  = ui.ask("Enter type of deposit");
-
-            deposit = type.equals("StandardDeposit") ?
-                    depositeService.OpenStandardDeposit(client_id,original_sum,open_date,close_date,interest_rate,currency)
-                    : depositeService.OpenCapitalizationDeposit(client_id,original_sum,open_date,close_date,interest_rate,currency);
-        }
-        catch (Exception e){
-            String mes = "Error occurred: "+ e.getMessage();
-            ui.print(mes);
-            log.error(mes);
-        }
+//        try {
+//            UUID client_id = this.currentClient.getId();
+//            BigDecimal original_sum = new BigDecimal(ui.ask("Enter original sum"));
+//            LocalDate open_date = LocalDate.parse(ui.ask("Enter open date"));
+//            LocalDate close_date = LocalDate.parse(ui.ask("Enter close date"));
+//            BigDecimal interest_rate =  new BigDecimal(ui.ask("Enter interest rate"));
+//            String currency =  ui.ask("Enter currency");
+//            String type  = ui.ask("Enter type of deposit");
+//
+//            deposit = type.equals("StandardDeposit") ?
+//                    depositeService.OpenStandardDeposit(client_id,original_sum,open_date,close_date,interest_rate,currency)
+//                    : depositeService.OpenCapitalizationDeposit(client_id,original_sum,open_date,close_date,interest_rate,currency);
+//        }
+//        catch (Exception e){
+//            String mes = "Error occurred: "+ e.getMessage();
+//            ui.print(mes);
+//            log.error(mes);
+//        }
 
         if (deposit != null) {
             ui.print("=== Deposit was created successfully! ===");

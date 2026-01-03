@@ -36,6 +36,6 @@ class TransactionServiceTest {
                 TransactionStatus.COMPLETED
         );
 
-        verify(dataBase, times(1)).Upload(any(Transaction.class));
+        verify(dataBase, times(1)).Create(any(Transaction.class));
     }
 }

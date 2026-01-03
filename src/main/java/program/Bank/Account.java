@@ -7,6 +7,6 @@ public interface Account {
     UUID getClient_id();
     String toString();
     void PrintFullInfo();
-    void PrintInfo();
+    String PrintInfo();
     String getCurrency();
 }

@@ -11,7 +11,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
-import java.util.Scanner;
 import java.util.UUID;
 
 public class ClientService {
@@ -41,7 +40,7 @@ public class ClientService {
                 .place_of_work_or_study(place_of_work_or_study)
                 .build();
 
-        dataBase.Upload(newClient);
+        dataBase.Create(newClient);
         log.info("Client registered successfully. ID: {}", newClient.getId());
         return newClient;
     }
@@ -78,7 +77,7 @@ public class ClientService {
             if (rs.next()) {
                 UUID clientId = (UUID) rs.getObject("id");
                 Client client = new Client(clientId);
-                dataBase.Fetch(client);
+                dataBase.Read(client);
                 log.info("Client found: {}", clientId);
                 return client;
             }else {
@@ -95,5 +94,10 @@ public class ClientService {
 
     public void ShortInfoShow(Client client){
         client.PrintInfo();
+    }
+
+    public void DeleteClient(Client client){
+        log.debug("Deleting client {}", client.getId());
+        dataBase.Delete(client);
     }
 }

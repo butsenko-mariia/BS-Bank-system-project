@@ -32,7 +32,6 @@ public class TransactionService {
 
         try {
             Transaction transaction = TransactionBuilder.create()
-                    .id(UUID.randomUUID())
                     .account_id_from(fromAccountId)
                     .account_id_to(toAccountId)
                     .sum(amount)
@@ -43,14 +42,13 @@ public class TransactionService {
                     .status(status)
                     .build();
 
-            dataBase.Upload(transaction);
+            dataBase.Create(transaction);
             log.info("Transaction recorded successfully with ID: {}", transaction.getId());
 
         } catch (Exception e) {
             log.error("Failed to record transaction: {}", e.getMessage());
         }
     }
-
 
     public List<Transaction> getTransactionHistory(UUID accountId) {
         log.info("Fetching transaction history for account: {}", accountId);
@@ -73,7 +71,7 @@ public class TransactionService {
                 UUID transId = (UUID) rs.getObject("id");
 
                 Transaction t = new Transaction(transId);
-                dataBase.Fetch(t);
+                dataBase.Read(t);
 
 
                 if (t.getAccount_id_from() != null && t.getAccount_id_from().equals(accountId)) {
@@ -95,16 +93,20 @@ public class TransactionService {
         return history;
     }
 
-
     public Transaction getTransactionById(UUID id) {
         log.debug("Looking for transaction by ID: {}", id);
         Transaction transaction = new Transaction(id);
-        dataBase.Fetch(transaction);
+        dataBase.Read(transaction);
 
         if (transaction.getOpen_date() == null) {
             log.warn("Transaction not found in DB: {}", id);
             return null;
         }
         return transaction;
+    }
+
+    public void DeleteTransaction(Transaction transaction) {
+        log.debug("Deleting transaction: {}", transaction.getId());
+        dataBase.Delete(transaction);
     }
 }

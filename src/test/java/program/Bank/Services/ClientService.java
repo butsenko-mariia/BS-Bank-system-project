@@ -40,7 +40,7 @@ public class ClientService {
                 .place_of_work_or_study(place_of_work_or_study)
                 .build();
 
-        dataBase.Upload(newClient);
+        dataBase.Create(newClient);
 
         return newClient;
     }
@@ -73,7 +73,7 @@ public class ClientService {
             if (rs.next()) {
                 UUID clientId = (UUID) rs.getObject("id");
                 Client client = new Client(clientId);
-                dataBase.Fetch(client);
+                dataBase.Read(client);
                 return client;
             }
         } catch (Exception e) {

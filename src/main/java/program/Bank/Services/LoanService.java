@@ -9,7 +9,6 @@ import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +34,7 @@ public class LoanService {
                 .close_date(close_date)
                 .currency(currency)
                 .build();
-        dataBase.Upload(loan);
+        dataBase.Create(loan);
         log.info("Loan opened successfully. ID: {}", loan.getId());
         return loan;
     }
@@ -67,7 +66,7 @@ public class LoanService {
                 Loan loan = new Loan(loanId);
 
                 if (loan != null) {
-                    dataBase.Fetch(loan);
+                    dataBase.Read(loan);
                     loan.PrintInfo();
                     ui.print("------------------------------");
                 }
@@ -130,7 +129,7 @@ public class LoanService {
     public Loan GetLoan(UUID loan_id){
         log.debug("Retrieving loan: {}", loan_id);
         Loan loan = new Loan(loan_id);
-        dataBase.Fetch(loan);
+        dataBase.Read(loan);
 
         return loan;
     }
@@ -149,7 +148,7 @@ public class LoanService {
             while (rs.next()) {
                 UUID loanId = (UUID) rs.getObject("id");
                 Loan loan = new Loan(loanId);
-                dataBase.Fetch(loan);
+                dataBase.Read(loan);
                 loans.add(loan);
             }
         } catch (Exception e) {
@@ -157,5 +156,10 @@ public class LoanService {
             ui.print("Error retrieving list of loans: " +e.getMessage());
         }
         return loans;
+    }
+
+    public void DeleteLoan(Loan loan){
+        log.debug("Deleting loan: {}", loan.getId());
+        dataBase.Delete(loan);
     }
 }
